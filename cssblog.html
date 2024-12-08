@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML-CSS-JS-LEARN</title>
+    <script>
+      "use strict"; // modern js strict mode
+      function home() {
+        window.location.replace("home.html");
+      }
+      function htmlblog() {
+        window.location.replace("htmlblog.html");
+      }
+      function cssblog() {
+        window.location.replace("cssblog.html");
+      }
+      function jsblog() {
+        window.location.replace("jsblog.html");
+      }
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(102, 102, 102);
+      }
+      table {
+        font-size: 14px;
+        width: 100%;
+        padding: 6px;
+        background-color: rgb(201, 201, 201);
+        color: black;
+      }
+      th, td {
+        padding: 6px;
+        text-align: left;
+      }
+      th {
+        background-color: rgb(201, 201, 201);
+      }
+      tr:nth-child(odd) {
+        background-color: #f4f4f4;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      caption {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+      }
+    </style>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/blog.css">
+    <link rel="stylesheet" href="styles/boxmodel.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <button class="header-btn" onclick="home()"><span class="core-link">Home</span></button>
+      <button class="header-btn" onclick="htmlblog()"><span class="nav-link">HTML</span></button>
+      <button class="header-btn" onclick="cssblog()"><span class="nav-link">CSS</span></button>
+      <button class="header-btn" onclick="jsblog()"><span class="nav-link">JS</span></button>
+      <input class="search-bar" placeholder="Search">
+    </header>
+
+    <div class="page-wrap">
+      <h2>CSS cheat sheet</h2>
+      <h3>CSS Syntax</h3>
+      <canvas id="canvas">
+
+      </canvas>
+      <table>
+        <caption>
+          CSS properties
+        </caption>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element"></code></td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>
+      <table>
+        <caption>
+          CSS selectors
+        </caption>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element"></code></td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>
+      <table>
+        <caption>
+          CSS pseudo classes
+        </caption>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element"></code></td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>
+      <table>
+        <caption>
+          CSS pseudo-elements
+        </caption>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element"></code></td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="page-wrap">
+      <h2>Code Snippet</h2> 
+      <div class="center-box">
+        <div class="code-box language-css">
+          <pre>
+            <code>
+              <span class="line-number">1</span>
+              <span class="line-number">2</span>
+              <span class="line-number">3</span>
+              <span class="line-number">4</span>
+              <span class="line-number">5</span> 
+              <span class="line-number">6</span>
+              <span class="line-number">7</span>
+              <span class="line-number">8</span> 
+              <span class="line-number">9</span>
+              <span class="line-number">10</span>
+            </code>
+          </pre>          
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+
+    <div class="page-wrap">
+      <p>CSS Box Model</p>
+      <div class="margin">
+          margin
+          <div class="border">
+              border
+              <div class="padding">
+                  padding
+                  <div class="content">
+                      content
+                  </div>
+              </div>
+          </div>
+      </div>
+      <p>CSS div containers</p>
+      <p>CSS display: block, inline block, inline</p>
+      <p>CSS display: flex, grid</p>
+      <div>
+        <a href="divs.html">divs with CSS</a>
+      </div>
+      <p>CSS positions: fixed, static, absolute</p>
+      <div>
+        <a href="position.html">positions with CSS</a>
+      </div>
+    </div>
+    <div class="page-wrap">
+      <h2>Advanced</h2>
+      <a>SASS, SCSS</a>
+    </div>
+    <footer>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">Reference Source</a>
+    </footer>
+
+  </body>
+
+</html>

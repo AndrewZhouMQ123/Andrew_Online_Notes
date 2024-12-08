@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML-CSS-JS-LEARN</title>
+    <script>
+      "use strict"; // modern js strict mode
+      function home() {
+        window.location.replace("home.html");
+      }
+      function htmlblog() {
+        window.location.replace("htmlblog.html");
+      }
+      function cssblog() {
+        window.location.replace("cssblog.html");
+      }
+      function jsblog() {
+        window.location.replace("jsblog.html");
+      }
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(102, 102, 102);
+      }
+      table {
+        font-size: 14px;
+        width: 100%;
+        padding: 6px;
+        background-color: rgb(201, 201, 201);
+        color: black;
+      }
+      th, td {
+        padding: 6px;
+        text-align: left;
+      }
+      th {
+        background-color: rgb(201, 201, 201);
+      }
+      tr:nth-child(odd) {
+        background-color: #f4f4f4;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      caption {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+      }
+    </style>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/blog.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <button class="header-btn" onclick="home()"><span class="core-link">Home</span></button>
+      <button class="header-btn" onclick="htmlblog()"><span class="nav-link">HTML</span></button>
+      <button class="header-btn" onclick="cssblog()"><span class="nav-link">CSS</span></button>
+      <button class="header-btn" onclick="jsblog()"><span class="nav-link">JS</span></button>
+      <input class="search-bar" placeholder="Search">
+    </header>
+    <div class="page-wrap">
+      <h2>HTML Cheat Sheet</h2>
+      <p>
+        HTML (HyperText Markup Language) is the most basic building block of the Web.
+        It defines the meaning and structure of web content.
+        "Hypertext" refers to links that connect web pages to one another,
+        either within a single website or between websites.
+      </p>
+      <table>
+        <caption>
+          Document Metadata
+        </caption>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Attributes</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">&lt;html&gt;</code></td>
+            <td>global attributes, xmlns</td>
+            <td>Root element of an HTML document. All other elements must be descendants.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;head&gt;</code></td>
+            <td>global attributes</td>
+            <td>Contains metadata and info not displayed in the browser: title, JS, CSS, favicons.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;title&gt;</code></td>
+            <td>global attributes</td>
+            <td>Defines the document’s title shown in the browser’s title bar or tab.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;base&gt;</code></td>
+            <td>global attributes, href, target</td>
+            <td>Specifies the base URL for relative URLs in the document. Only one per document.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;link&gt;</code></td>
+            <td>global attributes, href, hreflang, rel, disabled, title, type, media, sizes, imagesizes, crossorigin, imagesrcset, integrity, as, blocking, fetchpriority, referrerpolicy</td>
+            <td>Defines relationships with external resources: stylesheets, favicons, icons, etc.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;meta&gt;</code></td>
+            <td>global attributes, charset, content, http-equiv, media, name</td>
+            <td>Represents metadata that other HTML elements cannot represent: &lt;base&gt;, &lt;link&gt;, &lt;script&gt;, &lt;style&gt;, or &lt;title&gt;.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;style&gt;</code></td>
+            <td>global attributes, blocking, media, nonce, title</td>
+            <td>Contains CSS for the document or part of it.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;script&gt;</code></td>
+            <td>global attributes, async, attributionsrc, blocking, crossorigin, defer, fetchpriority, integrity, nomodule, nonce, referrerpolicy, src, type</td>
+            <td>Contains executable code, usually JavaScript. Can also contain WebGL, JSON, etc.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>
+      
+
+      <table>
+        <caption>
+          Content Sectioning
+        </caption>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Attributes</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">&lt;body&gt;</code></td>
+            <td>global attributes, event attributes</td>
+            <td>Represents the content of an HTML document. Only one per document.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;header&gt;</code></td>
+            <td>global attributes</td>
+            <td>Represents a header for its nearest ancestor section or sectioning root element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;footer&gt;</code></td>
+            <td>global attributes</td>
+            <td>Represents a footer for its nearest ancestor section or sectioning root element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;section&gt;</code></td>
+            <td>global attributes</td>
+            <td>Defines a generic section of a document; should have a heading.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;nav&gt;</code></td>
+            <td>global attributes</td>
+            <td>Provides navigation links within or between documents.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;aside&gt;</code></td>
+            <td>global attributes</td>
+            <td>Represents content indirectly related to the main content, like sidebars or call-out boxes.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;div&gt;</code></td>
+            <td>global attributes</td>
+            <td>A generic container for flow content. Block-level element.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>      
+
+      <table>
+        <caption>
+          Text Content
+        </caption>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Attributes</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">&lt;h1&gt;</code> - <code class="element">&lt;h6&gt;</code></td>
+            <td>global attributes</td>
+            <td>Defines section headings, from largest to smallest.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;p&gt;</code></td>
+            <td>global attributes</td>
+            <td>Groups related content like text, images, or form fields.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;blockquote&gt;</code></td>
+            <td>global attributes, cite</td>
+            <td>Indicates a quotation, often with indentation. Use the `cite` attribute for the source.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;cite&gt;</code></td>
+            <td>global attributes</td>
+            <td>Marks the title of a cited work.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;ol&gt;</code></td>
+            <td>global attributes</td>
+            <td>Defines an ordered list of items.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;ul&gt;</code></td>
+            <td>global attributes</td>
+            <td>Defines an unordered list of items.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;li&gt;</code></td>
+            <td>global attributes</td>
+            <td>Defines an item in an ordered or unordered list.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;dl&gt;</code></td>
+            <td>global attributes</td>
+            <td>Defines a description list for terms and their definitions.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;dt&gt;</code></td>
+            <td>global attributes</td>
+            <td>Defines a term in a description list.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;dd&gt;</code></td>
+            <td>global attributes</td>
+            <td>Defines the description for the preceding term in a description list.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>      
+
+      <table>
+        <caption>Inline Text Semantics</caption>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Attributes</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">&lt;a&gt;</code></td>
+            <td>global attributes</td>
+            <td>Anchor element, with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;strong&gt;</code></td>
+            <td>global attributes</td>
+            <td>Indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;em&gt;</code></td>
+            <td>global attributes</td>
+            <td>Marks text that has stress emphasis. Can be nested, with each level of nesting indicating a greater degree of emphasis.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;mark&gt;</code></td>
+            <td>global attributes</td>
+            <td>Represents text which is marked or highlighted for reference or notation purposes due to the marked passage's relevance in the enclosing context.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;abbr&gt;</code></td>
+            <td>global attributes</td>
+            <td>Represents an abbreviation or acronym.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;code&gt;</code></td>
+            <td>global attributes</td>
+            <td>Displays code snippets.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;pre&gt;</code></td>
+            <td>global attributes</td>
+            <td>Represents preformatted text which is to be presented exactly as written in the HTML file. By default, it is a block-level element, i.e., its default display value is block.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;span&gt;</code></td>
+            <td>global attributes</td>
+            <td>Generic inline container for phrasing content, which does not inherently represent anything. Inline-level element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;br&gt;</code></td>
+            <td>global attributes</td>
+            <td>Produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>      
+
+      <table>
+        <caption>Forms and Input</caption>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Attributes</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">&lt;form&gt;</code></td>
+            <td>global attributes, accept-charset, autocapitalize, autocomplete, name, rel, action, enctype, method, novalidate, target</td>
+            <td>Represents a document section for taking user input using interactive controls.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;input&gt;</code></td>
+            <td>global attributes, type: {button, checkbox, color, date, datetime-local, email, file, hidden, image, month, number, password, radio, range, reset, search, submit, tel, text, time, url, week}</td>
+            <td>Used to create interactive controls for web-based forms.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;button&gt;</code></td>
+            <td>global attributes, autofocus, command, commandfor, disabled, form, formaction, formenctype, formmethod, formnovalidate, formtarget, name, popovertarget, popovertargetaction, type, value</td>
+            <td>A button can be pressed and it performs an action when pressed.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;label&gt;</code></td>
+            <td>global attributes, for</td>
+            <td>Represents a caption for an item in a user interface.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;textarea&gt;</code></td>
+            <td>global attributes, autocapitalize, autocomplete, autocorrect, autofocus, cols, dirname, disabled, form, maxlength, minlength, name, placeholder, readonly, required, rows, spellcheck, wrap</td>
+            <td>Represents a multi-line plain-text editing control, free-form text.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;select&gt;</code></td>
+            <td>global attributes, autocomplete, autofocus, disabled, form, multiple, name, required, size</td>
+            <td>Represents a control that provides a menu of options.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;option&gt;</code></td>
+            <td>global attributes, disabled, label, selected, value</td>
+            <td>Used to define an item contained in a <code>&lt;select&gt;</code>, a <code>&lt;optgroup&gt;</code>, or a <code>&lt;datalist&gt;</code> element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;fieldset&gt;</code></td>
+            <td>global attributes, disabled, form, name</td>
+            <td>Used to group several controls as well as labels within a web form.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>      
+
+      <table>
+        <caption>Media</caption>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Attributes</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">&lt;img&gt;</code></td>
+            <td>global attributes, alt, attribution, src, crossorigin, decoding, elementtiming, fetchpriority, height, ismap, loading, referrerpolicy, sizes, srcset, width, usemap</td>
+            <td>Embeds an image into the document.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;audio&gt;</code></td>
+            <td>global attributes, autoplay, controls, controlslist, crossorigin, disableremoteplayback, loop, muted, preload, src</td>
+            <td>Used to embed sound content in documents.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;video&gt;</code></td>
+            <td>global attributes, autoplay, controls, controlslist, crossorigin, disablepictureinpicture, disableremoteplayback, height, loop, muted, playsinline, poster, preload, src, width</td>
+            <td>Embeds a media player which supports video playback into the document.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;source&gt;</code></td>
+            <td>global attributes, type, src, srcset, sizes, media, height, width</td>
+            <td>Specifies one or more media resources for the <code>&lt;picture&gt;</code>, <code>&lt;audio&gt;</code>, and <code>&lt;video&gt;</code> elements. It is a void element, which means that it has no content and does not require a closing tag.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;picture&gt;</code></td>
+            <td>global attributes</td>
+            <td>Contains zero or more <code>&lt;source&gt;</code> elements and one <code>&lt;img&gt;</code> element to offer alternative versions of an image for different display/device scenarios.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;track&gt;</code></td>
+            <td>global attributes, default, kind, label, src, srclang</td>
+            <td>Used as a child of the media elements, <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code>. Each <code>&lt;track&gt;</code> element lets you specify a timed text track (or time-based data) that can be displayed in parallel with the media element, for example to overlay subtitles or closed captions on top of a video or alongside audio tracks.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;iframe&gt;</code></td>
+            <td>global attributes, allow, allowfullscreen, allowpaymentrequest, browsingtopics, credentialless, csp, height, loading, name, referrerpolicy, sandbox, src, srcdoc, width</td>
+            <td>Represents a nested browsing context, embedding another HTML page into the current one. Consumes significant memory and other computing resources — check for performance issues.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;canvas&gt;</code></td>
+            <td>global attributes, height, width</td>
+            <td>Use with either the canvas scripting API or the WebGL API to draw graphics and animations.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>      
+
+      <table>
+        <caption>Tables</caption>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Attributes</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">&lt;table&gt;</code></td>
+            <td>global attributes</td>
+            <td>Represents 2D tabular data: rows × columns.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;thead&gt;</code></td>
+            <td>global attributes</td>
+            <td>Encapsulates a set of table rows (<code>&lt;tr&gt;</code> elements), indicating that they comprise the head of a table with information about the table's columns.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;tbody&gt;</code></td>
+            <td>global attributes</td>
+            <td>Encapsulates a set of table rows (<code>&lt;tr&gt;</code> elements), indicating that they comprise the body of a table's (main) data.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;tfoot&gt;</code></td>
+            <td>global attributes</td>
+            <td>Encapsulates a set of table rows (<code>&lt;tr&gt;</code> elements), indicating that they comprise the foot of a table with information about the table's columns.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;tr&gt;</code></td>
+            <td>global attributes</td>
+            <td>Defines a row of cells in a table. The row's cells can then be established using a mix of <code>&lt;td&gt;</code> (data cell) and <code>&lt;th&gt;</code> (header cell) elements.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;th&gt;</code></td>
+            <td>global attributes, abbr, colspan, headers, rowspan, scope</td>
+            <td>Defines a cell as the header of a group of table cells and may be used as a child of the <code>&lt;tr&gt;</code> element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;td&gt;</code></td>
+            <td>global attributes, colspan, headers, rowspan</td>
+            <td>Defines a cell of a table that contains data and may be used as a child of the <code>&lt;tr&gt;</code> element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;caption&gt;</code></td>
+            <td>global attributes</td>
+            <td>Specifies the caption (or title) of a table, providing the table an accessible description.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">tablefoot</td>
+          </tr>
+        </tfoot>
+      </table>      
+
+      <table>
+        <caption>Global Attributes</caption>
+        <thead>
+          <tr>
+            <th>Attributes</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">accesskey</code></td>
+            <td>Hint for keyboard shortcuts; space-separated list of characters.</td>
+          </tr>
+          <tr>
+            <td><code class="element">anchor</code></td>
+            <td>Anchors a positioned element to another using its ID.</td>
+          </tr>
+          <tr>
+            <td><code class="element">autocapitalize</code></td>
+            <td>Controls automatic capitalization of input text.</td>
+          </tr>
+          <tr>
+            <td><code class="element">autocorrect</code></td>
+            <td>Enables or disables automatic spelling corrections.</td>
+          </tr>
+          <tr>
+            <td><code class="element">autofocus</code></td>
+            <td>Automatically focuses the element on page load (boolean).</td>
+          </tr>
+          <tr>
+            <td><code class="element">class</code></td>
+            <td>Space-separated list of classes for CSS/JavaScript targeting.</td>
+          </tr>
+          <tr>
+            <td><code class="element">contenteditable</code></td>
+            <td>Specifies if the element is editable by the user.</td>
+          </tr>
+          <tr>
+            <td><code class="element">data-*</code></td>
+            <td>Custom data attributes for passing proprietary data between HTML and DOM.</td>
+          </tr>
+          <tr>
+            <td><code class="element">dir</code></td>
+            <td>Specifies text direction: <code>ltr</code>, <code>rtl</code>, or <code>auto</code>.</td>
+          </tr>
+          <tr>
+            <td><code class="element">draggable</code></td>
+            <td>Indicates whether the element can be dragged (true/false) using the Drag and Drop API.</td>
+          </tr>
+          <tr>
+            <td><code class="element">enterkeyhint</code></td>
+            <td>Hints what action label (or icon) to present for the enter key on virtual keyboards.</td>
+          </tr>
+          <tr>
+            <td><code class="element">exportparts</code></td>
+            <td>Exports shadow parts from a nested shadow tree into a containing light tree.</td>
+          </tr>
+          <tr>
+            <td><code class="element">hidden</code></td>
+            <td>Indicates the element is not relevant or hidden from the user (e.g., during login).</td>
+          </tr>
+          <tr>
+            <td><code class="element">id</code></td>
+            <td>Defines a unique identifier, which must be unique within the document.</td>
+          </tr>
+          <tr>
+            <td><code class="element">inert</code></td>
+            <td>Prevents user input events from interacting with the element (boolean).</td>
+          </tr>
+          <tr>
+            <td><code class="element">inputmode</code></td>
+            <td>Specifies the virtual keyboard configuration for editable content (e.g., <input> elements).</td>
+          </tr>
+          <tr>
+            <td><code class="element">is</code></td>
+            <td>Specifies that an element should behave like a registered custom-built element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">itemid</code></td>
+            <td>Unique, global identifier for an item in the HTML Microdata feature.</td>
+          </tr>
+          <tr>
+            <td><code class="element">itemprop</code></td>
+            <td>Used to add properties to an item in HTML Microdata.</td>
+          </tr>
+          <tr>
+            <td><code class="element">itemref</code></td>
+            <td>Associates properties with items that are not direct descendants of an element with the itemscope attribute.</td>
+          </tr>
+          <tr>
+            <td><code class="element">itemscope</code></td>
+            <td>Specifies the scope of an item in HTML Microdata and the vocabulary used.</td>
+          </tr>
+          <tr>
+            <td><code class="element">itemtype</code></td>
+            <td>Defines the vocabulary URL used to describe item properties in HTML Microdata.</td>
+          </tr>
+          <tr>
+            <td><code class="element">lang</code></td>
+            <td>Defines the language for non-editable elements or for editable content (BCP 47 format).</td>
+          </tr>
+          <tr>
+            <td><code class="element">nonce</code></td>
+            <td>Cryptographic nonce used by Content Security Policy (CSP) to determine fetch permissions.</td>
+          </tr>
+          <tr>
+            <td><code class="element">part</code></td>
+            <td>Specifies the part names of an element for use with shadow DOM styling.</td>
+          </tr>
+          <tr>
+            <td><code class="element">popover</code></td>
+            <td>Designates an element as a popover (invisible until triggered by another element or API call).</td>
+          </tr>
+          <tr>
+            <td><code class="element">role</code></td>
+            <td>Defines the semantic meaning of content for assistive technologies like screen readers (ARIA role).</td>
+          </tr>
+          <tr>
+            <td><code class="element">slot</code></td>
+            <td>Assigns an element to a slot in a shadow DOM.</td>
+          </tr>
+          <tr>
+            <td><code class="element">spellcheck</code></td>
+            <td>Defines whether an element's text should be checked for spelling errors (true/false).</td>
+          </tr>
+          <tr>
+            <td><code class="element">style</code></td>
+            <td>Contains CSS styling declarations for the element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">tabindex</code></td>
+            <td>Defines the element’s focusability and keyboard navigation order.</td>
+          </tr>
+          <tr>
+            <td><code class="element">title</code></td>
+            <td>Contains advisory information related to the element, often displayed as a tooltip.</td>
+          </tr>
+          <tr>
+            <td><code class="element">translate</code></td>
+            <td>Specifies if an element’s text should be translated when the page is localized (yes/no).</td>
+          </tr>
+          <tr>
+            <td><code class="element">virtualkeyboardpolicy</code></td>
+            <td>Controls virtual keyboard behavior for editable content on devices without hardware keyboards (auto/manual).</td>
+          </tr>
+          <tr>
+            <td><code class="element">writingsuggestions</code></td>
+            <td>Controls the browser's writing suggestions in input fields (true/false).</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">Global attributes apply to all HTML elements, though they may not affect all.</td>
+          </tr>
+        </tfoot>
+      </table>          
+      
+      <span class="blog-title">Additional attributes</span>
+      <div class="textbox">
+        <span class="attribute-group">
+          <strong>XML attributes:</strong>
+          <code class="element">xml:lang</code> (specifies the language of the element's content), 
+          <code class="element">xml:base</code> (defines a base URI for relative URLs).
+        </span>
+        <span class="attribute-group">
+          <strong>ARIA roles:</strong>
+          <code class="element">role</code> (defines an element's role in the accessibility tree).
+        </span>
+        <span class="attribute-group">
+          <strong>ARIA attributes:</strong>
+          <code class="element">aria-label</code>, <code class="element">aria-labelledby</code>, 
+          <code class="element">aria-hidden</code>, <code class="element">aria-expanded</code>, 
+          <code class="element">aria-controls</code>, <code class="element">aria-live</code>, 
+          <code class="element">aria-disabled</code>, <code class="element">aria-selected</code>, 
+          <code class="element">aria-checked</code>, <code class="element">aria-required</code>, 
+          <code class="element">aria-invalid</code>.
+        </span>
+      </div>
+      <span class="blog-title">Event handler attributes:</span>
+      <div class="textbox">
+        <span class="event-group">
+          <strong>Form events:</strong>
+          <code class="element">onblur</code>, <code class="element">onchange</code>, <code class="element">onfocus</code>, <code class="element">oninput</code>, 
+          <code class="element">oninvalid</code>, <code class="element">onreset</code>, <code class="element">onsubmit</code>
+        </span>
+        <span class="event-group">
+          <strong>Mouse events:</strong>
+          <code class="element">onclick</code>, <code class="element">ondblclick</code>, <code class="element">onmousedown</code>, <code class="element">onmouseenter</code>, 
+          <code class="element">onmouseleave</code>, <code class="element">onmousemove</code>, <code class="element">onmouseover</code>, <code class="element">onmouseout</code>, 
+          <code class="element">onmouseup</code>, <code class="element">onmousewheel</code>
+        </span>
+        <span class="event-group">
+          <strong>Keyboard events:</strong>
+          <code class="element">onkeydown</code>, <code class="element">onkeypress</code>, <code class="element">onkeyup</code>
+        </span>
+        <span class="event-group">
+          <strong>Media events:</strong>
+          <code class="element">onabort</code>, <code class="element">oncanplay</code>, <code class="element">oncanplaythrough</code>, <code class="element">ondurationchange</code>, 
+          <code class="element">onemptied</code>, <code class="element">onended</code>, <code class="element">onerror</code>, <code class="element">onloadeddata</code>, 
+          <code class="element">onloadedmetadata</code>, <code class="element">onloadstart</code>, <code class="element">onpause</code>, <code class="element">onplay</code>, 
+          <code class="element">onplaying</code>, <code class="element">onprogress</code>, <code class="element">onratechange</code>, <code class="element">onseeked</code>, 
+          <code class="element">onseeking</code>, <code class="element">onstalled</code>, <code class="element">onsuspend</code>, <code class="element">ontimeupdate</code>, 
+          <code class="element">onvolumechange</code>, <code class="element">onwaiting</code>
+        </span>
+        <span class="event-group">
+          <strong>Drag and drop events:</strong>
+          <code class="element">ondrag</code>, <code class="element">ondragend</code>, <code class="element">ondragenter</code>, 
+          <code class="element">ondragleave</code>, <code class="element">ondragover</code>, <code class="element">ondragstart</code>, <code class="element">ondrop</code>
+        </span>
+        <span class="event-group">
+          <strong>Window events:</strong>
+          <code class="element">onresize</code>, <code class="element">onscroll</code>, <code class="element">onload</code>, 
+          <code class="element">onunload</code>, <code class="element">onshow</code>, <code class="element">ontoggle</code>
+        </span>
+      </div>
+    </div>
+
+    <div class="page-wrap">
+      <table>
+        <caption>HTML Entities</caption>
+        <thead>
+          <tr>
+            <th>HTML <a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity">Entity</a></th>
+            <th>Character</th>
+            <th>HTML CODE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&amp;amp;</td>
+            <td>&#38;</td>
+            <td>&amp;#38;</td>
+          </tr>
+          <tr>
+            <td>&amp;lt;</td>
+            <td>&#60;</td>
+            <td>&amp;#60</td>
+          </tr>
+          <tr>
+            <td>&amp;gt;</td>
+            <td>&#62;</td>
+            <td>&amp;#62</td>
+          </tr>
+          <tr>
+            <td>&amp;quot;</td>
+            <td>&#34;</td>
+            <td>&amp;#34</td>
+          </tr>
+          <tr>
+            <td>&amp;apos;</td>
+            <td>&#39;</td>
+            <td>&amp;#39</td>
+          </tr>
+          <tr>
+            <td>&amp;nbsp;</td>
+            <td>&#160;</td>
+            <td>&amp;#160</td>
+          </tr>
+          <tr>
+            <td>&amp;copy;</td>
+            <td>&#169;</td>
+            <td>&amp;#169</td>
+          </tr>
+          <tr>
+            <td>&amp;reg;</td>
+            <td>&#174;</td>
+            <td>&amp;#174</td>
+          </tr>
+          <tr>
+            <td>&amp;eacute;</td>
+            <td>&#233;</td>
+            <td>&amp;#233</td>
+          </tr>
+          <tr>
+            <td>&amp;deg;</td>
+            <td>&#176;</td>
+            <td>&amp;#176</td>
+          </tr>
+          <tr>
+            <td>&amp;hellip;</td>
+            <td>&#8230;</td>
+            <td>&amp;#8230</td>
+          </tr>
+          <tr>
+            <td>&amp;mdash;</td>
+            <td>&#8212;</td>
+            <td>&amp;#8212</td>
+          </tr>
+          <tr>
+            <td>&amp;times;</td>
+            <td>&#215;</td>
+            <td>&amp;#215</td>
+          </tr>
+          <tr>
+            <td>&amp;divide;</td>
+            <td>&#247;</td>
+            <td>&amp;#247</td>
+          </tr>
+          <tr>
+            <td>&amp;laquo;</td>
+            <td>&#171;</td>
+            <td>&amp;#171</td>
+          </tr>
+          <tr>
+            <td>&amp;raquo;</td>
+            <td>&#187;</td>
+            <td>&amp;#187</td>
+          </tr>
+          <tr>
+            <td>&amp;bull;</td>
+            <td>&#8226;</td>
+            <td>&amp;#8226</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="2">
+              <a href="https://www.toptal.com/designers/htmlarrows/symbols/">More info</a>
+            </td>
+          </tr>
+        </tfoot>
+      </table>        
+    </div>
+
+    <div class="page-wrap">
+      <h2>Code Snippet</h2>
+      <div class="center-box">
+        <div class="code-box language-html">
+          <pre>
+            <code>
+              <span class="line-number">1</span>&lt;!DOCTYPE html&gt;
+              <span class="line-number">2</span>&lt;html lang="en"&gt;
+              <span class="line-number">3</span>&lt;head&gt;
+              <span class="line-number">4</span>  &lt;meta charset="UTF-8"&gt;
+              <span class="line-number">5</span>  &lt;title&gt;Sample Page&lt;/title&gt;
+              <span class="line-number">6</span>&lt;/head&gt;
+              <span class="line-number">7</span>&lt;body&gt;
+              <span class="line-number">8</span>  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+              <span class="line-number">9</span>&lt;/body&gt;
+              <span class="line-number">10</span>&lt;/html&gt;
+            </code>
+          </pre>          
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+
+    <div class="page-wrap">
+      <h2>Sample Blog</h2>
+      <div class="textbox">
+        <p class="blog-title" style="color: #3388BB;">
+          BanG Dream! It's MyGO
+          <span style="color: #77BBDD">!</span>
+          <span style="color: #FF8899">!</span>
+          <span style="color: #77DD77">!</span>
+          <span style="color: #FFDD88">!</span>
+          <span style="color: #7777AA">!</span>
+        </p>
+        <p class="blog-stats">
+            3.4M views &#183; 6 months ago
+        </p>
+        <p class="blog-author">
+            Andrew Zhou &#10003;
+        </p>
+        <p class="blog-description">
+            Talking about <span style="color: #FF1968">BanG Dream! It's MyGO!!!!!</span>
+            Featuring Chihaya Anon, Nagasaki Soyo, Shiina Taki (Rikki), Takamatsu Tomori and Kaname Raana.
+        </p>
+        <figure class="blog-figure">
+          <img src="images/MyGO_Garupa.webp" alt="MyGO" class="blog-image">
+          <figcaption class="blog-caption">MyGO! from BanG Dream!</figcaption>
+        </figure>
+        <p class="ad-text">
+          Shop early for the <u>holiday season</u> to get the <strong>best selection</strong> of Anon Tokyo merch at 10% discount!!!!! <span class="shop-link">Shop now &#62;</span>
+        </p>
+      </div>
+    </div>
+    
+    <footer>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">Reference Source</a>
+    </footer>
+
+    <aside>
+    </aside>
+  </body>
+
+</html>

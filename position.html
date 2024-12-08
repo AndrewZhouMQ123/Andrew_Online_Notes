@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>divs with CSS</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="styles/header.css">
+    <script>
+      "use strict"; // modern js strict mode
+      // alert runs when loading webpage
+      function home() {
+        window.location.replace("home.html");
+      }
+    </script>
+    <!-- window.location.href = "home.html"; -->
+  </head>
+  <body style="height: 3000px;">
+    <header>
+      <div>
+        <button class="header-btn" onclick="home()"><h1>Home</h1></button>
+      </div>
+      <div>
+        <input class="search-bar" placeholder="Search">
+      </div>
+    </header>
+
+    <div style="
+    background-color: lightblue;
+    height: 200px;
+    width: 200px;
+    position: static;">
+      div 1
+    </div>
+    <div style="
+    background-color: lightpink;
+    height: 200px;
+    width: 200px;">
+      div 2
+    </div>
+    <div style="
+    background-color: lightgreen;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 50px;
+    width: 72px;">
+      sidebar
+    </div>
+    <div style="
+    position: absolute;
+    background-color: red;
+    color: white;
+    right: 10px;
+    top: 60px;
+    ">
+      absolute
+    </div>
+  </body>
+</html>

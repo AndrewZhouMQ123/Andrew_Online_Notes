@@ -1,64 +1,153 @@
 button {
   cursor: pointer;
-  height: 36px;
-  border-radius: 2px;
-  margin-right: 8px;
-  margin-left: 8px;
+  margin: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  transition: opacity 0.15s, box-shadow 0.15s;
 }
 
-.subscribe-button {
-  background-color: rgb(200, 0, 0);
-  color: white;
-  border: none;
-  width: 105px;
-  transition: opacity 0.15s;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.subscribe-button:hover {
+button:hover{
   opacity: 0.8;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-.subscribe-button:active {
+button:active {
   opacity: 0.5;
 }
 
-.join-button {
-  background-color: white;
-  color: rgb(6, 95, 212);
-  border-color: rgb(6, 95, 212);
+.default-btn {
+  height: 38px;
+  width: 100px;
+  font-size: 14px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-align: center;
   border-style: solid;
   border-width: 1px;
-  padding-top: 9px;
-  padding-bottom: 9px;
-  padding-left: 16px;
-  padding-right: 16px;
-  transition: background-color 0.15s, color 0.15s;
+  border-radius: 4px;
+  transition: opacity 0.15s;
 }
 
-.join-button:hover {
-  background-color: rgb(6, 95, 212);
+.btn-box {
+  margin-top: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(160, 150, 200, 0.40)
+}
+
+.primary-btn {
+  background-color: rgb(0, 123, 255);
   color: white;
+  border-color: rgb(0, 123, 255);
 }
 
-.join-button:active {
-  opacity: 0.7;
-}
-
-.tweet-button {
-  background-color: rgb(29, 155, 240);
+.secondary-btn {
+  background-color: rgb(108, 117, 125);
   color: white;
-  border: none;
-  width: 74px;
-  border-radius: 18px;
-  font-weight: bold;
-  font-size: 15px;
-  transition: box-shadow 0.15s;
+  border-color: rgb(108, 117, 125);
 }
 
-.tweet-button:hover {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+.success-btn {
+  background-color: rgb(40, 167, 69);
+  color: white;
+  border-color: rgb(40, 167, 69);
+}
+
+.danger-red-btn {
+  background-color: rgb(220, 53, 69);
+  color: white;
+  border-color: rgb(220, 53, 69);
+}
+
+.warning-orange-btn {
+  background-color: rgb(255, 193, 7);
+  color: black;
+  border-color: rgb(255, 193, 7);
+}
+
+.info-btn {
+  background-color: rgb(23, 162, 184);
+  color: white;
+  border-color: rgb(23, 162, 184);
+}
+
+.light-btn {
+  background-color: rgb(248, 249, 250);
+  color: rgb(33, 37, 41);
+  border-color: rgb(248, 249, 250);
+}
+
+.light-btn:hover{
+  background-color: rgba(230, 250, 98, 0.7);
+  border-color: rgba(230, 250, 98, 0.7);
+}
+
+.dark-btn {
+  background-color: rgb(52, 58, 64);
+  color: rgb(255, 255, 255);
+  border-color: rgb(52, 58, 64);
+}
+
+.link-btn {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(0, 123, 255);
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.round-btn {
+  width: 100px;
+  height: 100px;
+  font-size: 14px;
+  font-family: sans-serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-width: 8px;
+  border-radius: 50px;
+}
+
+.hello-world-groove {
+  background-color: rgb(174, 210, 76);
+  color: rgb(33, 37, 41);
+  border-color: rgb(210, 76, 123);
+  border-style: groove;
+}
+
+.hello-world-double {
+  background-color: rgb(174, 210, 76);
+  color: rgb(33, 37, 41);
+  border-color: rgb(210, 76, 123);
+  border-style: double;
+}
+
+.goodbye-world-groove {
+  background-color: rgb(0, 123, 255);
+  color: white;
+  border-color: rgb(171, 91, 191);
+  border-style: groove;
+}
+
+.goodbye-world-double {
+  background-color: rgb(0, 123, 255);
+  color: white;
+  border-color: rgb(171, 91, 191);
+  border-style: double;
+}
+
+.recycling-double {
+  background-color: rgb(205, 219, 191);
+  color: black;
+  border-color: green;
+  border-style: double;
 }

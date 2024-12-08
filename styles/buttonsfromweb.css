@@ -1,22 +1,23 @@
-button {
-  cursor: pointer;
+.base-btn {
   height: 36px;
+  margin-right: 8px;
+  margin-left: 8px;
 }
 
-.buttons-grid {
+.btn-grid {
   margin-top: 30px;
   display: grid;
   grid-template-columns: 100px 100px 200px;
   column-gap: 15px;
 }
 
-.uber-button {
+.uber-btn {
   background-color: black;
   color: white;
   width: 100px;
 }
 
-.amazon-button {
+.amazon-btn {
   background-color:rgb(255, 216, 20);
   color: black;
   width: 200px;
@@ -24,7 +25,7 @@ button {
   border: none;
 }
 
-.github-button {
+.github-btn {
   background-color: rgb(46, 164, 79);
   color: white;
   font-weight: bold;
@@ -33,7 +34,7 @@ button {
   border: none;
 }
 
-.bootstrap-get-started-button {
+.bootstrap-get-started-btn {
   background-color: rgb(121, 82, 179);
   color: white;
   font-weight: bold;
@@ -42,7 +43,7 @@ button {
   border-radius: 4px;
 }
 
-.bootstrap-download-button {
+.bootstrap-download-btn {
   background-color: white;
   color: rgb(121, 82, 179);
   font-weight: bold;
@@ -51,7 +52,7 @@ button {
   border-width: 1px;
 }
 
-.linkedin-apply-button {
+.linkedin-apply-btn {
   background-color: blue;
   color: white;
   font-weight: bold;
@@ -60,7 +61,7 @@ button {
   border: none;
 }
 
-.linkedin-save-button {
+.linkedin-save-btn {
   background-color: white;
   color: blue;
   font-weight: bold;
@@ -68,4 +69,56 @@ button {
   border-color: blue;
   border-radius: 18px;
   border-width: 1px;
+}
+
+.youtube-subscribe-btn {
+  background-color: rgb(200, 0, 0);
+  color: white;
+  border: none;
+  width: 105px;
+  transition: opacity 0.15s;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.youtube-subscribe-btn:hover {
+  opacity: 0.8;
+}
+
+.youtube-subscribe-btn:active {
+  opacity: 0.5;
+}
+
+.twitter-join-btn {
+  background-color: white;
+  color: rgb(6, 95, 212);
+  border-color: rgb(6, 95, 212);
+  border-style: solid;
+  border-width: 1px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.twitter-join-btn:hover {
+  background-color: rgb(6, 95, 212);
+  color: white;
+}
+
+.twitter-join-btn:active {
+  opacity: 0.7;
+}
+
+.twitter-tweet-btn {
+  background-color: rgb(29, 155, 240);
+  color: white;
+  border: none;
+  width: 74px;
+  border-radius: 18px;
+  font-weight: bold;
+  font-size: 15px;
 }
