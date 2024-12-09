@@ -5,7 +5,7 @@
     <script>
       "use strict"; // modern js strict mode
       function home() {
-        window.location.replace("home.html");
+        window.location.replace("index.html");
       }
       function htmlblog() {
         window.location.replace("htmlblog.html");
@@ -17,6 +17,7 @@
         window.location.replace("jsblog.html");
       }
     </script>
+    <script src="diagrams.js" ></script>
     <style>
       body {
         margin: 0;
@@ -71,9 +72,8 @@
     <div class="page-wrap">
       <h2>CSS cheat sheet</h2>
       <h3>CSS Syntax</h3>
-      <canvas id="canvas">
-
-      </canvas>
+      <canvas id="css-syntax" width="1000px" height="200px"></canvas>
+      <canvas id="rect-loop" width="1000px" height="200px" style="position:absolute; top:200px; left:200px;"></canvas>
       <table>
         <caption>
           CSS properties
@@ -188,19 +188,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
 
     <div class="page-wrap">
-      <p>CSS Box Model</p>
-      <div class="margin">
-          margin
-          <div class="border">
-              border
-              <div class="padding">
-                  padding
-                  <div class="content">
-                      content
-                  </div>
-              </div>
-          </div>
-      </div>
+      <canvas id="box-model" width="1000px" height="200px"></canvas>
       <p>CSS div containers</p>
       <p>CSS display: block, inline block, inline</p>
       <p>CSS display: flex, grid</p>
@@ -212,14 +200,10 @@
         <a href="position.html">positions with CSS</a>
       </div>
     </div>
-    <div class="page-wrap">
-      <h2>Advanced</h2>
-      <a>SASS, SCSS</a>
-    </div>
     <footer>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">Reference Source</a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS Reference</a>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
   </body>
 
 </html>

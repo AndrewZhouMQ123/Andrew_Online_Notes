@@ -5,7 +5,7 @@
     <script>
       "use strict"; // modern js strict mode
       function home() {
-        window.location.replace("home.html");
+        window.location.replace("index.html");
       }
       function htmlblog() {
         window.location.replace("htmlblog.html");
@@ -74,6 +74,46 @@
         "Hypertext" refers to links that connect web pages to one another,
         either within a single website or between websites.
       </p>
+      <h3>HTML Syntax</h3>
+      <div class="tube-box">
+        <code class="language-html">&lt;!DOCTYPE html&gt;</code> at the top level declares the document type and version of HTML
+      </div>
+      <div class="tube-box">
+        Space and indentation in code is ignored in HTML. It only affects readability.
+      </div>
+      <div class="tube-box">
+        HTML elements are the building blocks of HTML. 
+        Each element begins with a opening tag <code class="language-html">&lt;tag&gt;</code>
+        and ends with a closing tag <code class="language-html">&lt;tag/&gt;</code>.
+      </div>
+      <div class="tube-box">
+        Void elements have self-enclosing tags (no closing tag) and no content. 
+        <code class="language-html">&lt;img src="image.jpg" alt="Description" &gt;</code>
+      </div>
+      <div class="tube-box">
+        Head section is for code that will not be displayed on browser.
+      </div>
+      <div class="tube-box">
+        Body section is for code that will be rendered as content on browser.
+      </div>
+      <div class="tube-box">
+        HTML enables elements to be nested within other elements.
+        <pre class="code-box language-html" style="width: 50%;">
+          <code>
+            &lt;div&gt;
+              &lt;h1&gt;Title&lt;/h1&gt;
+              &lt;p&gt;This is a paragraph inside a div.&lt;/p&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>        
+      </div>
+      <div class="tube-box">
+        Comments are written like this: <code class="language-html"> &lt;!--This is a comment --&gt;</code>
+      </div>
+      <div class="tube-box">
+        JavaScript scripts imported is preferably at the end of the body so that HTML is rendered first,
+        otherwise loading scripts would delay HTML content and the web page may be disoriented.
+      </div>
       <table>
         <caption>
           Document Metadata
@@ -842,7 +882,6 @@
         </div>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
 
     <div class="page-wrap">
       <h2>Sample Blog</h2>
@@ -876,11 +915,9 @@
     </div>
     
     <footer>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">Reference Source</a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML Reference</a>
     </footer>
-
-    <aside>
-    </aside>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
   </body>
 
 </html>
