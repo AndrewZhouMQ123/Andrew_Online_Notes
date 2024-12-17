@@ -31,17 +31,17 @@ button:active {
   transition: opacity 0.15s;
 }
 
-.btn-box {
-  margin-top: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+.box-wrap {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  border-width: 1px;
+  background-color: white;
+  margin: 4px;
+  row-gap: 20px;
   border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  padding: 10px;
   border-color: rgba(160, 150, 200, 0.40)
 }
 
@@ -87,9 +87,9 @@ button:active {
   border-color: rgb(248, 249, 250);
 }
 
-.light-btn:hover{
-  background-color: rgba(230, 250, 98, 0.7);
-  border-color: rgba(230, 250, 98, 0.7);
+.light-btn:hover {
+  background-color: rgb(113, 250, 98);
+  border-color: rgb(230, 250, 98)
 }
 
 .dark-btn {
@@ -98,10 +98,45 @@ button:active {
   border-color: rgb(52, 58, 64);
 }
 
+.dark-btn:hover {
+  background-color: oklch(0.70 0.72 18);
+}
+
 .link-btn {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(255, 255, 255);
   color: rgb(0, 123, 255);
-  border-color: rgba(0, 0, 0, 0);
+  border-color: rgb(100, 100, 100);
+}
+
+.link-btn:hover {
+  background-color: rgb(0, 174, 255);
+  color: white;
+  border-color: white;
+}
+
+.undef-btn {
+  background: linear-gradient(#e66465, #9198e5);
+  color: white;
+  font-weight: bold;
+  border-color: lch(76 44 311);
+}
+
+.sky-btn {
+  background-color: hsl(190, 76%, 74%);
+  color: white;
+  border-color: lch(76 44 311);
+}
+
+.guava-btn {
+  background-color: hsl(18deg, 80%, 71%);
+  color: black;
+  border-color: oklch(80% 35% 110deg);
+}
+
+.melon-btn {
+  background-color: hsl(90deg, 80%, 71%);
+  color: white;
+  border-color: yellowgreen;
 }
 
 .round-btn {
@@ -117,28 +152,28 @@ button:active {
   border-radius: 50px;
 }
 
-.hello-world-groove {
+.grass-groove {
   background-color: rgb(174, 210, 76);
   color: rgb(33, 37, 41);
   border-color: rgb(210, 76, 123);
   border-style: groove;
 }
 
-.hello-world-double {
+.grass-double {
   background-color: rgb(174, 210, 76);
   color: rgb(33, 37, 41);
   border-color: rgb(210, 76, 123);
   border-style: double;
 }
 
-.goodbye-world-groove {
+.navy-groove {
   background-color: rgb(0, 123, 255);
   color: white;
   border-color: rgb(171, 91, 191);
   border-style: groove;
 }
 
-.goodbye-world-double {
+.navy-double {
   background-color: rgb(0, 123, 255);
   color: white;
   border-color: rgb(171, 91, 191);

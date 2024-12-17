@@ -34,6 +34,24 @@
   border: none;
 }
 
+.bootstrap-light-theme-btn {
+  background-color: lch(70 51 300);
+  color: black;
+  font-weight: bold;
+  width: 100px;
+  border-color: black;
+  border-radius: 4px;
+}
+
+.bootstrap-dark-theme-btn {
+  background-color: lch(35 51 300);
+  color: white;
+  font-weight: bold;
+  width: 100px;
+  border-color: white;
+  border-radius: 4px;
+}
+
 .bootstrap-get-started-btn {
   background-color: rgb(121, 82, 179);
   color: white;

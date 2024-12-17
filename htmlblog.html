@@ -3,7 +3,7 @@
   <head>
     <title>HTML-CSS-JS-TEMPLATES</title>
     <script>
-      "use strict"; // modern js strict mode
+      "use strict";
       function home() {
         window.location.replace("index.html");
       }
@@ -17,39 +17,6 @@
         window.location.replace("jsblog.html");
       }
     </script>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: rgb(102, 102, 102);
-      }
-      table {
-        font-size: 14px;
-        width: 100%;
-        padding: 6px;
-        background-color: rgb(201, 201, 201);
-        color: black;
-      }
-      th, td {
-        padding: 6px;
-        text-align: left;
-      }
-      th {
-        background-color: rgb(201, 201, 201);
-      }
-      tr:nth-child(odd) {
-        background-color: #f4f4f4;
-      }
-      tr:nth-child(even) {
-        background-color: #f9f9f9;
-      }
-      caption {
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-      }
-    </style>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/blog.css">
     <link rel="stylesheet" href="styles/footer.css">
@@ -114,6 +81,9 @@
         JavaScript scripts imported is preferably at the end of the body so that HTML is rendered first,
         otherwise loading scripts would delay HTML content and the web page may be disoriented.
       </div>
+    </div>
+
+    <div class="page-wrap">
       <table>
         <caption>
           Document Metadata
@@ -535,8 +505,10 @@
             <td colspan="2">tablefoot</td>
           </tr>
         </tfoot>
-      </table>      
+      </table>
+    </div>
 
+    <div class="page-wrap">   
       <table>
         <caption>Global Attributes</caption>
         <thead>
@@ -884,7 +856,7 @@
     </div>
 
     <div class="page-wrap">
-      <h2>Sample Blog</h2>
+      <span class="blog-title">Blog Template</span>
       <div class="textbox">
         <p class="blog-title" style="color: #3388BB;">
           BanG Dream! It's MyGO
@@ -915,7 +887,11 @@
     </div>
     
     <footer>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML Reference</a>
+      <div>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML Reference</a>
+      </div>
+      <div></div>
+      <div></div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
   </body>

@@ -3,7 +3,7 @@
   <head>
     <title>HTML-CSS-JS-TEMPLATES</title>
     <script>
-      "use strict"; // modern js strict mode
+      "use strict";
       function home() {
         window.location.replace("index.html");
       }
@@ -17,43 +17,11 @@
         window.location.replace("jsblog.html");
       }
     </script>
-    <script src="diagrams.js" ></script>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: rgb(102, 102, 102);
-      }
-      table {
-        font-size: 14px;
-        width: 100%;
-        padding: 6px;
-        background-color: rgb(201, 201, 201);
-        color: black;
-      }
-      th, td {
-        padding: 6px;
-        text-align: left;
-      }
-      th {
-        background-color: rgb(201, 201, 201);
-      }
-      tr:nth-child(odd) {
-        background-color: #f4f4f4;
-      }
-      tr:nth-child(even) {
-        background-color: #f9f9f9;
-      }
-      caption {
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-      }
-    </style>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/blog.css">
     <link rel="stylesheet" href="styles/boxmodel.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="stylesheet" href="styles/buttonsfromweb.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,11 +37,116 @@
       <input class="search-bar" placeholder="Search">
     </header>
 
+    <h2>CSS cheat sheet</h2>
     <div class="page-wrap">
-      <h2>CSS cheat sheet</h2>
       <h3>CSS Syntax</h3>
-      <canvas id="css-syntax" width="1000px" height="200px"></canvas>
+      <canvas id="css-syntax" width="1000px" height="170px"></canvas>
       <canvas id="rect-loop" width="1000px" height="200px" style="position:absolute; top:200px; left:200px;"></canvas>
+      <p style="font-style: italic; text-align: right; font-size: 0.8em; margin-top: 20px;">
+        Built with
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">
+          <span class="blog-title">Canvas API</span>
+        </a>
+      </p>
+    </div>
+    
+    <div class="page-wrap">
+      <table>
+        <caption>
+          Other CSS selectors
+        </caption>
+        <thead>
+          <tr>
+            <th>Selector</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">*</code></td>
+            <td>The CSS universal selector (*) matches elements of any type.</td>
+          </tr>
+          <tr>
+            <td><code class="element">#idname</code></td>
+            <td>The CSS ID selector matches an element based on the value of the element's id attribute.</td>
+          </tr>
+          <tr>
+            <td><code class="element">[attr=value]</code></td>
+            <td>The CSS attribute selector matches elements based on the element having a given attribute explicitly set,
+              with options for defining an attribute value or substring value match.</td>
+          </tr>
+          <tr>
+            <td><code class="element">,</code></td>
+            <td>The CSS selector list (,) selects all the matching nodes. A selector list is a comma-separated list of selectors.
+              When multiple selectors share the same declarations, they can be grouped together into a comma-separated list.
+              Selector lists can also be passed as parameters to some functional CSS pseudo-classes.
+              White space may appear before and/or after the comma.
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">&nbsp;</code></td>
+            <td>The descendant combinator — typically represented by a single space ( ) character — 
+              combines two selectors such that elements matched by the second selector are selected 
+              if they have an ancestor (parent, parent's parent, parent's parent's parent, etc.) 
+              element matching the first selector. Selectors that utilize a descendant combinator are called descendant selectors.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&gt;</code></td>
+            <td>is placed between two CSS selectors. It matches only those elements matched by the
+              second selector that are the direct children of elements matched by the first.
+              Descendant elements further down the hierarchy don't match.
+              For example, to select only &lt;p&gt; elements that are direct children of &lt;article&gt; elements:
+              <code class="language-css">article > p</code></td>
+          </tr>
+          <tr>
+            <td><code class="element">+</code></td>
+            <td>The next-sibling combinator (+) is placed between two CSS selectors.
+              It matches only those elements matched by the second selector that are the
+              next sibling element of the first selector. For example, to select all
+              &lt;img&gt; elements that are immediately preceded by a &lt;p&gt; element:
+              <code class="language-css">p + img</code></td>
+          </tr>
+          <tr>
+            <td><code class="element">~</code></td>
+            <td>If you want to select siblings of an element even if they are not directly adjacent,
+              then you can use the subsequent-sibling combinator (~).
+              To select all &lt;img&gt; elements that come anywhere after &lt;p&gt; elements, we'd do this:
+              <code class="language-css">p ~ img</code></td>
+          </tr>
+          <tr>
+            <td><code class="element">&</code></td>
+            <td>The CSS nesting module allows you to write nested rules that use combinators to create complex selectors.
+              <pre class="language-css">
+                <code>p {</code>
+                  <code>  ~ img {</code>
+                  <code>  }</code>
+                  <code>}</code>
+                <code>p {</code>
+                <code>  & img {</code>
+                <code>  }</code>
+                <code>}</code>
+              </pre>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="1"> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#selectors">selectors</a></td>
+            <td colspan="1"> <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators">Combinators</a></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="page-wrap">
+      <h2>Box Model</h2>
+      <canvas id="box-model" width="500px" height="350px"></canvas>
+    </div>
+
+    </div>
+    
+    <div class="page-wrap">
+
       <table>
         <caption>
           CSS properties
@@ -81,43 +154,1528 @@
         <thead>
           <tr>
             <th>Property</th>
-            <th>Value</th>
+            <th>Usage</th>
+            <th>Values</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><code class="element"></code></td>
+            <td><code class="element">accent-color</code></td>
+            <td>sets the accent color for user-interface controls generated by some elements.</td>
+            <td>auto, &lt;color&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">align-content</code></td>
+            <td>sets the distribution of space between and around content items
+              along a flexbox's cross axis, or a grid or block-level element's block axis.</td>
+            <td>normal, start, center, end, space-between, space-around, space-evenly,
+              flex-start, flex-end, stretch, baseline, first baseline, last baseline,
+              safe center, unsafe center, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">align-items</code></td>
+            <td>sets the align-self value on all direct children as a group.
+              In flexbox, it controls the alignment of items on the cross axis.
+              In grid layout, it controls the alignment of items on the block axis within their grid areas.</td>
+            <td>normal, stretch, center, start, end, flex-start, flex-end, self-start, self-end,
+              anchor-center, baseline, first baseline, last baseline, safe center, unsafe center, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">align-self</code></td>
+            <td> overrides a grid or flex item's align-items value.
+              In grid, it aligns the item inside the grid area.
+              In flexbox, it aligns the item on the cross axis.</td>
+            <td>auto, normal, center, start, end, flex-start, flex-end, self-start, self-end,
+              anchor-center, baseline, first baseline, last baseline, stretch, safe center, unsafe center,
+              global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">all</code></td>
+            <td>
+              A shorthand for all CSS properties except unicode-bidi, direction, and custom properties.
+              It sets properties to their initial or inherited values or values from another cascade layer or stylesheet origin.
+            </td>
+            <td>global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation</code></td>
+            <td>applies an animation between styles.</td>
+            <td>duration | easing-function | delay | name */</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-composition</code></td>
+            <td>specifies the composite operation to use when multiple animations affect the same property simultaneously.</td>
+            <td>replace, add, accumulate, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-delay</code></td>
+            <td>specifies the amount of time to wait from applying the animation to an element before beginning to perform the animation.</td>
+            <td>&lt;time&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-direction</code></td>
+            <td>sets whether an animation should play forward, backward,
+              or alternate back and forth between playing the sequence forward and backward.</td>
+            <td>normal, reverse, alternate, alternate-reverse, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-duration</code></td>
+            <td>sets the length of time that an animation takes to complete one cycle.</td>
+            <td>auto, &lt;time&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-fill-mode</code></td>
+            <td>sets how a CSS animation applies styles to its target before and after its execution.</td>
+            <td>none, forwards, backwards, both, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-iteration-count</code></td>
+            <td>sets the number of times an animation sequence should be played before stopping.</td>
+            <td>infinite, &lt;number&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-name</code></td>
+            <td>
+              Specifies the names of one or more @keyframes at-rules that describe the animations to apply to an element.
+              Multiple @keyframes names are comma-separated.
+              If the name doesn't match any @keyframes, no animation is applied.
+            </td>
+            <td>none, &lt;custom-ident&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-play-state</code></td>
+            <td>sets whether an animation is running or paused.</td>
+            <td>running, paused, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-range</code></td>
+            <td>set the start and end of an animation's attachment range along its timeline</td>
+            <td>normal, &lt;length-percentage&gt;, &lt;timeline-range-name&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-range-start</code></td>
+            <td>set the start of an animation's attachment range along its timeline</td>
+            <td>normal, &lt;length-percentage&gt;, &lt;timeline-range-name&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-range-end</code></td>
+            <td>set the end of an animation's attachment range along its timeline</td>
+            <td>normal, &lt;length-percentage&gt;, &lt;timeline-range-name&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">animation-timing-function</code></td>
+            <td>sets how an animation progresses through the duration of each cycle.</td>
+            <td>linear, ease, ease-in, ease-out, ease-in-out, step-start, step-end,
+              linear(&lt;number&gt; &lt;percentage&gt;, ...), steps(&lt;integer&gt;, &lt;step-position&gt;),
+              cubic-bezier(&lt;number [0,1]&gt;, &lt;number&gt;, &lt;number [0,1]&gt;, &lt;number&gt;),
+              global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">aspect-ratio</code></td>
+            <td>define the desired width-to-height ratio of an element's box.</td>
+            <td>auto, &lt;ratio&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">backdrop-filter</code></td>
+            <td>lets you apply graphical effects such as blurring or color shifting to the area behind an element.</td>
+            <td>none, url(common-filters.svg#filter), blur(), brightness(), contrast(), drop-shadow(),
+              grayscale(), hue-rotate(), invert(), opacity(), sepia(), saturate(), globa values</td>
+          </tr>
+          <tr>
+            <td><code class="element">backface-visibility</code></td>
+            <td>sets whether the back face of an element is visible when turned towards the user.</td>
+            <td>visible, hidden, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">background</code></td>
+            <td>sets all background style properties at once, component properties not set in the
+              background shorthand property value declaration are set to their default values</td>
+            <td>&lt;attachment&gt;, &lt;box&gt;, &lt;background-color&gt;, &lt;bg-image&gt;, &lt;position&gt;,
+              &lt;repeat-style&gt;, &lt;bg-size&gt;, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">background-attachment</code></td>
+            <td>sets whether a background image's position is fixed within the viewport, or scrolls with its containing block.</td>
+            <td>scroll, fixed, local, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">background-blend-mode</code></td>
+            <td>sets how an element's background images should blend with each other and with the element's background color.</td>
+            <td>normal, multiply, screen, overlay, darken, lighten, color-dodge, color-burn,
+              hard-light, soft-light, difference, exclusion, hue, saturation, color, luminosity,
+              global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">background-clip</code></td>
+            <td>sets whether an element's background extends underneath its border box, padding box, or content box.</td>
+            <td>border-box, padding-box, content-box, text, border-area</td>
+          </tr>
+          <tr>
+            <td><code class="element">background-image</code></td>
+            <td>sets one or more background images on an element.</td>
+            <td>none, &lt;image&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">background-origin</code></td>
+            <td>sets the background's origin: from the border start, inside the border, or inside the padding.</td>
+            <td>border-box, padding-box, content-box, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">background-position</code></td>
+            <td>sets the initial position (x,y) for each background image.
+              The position is relative to the position layer set by background-origin.</td>
+            <td>&lt;position&gt;, &lt;percentage&gt;, &lt;length&gt;, top, bottom, left, right, center,
+              edge offsets values. global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">background-repeat</code></td>
+            <td>sets how background images are repeated.
+              A background image can be repeated along the horizontal and vertical axes, or not repeated at all.</td>
+            <td>repeat, repeat-x, repeat-y, space, round, no-repeat, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">background-size</code></td>
+            <td>sets the size of the element's background image.
+              The image can be left to its natural size, stretched, or constrained to fit the available space.
+            </td>
+            <td>auto, cover, contain, &lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">block-size</code></td>
+            <td>defines the horizontal or vertical size of an element's block,
+              depending on its writing mode. It corresponds to either the width
+              or the height property, depending on the value of writing-mode.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, max-content, min-content,
+              fit-content, fit-content(), auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border</code></td>
+            <td>sets an element's border. It sets the values of border-width, border-style, and border-color.</td>
+            <td>&lt;line-width&gt;, &lt;line-style&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-block</code></td>
+            <td>sets the individual logical block border property values in a single place in the style sheet:
+              border-block-color, border-block-style, border-block-width
+            </td>
+            <td>&lt;'border-width'&gt;, &lt;'border-style'&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-block-end</code></td>
+            <td>sets the individual logical block-end border property values in a single place in the style sheet:
+              border-block-end-color, border-block-end-style, border-block-end-width</td>
+            <td>&lt;'border-width'&gt;, &lt;'border-style'&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-block-start</code></td>
+            <td>sets the individual logical block-start border property values in a single place in the style sheet:
+              border-block-start-color, border-block-start-style, border-block-start-width</td>
+            <td>&lt;'border-width'&gt;, &lt;'border-style'&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-bottom</code></td>
+            <td>sets an element's bottom border. It sets the values of
+              border-bottom-width, border-bottom-style and border-bottom-color.</td>
+            <td>&lt;br-width&gt;, &lt;br-style&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-collapse</code></td>
+            <td>sets whether cells inside a &lt;table&gt; have shared or separate borders.</td>
+            <td>collapse, separate, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-color</code></td>
+            <td>sets the color of an element's border. formats: top and bottom | left and right,
+              top | left and right | bottom, top | right | bottom | left</td>
+            <td> &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-end-end-radius</code></td>
+            <td>
+              defines a logical border radius on an element that maps to a physical border radius
+              based on the writing-mode, direction, and text-orientation.
+              It affects the corner between the block-end and inline-end sides,
+              ensuring styles remain consistent across different text orientations and writing modes.
+            </td>
+            <td>&lt;length&gt;, &lt;length-percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-end-start-radius</code></td>
+            <td>defines a logical border radius on an element, mapping to a physical border radius
+              that depends on the writing-mode, direction, and text-orientation.
+              It affects the corner between the block-end and inline-start sides,
+              helping maintain consistent styling regardless of the text orientation or writing mode.</td>
+            <td>&lt;length&gt;, &lt;length-percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-start-end-radius</code></td>
+            <td>
+              defines a logical border radius on an element, mapping to a physical border radius
+              that depends on the writing-mode, direction, and text-orientation.
+              It affects the corner between the block-start and inline-end sides,
+              ensuring styles work consistently regardless of text orientation or writing mode.
+            </td>
+            <td>&lt;length&gt;, &lt;length-percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-start-start-radius</code></td>
+            <td>
+              defines a logical border radius on an element, mapping to a physical border radius 
+              based on writing-mode, direction, and text-orientation.
+              It applies to the corner between the block-start and inline-start sides,
+              ensuring styles work regardless of text orientation or writing mode.
+            </td>
+            <td>&lt;length&gt;, &lt;length-percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-image</code></td>
+            <td>draws an image around a given element. It replaces the element's regular border.</td>
+            <td>source | slice | width | outset | repeat, global values</td>
+          </tr>
+          <tr>
+            <td>><code class="element">border-inline</code></td>
+            <td>sets the individual logical inline border property values in a single place in the style sheet.
+              border-inline-width, border-inline-style, border-inline-color
+            </td>
+            <td>&lt;'border-width'&gt;, &lt;'border-style'&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-inline-end</code></td>
+            <td>a shorthand for the following CSS properties:
+              border-inline-end-color, border-inline-end-style, border-inline-end-width</td>
+            <td>&lt;'border-width'&gt;, &lt;'border-style'&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-inline-start</code></td>
+            <td>a shorthand for the following CSS properties:
+              border-inline-start-color, border-inline-start-style, border-inline-start-width</td>
+            <td>&lt;'border-width'&gt;, &lt;'border-style'&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-left</code></td>
+            <td>sets all the properties of an element's left border.</td>
+            <td>&lt;br-width&gt;, &lt;br-style&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-radius</code></td>
+            <td>
+              border-radius rounds the corners of an element's outer border edge, including the background.
+              It consists of border-top-left-radius, border-top-right-radius, border-bottom-right-radius, and border-bottom-left-radius.
+              The property affects the background as well, and it doesn't apply to table elements when border-collapse is set to collapse.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-right</code></td>
+            <td>sets all the properties of an element's right border:
+              border-right-color, border-right-style, border-right-width</td>
+            <td>&lt;br-width&gt;, &lt;br-style&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-spacing</code></td>
+            <td>sets the distance between the borders of adjacent cells in a &lt;table&gt;.
+              This property applies only when border-collapse is separate.</td>
+            <td>&lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-style</code></td>
+            <td>sets the line style for all four sides of an element's border.</td>
+            <td>none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-top</code></td>
+            <td>sets all the properties of an element's top border: 
+              border-top-color, border-top-style, border-top-width</td>
+            <td>&lt;br-width&gt;, &lt;br-style&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">border-width</code></td>
+            <td>sets the width of an element's border.</td>
+            <td>&lt;line-width&gt;, thin, medium, thick, &lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">bottom</code></td>
+            <td>participates in setting the vertical position of a positioned element.
+              This inset property has no effect on non-positioned elements.</td>
+            <td>auto, &lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">box-shadow</code></td>
+            <td>adds shadow effects around an element's frame. You can set multiple effects separated by commas.
+              A box shadow is described by X and Y offsets relative to the element, blur and spread radius, and color.</td>
+            <td>&lt;color&gt;, &lt;length&gt;, inset, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">box-sizing</code></td>
+            <td>sets how the total width and height of an element is calculated.</td>
+            <td>content-box, border-box, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">break-after</code></td>
+            <td> sets how page, column, or region breaks should behave after a generated box.
+              If there is no generated box, the property is ignored.</td>
+            <td>auto, avoid, always, all, avoid-page, page, left, right, recto, verso,
+              avoid column, column, avoid-region, region, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">break-before</code></td>
+            <td>sets how page, column, or region breaks should behave before a generated box.
+              If there is no generated box, the property is ignored.</td>
+            <td>auto, avoid, always, all, avoid-page, page, left, right, recto, verso,
+              avoid column, column, avoid-region, region, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">break-inside</code></td>
+            <td>sets how page, column, or region breaks should behave inside a generated box.
+              If there is no generated box, the property is ignored.</td>
+            <td>auto, avoid, always, all, avoid-page, page, left, right, recto, verso,
+              avoid column, column, avoid-region, region, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">caption-side</code></td>
+            <td>puts the content of a table's &lt;caption&gt; on the specified side.
+              The values are relative to the writing-mode of the table.</td>
+            <td>top, bottom, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">caret-color</code></td>
+            <td>sets the color of the insertion caret, the visible marker where the next character typed will be inserted.
+              This is sometimes referred to as the text input cursor.</td>
+            <td>auto, transparent, currentcolor, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">clear</code></td>
+            <td>sets whether an element must be moved below (cleared) floating elements that precede it.
+              The clear property applies to floating and non-floating elements.</td>
+            <td>none, left, right, both, inline-start, inline-end, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">clip-path</code></td>
+            <td>creates a clipping region that sets what part of an element should be shown.
+              Parts that are inside the region are shown, while those outside are hidden.</td>
+            <td>none, &lt;clip-source&gt;, &lt;geometry-box&gt;, &lt;basic-shape&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">clip-rule</code></td>
+            <td>defines how to determine which pixels in a mask's box are inside the clipping shape defined by a clip path,
+              and which are outside, when parts of the path overlap other parts.</td>
+            <td>nonzero, evenodd, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">color</code></td>
+            <td>sets the foreground color of an element's text and text decorations,
+              and also sets the currentcolor value, which is used by other properties like border-color.</td>
+            <td>currentcolor, &lt;named-color&gt;,  &lt;hex-color&gt;,  &lt;rgb()&gt;,
+              &lt;rgba()&gt;, &lt;hsl()&gt;,  &lt;hwb()&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">color-scheme</code></td>
+            <td>allows an element to indicate which color schemes it can comfortably be rendered in,
+              affecting canvas colors, scrollbar colors, form controls, and other browser-provided UI elements.</td>
+            <td>normal, light, dark, only, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">column-fill</code></td>
+            <td>controls how an element's contents are balanced when broken into columns.</td>
+            <td>auto, balanced, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">column-rule</code></td>
+            <td>sets the width, style, and color of the line drawn between columns in a multi-column layout.</td>
+            <td>&lt;'column-rule-width'&gt;, &lt;'column-rule-style'&gt;, &lt;'column-rule-color'&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">column-span</code></td>
+            <td>makes it possible for an element to span across all columns when its value is set to all.</td>
+            <td>none, all, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">columns</code></td>
+            <td>sets the number of columns and their widths when displaying an element's contents. Shorthand for column-count and column-width.</td>
+            <td>auto, &lt;integer&gt;, &lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">contain</code></td>
+            <td>indicates that an element and its contents are, as much as possible,
+              independent from the rest of the document tree.</td>
+            <td>none, strict, content, size, inline-size, layout, style, paint, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">container</code></td>
+            <td>establishes an element as a query container and specifies the
+              name and type of the containment context used in container queries.
+              Shorthand for container-name and container-type.
+            </td>
+            <td>&lt;container-name&gt;, &lt;container-type&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">content</code></td>
+            <td>replaces content with a generated value, defining what is rendered inside an element or pseudo-element.</td>
+            <td>normal, none, &lt;content-replacement&gt;, &lt;content-list&gt;
+              &lt;string&gt;, &lt;image&gt;, &lt;counter&gt;, &lt;quote&gt;,
+              &lt;target&gt;, &lt;leader()&gt;, attr(x), global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">content-visibility</code></td>
+            <td>controls whether an element is rendered and its contents are displayed.
+              It forces strict containment, helping reduce unnecessary layout
+              and rendering work until the element becomes visible or necessary.</td>
+            <td>visible, hidden, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">counter-increment</code></td>
+            <td>creates and initializes named CSS counters,
+              allowing them to count up or down from a specified value.</td>
+            <td>&lt;custom-ident&gt;, &lt;integer&gt;, none, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">counter-reset</code></td>
+            <td>creates named CSS counters and initializes them to a specific value.
+              It supports creating counters that count up from one to the number of elements,
+              as well as those that count down from the number of elements to one.</td>
+            <td>&lt;custom-ident&gt;, &lt;integer&gt;, none, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">counter-set</code></td>
+            <td>sets CSS counters on the element to the given values.</td>
+            <td>&lt;custom-ident&gt;, &lt;integer&gt;, none, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">cursor</code></td>
+            <td>sets the mouse cursor, if any, to show when the mouse pointer is over an element.</td>
+            <td>auto, default, none, context-menu, help, pointer, progress, wait, cell,
+              crosshair, text, vertical-text, alias, copy, move, no-drop, not-allowed,
+              grab, grabbing, all-scroll, col-resize, row-resize, n-resize, e-resize,
+              s-resize, w-resize, ne-resize, nw-resize, se-resize, sw-resize, ew-resize,
+              ns-resize, nesw-resize, nwse-resize, zoom-in, zoom-out,
+              &lt;url&gt;, &lt;x&gt;, &lt;y&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">cx</code></td>
+            <td>defines the x-axis center point of an SVG &lt;circle&gt; or &lt;ellipse&gt; element.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">cy</code></td>
+            <td>defines the y-axis center point of an SVG &lt;circle&gt; or &lt;ellipse&gt; element.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">display</code></td>
+            <td>defines whether an element is treated as a block or inline box
+              and sets the layout structure for its children
+              (e.g., flow layout, grid, or flex).
+              It determines both the element's display type
+              and how its children are laid out.
+            </td>
+            <td>block, inline, flow, flow-root, table, flex, grid, ruby, list-item,
+              table-row-group, table-header-group, table-footer-group, table-row, table-cell,
+              table-column-group, table-column, table-caption, ruby-base, ruby-text,
+              ruby-base-container, ruby-text-container, contents, none, inline-block, inline-table,
+              inline-flex, inline-grid, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">dominant-baseline</code></td>
+            <td>specifies the specific baseline used to align a box's text and inline-level content,
+              as well as the default alignment baseline of boxes in the alignment context.</td>
+            <td>auto, alphabetic, central, hanging, ideogrpahic, mathematical, middle,
+              text-bottom, text-top, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">empty-cells</code></td>
+            <td>sets whether borders and backgrounds appear around &lt;table&gt; cells that have no visible content.</td>
+            <td>show, hide, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">fill</code></td>
+            <td>defines how SVG text content and the interior canvas of SVG shapes are filled or painted.</td>
+            <td>none, context-fill, context-stroke, &lt;color&gt;, &lt;url&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">fill-opacity</code></td>
+            <td>defines the opacity of the paint applied to SVG shapes or text content elements,
+              affecting only the fill and not the stroke.
+            </td>
+            <td>&lt;number&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">fill-rule</code></td>
+            <td>defines the rule used to determine which parts of the SVG shape's canvas are included inside a shape to be filled.</td>
+            <td>evenodd, nonzero, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">filter</code></td>
+            <td>applies graphical effects like blur or color shift to an element.
+              Filters are commonly used to adjust the rendering of images, backgrounds, and borders.</td>
+            <td>blur(), brightness(), contrast(), drop-shadow(), grayscale(), hue-rotate(), invert(),
+              opacity(), saturate(), sepia(), url(), none, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">flex</code></td>
+            <td>sets how a flex item will grow or shrink to fit the space available in its flex container,
+              includes flex-grow, flex-shrink, flex-basis.</td>
+            <td>none, &lt;number&gt;, &lt;'width'&gt;, auto, context, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">flex-flow</code></td>
+            <td>specifies the direction of a flex container, as well as its wrapping behavior,
+              includes flex-wrap, flex-direction.</td>
+            <td>row, row-reverse, column, column-reverse, nowrap, wrap, wrap-reverse, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">float</code></td>
+            <td>places an element on the left or right side of its container,
+              allowing text and inline elements to wrap around it.
+              The element is removed from the normal document flow but remains a part of the layout.</td>
+            <td>none, left, right, inline-start, inline-end, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">font</code></td>
+            <td>sets all the different properties of an element's font. Alternatively, it sets an element's font to a system font.</td>
+            <td>font-family, font-size, font-stretch, font-style, font-variant, font-weight, line-height</td>
+          </tr>
+          <tr>
+            <td><code class="element">font-kerning</code></td>
+            <td>sets the use of the kerning information stored in a font. Kerning defines how letters are spaced.</td>
+            <td>auto, normal, none, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">font-optical-sizing</code></td>
+            <td>sets whether text rendering is optimized for viewing at different sizes.</td>
+            <td>none, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">font-palette</code></td>
+            <td>allows specifying one of the many palettes contained in a color font
+              that a user agent may use for the font. Users can also
+              override the values in a palette or create a new palette
+              by using the @font-palette-values at-rule.</td>
+            <td>normal, light, dark, &lt;palette-identifier&gt;, palette-mix()</td>
+          </tr>
+          <tr>
+            <td><code class="element">font-synthesis</code></td>
+            <td>lets you control whether the browser synthesizes missing font styles
+              (bold, italic, small-caps, subscript, superscript).
+              It is a shorthand for font-synthesis-weight, font-synthesis-style,
+              font-synthesis-small-caps, and font-synthesis-position.
+            </td>
+            <td>none, weight, style, position, small-caps, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">font-variant</code></td>
+            <td>allows you to set all the font variants for a font.
+              shorthand for font-variant-alternates, font-variant-caps,
+              font-variant-east-asian, font-variant-emoji,
+              font-variant-ligatures, font-variant-numeric, font-variant-position
+            </td>
+            <td>normal, none, small-caps, common-ligatures, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">gap</code></td>
+            <td>sets the gaps (also called gutters) between rows and columns.
+              This property applies to multi-column, flex, and grid containers.
+              shorthand for column-gap, row-gap.</td>
+            <td>normal, &lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">grid</code></td>
+            <td>that sets all of the explicit and implicit grid properties in a single declaration.</td>
+            <td>none, grid-auto-columns, grid-auto-flow, grid-auto-rows, grid-template-areas,
+              grid-template-columns, grid-template-rows, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">grid-area</code></td>
+            <td>specifies a grid item's size and location within a grid,
+              contributing lines or spans to its grid placement.
+              It is a shorthand for grid-row-start, grid-column-start, grid-row-end, and grid-column-end.
+            </td>
+            <td>auto, span, &lt;integer&gt;, &lt;custom-ident&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">grid-auto-flow</code></td>
+            <td>controls how the auto-placement algorithm works,
+              specifying exactly how auto-placed items get flowed into the grid.</td>
+            <td>row, column, dense, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">grid-columns</code></td>
+            <td>specifies a grid item's size and location within a grid column,
+              contributing lines or spans to its grid placement.
+              It is a shorthand for grid-column-start and grid-column-end.</td>
+            <td>auto, span, &lt;integer&gt;, &lt;custom-ident&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">grid-rows</code></td>
+            <td>specifies a grid item's size and location within a grid row,
+              contributing lines or spans to its grid placement.
+              It is a shorthand for grid-row-start and grid-row-end.</td>
+            <td>auto, span, &lt;integer&gt;, &lt;custom-ident&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">hyphenate-character</code></td>
+            <td>sets the character (or string) used at the end of a line before a hyphenation break.</td>
+            <td>&lt;string&gt;, auto</td>
+          </tr>
+          <tr>
+            <td><code class="element">hyphens</code></td>
+            <td>controls how words are hyphenated when text wraps.
+              It can disable hyphenation, allow manual breaks,
+              or let the browser insert hyphens automatically.</td>
+            <td>none, manual, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">image-orientation</code></td>
+            <td>specifies a layout-independent correction to the orientation of an image.</td>
+            <td>none, from-image, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">image-rendering</code></td>
+            <td>sets an image scaling algorithm. The property applies to an element itself,
+              to any images set in its other properties, and to its descendants.</td>
+            <td>auto, smooth, high-quality, crisp-edges, pixelated, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">image-resolution</code></td>
+            <td>specifies the intrinsic resolution of all raster images used in or on the element.</td>
+            <td>&lt;resolution&gt;, from-image, snap, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">inline-size</code></td>
+            <td>defines the horizontal or vertical size of an element's block, depending on its writing mode.
+              It corresponds to either the width or the height property, depending on the value of writing-mode.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, max-content, min-content,
+              fit-content, fit-content(), auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">inset</code></td>
+            <td>is a shorthand for top, right, bottom, and left, using the same multi-value syntax as the margin shorthand.
+              It applies only to positioned elements.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">inset-block</code></td>
+            <td>sets the logical block start and end offsets of an element,
+              adapting to writing-mode, direction, and text-orientation.
+              It maps to top and bottom in horizontal writing modes and affects only positioned elements.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">inset-inline</code></td>
+            <td>sets the logical start and end offsets of an element in the inline direction,
+              adapting to writing-mode, direction, and text-orientation.
+              It maps to left and right in horizontal writing modes and affects only positioned elements.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">isolation</code></td>
+            <td>determines whether an element must create a new stacking context.</td>
+            <td>auto, isolate, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">justify-content</code></td>
+            <td>defines how the browser distributes space between and around content
+              items along the main axis of a flex container and the inline axis of grid
+              and multicol containers.</td>
+            <td>center, start, end, flex-start, flex-end, left, right,
+              normal, space-between, space-around, space-evenly, stretch,
+              safe center, unsafe center, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">justify-items</code></td>
+            <td>defines the default justify-self for all items of the box,
+              giving them all a default way of justifying each box along the appropriate axis.</td>
+            <td>normal, stretch, center, start, end, flex-start, flex-end, self-start,
+              self-end, left, right, anchor-center, baseline, first baseline, last baseline,
+              safe center, unsafe center, legacy right, legacy left, legacy center, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">justify-self</code></td>
+            <td>sets the way a box is justified inside its alignment container along the appropriate axis.</td>
+            <td>auto, normal, stretch, center, start, end, flex-start, flex-end, self-start, self-end,
+              left, right, anchor-center, baseline first baseline, last baseline, safe center, unsafe center,
+              global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">left</code></td>
+            <td>specifies the horizontal position of a positioned element.
+              This inset property has no effect on non-positioned elements.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">letter-spacing</code></td>
+            <td>sets the horizontal spacing behavior between text characters.
+              This value is added to the natural spacing between characters while rendering the text.
+            </td>
+            <td>normal, &lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">lighting-color</code></td>
+            <td>defines the color of the light source for the &lt;feDiffuseLighting&gt; 
+              and &lt;feSpecularLighting&gt; SVG lighting filter primitives within an SVG &lt;filter&gt;.</td>
+            <td>&lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">line-break</code></td>
+            <td>sets how to break lines of Chinese, Japanese, or Korean (CJK) text 
+              when working with punctuation and symbols.</td>
+            <td>auto, loose, normal, strict, anywhere, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">line-height</code></td>
+            <td>sets the height of a line box in horizontal writing modes.
+              In vertical writing modes, it sets the width of a line box.
+              It's commonly used to set the distance between lines of text.</td>
+            <td>normal, unitless values, &lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">list-style</code></td>
+            <td>set all the list style properties at once.
+              list-style-image, list-style-position, list-style-type.
+            </td>
+            <td>square, url(), inside, outside, none, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">margin</code></td>
+            <td>sets the margin area on all four sides of an element.
+              margin-top, margin-right, margin-bottom, margin-left.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">margin-block</code></td>
+            <td>defines the logical block start and end margins of an element,
+              which maps to physical margins depending on the element's writing mode,
+              directionality, and text orientation.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">margin-inline</code></td>
+            <td>a shorthand property that defines both the logical inline
+              start and end margins of an element,
+              which maps to physical margins depending on the element's writing mode,
+              directionality, and text orientation.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">marker</code></td>
+            <td>specifies an SVG &lt;marker&gt; to be drawn at the first,
+              middle, and last vertices of an element's path.
+              The marker is defined with a &lt;url&gt; pointing to an SVG &lt;marker&gt; element.
+              This property overrides marker-start, marker, and marker-end attributes in the SVG.
+            </td>
+            <td>none, url(markers.svg#arrow), &lt;marker-ref&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">mask</code></td>
+            <td>hides an element (partially or fully) by
+              masking or clipping the image at specific points.
+              <p>shorthand for: mask-clip, mask-composite, mask-image,
+                mask-mode, mask-origin, mask-position, mask-repeat
+                mask-size</p></td>
+            <td>none, &lt;mask-reference&gt;, &lt;masking-mode&gt;, &lt;position&gt;,
+              &lt;bg-size&gt;, &lt;repeat-style&gt;, &lt;geometry-box&gt;, 
+              &lt;geometry-box&gt; | no-clip, &lt;compositing-operator&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">mask-type</code></td>
+            <td>sets whether an SVG &lt;mask&gt; element is used as a luminance or an alpha mask.
+              It applies to the &lt;mask&gt; element itself.</td>
+            <td>luminance, alpha, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">math-style</code></td>
+            <td>indicates whether MathML equations should render with normal or compact height.</td>
+            <td>normal, compact, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">max-block-size</code></td>
+            <td>sets the maximum size of an element in the block direction,
+              based on the writing-mode.
+              It acts as max-height for horizontal writing and max-width for vertical writing.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, none, max-content,
+              min-content, fit-content, fit-content(), global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">max-height</code></td>
+            <td>sets the maximum height of an element. enforces height <= max-height</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, none, max-content,
+              min-content, fit-content, fit-content(), global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">max-inline-size</code></td>
+            <td>defines the horizontal or vertical maximum size of an element's block,
+              depending on its writing mode</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, none, max-content,
+              min-content, fit-content, fit-content(), global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">max-width</code></td>
+            <td>sets the maximum width of an element. enforces width <= max-width</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, none, max-content,
+              min-content, fit-content, fit-content(), global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">min-block-size</code></td>
+            <td>defines the minimum horizontal or vertical size of an element's block,
+              depending on its writing mode.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, none, max-content,
+              min-content, fit-content, fit-content(), global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">min-height</code></td>
+            <td>sets the minimum height of an element. enforces height >= min-height</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, none, max-content,
+              min-content, fit-content, fit-content(), global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">min-inline-size</code></td>
+            <td>defines the horizontal or vertical minimal size of an element's block, depending on its writing mode.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, none, max-content,
+              min-content, fit-content, fit-content(), global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">min-width</code></td>
+            <td>sets the minimum width of an element. enforces width >= min-width</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, none, max-content,
+              min-content, fit-content, fit-content(), global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">mix-blend-mode</code></td>
+            <td>sets how an element's content should blend with the content
+              of the element's parent and the element's background.</td>
+            <td>normal, multiply, screen, overlay, darken, lighten, color-dodge,
+              color-burn, hard-light, soft-light, difference, exclusion, hue,
+              saturation, color, luminosity, plus-darker, plus-lighter, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">object-fit</code></td>
+            <td>sets how the content of a replaced element,
+              such as an &lt;img&gt; or &lt;video&gt;,
+              should be resized to fit its container.</td>
+            <td>contain, cover, fill, none, scale-down, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">object-position</code></td>
+            <td>specifies the alignment of the selected replaced 
+              element's contents within the element's box.
+              Areas of the box which aren't covered by the replaced
+              element's object will show the element's background.</td>
+            <td>top, bottom, left, right, center, &lt;length&gt;, 
+              &lt;percentage&gt;, &lt;position&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">offset</code></td>
+            <td>shorthand that sets all properties needed to animate an element along a defined path:
+              <ul>
+                <li>offset-anchor aligns a point on the element to the path.</li>
+                <li>offset-position specifies the starting position.</li>
+                <li>offset-path defines the path.</li>
+                <li>offset-distance positions the element along the path.</li>
+                <li>offset-rotate controls rotation along the path.</li>
+              </ul>
+            </td>
+            <td>normal, auto, reverse, &lt;length&gt;, &lt;percentage&gt;,
+              &lt;position&gt;, left, center, right, top, &lt;length-percentage&gt;
+              bottomray(), path(), url(), src(), global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">opacity</code></td>
+            <td>sets the opacity of an element.</td>
+            <td>&lt;alpha-value&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">order</code></td>
+            <td>sets the order to lay out an item in a flex or grid container.</td>
+            <td>&lt;integer&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">orphan</code></td>
+            <td>sets the minimum number of lines in a block container that
+              must be shown at the bottom of a page, region, or column.</td>
+            <td>&lt;integer&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">outline</code></td>
+            <td>sets most of the outline properties in a single declaration.
+              <p>shorthand for: outline-width, outline-style, outline-color</p>
+            </td>
+            <td>width, style, color, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">outline-offset</code></td>
+            <td>sets the amount of space between an outline
+              and the edge or border of an element.</td>
+            <td>&lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">overflow</code></td>
+            <td>sets the desired behavior when content does not fit in the element's
+              padding box (overflows) in the horizontal and/or vertical direction.
+              <p>shorthand for: overflow-x, overflow-y</p></td>
+            <td>visible, hidden, clip, scroll, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">overscroll-behavior</code></td>
+            <td>sets what a browser does when reaching the boundary of a scrolling area.
+              <p>shorthand for: overscroll-behavior-x, overscroll-behavior-y</p>
+            </td>
+            <td>auto, contain, none, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">overscroll-behavior-block</code></td>
+            <td>sets the browser's behavior when the block direction boundary of a scrolling area is reached.</td>
+            <td>auto, contain, none, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">overscroll-behavior-inline</code></td>
+            <td>sets the browser's behavior when the inline direction boundary of a scrolling area is reached.</td>
+            <td>auto, contain, none, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">padding</code></td>
+            <td>sets the padding area on all four sides of an element at once.
+              <p>shorthand for padding-top, padding-right, padding-bottom, padding-left</p>
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">padding-block</code></td>
+            <td>defines the logical block start and end padding of an element,
+              which maps to physical padding properties depending on the element's
+              writing mode, directionality, and text orientation.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">padding-inline</code></td>
+            <td>defines the logical inline start and end padding of an element,
+              which maps to physical padding properties depending on the element's
+              writing mode, directionality, and text orientation.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">perspective</code></td>
+            <td>determines the distance between the z=0 plane and the user
+              in order to give a 3D-positioned element some perspective.</td>
+            <td>none, &lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">perspective-origin</code></td>
+            <td>determines the position at which the viewer is looking.
+              It is used as the vanishing point by the perspective property.</td>
+            <td><p>x-position: &lt;length-percentage&gt;, left, center, right</p>
+              <p>y-position: &lt;length-percentage&gt;, top, center, bottom</p>
+              global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">place-content</code></td>
+            <td>allows you to align content along both the block and inline directions at once
+              (i.e. the align-content and justify-content properties)
+              in a relevant layout system such as Grid or Flexbox.</td>
+            <td>start, end, flex-start, flex-end, center, left, right, baseline, 
+              first baseline, last baseline, space-evenly, space-between,
+              space-around, stretch, safe, unsafe, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">place-items</code></td>
+            <td>aligns items along both the block and inline directions at once.
+              It sets the values of the align-items and justify-items properties.
+              If the second value is not set, the first value is also used for it.</td>
+              <td>start, end, flex-start, flex-end, center, left, right, 
+                baseline, first baseline, last baseline, space-evenly,
+                space-between, space-around, stretch, safe, unsafe,
+                legacy, normal, self-start, self-end, anchor-center, global values
+              </td>
+          </tr>
+          <tr>
+            <td><code class="element">place-self</code></td>
+            <td>aligns an individual item in both block and inline directions
+              (combining align-self and justify-self).
+              It applies to block-level boxes, absolutely positioned boxes, and grid items.
+              If a second value is omitted, the first value is used for both.</td>
+            <td>start, end, flex-start, flex-end, center, left, right, 
+              baseline, first baseline, last baseline, space-evenly,
+              space-between, space-around, stretch, safe, unsafe,
+              auto, normal, self-start, self-end, anchor-center, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">pointer-events</code></td>
+            <td>sets under what circumstances (if any) a particular graphic element can become the target of pointer events.</td>
+            <td>auto, none, global values
+              <p>SVG only: visiblePainted, visibleFill, visibleStroke, visible, painted,
+                fill, stroke, bounding-box, all
+              </p></td>
+          </tr>
+          <tr>
+            <td><code class="element">position</code></td>
+            <td>sets how an element is positioned in a document.
+              The top, right, bottom, and left properties determine the final location of positioned elements.</td>
+            <td>static, relative, absolute, fixed, sticky, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">quote</code></td>
+            <td>defines how browsers render quotation marks 
+              for the &lt;q&gt; element or when using open-quotes, close-quotes, no-open-quote,
+              and no-close-quote values in the content property.
+            </td>
+            <td>none, auto, &lt;string&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">r</code></td>
+            <td>defines the radius of a circle.
+              It can only be used with the SVG &lt;circle&gt; element.
+              If present, it overrides the circle's r attribute.</td>
             <td></td>
+          </tr>
+          <tr>
+            <td><code class="element">resize</code></td>
+            <td>sets whether an element is resizable, and if so, in which directions.</td>
+            <td>none, both, horizontal, vertical, block, inline, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">right</code></td>
+            <td>participates in specifying the horizontal position of a positioned element.
+              This inset property has no effect on non-positioned elements.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">rotate</code></td>
+            <td>allows you to specify rotation transforms individually and independently of the transform property.</td>
+            <td>none, &lt;angle&gt;, x, y, z, vector &lt;number&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">ruby-align</code></td>
+            <td>defines the distribution of the different ruby elements over the base.</td>
+            <td>start, center, space-between, space-around, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">ruby-position</code></td>
+            <td>defines the position of a ruby element relative to its base element.
+              It can be positioned over the element (over), under it (under),
+              or between the characters on their right side (inter-character).</td>
+            <td>over, under, alternate, inter-character, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">rx</code></td>
+            <td>defines the x-axis, or horizontal, radius of an SVG &lt;ellipse&gt;
+              and the horizontal curve of the corners of an SVG &lt;rect&gt; rectangle.
+              If present, it overrides the shape's rx attribute.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">ry</code></td>
+            <td>defines the y-axis, or vertical, radius of an SVG &lt;ellipse&gt;
+              and the vertical curve of the corners of an SVG &Lt;rect&gt; rectangle.
+              If present, it overrides the shape's ry attribute.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scale</code></td>
+            <td>allows you to specify scale transforms individually and independently of the transform property.</td>
+            <td>none, &lt;number&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scroll-behavior</code></td>
+            <td>sets the behavior for a scrolling box when scrolling is triggered by the navigation or CSSOM scrolling APIs.</td>
+            <td>auto, smooth, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scroll-margin</code></td>
+            <td>sets all of the scroll margins of an element at once, assigning values much like the margin property does for margins of an element.</td>
+            <td>&lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scroll-margin-block</code></td>
+            <td>sets the scroll margins of an element in the block dimension.</td>
+            <td>&lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scroll-margin-inline</code></td>
+            <td>sets the scroll margins of an element in the inline dimension.</td>
+            <td>&lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scroll-padding</code></td>
+            <td>sets scroll padding on all sides of an element at once, much like the padding property does for padding on an element.</td>
+            <td>auto, &lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scroll-padding-block</code></td>
+            <td>sets the scroll padding of an element in the block dimension.</td>
+            <td>auto, &lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scroll-padding-inline</code></td>
+            <td>sets the scroll padding of an element in the inline dimension.</td>
+            <td>auto, &lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scroll-snap-align</code></td>
+            <td>specifies the box's snap position as an alignment of its snap area (as the alignment subject)
+              within its snap container's snap port (as the alignment container).</td>
+            <td>none, center, start, end, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scroll-snap-type</code></td>
+            <td>set on a scroll container, opting it into scroll snapping by setting
+              the direction and strictness of snap point enforcement within the snap port.</td>
+            <td>none, x, y, block, inline, both, mandatory, proximity, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scrollbar-color</code></td>
+            <td>sets the color of the scrollbar track and thumb.
+              The track refers to the background of the scrollbar, which is generally fixed regardless of the scrolling position.
+              The thumb refers to the moving part of the scrollbar, which usually floats on top of the track.
+            </td>
+            <td>auto, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scrollbar-gutter</code></td>
+            <td>reserves space for scrollbars, preventing layout changes as content grows while avoiding unnecessary visual clutter.
+              Browsers choose between classic (gutter) and overlay scrollbars, which appear over the content.
+            </td>
+            <td>auto, stable, both-edges, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">scrollbar-width</code></td>
+            <td>allows the author to set the desired thickness of an element's scrollbars when they are shown.</td>
+            <td>auto, thin, none, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">shape-image-threshold</code></td>
+            <td>sets the alpha channel threshold used to extract the shape using an image as the value for shape-outside.</td>
+            <td>&lt;number&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">shape-margin</code></td>
+            <td>sets a margin for a CSS shape created using shape-outside.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">shape-outside</code></td>
+            <td>defines a shape—which may be non-rectangular—around which adjacent inline content should wrap.
+              By default, inline content wraps around its margin box; shape-outside provides a way to customize
+              this wrapping, making it possible to wrap text around complex objects rather than rectangular boxes.</td>
+            <td>none, margin-box, content-box, border-box, padding-box, circle(), ellipse(), inset(), polygon()
+              url(), linear-gradient(),&lt;shape-box&gt;, &lt;basic-shape&gt;, &lt;image&gt;, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">shape-rendering</code></td>
+            <td>provides hints to the renderer about tradeoffs
+              when rendering shapes like &lt;circle&gt;, &lt;ellipse&gt;, &lt;line&gt;, &lt;path&gt;, &lt;polygon&gt;,
+              &lt;polyline&gt;, and &lt;rect&gt;.
+              The browser uses these hints to balance factors like anti-aliasing,
+              subpixel positioning, and optimization techniques to determine how to render these shapes efficiently.
+              It applies only to these elements and overrides the shape-rendering attribute if declared.
+            </td>
+            <td>&lt;number&gt;, &lt;percentage&gt;, auto, crispEdges, geometricPrecision, optimizeSpeed</td>
+          </tr>
+          <tr>
+            <td><code class="element">tab-size</code></td>
+            <td>used to customize the width of tab characters (U+0009).</td>
+            <td>&lt;number&gt;, &lt;length&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">table-layout</code></td>
+            <td>sets the algorithm used to lay out &lt;table&gt; cells, rows, and columns.</td>
+            <td>auto, fixed, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">text-align</code></td>
+            <td>sets the horizontal alignment of the inline-level content inside a block element or table-cell box.
+              This means it works like vertical-align but in the horizontal direction.</td>
+            <td>start, end, left, right, center, justify, match-parent,
+              -moz-center, -webkit-center, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">text-anchor</code></td>
+            <td>aligns a box containing a string of text where the wrapping area is determined from the inline-size property,
+              and the text is then placed relative to the anchor point of the element,
+              which is defined using the x and y (or dx and dy) attributes.</td>
+            <td>start, middle, end, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">text-decoration</code></td>
+            <td>sets the appearance of decorative lines on text.
+              It is a shorthand for text-decoration-line, text-decoration-color,
+              text-decoration-style, and the newer text-decoration-thickness property.
+            </td>
+            <td>underline, line-through, overline, blink, none, &lt;color&gt;,
+              solid, double, dotted, wavy, dashed, &lt;length&gt;
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">text-emphasis</code></td>
+            <td>applies emphasis marks to text (except spaces and control characters).
+              It is a shorthand for text-emphasis-style and text-emphasis-color.</td>
+            <td>none, filled, open, dot, circle, double-circle,
+              triangle, sesame, &lt;string&gt;, &lt;color&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">text-indent</code></td>
+            <td>sets the length of empty space (indentation) that is put before lines of text in a block.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, each-line, hanging</td>
+          </tr>
+          <tr>
+            <td><code class="element">text-orientation</code></td>
+            <td>sets the orientation of the text characters in a line.
+              It only affects text in vertical mode (when writing-mode is not horizontal-tb).
+              It is useful for controlling the display of languages that use vertical script,
+              and also for making vertical table headers.</td>
+            <td>mixed, upright, sideways-right, sideways, use-glyph-orientation, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">text-overflow</code></td>
+            <td>sets how hidden overflow content is signaled to users.
+              It can be clipped, display an ellipsis (…), or display a custom string.</td>
+            <td>clip, ellipsis, &lt;string&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">text-rendering</code></td>
+            <td>provides information to the rendering engine about what to optimize for when rendering text.
+              The browser makes trade-offs among speed, legibility, and geometric precision.</td>
+            <td>auto, optimizeSpeed, optimizeLegibility, geometricPrecision, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">text-shadow</code></td>
+            <td>adds shadows to text. It accepts a comma-separated list of shadows to be applied to the text and any of its decorations.
+              Each shadow is described by some combination of X and Y offsets from the element, blur radius, and color.</td>
+            <td>&lt;color&gt;, &lt;offset-x&gt;, &lt;offset-y&gt;, &lt;blur-radius&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">text-transform</code></td>
+            <td>specifies how to capitalize an element's text. It can be used to make text appear in all-uppercase or all-lowercase,
+              or with each word capitalized. It also can help improve legibility for ruby.</td>
+            <td>none, capitalize, uppercase, lowercase, full-width, full-size-kana, math-auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">text-wrap</code></td>
+            <td>controls how text inside an element is wrapped. The different values provide:
+              <p>Typographic improvements, for example more balanced line lengths across broken headings</p>
+              <p>A way to turn text wrapping off completely.</p>
+            </td>
+            <td>wrap, nowrap, balance, pretty, stable, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">top</code></td>
+            <td>sets the vertical position of a positioned element.
+              This inset property has no effect on non-positioned elements.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, auto, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">touch-action</code></td>
+            <td>sets how an element's region can be manipulated by a touchscreen user
+              (for example, by zooming features built into the browser),
+              panning (scrolling), pinching.</td>
+            <td>auto, none, pan-x, pan-left, pan-right, pan-y, pan-up, pan-down,
+              pinch-zoom, manipulation, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">transform</code></td>
+            <td>lets you rotate, scale, skew, or translate an element.
+              It modifies the coordinate space of the CSS visual formatting model.</td>
+            <td>none, &lt;transform-function&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">transform-box</code></td>
+            <td>defines the layout box to which the transform, individual transform properties
+              translate, scale, and rotate, and transform-origin properties relate.</td>
+            <td>content-box, border-box, fill-box, stroke-box, view-box, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">transform-origin</code></td>
+            <td>sets the origin for an element's transformations.</td>
+            <td>center, top, left, right, bottom, &lt;length&gt;, &lt;percentage&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">transform-style</code></td>
+            <td>sets whether children of an element are positioned in the 3D space or are flattened in the plane of the element.</td>
+            <td>flat, preserve-3d, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">transition</code></td>
+            <td>shorthand property for transition-property, transition-duration, transition-timing-function, transition-delay, and transition-behavior.</td>
+            <td>property name | duration, property name | duration | delay,
+              property name | duration | easing function, 
+              property name | duration | easing function | delay,
+              property name | duration | behavior, all, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">translate</code></td>
+            <td>
+              allows you to apply translation transforms independently,
+              simplifying UI usage and avoiding the need to remember
+              transform function order in the transform property.</td>
+            <td>none, &lt;length&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">user-select</code></td>
+            <td>
+              controls whether the user can select text.
+              This doesn't have any effect on content loaded as part of
+              a browser's user interface (its chrome), except in textboxes.</td>
+            <td>none, auto, text, all, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">vector-effect</code></td>
+            <td>
+              suppresses specific transformation effects in SVG,
+              allowing features like map roads or diagram keys to maintain consistent size and position.
+              It applies only to SVG elements that accept the vector-effect attribute
+              and overrides any values set by the attribute.
+            </td>
+            <td>none, non-scaling-stroke, non-scaling-size, non-rotation, fixed-position, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">vertical-align</code></td>
+            <td>sets vertical alignment of an inline, inline-block or table-cell box.</td>
+            <td>baseline, sub, super, text-top, text-bottom, middle, top, bottom,
+              &lt;length&gt;, &lt;percentage&gt;, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">visibility</code></td>
+            <td>shows or hides an element without changing the layout of a document.
+              The property can also hide rows or columns in a &lt;table&gt;
+            </td>
+            <td>visible, hidden, collapse, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">white-space</code></td>
+            <td>sets how white space inside an element is handled.</td>
+            <td>normal, nowrap, pre, pre-wrap, pre-line, break-spaces, wrap,
+              collapse, balance, preserve, remove, hang, global values
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">white-space-collapse</code></td>
+            <td>controls how white space inside an element is collapsed.</td>
+            <td>collapse, preserve, preserve-breaks, preserve-spaces, break-spaces, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">width</code></td>
+            <td>
+              sets an element's width. By default, it sets the width of the content area,
+              but if box-sizing is set to border-box, it sets the width of the border area.</td>
+            <td>&lt;length&gt;, &lt;percentage&gt; max-content, min-content,
+              fit-content, fit-content(), auto, stretch, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">word-break</code></td>
+            <td>sets whether line breaks appear wherever the text would otherwise overflow its content box.</td>
+            <td>normal, break-all, keep-all, auto-phrase, break-word, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">word-spacing</code></td>
+            <td>sets the length of space between words and between tags.</td>
+            <td>normal, &lt;length&gt;, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">word-wrap</code></td>
+            <td>
+              applies to text, setting whether the browser should insert line breaks 
+              within an otherwise unbreakable string to prevent text from overflowing its line box.</td>
+            <td>normal, break-word, anywhere, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">writing-mode</code></td>
+            <td>
+              sets whether text is laid out horizontally or vertically, 
+              and the direction blocks progress. 
+              It's typically applied to the root element (HTML for HTML documents).
+            </td>
+            <td>horizontal-tb, vertical-rl, vertical-lr, global values</td>
+          </tr>
+          <tr>
+            <td><code class="element">x</code></td>
+            <td>
+              defines the x-axis position of SVG elements like &lt;rect&gt;,
+              &lt;image&gt;, &lt;foreignObject&gt; and nested &lt;svg&gt; viewports,
+              relative to their nearest &lt;svg&gt; ancestor's coordinate system.
+              If present, it overrides the element's x attribute.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">y</code></td>
+            <td>
+              defines the y-axis position of SVG elements like &lt;rect&gt;,
+              &lt;image&gt;, &lt;foreignObject&gt; and nested &lt;svg&gt; viewports,
+              relative to their nearest &lt;svg&gt; ancestor's coordinate system.
+              If present, it overrides the element's y attribute.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">z-index</code></td>
+            <td>sets the z-order of a positioned element and its descendants or flex and grid items.
+              Overlapping elements with a larger z-index cover those with a smaller one.</td>
+            <td>auto, &lt;integer&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">zoom</code></td>
+            <td>can be used to control the magnification level of an element.
+              transform: scale() can be used as an alternative to this property.</td>
+            <td>&lt;percentage&gt;, &lt;number&gt;, normal, reset, global values</td>
           </tr>
         </tbody>
         <tfoot class="table-foot">
           <tr style="background: none;">
-            <td colspan="2">tablefoot</td>
+            <td colspan="1"> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#index">index</a></td>
           </tr>
         </tfoot>
       </table>
-      <table>
-        <caption>
-          CSS selectors
-        </caption>
-        <thead>
-          <tr>
-            <th>Property</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code class="element"></code></td>
-            <td></td>
-          </tr>
-        </tbody>
-        <tfoot class="table-foot">
-          <tr style="background: none;">
-            <td colspan="2">tablefoot</td>
-          </tr>
-        </tfoot>
-      </table>
+    </div>
+    
+    <div class="page-wrap">
+
+      <div class="page-wrap">
+        <h2>Code Snippet</h2> 
+        <div class="center-box">
+          <div class="code-box language-css">
+            <pre>
+              <code>
+                <span class="line-number">1</span> body {
+                <span class="line-number">2</span>   font-family: Arial, sans-serif;
+                <span class="line-number">3</span>   background-color: red;
+                <span class="line-number">4</span>   margin: 0;
+                <span class="line-number">5</span>   padding: 0;
+                <span class="line-number">6</span> }
+                <span class="line-number">7</span> .center-box{
+                <span class="line-number">8</span>   display: flex;
+                <span class="line-number">9</span>   justify-content: center;
+                <span class="line-number">10</span>   align-items: center;
+                <span class="line-number">11</span> }
+              </code>
+            </pre>          
+          </div>
+        </div> 
+      </div>
+    </div>
+    
+    <div class="page-wrap">  
       <table>
         <caption>
           CSS pseudo classes
@@ -125,21 +1683,309 @@
         <thead>
           <tr>
             <th>Property</th>
-            <th>Value</th>
+            <th>Definition: a keyword added to a selector that specifies a special state of the selected element(s)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><code class="element"></code></td>
-            <td></td>
+            <td><code class="element">:active</code></td>
+            <td>represents an element (such as a button) that is being activated by the user.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:any-link</code></td>
+            <td>selector represents an element that acts as the source anchor of a hyperlink,
+              independent of whether it has been visited.
+              In other words, it matches every &lt;a&gt; or &lt;area&gt; element that has an href attribute.
+              Thus, it matches all elements that match :link or :visited.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:blank</code></td>
+            <td>selects empty user input elements (e.g.&lt;input&gt; or &lt;textarea&gt;).</td>
+          </tr>
+          <tr>
+            <td><code class="element">:checked</code></td>
+            <td>selector represents any radio (&lt;input type="radio"&gt;), checkbox (&lt;input type="checkbox"&gt;),
+              or option (&lt;option&gt; in a &lt;select&gt;) element that is checked or toggled to an on state.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:current</code></td>
+            <td>selector is a time-dimensional pseudo-class that represents an element
+              or the ancestor of an element that is currently being displayed.
+              For example, this pseudo-class can be used to represent a video
+              that is being displayed with captions by WebVTT.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:default</code></td>
+            <td>selects form elements that are the default in a group of related elements.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:defined</code></td>
+            <td>represents any element that has been defined.
+              This includes any standard element built into the browser and
+              custom elements that have been successfully defined
+              (i.e. with the CustomElementRegistry.define() method).</td>
+          </tr>
+          <tr>
+            <td><code class="element">:dir</code></td>
+            <td>matches elements based on the directionality of the text contained in them.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:disabled</code></td>
+            <td>represents any disabled element. An element is disabled if it can't be activated
+              (selected, clicked on, typed into, etc.) or accept focus.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:enabled</code></td>
+            <td>represents any enabled element. An element is enabled if it can be activated
+              (selected, clicked on, typed into, etc.) or accept focus.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:empty</code></td>
+            <td>represents any element that has no children. Children can be either element nodes or text (including whitespace).
+              Comments, processing instructions, and CSS content do not affect whether an element is considered empty.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:first</code></td>
+            <td>used with the @page at-rule, represents the first page of a printed document.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:first-child</code></td>
+            <td>represents the first element among a group of sibling elements.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:first-of-type</code></td>
+            <td>represents the first element of its type among a group of sibling elements.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:focus</code></td>
+            <td>represents an element (such as a form input) that has received focus.
+              It is generally triggered when the user clicks or taps on an element or selects it with the keyboard's Tab key.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:focus-visible</code></td>
+            <td>applies while an element matches the :focus pseudo-class and the UA (User Agent)
+              determines via heuristics that the focus should be made evident on the element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:focus-within</code></td>
+            <td>matches an element if the element or any of its descendants are focused.
+              represents an element that is itself matched by the :focus pseudo-class 
+              or has a descendant that is matched by :focus.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:fullscreen</code></td>
+            <td>matches every element that is currently in fullscreen mode.
+              If multiple elements have been put into fullscreen mode, this selects them all.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:future</code></td>
+            <td>a time-dimensional pseudo-class that will match for any element
+              which appears entirely after an element that matches :current.
+              For example in a video with captions which are being displayed by WebVTT.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:has</code></td>
+            <td>represents an element if any of the relative selectors that are passed as an argument
+              match at least one element when anchored against this element.
+              This pseudo-class presents a way of selecting a parent element or a previous sibling element
+              with respect to a reference element by taking a relative selector list as an argument.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:host()</code></td>
+            <td>function selects the shadow host of the shadow DOM containing the CSS it is used inside
+              (so you can select a custom element from inside its shadow DOM) — 
+              but only if the selector given as the function's parameter matches the shadow host. 
+              :host() has no effect when used outside a shadow DOM.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:hover</code></td>
+            <td>matches when the user interacts with an element with a pointing device,
+              but does not necessarily activate it.
+              It is generally triggered when the user hovers over an element with the cursor (mouse pointer).</td>
+          </tr>
+          <tr>
+            <td><code class="element">:in-range</code></td>
+            <td>represents an &lt;input&gt; element whose current value
+              is within the range limits specified by the min and max attributes.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:indeterminate</code></td>
+            <td>represents any form element whose state is indeterminate,
+              such as checkboxes that have been set to an indeterminate state with JavaScript,
+              radio buttons which are members of a group in which all radio buttons are unchecked,
+              and &lt;progress&gt; elements with no value attribute.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:invalid</code></td>
+            <td>represents any &lt;form&gt;, &lt;fieldset&gt;, &lt;input&gt;
+              or other &lt;form&gt; element whose contents fail to validate.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:is()</code></td>
+            <td> takes a selector list as its argument, and selects any element
+              that can be selected by one of the selectors in that list.
+              This is useful for writing large selectors in a more compact form.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:lang</code></td>
+            <td>matches elements based on the language they are determined to be in.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:last-child</code></td>
+            <td>represents the last element among a group of sibling elements.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:last-of-type</code></td>
+            <td>represents the last element of its type among a group of sibling elements.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:left</code></td>
+            <td>used with the @page at-rule, represents all left-hand pages of a printed document.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:link</code></td>
+            <td>represents an element that has not yet been visited.
+              It matches every unvisited &lt;a&gt; or &lt;area&gt; element that has an href attribute.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:not</code></td>
+            <td>represents elements that do not match a list of selectors.
+              Since it prevents specific items from being selected,
+              it is known as the negation pseudo-class.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:nth-child()</code></td>
+            <td>matches elements based on the indexes of the elements
+              in the child list of their parents. In other words,
+              the :nth-child() selector selects child elements according
+              to their position among all the sibling elements within a parent element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:nth-last-child</code></td>
+            <td>matches elements based on their position among a group of siblings,
+              counting from the end.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:nth-last-of-type</code></td>
+            <td>matches elements based on their position among siblings
+              of the same type (tag name), counting from the end.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:nth-of-type</code></td>
+            <td>matches elements based on their position among siblings
+              of the same type (tag name).</td>
+          </tr>
+          <tr>
+            <td><code class="element">:only-child</code></td>
+            <td>represents an element without any siblings.
+              This is the same as :first-child:last-child or
+              :nth-child(1):nth-last-child(1), but with a lower specificity.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:only-of-type</code></td>
+            <td>represents an element that has no siblings of the same type.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:optional</code></td>
+            <td>represents any &lt;input&gt;, &lt;select&gt;, or &lt;textarea&gt; element
+              that does not have the required attribute set on it.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:out-of-range</code></td>
+            <td>represents an &lt;input&gt; element whose current value is
+              outside the range limits specified by the min and max attributes.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:past</code></td>
+            <td>time-dimensional pseudo-class that will match for any element
+              which appears entirely before an element that matches :current.
+              For example in a video with captions which are being displayed by WebVTT.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:picture-in-picture</code></td>
+            <td>matches the element which is currently in picture-in-picture mode.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:placeholder-shown</code></td>
+            <td>represents any &lt;input&gt; or &lt;textarea&gt; element
+              that is currently displaying placeholder text.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:read-only</code></td>
+            <td>selects elements that are not editable by the user.
+              In fact, :read-only matches anything that :read-write doesn't match,
+              making it equivalent to :not(:read-write).
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">:read-write</code></td>
+            <td>represents an element (such as input or textarea) that is editable by the user.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:required</code></td>
+            <td>represents any &lt;input&gt;, &lt;select&gt;, or &lt;textarea&gt;
+              element that has the required attribute set on it.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:right</code></td>
+            <td>used with the @page at-rule, represents all right-hand pages of a printed document.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:root</code></td>
+            <td>matches the root element of a tree representing the document.
+              In HTML, :root represents the &lt;html&gt; element and is identical to the selector html,
+              except that its specificity is higher.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:scope</code></td>
+            <td>represents elements that are a reference point, or scope, for selectors to match against.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:target</code></td>
+            <td>represents a unique element (the target element) with an id matching the URL's fragment.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:user-invalid</code></td>
+            <td>represents any validated form element whose value isn't valid
+              based on their validation constraints, after the user has interacted with it.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:user-valid</code></td>
+            <td>represents any validated form element whose value validates correctly
+              based on its validation constraints.
+              However, unlike :valid it only matches once the user has interacted with it.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:valid</code></td>
+            <td>represents any &lt;input&gt; or other &lt;form&gt; element whose contents validate successfully.
+              This allows to easily make valid fields adopt an appearance
+              that helps the user confirm that their data is formatted properly.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:visited</code></td>
+            <td>applies once the link has been visited by the user.
+              For privacy reasons, the styles that can be modified using this selector are very limited.
+              The :visited pseudo-class applies only to &lt;a&gt;
+              and &lt;area&gt; elements that have an href attribute.</td>
+          </tr>
+          <tr>
+            <td><code class="element">:where</code></td>
+            <td>takes a selector list as its argument, and selects
+              any element that can be selected by one of the selectors in that list.
+              The difference between :where() and :is() is that :where() always has 0 specificity,
+              whereas :is() takes on the specificity of the most specific selector in its arguments.</td>
           </tr>
         </tbody>
         <tfoot class="table-foot">
           <tr style="background: none;">
-            <td colspan="2">tablefoot</td>
+            <td colspan="1"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#index">index</a></td>
+            <td colspan="1"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">Pseudo-classes</a></td>
           </tr>
         </tfoot>
       </table>
+    </div>
+    
+    <div class="page-wrap">
       <table>
         <caption>
           CSS pseudo-elements
@@ -147,62 +1993,1141 @@
         <thead>
           <tr>
             <th>Property</th>
-            <th>Value</th>
+            <th>Definition: a keyword added to a selector that lets you style a specific part of the selected element(s).</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><code class="element"></code></td>
-            <td></td>
+            <td><code class="element">::after (:after)</code></td>
+            <td>creates a pseudo-element that is the last child of the selected element.
+              It is often used to add cosmetic content to an element with the content property.
+              It is inline by default.</td>
+          </tr>
+          <tr>
+            <td><code class="element">::backdrop</code></td>
+            <td>a box the size of the viewport, which is rendered
+              immediately beneath any element being presented in the top layer.
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">::before (:before)</code></td>
+            <td>creates a pseudo-element that is the first child of the selected element. It is inline by default.</td>
+          </tr>
+          <tr>
+            <td><code class="element">::cue</code></td>
+            <td>matches WebVTT cues within a selected element.
+              This can be used to style captions and other cues in media with VTT tracks.</td>
+          </tr>
+          <tr>
+            <td><code class="element">::first-letter(:first-letter)</code></td>
+            <td>applies styles to the first letter of the first line of a block container,
+              but only when not preceded by other content (such as images or inline tables).</td>
+          </tr>
+          <tr>
+            <td><code class="element">::first-line(:first-line)</code></td>
+            <td>applies styles to the first line of a block container.</td>
+          </tr>
+          <tr>
+            <td><code class="element">::grammar-error</code></td>
+            <td>represents a text segment which the user agent has flagged as grammatically incorrect.</td>
+          </tr>
+          <tr>
+            <td><code class="element">::marker</code></td>
+            <td>selects the marker box of a list item,
+              which typically contains a bullet or number.
+              It works on any element or pseudo-element set to display:
+              list-item, such as the &lt;li&gt; and &lt;summary&gt; elements.</td>
+          </tr>
+          <tr>
+            <td><code class="element">::part()</code></td>
+            <td>represents any element within a shadow tree that has a matching part attribute.</td>
+          </tr>
+          <tr>
+            <td><code class="element">::placeholder</code></td>
+            <td>represents the placeholder text in an &lt;input&gt; or &lt;textarea&gt; element.</td>
+          </tr>
+          <tr>
+            <td><code class="element">::selection</code></td>
+            <td>applies styles to the part of a document that has been
+              highlighted by the user (such as clicking and dragging the mouse across text).</td>
+          </tr>
+          <tr>
+            <td><code class="element">::slotted()</code></td>
+            <td>represents any element that has been placed into a slot
+              inside an HTML template (see Using templates and slots for more information).</td>
+          </tr>
+          <tr>
+            <td><code class="element">::spelling-error</code></td>
+            <td>represents a text segment which the user agent has flagged as incorrectly spelled.</td>
+          </tr>
+          <tr>
+            <td><code class="element">::target-text</code></td>
+            <td>represents the text that has been scrolled to if the browser supports text fragments.
+              It allows authors to choose how to highlight that section of text.</td>
           </tr>
         </tbody>
         <tfoot class="table-foot">
           <tr style="background: none;">
-            <td colspan="2">tablefoot</td>
+            <td colspan="1"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#index">index</a></td>
+            <td colspan="1"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">Pseudo-elements</a></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    
+    <div class="page-wrap">
+      <table>
+        <caption>
+          CSS Data Types
+        </caption>
+        <thead>
+          <th>Data Type</th>
+          <th>Definition</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">&lt;angle&gt;</code></td>
+            <td><p>represents an angle value expressed in degrees, gradians, radians, or turns.</p>
+              <p>Units: deg, grad, rad, turn</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;angle-percentage&gt;</code></td>
+            <td>represents a value that can be either a &lt;angle&gt; or a &lt;percentage&gt;.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;basic-shape&gt;</code></td>
+            <td>represents a shape used in the clip-path, shape-outside, and offset-path properties.
+              inset(), rect(), xywh(), circle(), ellipse(), polygon(), path(), shape()
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;box-edge&gt;</code></td>
+            <td>represents keywords like content-box and border-box, used to define how elements are positioned and rendered.
+              <p>Types of <strong>&lt;box-edge&gt;</strong> include visual-box, layout-box, paint-box, coord-box, or geometry-box.</p>
+              <p><strong>Common Keywords</strong>: content-box, padding-box, border-box, margin-box, fill-box, stroke-box, view-box.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;color&gt;</code></td>
+            <td>
+              <ul>
+                <li>currentcolor</li>
+                <li>&lt;named-color&gt;</li>
+                <li>&lt;hex-color&gt;</li>
+                <li>&lt;hex-color&gt;</li>
+                <li>&lt;rgb()&gt;</li>
+                <li>&lt;rgba()&gt;</li>
+                <li>&lt;hsl()&gt;</li>
+                <li>&lt;hwb()&gt;</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;custom-ident&gt;</code></td>
+            <td>denotes an arbitrary user-defined string used as an identifier.
+              It is case-sensitive, and certain values are forbidden in various contexts to prevent ambiguity.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;dimension&gt;</code></td>
+            <td>represents a &lt;number&gt; with a unit attached to it, for example 10px.
+              CSS uses dimensions to specify distances (&lt;length&gt;), durations (&lt;time&gt;),
+              frequencies (&lt;frequency&gt;), resolutions (&lt;resolution&gt;), and other quantities.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;easing-function&gt;</code></td>
+            <td>represents a mathematical function that describes the rate at which a value changes.
+              <ul>
+                <li><strong>&lt;linear-easing-function&gt;</strong>: linear, linear(&lt;number&gt; &lt;percentage&gt;, ...)</li>
+                <li><strong>&lt;cubic-bezier-easing-function&gt;</strong>: ease, ease-in, ease-out, ease-in-out,
+                  cubic-bezier(&lt;number [0,1]&gt;, &lt;number&gt;, &lt;number [0,1]&gt;, &lt;number&gt;)</li>
+                <li><strong>&lt;step-easing-function&gt;</strong>: step-start, step-end, steps(&lt;integer&gt;, &lt;step-position&gt;)</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;filter-functino&gt;</code></td>
+            <td>represents a graphical effect that can change the appearance of an input image.
+              It is used in the filter and backdrop-filter properties.
+              <ul>
+                <li>blur()</li>
+                <li>brightness()</li>
+                <li>contrast()</li>
+                <li>drop-shadow()</li>
+                <li>grayscale()</li>
+                <li>hue-rotate()</li>
+                <li>invert()</li>
+                <li>opacity()</li>
+                <li>saturate()</li>
+                <li>sepia()</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;flex&gt;</code></td>
+            <td>denotes a flexible length within a grid container.
+              It is used in grid-template-columns, grid-template-rows and other related properties.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;gradient&gt;</code></td>
+            <td>a special type of &lt;image&gt; that consists of a progressive transition between two or more colors.
+              defined with functions linear-gradient(), radial-gradient(), conic-gradient() and repeating gradient functions.
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;image&gt;</code></td>
+            <td>represents a two-dimensional image.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;integer&gt;</code></td>
+            <td>a special type of &lt;number&gt; that represents a positive or negative whole number.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;length&gt;</code></td>
+            <td>represent distance values used in properties like width, height, margin, padding, border-width, font-size, and text-shadow.
+              <ul>
+                <li><strong>Relative units</strong> based on the font: cap, ch, em, ex, ic, lh.</li>
+                <li><strong>Relative units</strong> based on the root element's font: rcap, rch, rem, rex, ric, rlh.</li>
+                <li><strong>Viewport-based units</strong>: vw, vh, vmin, vmax, vb, vi, sm, lg, dm, df.</li>
+                <li><strong>Container query units</strong>: cqw, cqh, cqi, cqb, cqmin, cqmax.</li>
+                <li><strong>Absolute units</strong>: px, cm, mm, in, pt, pc, Q.</li>
+              </ul>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;number&gt;</code></td>
+            <td>represents a number, being either an integer or a number with a fractional component.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;percentage&gt;</code></td>
+            <td>represents a percentage value.
+              It is often used to define a size as relative to an element's parent object.
+              Numerous properties can use percentages,
+              such as width, height, margin, padding, and font-size.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;position&gt;</code></td>
+            <td>denotes a two-dimensional coordinate used to set a location relative to an element box.
+              It is used in the background-position, object-position, mask-position offset-position,
+              offset-anchor and transform-origin properties.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;ratio&gt;</code></td>
+            <td>describes the proportional relationship between a width and height.
+              It is used as a value for the aspect-ratio media feature in @media media queries,
+              the aspect-ratio size feature in @container container queries,
+              and as a value for the CSS aspect-ratio property.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;resolution&gt;</code></td>
+            <td>used in media queries to describe the pixel density of an output device (resolution).
+              On screens, it refers to CSS units like inches, centimeters, or pixels, not physical measurements.
+              <ul>
+                <li><strong>Units</strong>: dpi, dpcm, dppx, x</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;string&gt;</code></td>
+            <td>represents a sequence of characters. Strings are used in numerous CSS properties, such as content, font-family, and quotes.</td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;time&gt;</code></td>
+            <td>represents a time value expressed in seconds or milliseconds.
+              It is used in animation, transition, and related properties.
+              <ul>
+                <li><strong>Units</strong>: s, ms</li>
+              </ul>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;transform-function&gt;</code></td>
+            <td>represents a transformation that affects an element's appearance.
+              Transformation functions can rotate, resize, distort, or move an element in 2D or 3D space.
+              It is used in the transform property.
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">&lt;url&gt;</code></td>
+            <td>a pointer to a resource. The resource could be an image, a video, a CSS file, a font file, an SVG feature etc.
+              Syntax is <code class="language-css">&lt;url&gt; = &lt;url()&gt;&lt;/url&gt;</code>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="1"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#index">index</a></td>
+            <td colspan="1">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types">Data Types</a>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units"> Common Values And Units</a>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    
+    <div class="page-wrap">
+      <table>
+        <caption>
+          CSS Functions
+        </caption>
+        <thead>
+          <th>Functions</th>
+          <th>Definition</th>
+          <th>Parameters</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="element">abs()</code></td>
+            <td>returns absolute value of the argument, as the same type as the input</td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">acos()</code></td>
+            <td>trigonometric function that returns the inverse cosine of a number between -1 and 1 in radians.</td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">asin()</code></td>
+            <td>trigonometric function that returns the inverse sine of a number between -1 and 1 in radians.</td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">atan()</code></td>
+            <td>trigonometric function that returns the inverse tangent of a number between -&infin; and +&infin;. </td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">atan2()</code></td>
+            <td>trigonometric function that returns the inverse tangent of two values between -infinity and infinity.</td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">attr()</code></td>
+            <td>used to retrieve the value of an attribute of the selected element and use it in the stylesheet.</td>
+            <td>attribute-name,
+              <p>
+                &lt;type-or-unit&gt;: string, color, url, integer, number, length,
+                em, ex, px, rem, vw, vh, vmin, vmax, cm, in, pt, pc, angle, deg, grad, rad,
+                time, s, ms, frequency, Hz, kHz, %
+              </p>
+              &lt;fall-back&gt;
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">blur()</code></td>
+            <td>applies a Gaussian blur to the input image.
+              Its result is a  &lt;filter-function&gt;
+            </td>
+            <td>radius in &lt;length&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">brightness()</code></td>
+            <td> &lt;filter-function&gt; applies a linear multiplier value on an element or an input image,
+              making the image appear brighter or darker.
+            </td>
+            <td>&lt;percentage&gt;, &lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">calc()</code></td>
+            <td>lets you perform calculations when specifying CSS property values.
+            </td>
+            <td>&lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;,
+              &lt;percentage&gt;, &lt;number&gt;, &lt;integer&gt;, &lt;color-function&gt;
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">clamp()</code></td>
+            <td>clamps a middle value within a range of values between a defined minimum bound and a maximum bound.
+              The function takes three parameters: a minimum value, a preferred value, and a maximum allowed value.
+            </td>
+            <td>&lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;,
+              &lt;percentage&gt;, &lt;number&gt;, &lt;integer&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">conic-gradient()</code></td>
+            <td>creates a gradient with color transitions rotated around a center point,
+              rather than radiating from it. Examples include pie charts and color wheels.
+              Its result is a &lt;gradient&gt; data type
+            </td>
+            <td>&lt;angle&gt;, &lt;position&gt;, &lt;angular-color-stop&gt;, &lt;color-hint&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">contrast()</code></td>
+            <td>adjusts the contrast of the input image. Its result is a &lt;filter-function&gt;.</td>
+            <td>&lt;percentage&gt;, &lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">cos()</code></td>
+            <td>a trigonometric function that returns the cosine of a number, which is a value between -1 and 1.</td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">counter()</code></td>
+            <td>returns a string representing the current value of the named counter, if there is one.</td>
+            <td>&lt;counter-name&gt;, &lt;counter-style&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">counters()</code></td>
+            <td>combines markers when nesting counters. It returns a string that concatenates the current values of named and nested counters,
+              along with a provided string. An optional third parameter defines the list style.
+            </td>
+            <td>&lt;counter-name&gt;, &lt;string&gt;, &lt;counter-style&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">drop-shadow</code></td>
+            <td>applies a drop shadow effect to the input image. Its result is a &lt;filter-function&gt;.</td>
+            <td>&lt;length&gt;, &lt;color&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">env()</code></td>
+            <td>can be used to insert the value of a user-agent defined environment variable into your CSS</td>
+            <td>safe-area-inset-top, safe-area-inset-right, safe-area-inset-bottom, safe-area-inset,-left,
+              titlebar-area-x, titlebar-area-y, titlebar-area-width, titlebar-area-height,
+              keyboard-inset-top, keyboard-inset-right, keyboard-inset-bottom, keyboard-inset-left,
+              keyboard-inset-width, keyboard-inset-height
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">exp()</code></td>
+            <td>is an exponential function that takes an number as an argument and 
+              returns the mathematical constant e raised to the power of the given number.
+            </td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">fit-content()</code></td>
+            <td>clamps a given size to an available size according to the formula
+              min(maximum size, max(minimum size, argument)).
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">hsl()</code></td>
+            <td>expresses a color in the sRGB color space according to its hue, saturation, and lightness components.
+              An optional alpha component represents the color's transparency.
+            </td>
+            <td>none, &lt;number&gt;, &lt;angle&gt;, &lt;percentage&gt;, &lt;alpha-value&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">hue-rotate()</code></td>
+            <td>rotates the hue of an element and its contents. Its result is a &lt;filter-function&gt;.
+            </td>
+            <td>&lt;angle&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">hwb()</code></td>
+            <td>expresses a color in the sRGB color space according to its hue, whiteness, and blackness.
+              An optional alpha component represents the color's transparency.
+            </td>
+            <td>none, &lt;number&gt;, &lt;angle&gt;, &lt;percentage&gt;, &lt;alpha-value&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">hypot()</code></td>
+            <td>is an exponential function that returns the square root of the sum of squares of its parameters.</td>
+            <td>&lt;number&gt;, &lt;dimension&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">image-set()</code></td>
+            <td>lets the browser pick the most appropriate
+              CSS image from a given set, primarily for high pixel density screens.
+            </td>
+            <td>&lt;image&gt;, &lt;string&gt;, &lt;resolution&gt;, type(&lt;string&gt;)</td>
+          </tr>
+          <tr>
+            <td><code class="element">invert()</code></td>
+            <td>inverts the color samples in the input image.
+              Its result is a &lt;filter-function&gt;.
+            </td>
+            <td>amount: &lt;number&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">lab()</code></td>
+            <td>expresses a given color in the CIELAB color space.
+              Lab represents the entire range of colors that humans can see by specifying
+              the color's lightness, a red/green axis value, a blue/yellow axis value,
+              and an optional alpha transparency value.
+            </td>
+            <td>none, &lt;number&gt;, &lt;percentage&gt;, &lt;alpha-value&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">lch()</code></td>
+            <td>expresses a given color using the LCH color space,
+              which represents lightness, chroma, and hue.
+              It uses the same L axis as the lab() color function of the CIELab color space,
+              but it uses the polar coordinates C (Chroma) and H (Hue).
+            </td>
+            <td>none, &lt;number&gt;, &lt;angle&gt;, &lt;percentage&gt;, &lt;alpha-value&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">light-dark()</code></td>
+            <td>sets two colors based on the user's light or dark theme preference,
+              detecting the preferred color scheme without needing a prefers-color-scheme media query.
+              It requires the color-scheme value (light dark) usually set on the :root pseudo-class for support.
+            </td>
+            <td>light-color: &lt;color&gt;, dark-color &lt;color&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">log()</code></td>
+            <td>an exponential function that returns the logarithm of a number.</td>
+            <td>value: &lt;number&gt;, base: &lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">matrix()</code></td>
+            <td>defines a homogeneous 2D transformation matrix.
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>a b c d tx ty: &lt;number&gt;...</td>
+          </tr>
+          <tr>
+            <td><code class="element">matrix3d()</code></td>
+            <td>defines a 3D transformation as a 4x4 homogeneous matrix.
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>a1 b1 c1 d1 a2 b2 c2 d2 a3 b3 c3 d3 a4 b4 c4 d4: &lt;number&gt;...</td>
+          </tr>
+          <tr>
+            <td><code class="element">max()</code></td>
+            <td>lets you set the largest (most positive) value from a list of
+              comma-separated expressions as the value of a CSS property value.
+            </td>
+            <td>&lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;,
+              &lt;percentage&gt;, &lt;number&gt;, &lt;integer&gt;
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">min()</code></td>
+            <td>lets you set the smallest (most negative) value from a list of
+              comma-separated expressions as the value of a CSS property value
+            </td>
+            <td>&lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;,
+              &lt;percentage&gt;, &lt;number&gt;, &lt;integer&gt;
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">minmax()</code></td>
+            <td>defines a size range greater than or equal to min
+              and less than or equal to max. It is used with CSS grids.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, &lt;flex&gt;
+              max-content, min-content, auto
+            </td>
+          </tr>
+          <tr>
+            <td><code class="element">mod()</code></td>
+            <td>returns a modulus left over when the first parameter is divided
+              by the second parameter, similar to the JavaScript remainder operator (%)
+            </td>
+            <td>&lt;number&gt;, &lt;percentage&gt;, &lt;dimension&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">oklab()</code></td>
+            <td>expresses a given color in the Oklab color space,
+              which attempts to mimic how color is perceived by the human eye.
+            </td>
+            <td>none, &lt;number&gt;, &lt;percentage&gt;, &lt;alpha-value&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">oklch()</code></td>
+            <td>expresses a given color in the Oklab color space.
+              oklch() is the cylindrical form of oklab(),
+              using the same L axis, but with polar Chroma (C) and Hue (h) coordinates.
+            </td>
+            <td>none, &lt;number&gt;, &lt;percentage&gt;, &lt;angle&gt;, &lt;alpha-value&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">opacity()</code></td>
+            <td>applies transparency to the samples in the input image.
+              Its result is a &lt;filter-function&gt;.
+            </td>
+            <td>&lt;number&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">path()</code></td>
+            <td>accepts an SVG path string, and is used in the CSS shapes
+              and CSS motion path modules to enable a shape to be drawn.
+            </td>
+            <td>&lt;string&gt;, &lt;fill-rule&gt;: nonzero, evenodd</td>
+          </tr>
+          <tr>
+            <td><code class="element">perspective()</code></td>
+            <td>defines a transformation that sets the viewer's distance from the z=0 plane,
+              creating a 3D perspective effect. Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>none, &lt;length&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">pow()</code></td>
+            <td>an exponential function that returns the value of a base raised to the power of a number.</td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">radial-gradient()</code></td>
+            <td>creates a smooth transition between two or more colors radiating from an origin,
+              forming a circular or elliptical shape. Its result is a &lt;gradient&gt; data type.
+            </td>
+            <td>&lt;position&gt;, &lt;ending-shape&gt;, &lt;size&gt;,
+              &lt;linear-color-stop&gt;, &lt;color-hint&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">ray()</code></td>
+            <td>
+              defines a line segment starting from an offset position and extending in a specified direction (angle).
+              The length can be constrained by specifying a size and using the contain keyword.
+            </td>
+            <td>&lt;angle&gt;, &lt;size&gt;, contain, at &lt;position&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">rem()</code></td>
+            <td>
+              The rem() CSS function returns the remainder of a division operation, similar to the JavaScript % operator, and retains the sign of the dividend.
+              This function is useful for situations where you need to calculate the leftover portion of a division operation in CSS.
+            </td>
+            <td>&lt;number&gt;, &lt;dimension&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">repeat()</code></td>
+            <td>represents a repeated fragment of the track list,
+              allowing patterns of columns or rows to be written more compactly.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;, &lt;flex&gt;, &lt;line-names&gt;,
+              auto, auto-fill, auto-fit, max-content, min-content</td>
+          </tr>
+          <tr>
+            <td><code class="element">repeating-conic-gradient()</code></td>
+            <td>creates a repeating gradient with color transitions rotated around a center point instead of radiating from the center.</td>
+            <td>&lt;angle&gt;, &lt;position&gt;, &lt;angular-color-stop&gt;, &lt;color-hint&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">repeating-linear-gradient()</code></td>
+            <td>creates infinitely repeating linear gradients, similar to linear-gradient(), and results in a &lt;gradient&gt; data type.</td>
+            <td>&lt;side-or-corner&gt;, &lt;angle&gt;, &lt;linear-color-stop&gt;, &lt;color-hint&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">repeating-radial-gradient()</code></td>
+            <td>creates infinitely repeating gradients radiating from an origin, similar to repeating-linear-gradient(), and results in a &lt;gradient&gt; data type.</td>
+            <td>&lt;position&gt;, &lt;shape&gt;, &lt;extent-keyword&gt;, &lt;color-stop&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">rgb()</code></td>
+            <td>expresses a color in the sRGB color space according to its red, green, and blue components.
+              An optional alpha component represents the color's transparency.
+            </td>
+            <td>&lt;number&gt;, &lt;percentage&gt;, &lt;alpha-value&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">rotate()</code></td>
+            <td>defines a transformation that rotates an element around a fixed point on the 2D plane,
+              without deforming it. Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;angle&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">rotate3d()</code></td>
+            <td>defines a transformation that rotates an element around a fixed axis in 3D space,
+              without deforming it. Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;angle&gt;, &lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">rotateX()</code></td>
+            <td>defines a transformation that rotates an element around the x-axis (horizontal)
+              without deforming it. Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;angle&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">rotateY()</code></td>
+            <td>defines a transformation that rotates an element around the y-axis (vertical)
+              without deforming it. Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;angle&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">rotateZ()</code></td>
+            <td>defines a transformation that rotates an element around the z-axis
+              without deforming it. Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;angle&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">round()</code></td>
+            <td>returns a rounded number based on a selected rounding strategy.</td>
+            <td>&lt;rounding-strategy&gt;, &lt;number&gt;, &lt;dimension&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">saturate()</code></td>
+            <td>super-saturates or desaturates the input image. Its result is a &lt;filter-function&gt;.</td>
+            <td>&lt;number&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">scale()</code></td>
+            <td>resizes an element on the 2D plane, applying independent scaling factors to the horizontal (sx) and vertical (sy) dimensions. 
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;number&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">scale3d()</code></td>
+            <td>resizes an element in 3D space using scaling factors [sx, sy, sz] for the x, y, and z dimensions.
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">scaleX()</code></td>
+            <td>defines a transformation that resizes an element along the x-axis (horizontally).
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">scaleY()</code></td>
+            <td>defines a transformation that resizes an element along the y-axis (vertically).
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">scaleZ()</code></td>
+            <td>defines a transformation that resizes an element along the z-axis.
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">sepia()</code></td>
+            <td>converts the input image to sepia, giving it a warmer, more yellow/brown appearance.
+              Its result is a &lt;filter-function&gt;.
+            </td>
+            <td>&lt;number&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">sin()</code></td>
+            <td>a trigonometric function that returns the sine of a number, which is a value between -1 and 1. </td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">skew()</code></td>
+            <td>defines a transformation that skews an element on the 2D plane.
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;angle&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">skewX()</code></td>
+            <td>defines a transformation that skews an element in the horizontal direction on the 2D plane.
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;angle&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">skewY()</code></td>
+            <td>defines a transformation that skews an element in the vertical direction on the 2D plane.
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;angle&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">sqrt()</code></td>
+            <td>an exponential function that returns the square root of a number.</td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">tan()</code></td>
+            <td>a trigonometric function that returns the tangent of a number,
+              which is a value between -infinity and infinity.
+            </td>
+            <td>&lt;number&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">translate()</code></td>
+            <td>repositions an element in the horizontal and/or vertical directions.
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">translate3d()</code></td>
+            <td>repositions an element in 3D space.
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">translateX()</code></td>
+            <td>repositions an element along the horizontal direction in 2D plane, 
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">translateY()</code></td>
+            <td>repositions an element along the vertical direction in 2D plane, 
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">translateZ()</code></td>
+            <td>repositions an element along the z-axis in 3D space, 
+              i.e., closer to or farther away from the viewer.
+              Its result is a &lt;transform-function&gt; data type.
+            </td>
+            <td>&lt;length&gt;, &lt;percentage&gt;</td>
+          </tr>
+          <tr>
+            <td><code class="element">url()</code></td>
+            <td>accepts only a URL literal string (with or without quotes).</td>
+            <td>URL literal string (with or without quotes).</td>
+          </tr>
+          <tr>
+            <td><code class="element">var()</code></td>
+            <td>inserts the value of a custom property (CSS variable) into another property's value.
+            </td>
+            <td>&lt;custom-property-name&gt;, &lt;declaration-value&gt;</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="1"> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#index">index</a></td>
+            <td colspan="1"> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">CSS-functions</a></td>
+            <td colspan="1"> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Value_definition_syntax">Value-definition-syntax</a></td>
           </tr>
         </tfoot>
       </table>
     </div>
 
     <div class="page-wrap">
-      <h2>Code Snippet</h2> 
-      <div class="center-box">
-        <div class="code-box language-css">
-          <pre>
-            <code>
-              <span class="line-number">1</span>
-              <span class="line-number">2</span>
-              <span class="line-number">3</span>
-              <span class="line-number">4</span>
-              <span class="line-number">5</span> 
-              <span class="line-number">6</span>
-              <span class="line-number">7</span>
-              <span class="line-number">8</span> 
-              <span class="line-number">9</span>
-              <span class="line-number">10</span>
-            </code>
-          </pre>          
-        </div>
-      </div>
+      <table>
+        <caption>
+          CSS At-rule and Descriptors
+        </caption>
+        <thead>
+          <th>Name</th>
+          <th>Usage</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>@charset</td>
+            <td>The @charset at-rule specifies the character encoding used in the stylesheet.</td>
+          </tr>
+          <tr>
+            <td>@font-face</td>
+            <td>The @font-face at-rule specifies a custom font for displaying text,
+              which can be loaded from a remote server or a locally-installed font
+              on the user's computer.</td>
+          </tr>
+          <tr>
+            <td>@import</td>
+            <td>The @import at-rule is used to import styles from other valid stylesheets.
+              It must be placed at the top of the stylesheet,
+              before any other at-rules (except @charset and @layer)
+              or style declarations, or it will be ignored.
+            </td>
+          </tr>
+          <tr>
+            <td>@keyframes</td>
+            <td>The @keyframes at-rule controls intermediate steps in a CSS animation
+              by defining styles for keyframes along the animation sequence.
+              It provides greater control over the animation's progression compared to transitions.
+            </td>
+          </tr>
+          <tr>
+            <td>@layer</td>
+            <td>The @layer at-rule declares a cascade layer and defines precedence for multiple layers.
+            </td>
+          </tr>
+          <tr>
+            <td>@media</td>
+            <td>The @media at-rule applies specific CSS styles based on the result of one or more media queries.
+              It allows you to define styles that only apply if the media query matches the device's conditions.
+            </td>
+          </tr>
+          <tr>
+            <td>@namespace</td>
+            <td>is an at-rule that defines XML namespaces to be used in a CSS style sheet.</td>
+          </tr>
+          <tr>
+            <td>@supports</td>
+            <td>The @supports at-rule allows you to apply CSS declarations based on browser support for specific CSS features.
+              This is known as a feature query and must be placed at the top level or nested within other conditional groups.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td colspan="1"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">At-rule</a></td>
+            <td colspan="1"><a href="https://developer.mozilla.org/en-US/docs/Glossary/CSS_Descriptor">Descriptor</a></td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
 
     <div class="page-wrap">
-      <canvas id="box-model" width="1000px" height="200px"></canvas>
-      <p>CSS div containers</p>
-      <p>CSS display: block, inline block, inline</p>
-      <p>CSS display: flex, grid</p>
-      <div>
-        <a href="divs.html">divs with CSS</a>
-      </div>
-      <p>CSS positions: fixed, static, absolute</p>
-      <div>
-        <a href="position.html">positions with CSS</a>
-      </div>
+      <table>
+        <caption>
+          CSS Global Values and Key Concepts
+        </caption>
+        <thead>
+          <th>Property</th>
+          <th>Usage</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>inherit</td>
+            <td>The inherit keyword applies the computed value of a property from the parent element.
+              It can be used with any CSS property, including the shorthand all.</td>
+          </tr>
+          <tr>
+            <td>initial</td>
+            <td>The initial keyword applies the default (or initial) value of a property to an element.
+              It can be used with any CSS property,
+              including the shorthand all,
+              allowing all properties to be reset to their initial values in a single step.</td>
+          </tr>
+          <tr>
+            <td>revert</td>
+            <td>The revert keyword resets a property's cascaded value to what it
+              would have been without changes from the current style origin.
+              It rolls back to the user-agent value, user-set value, inherited value
+              (if inheritable), or initial value. Applicable to any CSS property,
+              including the shorthand all,
+              it removes overridden styles in the cascade until the target style is reached.</td>
+          </tr>
+          <tr>
+            <td>revert-layer</td>
+            <td>The revert keyword rolls back a property's value to that of a previous cascade layer,
+              recalculating as if no rules were set in the current layer.
+              If no prior layer exists, it defaults to the computed value from the current layer.
+              If no matching rule exists in the current layer, it reverts to the value from a previous style origin.
+              Applicable to any CSS property, including the shorthand all.</td>
+          </tr>
+          <tr>
+            <td>unset</td>
+            <td>The unset keyword resets a property to its inherited value if it
+              naturally inherits from its parent or to its initial value if it does not.
+              Essentially, it acts like inherit for inherited properties and initial for non-inherited ones.
+              It can be applied to any CSS property, including the shorthand property all.</td>
+          </tr>
+          <tr>
+            <td>Cascade</td>
+            <td>
+              <p>The cascade determines the final style by evaluating rules in the following priority order:</p>
+              <ol>
+                <li><strong>Importance</strong>: `!important` rules have the highest priority.</li>
+                <li><strong>Specificity</strong>: More specific selectors override less specific ones.</li>
+                <li><strong>Order</strong>: When rules have the same specificity, later rules take precedence.</li>
+              </ol>
+              <p>The cascade is like a waterfall with steps.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Inheritance</td>
+            <td>
+              <p>
+                In CSS, inheritance determines the value of a property when none is specified on an element.
+                Properties are either:
+                <ul>
+                  <li><strong>Inherited</strong>: Default to the parent element's computed value.</li>
+                  <li><strong>Non-inherited</strong>: Default to the property's initial value.</li>
+                </ul>
+                Check a property's definition to see if it inherits by default ("Inherited: yes" or "Inherited: no").
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>Error Handling</td>
+            <td>When a CSS error occurs, the browser skips the invalid line,
+              discarding minimal code before resuming normal parsing.
+              Error recovery simply involves ignoring invalid content.</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr style="background: none;">
+            <td colspan="1"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#concepts">Concepts</a></td>
+            <td colspan="1"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#dom-css_cssom">DOM-CSS / CSSOM</a></td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
-    <footer>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS Reference</a>
+
+    <div class="page-wrap">
+      <div class="box-wrap">
+        <div>
+          <button class="default-btn" onclick="alert('Default');">
+            Default
+          </button>
+        </div>
+        <div>
+          <button class="default-btn primary-btn" onclick="alert('Primary');">
+            Primary
+          </button>
+        </div>
+        <div>
+          <button class="default-btn secondary-btn" onclick="alert('Secondary');">
+            Secondary
+          </button>
+        </div>
+        <div>
+          <button class="default-btn success-btn" onclick="alert('Success')">
+            Success
+          </button>
+        </div>
+        <div>
+          <button class="default-btn danger-red-btn" onclick="alert('Danger');">
+            Danger
+          </button>
+        </div>
+        <div>
+          <button class="default-btn warning-orange-btn" onclick="alert('Warning');">
+            Warning
+          </button>
+        </div>
+        <div>
+          <button class="default-btn info-btn" onclick="alert('Info')">
+            Info
+          </button>
+        </div>
+        <div>
+          <button class="default-btn light-btn" onclick="alert('display light')">
+            Light
+          </button>
+        </div>
+        <div>
+          <button class="default-btn dark-btn" onclick="alert('display dark')">
+            Dark
+          </button>
+        </div>
+        <div>
+          <button class="default-btn link-btn" onclick="alert('Confirm navigate to Link?')">
+            Link
+          </button>
+        </div>
+        <div>
+          <button class="default-btn undef-btn" onclick="alert(undef)">
+            Undef
+          </button>
+        </div>
+        <div>
+          <button class="default-btn sky-btn" onclick="alert('sky')">
+          </button>
+        </div>
+      </div>
+  
+      <div class="box-wrap">
+        <div >
+          <button class="round-btn" onclick="alert('round button');">
+          </button>
+        </div>
+        <div>
+          <button class="round-btn grass-groove" onclick="alert('Hello World');">
+          </button>
+        </div>
+        <div>
+          <button class="round-btn navy-groove" onclick="alert('GoodBye World');">
+          </button>
+        </div>
+  
+        <div>
+          <button class="round-btn grass-double" onclick="alert('Hello World');">
+          </button>
+        </div>
+        <div>
+          <button class="round-btn navy-double" onclick="alert('GoodBye World');">
+          </button>
+        </div>
+        <div>
+          <button class="round-btn recycling-double" onclick="alert('Reuse Reduce Recycle');">
+            <img src="images/recycling.svg" alt="Recycling Icon">
+          </button>
+        </div>
+        <div>
+          <button class="round-btn guava-btn" onclick="alert('guava')">
+          </button>
+        </div>
+
+        <div>
+          <button class="round-btn melon-btn" onclick="alert('melon')">
+          </button>
+        </div>
+      </div>
+  
+      <div class="btn-grid">
+        <div>
+          <button>Uber</button>
+          <button class="base-btn uber-btn">
+            Request now
+          </button>
+        </div>
+        <div>
+          <button>GitHub</button>
+          <button class="base-btn github-btn">
+            Sign up 
+          </button>
+        </div>
+        <div>
+          <button>Amazon</button>
+          <button class="base-btn amazon-btn">
+            Add to Cart
+          </button>
+        </div>
+        <div>
+          <button class="base-btn bootstrap-light-theme-btn">Bootstrap</button>
+          <button class="base-btn bootstrap-get-started-btn">
+            Get started
+          </button>
+        </div>
+        <div>
+          <button class="base-btn bootstrap-dark-theme-btn">Bootstrap</button>
+          <button class="base-btn bootstrap-download-btn">
+            Download
+          </button>
+        </div>
+        <div>
+          <button>YouTube</button>
+          <button class="base-btn youtube-subscribe-btn" onclick="alert('subscribed')">
+            SUBSCRIBE
+          </button>
+        </div>
+      </div>
+  
+      <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 15px;">
+        <div>
+          <button>LinkedIn</button>
+          <button class="base-btn linkedin-apply-btn">
+            Apply on company website
+          </button>
+          <button class="base-btn linkedin-save-btn">
+            Save
+          </button>
+        </div>
+        <div>
+          <button>Twitter</button>
+          <button>Twitter-X</button>
+          <button class="base-btn twitter-join-btn" onclick="alert('joined')">
+            JOIN
+          </button>
+          <button class="base-btn twitter-tweet-btn" onclick="alert('tweeted')">
+            Tweet
+          </button>
+        </div>
+      </div>
+      <a href="https://icons.getbootstrap.com/">More Icons</a>
+    </div>
+
+    <div class="page-wrap">
+      <p>9 Flowers and 9 Circles</p>
+    </div>
+    <footer class="footer">
+      <div>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS Reference</a></p>
+      </div>
+      <div>
+        <p><a href="https://css-tricks.com/">CSS Tricks</a></p>
+      </div>
+      <div>
+        <p><a href="https://icons.getbootstrap.com/">Icons Reference</a></p>
+      </div>
     </footer>
+    <script src="scripts/diagrams.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
   </body>
 
