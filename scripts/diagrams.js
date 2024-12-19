@@ -31,6 +31,7 @@ function drawSyntax() {
   const canvas = document.getElementById("css-syntax");
   if (canvas.getContext) {
     const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
     ctx.font = "italic bold 20pt Roboto";
 
     ctx.fillStyle = "orange";
@@ -115,6 +116,7 @@ function drawboxModel() {
   const canvas = document.getElementById("box-model");
   if (canvas.getContext) {
     const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
     ctx.font = "italic bold 20pt Roboto";
     ctx.strokeStyle = "white";
     ctx.lineWidth = 2;
