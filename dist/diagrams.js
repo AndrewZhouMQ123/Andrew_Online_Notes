@@ -1,16 +1,16 @@
 export const diagramObj = {
     drawRect() {
         const canvas = document.getElementById("rect-loop");
-        if (canvas.getContext) {
+        if (canvas != null && canvas.getContext) {
             const ctx = canvas.getContext("2d");
             let t = 0; // Time variable
             const A = 200; // Horizontal radius
             const B = 50; // Vertical radius
-            const rectloop = () => {
+            let rectloop = () => {
                 requestAnimationFrame(rectloop);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                const x = A * Math.cos(t);
-                const y = B * Math.sin(2 * t);
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+                let x = A * Math.cos(t);
+                let y = B * Math.sin(2 * t);
                 // Set the shadow effect (glow)
                 ctx.shadowColor = "rgba(0, 255, 255, 0.8)"; // Glow color (cyan)
                 ctx.shadowBlur = 20; // Blur radius for the glow
@@ -66,7 +66,7 @@ export const diagramObj = {
         const rectangles = [];
         const arrows = [];
         const texts = [];
-        if (canvas.getContext) {
+        if (canvas != null && canvas.getContext) {
             const ctx = canvas.getContext("2d");
             ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
             ctx.font = "italic bold 20pt Roboto";
@@ -76,9 +76,9 @@ export const diagramObj = {
             arrows.push(a2);
             const a3 = this.drawArrow(ctx, 165, 100, 80, 140, 3, 'black');
             arrows.push(a3);
-            const a4 = this.drawArrow(ctx, 272, 88, 300, 75, 3, 'black');
+            const a4 = this.drawArrow(ctx, 280, 88, 340, 70, 3, 'black');
             arrows.push(a4);
-            const a5 = this.drawArrow(ctx, 350, 100, 420, 110, 3, 'black');
+            const a5 = this.drawArrow(ctx, 360, 100, 420, 110, 3, 'black');
             arrows.push(a5);
             ctx.fillStyle = "rgb(200, 0, 0)";
             ctx.fillRect(770, 50, 50, 50);
@@ -93,21 +93,21 @@ export const diagramObj = {
                 fillStyle: "rgb(200, 0, 0)",
                 strokeStyle: "",
             });
-            ctx.fillStyle = "white";
-            ctx.fillText("{", 150, 75);
-            texts.push({
-                x: 150,
-                y: 75,
-                content: "{",
-                fillStyle: "white",
-            });
             ctx.fillStyle = "orange";
             ctx.fillText("tag.my-class", 10, 75);
             texts.push({
-                x: 30,
-                y: 60,
+                x: 10,
+                y: 75,
                 content: "tag.my-class",
                 fillStyle: "orange",
+            });
+            ctx.fillStyle = "white";
+            ctx.fillText("{", 165, 75);
+            texts.push({
+                x: 165,
+                y: 75,
+                content: "{",
+                fillStyle: "white",
             });
             ctx.fillStyle = "lightskyblue";
             ctx.fillText("property", 170, 105);
@@ -118,33 +118,33 @@ export const diagramObj = {
                 fillStyle: "lightskyblue",
             });
             ctx.fillStyle = "white";
-            ctx.fillText(":", 265, 105);
+            ctx.fillText(":", 270, 105);
             texts.push({
-                x: 265,
+                x: 270,
                 y: 105,
                 content: ":",
                 fillStyle: "white",
             });
             ctx.fillStyle = "red";
-            ctx.fillText("value", 280, 105);
+            ctx.fillText("value", 285, 105);
             texts.push({
-                x: 280,
+                x: 285,
                 y: 105,
                 content: "value",
                 fillStyle: "red",
             });
             ctx.fillStyle = "white";
-            ctx.fillText(";", 340, 105);
+            ctx.fillText(";", 350, 105);
             texts.push({
-                x: 340,
+                x: 350,
                 y: 105,
                 content: ";",
                 fillStyle: "white",
             });
             ctx.fillStyle = "white";
-            ctx.fillText("}", 150, 140);
+            ctx.fillText("}", 10, 140);
             texts.push({
-                x: 150,
+                x: 10,
                 y: 140,
                 content: "}",
                 fillStyle: "white",
@@ -164,10 +164,10 @@ export const diagramObj = {
                 content: "Class selector",
                 fillStyle: "white",
             });
-            ctx.fillText("colon separates two entities", 300, 75);
+            ctx.fillText("colon separates two entities", 340, 70);
             texts.push({
-                x: 300,
-                y: 75,
+                x: 340,
+                y: 70,
                 content: "colon separates two entities",
                 fillStyle: "white",
             });
@@ -191,7 +191,7 @@ export const diagramObj = {
     drawboxModel() {
         const canvas = document.getElementById("box-model");
         const rectangles = []; // Array to store rectangle details
-        if (canvas.getContext) {
+        if (canvas != null && canvas.getContext) {
             const ctx = canvas.getContext("2d");
             ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
             ctx.font = "italic bold 20pt Roboto";
@@ -261,3 +261,10 @@ export const diagramObj = {
         return rectangles;
     }
 };
+// Use a single load event to initialize all drawings
+window.addEventListener("load", () => {
+    diagramObj.drawCSSsyntax();
+    diagramObj.drawRect();
+    diagramObj.drawboxModel();
+});
+//# sourceMappingURL=diagrams.js.map
