@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Mocha Tests</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
-  <script>
-    mocha.setup('bdd'); // minimal setup
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.4/chai.js"></script>
-</head>
-<body>
-  <script src="./scripts/diagrams.ts"></script>
-  <script src="test.ts"></script>
+  <head>
+    <meta charset="UTF-8">
+    <title>Mocha Tests</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+      mocha.setup('bdd'); // minimal setup
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.4/chai.js"></script>
+  </head>
+  <body>
+    <script src="../scripts/diagrams.ts"></script>
+    <script src="test.js"></script>
 
-  <!-- The element where Mocha will display test results -->
-  <div id="mocha"></div>
-  
-  <script>
-    mocha.run();
-  </script>
-</body>
+    <!-- The element where Mocha will display test results -->
+    <div id="mocha"></div>
+    
+    <script>
+      mocha.run();
+    </script>
+  </body>
 </html>

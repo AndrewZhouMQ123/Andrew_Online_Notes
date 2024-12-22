@@ -7,10 +7,8 @@
  **/
 
 import * as sinon from 'sinon';
-import * as chai from 'chai';
-
-// chai has a lot of stuff, let's make assert global
-const assert = chai.assert;
+import { assert } from 'chai';
+import { diagramObj } from '../src/diagrams';
 
 describe("test", function() {
 
@@ -41,8 +39,11 @@ describe ("drawArrow", function() {
 
   it("draws arrow shape on the canvas", function() {
     // sinon.stub: Stubs the drawArrow function to return a specific value (expectedArrow) instead of actually performing any drawing on the canvas.
-    const drawArrowStub = sinon.stub(window, 'drawArrow').returns(expectedArrow);
-    assert.deepEqual(drawArrow(ctx, 30, 60, 30, 18, 3, 'black'), expectedArrow);
+    const drawArrowStub = sinon.stub(diagramObj, 'drawArrow').returns(expectedArrow);
+
+    const drawArrowSpy = sinon.spy(diagramObj.drawArrow);
+    assert(drawArrowSpy.calledOnce);
+    assert.deepEqual(diagramObj.drawArrow(ctx, 30, 60, 30, 18, 3, 'black'), expectedArrow);
     // restore(): Restores the original drawArrow function after the test runs.
     drawArrowStub.restore();
   });
@@ -51,7 +52,7 @@ describe ("drawArrow", function() {
 describe ("drawboxModel", function() {
   document.body.innerHTML = '<canvas id="box-model" width="500px" height="350px"></canvas>';
 
-  const rectangles = drawboxModel();
+  const rectangles = diagramObj.drawboxModel();
 
   it("draws box model on the canvas", function() {
 
@@ -233,13 +234,13 @@ describe ("drawCSSsyntax", function() {
   ];
 
   // sinon.stub: Stubs the drawCSSsyntax function to return predefined expected results.
-  const drawCSSsyntaxStub = sinon.stub(window, 'drawCSSsyntax').returns({
+  const drawCSSsyntaxStub = sinon.stub(diagramObj, 'drawCSSsyntax').returns({
     arrows: expectedArrows,
     texts: expectedTexts,
     rectangles: expectedRectangles
   });
 
-  const { arrows, texts, rectangles } = drawCSSsyntax();
+  const { arrows, texts, rectangles } = diagramObj.drawCSSsyntax();
 
   it("draws arrows on the canvas", function() {
     assert.deepEqual(arrows, expectedArrows);
