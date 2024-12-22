@@ -59,7 +59,7 @@
       <p>npm i --save-dev @types/mocha</p>
       <p>npm install @types/sinon --save-dev</p>
       <p>npm i --save-dev @types/chai</p>
-      <p>npm install -D @types/chai@latest</p>
+      <p>npm install -D @types/chai@latest @types/sinon@latest</p>
       <p>npm install -D @types/mocha @types/node</p>
       <p>tsc --module es2022 --target es2022 --moduleResolution node --outDir ../dist diagrams.ts</p>
       <p>tsc --build tsconfig.json</p>
@@ -72,12 +72,16 @@
         file:// access restrictions in modern browsers. 
         They are bypassed when served through a proper web server.
       </p>
-      <p>Chai and Sinon are meant for testing in node environment,
-        doesn't work in browser, because they don't exists in browsers.
+      <p>
+        <a href="https://stackoverflow.com/questions/42857778/how-do-you-run-mocha-tests-in-the-browser">
+          Solution to using Tests in browser
+        </a>
+        <a href="https://github.com/bradydowling/mocha-in-browser">Working Example</a>
       </p>
       <p>
-        Only using Mocha for now to see test outputs in browser.
-        Implement some methods from scratch.
+        <a href="https://stackoverflow.com/questions/44906775/how-do-i-mock-dom-elements-when-using-mocha-javascript">
+          Testing Dom Elements
+        </a>
       </p>
     </div>
 
