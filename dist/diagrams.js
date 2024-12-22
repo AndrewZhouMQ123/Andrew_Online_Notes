@@ -1,4 +1,4 @@
-const diagramObj = {
+export const diagramObj = {
     drawRect() {
         const canvas = document.getElementById("rect-loop");
         if (canvas.getContext) {
@@ -261,5 +261,3 @@ const diagramObj = {
         return rectangles;
     }
 };
-module.exports = diagramObj; // export as CommonJS
-export {};

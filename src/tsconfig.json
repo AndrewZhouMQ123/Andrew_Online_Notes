@@ -1,21 +1,19 @@
 {
-    "compilerOptions": {
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "target": "es2022",
-    "module": "es2022",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
     "moduleResolution": "node",
     "outDir": "../dist",
+    "skipLibCheck": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "allowJs": true,
-    "resolveJsonModule": true,
     "moduleDetection": "force",
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "lib": ["es2022", "dom", "dom.iterable"]
+    "lib": ["ES2022", "DOM", "DOM.Iterable"]
   },
-    "include": ["**/*.ts"],
-    "exclude": ["node_modules"]
-}  
+  "include": ["**/*.ts"],                // Include all TypeScript files
+  "exclude": ["node_modules"]            // Exclude node_modules
+}

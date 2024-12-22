@@ -24,7 +24,7 @@ type RectProperties = {
   strokeStyle: string,
 };
 
-const diagramObj = {
+export const diagramObj = {
   drawRect() {
     const canvas = <HTMLCanvasElement> document.getElementById("rect-loop");
     if (canvas.getContext) {
@@ -324,5 +324,3 @@ const diagramObj = {
     return rectangles;
   }
 }
-
-module.exports = diagramObj;  // export as CommonJS
