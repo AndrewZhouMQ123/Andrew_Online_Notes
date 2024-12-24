@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mocha Tests</title>
-    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
-    <script src="../node_modules/mocha/mocha.js"></script>
-    <script src="../node_modules/chai/chai.js"></script>
-    <script src="../node_modules/sinon/lib/sinon.js"></script>
-    <script>mocha.setup('bdd')</script>
-    <script>
-      window.onload = () => {
-        mocha.run();
-      };
-    </script>
+    <title>My Tests</title>
+    <link rel="stylesheet" href="./tests.css">
   </head>
   <body>
-    <div id="mocha"></div>
-    <script src="test.js"></script>
+    <h1>Test Results</h1>
+    <div id="test-results">
+    </div>
+
+    <script type="module" src="test.js"></script>
+    <script type="module" src="testlib.js"></script>
   </body>
 </html>
