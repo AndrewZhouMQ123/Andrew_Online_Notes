@@ -71,9 +71,11 @@ function updateTheme(webtheme) {
         themeToggleBtn.classList.remove('light-theme');
         themeToggleBtn.classList.add('dark-theme');
         pageWraps.forEach(element => {
+            element.classList.remove('light-page');
             element.classList.add("dark-page");
         });
         horizontalWraps.forEach(element => {
+            element.classList.remove('light-page');
             element.classList.add("dark-page");
         });
     }
@@ -83,9 +85,11 @@ function updateTheme(webtheme) {
         themeToggleBtn.classList.remove('dark-theme');
         themeToggleBtn.classList.add('light-theme');
         pageWraps.forEach(element => {
+            element.classList.remove('dark-page');
             element.classList.add("light-page");
         });
         horizontalWraps.forEach(element => {
+            element.classList.remove('dark-page');
             element.classList.add("light-page");
         });
     }
