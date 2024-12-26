@@ -1,10 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
-}
-
 table {
   font-size: 14px;
   width: 100%;
@@ -87,8 +80,6 @@ pre {
 }
 
 .page-wrap {
-  background-color: rgb(102, 102, 102);
-  color: white;
   margin: 20px;
   display: grid;
   row-gap: 20px;
@@ -96,6 +87,36 @@ pre {
   border-width: 1px;
   border-radius: 4px;
   padding: 10px;
+}
+
+.horizontal-wrap {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.image-block {
+  text-align: center;
+}
+
+.image-block h2 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.image-block img {
+  width: 100%; /* Images fill their container */
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .element {

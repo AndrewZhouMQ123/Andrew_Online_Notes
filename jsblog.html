@@ -16,36 +16,203 @@
       function jsblog() {
         window.location.replace("jsblog.html");
       }
+      function search() {
+
+      }
     </script>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/blog.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="stylesheet" href="styles/buttonsfromweb.css">
+    <link rel="stylesheet" href="styles/accessories.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="light-theme">
     <header>
-      <div>
-        <button class="header-btn" onclick="home()"><span class="core-link">Home</span></button>
-      </div>
-      <div>
-        <button class="header-btn" onclick="htmlblog()"><span class="nav-link">HTML</span></button>
-      </div>
-      <div>
-        <button class="header-btn" onclick="cssblog()"><span class="nav-link">CSS</span></button>
-      </div>
-      <div>
-        <button class="header-btn" onclick="jsblog()"><span class="nav-link">JS</span></button>
-      </div>
-      <div>
-        <input class="search-bar" placeholder="Search">
-      </div>
+      <button class="header-btn" onclick="home()"><span class="core-link">Home</span></button>
+      <button class="header-btn" onclick="htmlblog()"><span class="nav-link">HTML</span></button>
+      <button class="header-btn" onclick="cssblog()"><span class="nav-link">CSS</span></button>
+      <button class="header-btn" onclick="jsblog()"><span class="nav-link">JS</span></button>
+      <button class="theme-btn" id="themeToggleBtn">Toggle Theme</button>
+      <input class="search-bar" onclick="search()" placeholder="Search">
     </header>
+
+    <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="60px" height="60px"></button>
 
     <div class="page-wrap">
       <h2>JS Cheat Sheet</h2>
+    </div>
+
+    <div class="page-wrap">
+      <div class="box-wrap">
+        <div>
+          <button class="default-btn" onclick="alert('Default');">
+            Default
+          </button>
+        </div>
+        <div>
+          <button class="default-btn primary-btn" onclick="alert('Primary');">
+            Primary
+          </button>
+        </div>
+        <div>
+          <button class="default-btn secondary-btn" onclick="alert('Secondary');">
+            Secondary
+          </button>
+        </div>
+        <div>
+          <button class="default-btn success-btn" onclick="alert('Success')">
+            Success
+          </button>
+        </div>
+        <div>
+          <button class="default-btn danger-red-btn" onclick="alert('Danger');">
+            Danger
+          </button>
+        </div>
+        <div>
+          <button class="default-btn warning-orange-btn" onclick="alert('Warning');">
+            Warning
+          </button>
+        </div>
+        <div>
+          <button class="default-btn info-btn" onclick="alert('Info')">
+            Info
+          </button>
+        </div>
+        <div>
+          <button class="default-btn light-btn" onclick="alert('display light')">
+            Light
+          </button>
+        </div>
+        <div>
+          <button class="default-btn dark-btn" onclick="alert('display dark')">
+            Dark
+          </button>
+        </div>
+        <div>
+          <button class="default-btn link-btn" onclick="alert('Confirm navigate to Link?')">
+            Link
+          </button>
+        </div>
+        <div>
+          <button class="default-btn undef-btn" onclick="alert(undef)">
+            Undef
+          </button>
+        </div>
+        <div>
+          <button class="default-btn sky-btn" onclick="alert('sky')">
+          </button>
+        </div>
+      </div>
+  
+      <div class="box-wrap">
+        <div >
+          <button class="round-btn" onclick="alert('round button');">
+          </button>
+        </div>
+        <div>
+          <button class="round-btn grass-groove" onclick="alert('Hello World');">
+          </button>
+        </div>
+        <div>
+          <button class="round-btn navy-groove" onclick="alert('GoodBye World');">
+          </button>
+        </div>
+  
+        <div>
+          <button class="round-btn grass-double" onclick="alert('Hello World');">
+          </button>
+        </div>
+        <div>
+          <button class="round-btn navy-double" onclick="alert('GoodBye World');">
+          </button>
+        </div>
+        <div>
+          <button class="round-btn recycling-double" onclick="alert('Reuse Reduce Recycle');">
+            <img src="images/recycling.svg" alt="Recycling Icon">
+          </button>
+        </div>
+        <div>
+          <button class="round-btn guava-btn" onclick="alert('guava')">
+          </button>
+        </div>
+
+        <div>
+          <button class="round-btn melon-btn" onclick="alert('melon')">
+          </button>
+        </div>
+      </div>
+  
+      <div class="btn-grid">
+        <div>
+          <button>Uber</button>
+          <button class="base-btn uber-btn">
+            Request now
+          </button>
+        </div>
+        <div>
+          <button>GitHub</button>
+          <button class="base-btn github-btn">
+            Sign up 
+          </button>
+        </div>
+        <div>
+          <button>Amazon</button>
+          <button class="base-btn amazon-btn">
+            Add to Cart
+          </button>
+        </div>
+        <div>
+          <button class="base-btn bootstrap-light-theme-btn">Bootstrap</button>
+          <button class="base-btn bootstrap-get-started-btn">
+            Get started
+          </button>
+        </div>
+        <div>
+          <button class="base-btn bootstrap-dark-theme-btn">Bootstrap</button>
+          <button class="base-btn bootstrap-download-btn">
+            Download
+          </button>
+        </div>
+        <div>
+          <button>YouTube</button>
+          <button class="base-btn youtube-subscribe-btn" onclick="alert('subscribed')">
+            SUBSCRIBE
+          </button>
+        </div>
+      </div>
+  
+      <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 15px;">
+        <div>
+          <button>LinkedIn</button>
+          <button class="base-btn linkedin-apply-btn">
+            Apply on company website
+          </button>
+          <button class="base-btn linkedin-save-btn">
+            Save
+          </button>
+        </div>
+        <div>
+          <button>Twitter</button>
+          <button>Twitter-X</button>
+          <button class="base-btn twitter-join-btn" onclick="alert('joined')">
+            JOIN
+          </button>
+          <button class="base-btn twitter-tweet-btn" onclick="alert('tweeted')">
+            Tweet
+          </button>
+        </div>
+      </div>
+      <a href="https://icons.getbootstrap.com/">More Icons</a>
+    </div>
+
+    <div class="page-wrap">
+      <p>9 Flowers and 9 Circles</p>
     </div>
 
     <div class="page-wrap">

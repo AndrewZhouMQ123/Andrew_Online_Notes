@@ -55,10 +55,22 @@ header {
   font-weight: 500;
 }
 
+.theme-btn {
+  display: block;
+  width: 75px;
+  height: 35px;
+  margin-left: 15px;
+  margin-right: 30px;
+  text-decoration: solid;
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 13px;
+}
+
 .search-bar {
   display: block;
   height: 25px;
-  width: 600px;
+  width: 400px;
   border-radius: 18px;
   font-size: 14px;
   font-weight: 400;

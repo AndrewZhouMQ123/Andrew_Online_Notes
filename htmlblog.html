@@ -16,23 +16,31 @@
       function jsblog() {
         window.location.replace("jsblog.html");
       }
+      function search() {
+
+      }
     </script>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/blog.css">
+    <link rel="stylesheet" href="styles/accessories.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="light-theme">
     <header>
       <button class="header-btn" onclick="home()"><span class="core-link">Home</span></button>
       <button class="header-btn" onclick="htmlblog()"><span class="nav-link">HTML</span></button>
       <button class="header-btn" onclick="cssblog()"><span class="nav-link">CSS</span></button>
       <button class="header-btn" onclick="jsblog()"><span class="nav-link">JS</span></button>
+      <button class="theme-btn" id="themeToggleBtn">Toggle Theme</button>
       <input class="search-bar" placeholder="Search">
     </header>
+
+    <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="60px" height="60px"></button>
+
     <div class="page-wrap">
       <h2>HTML Cheat Sheet</h2>
       <p>
