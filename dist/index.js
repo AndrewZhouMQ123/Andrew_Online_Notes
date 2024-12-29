@@ -1,6 +1,13 @@
 // Type-safe variable declarations
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 const rootElement = document.documentElement;
+const JSPre = document.getElementsByTagName("pre");
+// iterate over JSCodes to apply the class if necessary.
+if (JSPre) {
+    for (let preElement of JSPre) {
+        preElement.classList.add("code-box");
+    }
+}
 // Scroll to top functionality
 function scrollToTop() {
     rootElement.scrollTo({
@@ -51,6 +58,7 @@ const body = document.body;
 const pageWraps = document.querySelectorAll('.page-wrap');
 const horizontalWraps = document.querySelectorAll('.horizontal-wrap');
 const themeToggleBtn = document.getElementById('themeToggleBtn');
+const titles = document.querySelectorAll('.blog-title');
 // Check if a theme is already set
 let theme = window.localStorage.getItem('theme');
 if (!theme) {
@@ -78,6 +86,9 @@ function updateTheme(webtheme) {
             element.classList.remove('light-page');
             element.classList.add("dark-page");
         });
+        titles.forEach(element => {
+            element.style.textShadow = '0 0 10px rgb(85, 55, 45), 0 0 15px rgb(45, 35, 55)';
+        });
     }
     else {
         body.classList.remove('dark-theme');
@@ -91,6 +102,9 @@ function updateTheme(webtheme) {
         horizontalWraps.forEach(element => {
             element.classList.remove('dark-page');
             element.classList.add("light-page");
+        });
+        titles.forEach(element => {
+            element.style.textShadow = '0 0 10px rgb(235, 255, 245), 0 0 15px rgb(245, 235, 255)';
         });
     }
 }

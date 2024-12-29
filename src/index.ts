@@ -1,6 +1,15 @@
 // Type-safe variable declarations
 const scrollToTopBtn = document.getElementById("scrollToTopBtn") as HTMLButtonElement | null;
 const rootElement = document.documentElement;
+const JSPre = document.getElementsByTagName("pre") as HTMLCollectionOf<HTMLElement>;
+
+
+// iterate over JSCodes to apply the class if necessary.
+if (JSPre) {
+  for (let preElement of JSPre) {
+    preElement.classList.add("code-box");
+  }
+}
 
 // Scroll to top functionality
 function scrollToTop(): void {
@@ -56,6 +65,7 @@ const body = document.body;
 const pageWraps = document.querySelectorAll('.page-wrap') as NodeListOf<HTMLElement>;
 const horizontalWraps = document.querySelectorAll('.horizontal-wrap') as NodeListOf<HTMLElement>;
 const themeToggleBtn = document.getElementById('themeToggleBtn') as HTMLButtonElement;
+const titles = document.querySelectorAll('.blog-title') as NodeListOf<HTMLElement>;
 
 // Check if a theme is already set
 let theme = window.localStorage.getItem('theme');
@@ -87,6 +97,10 @@ function updateTheme(webtheme: String) {
       element.classList.remove('light-page')
       element.classList.add("dark-page")
     });
+
+    titles.forEach(element => {
+      element.style.textShadow = '0 0 10px rgb(85, 55, 45), 0 0 15px rgb(45, 35, 55)';
+    })
   } else {
     body.classList.remove('dark-theme');
     body.classList.add('light-theme');
@@ -101,6 +115,10 @@ function updateTheme(webtheme: String) {
       element.classList.remove('dark-page')
       element.classList.add("light-page")
     });
+
+    titles.forEach(element => {
+      element.style.textShadow = '0 0 10px rgb(235, 255, 245), 0 0 15px rgb(245, 235, 255)';
+    })
   }
 }
 

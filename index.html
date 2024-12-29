@@ -16,9 +16,6 @@
       function jsblog() {
         window.location.replace("jsblog.html");
       }
-      function search() {
-
-      }
     </script>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/blog.css">
@@ -36,7 +33,7 @@
       <button class="header-btn" onclick="cssblog()"><span class="nav-link">CSS</span></button>
       <button class="header-btn" onclick="jsblog()"><span class="nav-link">JS</span></button>
       <button class="theme-btn" id="themeToggleBtn">Toggle Theme</button>
-      <input class="search-bar" onclick="search()" placeholder="Search">
+      <input class="search-bar" placeholder="Search">
     </header>
 
     <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="60px" height="60px"></button>
@@ -72,6 +69,11 @@
     <div class="page-wrap">
       <h2>HTTPS Cheat Sheet</h2>
       <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">HTTP</a>
+    </div>
+
+    <div class="page-wrap">
+      <a href="https://www.w3.org/">W3C Standards</a>
+      <a href="https://spec.whatwg.org/">WHATWG Standards</a>
     </div>
     <script src="dist/index.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>

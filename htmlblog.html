@@ -16,9 +16,6 @@
       function jsblog() {
         window.location.replace("jsblog.html");
       }
-      function search() {
-
-      }
     </script>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/blog.css">
@@ -42,52 +39,60 @@
     <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="60px" height="60px"></button>
 
     <div class="page-wrap">
-      <h2>HTML Cheat Sheet</h2>
-      <p>
-        HTML (HyperText Markup Language) is the most basic building block of the Web.
-        It defines the meaning and structure of web content.
-        "Hypertext" refers to links that connect web pages to one another,
-        either within a single website or between websites.
-      </p>
-      <h3>HTML Syntax</h3>
-      <div class="tube-box">
-        <code class="language-html">&lt;!DOCTYPE html&gt;</code> at the top level declares the document type and version of HTML
+      <span class="blog-title">HTML Cheat Sheet</span>
+      <div class="white-board">
+        <p>
+          HTML (HyperText Markup Language) is the most basic building block of the Web.
+          It defines the meaning and structure of web content.
+          "Hypertext" refers to links that connect web pages to one another,
+          either within a single website or between websites.
+        </p>
+        <p><a href="https://html.spec.whatwg.org/">HTML Living Standard</a></p>
       </div>
-      <div class="tube-box">
-        Space and indentation in code is ignored in HTML. It only affects readability.
-      </div>
-      <div class="tube-box">
-        HTML elements are the building blocks of HTML. 
-        Each element begins with a opening tag <code class="language-html">&lt;tag&gt;</code>
-        and ends with a closing tag <code class="language-html">&lt;tag/&gt;</code>.
-      </div>
-      <div class="tube-box">
-        Void elements have self-enclosing tags (no closing tag) and no content. 
-        <code class="language-html">&lt;img src="image.jpg" alt="Description" &gt;</code>
-      </div>
-      <div class="tube-box">
-        Head section is for code that will not be displayed on browser.
-      </div>
-      <div class="tube-box">
-        Body section is for code that will be rendered as content on browser.
-      </div>
-      <div class="tube-box">
-        HTML enables elements to be nested within other elements.
-        <pre class="code-box language-html" style="width: 50%;">
-          <code>
-            &lt;div&gt;
-              &lt;h1&gt;Title&lt;/h1&gt;
-              &lt;p&gt;This is a paragraph inside a div.&lt;/p&gt;
-            &lt;/div&gt;
-          </code>
-        </pre>        
-      </div>
-      <div class="tube-box">
-        Comments are written like this: <code class="language-html"> &lt;!--This is a comment --&gt;</code>
-      </div>
-      <div class="tube-box">
-        JavaScript scripts imported is preferably at the end of the body so that HTML is rendered first,
-        otherwise loading scripts would delay HTML content and the web page may be disoriented.
+
+      <div class="white-board">
+        <h2>HTML Syntax</h2>
+        <ul>
+          <li>
+            <code class="language-html">&lt;!DOCTYPE html&gt;</code> at the top level declares the document type and version of HTML
+          </li>
+          <li>
+            Space and indentation in code is ignored in HTML. It only affects readability.
+          </li>
+          <li>
+            HTML elements are the building blocks of HTML. 
+            Each element begins with a opening tag <code class="language-html">&lt;tag&gt;</code>
+            and ends with a closing tag <code class="language-html">&lt;tag/&gt;</code>.
+          </li>
+          <li>
+            Void elements have self-enclosing tags (no closing tag) and no content. 
+            <code class="language-html">&lt;img src="image.jpg" alt="Description" &gt;</code>
+          </li>
+          <li>
+            Head section is for code that will not be displayed on browser.
+          </li>
+          <li>
+            Body section is for code that will be rendered as content on browser.
+          </li>
+          <li>
+            HTML enables elements to be nested within other elements.
+            <pre class="language-html">
+              <code>
+                <span class="line-number">1</span> &lt;div&gt;
+                <span class="line-number">2</span>  &lt;h1&gt;Title&lt;/h1&gt;
+                <span class="line-number">3</span>  &lt;p&gt;This is a paragraph inside a div.&lt;/p&gt;
+                <span class="line-number">4</span> &lt;/div&gt;
+              </code>
+            </pre>        
+          </li>
+          <li>
+            Comments are written like this: <code class="language-html"> &lt;!--This is a comment --&gt;</code>
+          </li>
+          <li>
+            JavaScript scripts imported is preferably at the end of the body so that HTML is rendered first,
+            otherwise loading scripts would delay HTML content and the web page may be disoriented.
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -843,24 +848,20 @@
 
     <div class="page-wrap">
       <h2>Code Snippet</h2>
-      <div class="center-box">
-        <div class="code-box language-html">
-          <pre>
-            <code>
-              <span class="line-number">1</span>&lt;!DOCTYPE html&gt;
-              <span class="line-number">2</span>&lt;html lang="en"&gt;
-              <span class="line-number">3</span>&lt;head&gt;
-              <span class="line-number">4</span>  &lt;meta charset="UTF-8"&gt;
-              <span class="line-number">5</span>  &lt;title&gt;Sample Page&lt;/title&gt;
-              <span class="line-number">6</span>&lt;/head&gt;
-              <span class="line-number">7</span>&lt;body&gt;
-              <span class="line-number">8</span>  &lt;h1&gt;Hello, World!&lt;/h1&gt;
-              <span class="line-number">9</span>&lt;/body&gt;
-              <span class="line-number">10</span>&lt;/html&gt;
-            </code>
-          </pre>          
-        </div>
-      </div>
+      <pre class="language-html">
+        <code>
+          <span class="line-number">1</span>  &lt;!DOCTYPE html&gt;
+          <span class="line-number">2</span>  &lt;html lang="en"&gt;
+          <span class="line-number">3</span>    &lt;head&gt;
+          <span class="line-number">4</span>      &lt;meta charset="UTF-8"&gt;
+          <span class="line-number">5</span>      &lt;title&gt;Sample Page&lt;/title&gt;
+          <span class="line-number">6</span>    &lt;/head&gt;
+          <span class="line-number">7</span>    &lt;body&gt;
+          <span class="line-number">8</span>      &lt;h1&gt;Hello, World!&lt;/h1&gt;
+          <span class="line-number">9</span>    &lt;/body&gt;
+          <span class="line-number">10</span> &lt;/html&gt;
+        </code>
+      </pre>          
     </div>
 
     <div class="page-wrap">

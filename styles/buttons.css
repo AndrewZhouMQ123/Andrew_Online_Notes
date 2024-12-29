@@ -20,6 +20,8 @@ button:active {
   height: 38px;
   width: 100px;
   font-size: 14px;
+  margin-left: 6px;
+  margin-right: 6px;
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 12px;
@@ -84,11 +86,6 @@ button:active {
 .light-btn {
   background-color: rgb(248, 249, 250);
   color: rgb(33, 37, 41);
-  border-color: rgb(248, 249, 250);
-}
-
-.light-btn:hover {
-  background-color: rgb(113, 250, 98);
   border-color: rgb(230, 250, 98)
 }
 
@@ -96,10 +93,6 @@ button:active {
   background-color: rgb(52, 58, 64);
   color: rgb(255, 255, 255);
   border-color: rgb(52, 58, 64);
-}
-
-.dark-btn:hover {
-  background-color: oklch(0.70 0.72 18);
 }
 
 .link-btn {
@@ -122,20 +115,37 @@ button:active {
 }
 
 .sky-btn {
-  background-color: hsl(190, 76%, 74%);
-  color: white;
-  border-color: lch(76 44 311);
+  background: linear-gradient(lch(76 44 311), hsl(190, 76%, 74%));
+  color: whitesmoke;
+  font-weight: bold;
+  border-color: whitesmoke;
+}
+
+.ice-btn {
+  background: linear-gradient(whitesmoke, hsl(190, 76%, 74%));
+  color: whitesmoke;
+  font-weight: bold;
+  border-color: gold;
+}
+
+.ocean-btn {
+  background: linear-gradient(hsl(190, 76%, 74%), whitesmoke);
+  color: whitesmoke;
+  font-weight: bold;
+  border-color: gold;
 }
 
 .guava-btn {
   background-color: hsl(18deg, 80%, 71%);
   color: black;
+  font-weight: bold;
   border-color: oklch(80% 35% 110deg);
 }
 
 .melon-btn {
   background-color: hsl(90deg, 80%, 71%);
   color: white;
+  font-weight: bold;
   border-color: yellowgreen;
 }
 
@@ -150,34 +160,6 @@ button:active {
   padding-right: 10px;
   border-width: 8px;
   border-radius: 50px;
-}
-
-.grass-groove {
-  background-color: rgb(174, 210, 76);
-  color: rgb(33, 37, 41);
-  border-color: rgb(210, 76, 123);
-  border-style: groove;
-}
-
-.grass-double {
-  background-color: rgb(174, 210, 76);
-  color: rgb(33, 37, 41);
-  border-color: rgb(210, 76, 123);
-  border-style: double;
-}
-
-.navy-groove {
-  background-color: rgb(0, 123, 255);
-  color: white;
-  border-color: rgb(171, 91, 191);
-  border-style: groove;
-}
-
-.navy-double {
-  background-color: rgb(0, 123, 255);
-  color: white;
-  border-color: rgb(171, 91, 191);
-  border-style: double;
 }
 
 .recycling-double {

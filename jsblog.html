@@ -16,9 +16,6 @@
       function jsblog() {
         window.location.replace("jsblog.html");
       }
-      function search() {
-
-      }
     </script>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/blog.css">
@@ -38,16 +35,1240 @@
       <button class="header-btn" onclick="cssblog()"><span class="nav-link">CSS</span></button>
       <button class="header-btn" onclick="jsblog()"><span class="nav-link">JS</span></button>
       <button class="theme-btn" id="themeToggleBtn">Toggle Theme</button>
-      <input class="search-bar" onclick="search()" placeholder="Search">
+      <input class="search-bar" placeholder="Search">
     </header>
 
     <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="60px" height="60px"></button>
 
-    <div class="page-wrap">
-      <h2>JS Cheat Sheet</h2>
+    <div class="page-wrap" id="javaScriptCheatSheet">
+      <span class="blog-title">JavaScript Cheat Sheet</span>
+      <ul class="white-board">
+        <li><strong>Falsy values:</strong> A value is considered "falsy" if it translates to false when evaluated in a boolean context.
+          The following values are considered falsy in JavaScript:
+          <ul>
+            <li><code>false</code></li>
+            <li><code>0</code> (zero)</li>
+            <li><code>-0</code> (negative zero)</li>
+            <li><code>0n</code> (BigInt zero)</li>
+            <li><code>""</code> or <code>''</code> or <code>``</code> (empty string)</li>
+            <li><code>null</code></li>
+            <li><code>undefined</code></li>
+            <li><code>NaN</code> (Not-A-Number)</li>
+          </ul>
+        </li>
+        <li><strong>Truthy values:</strong> Any value that is not falsy is considered "truthy."
+          This means that almost every other value will be evaluated as true in a boolean context.
+          Some common examples of truthy values include:
+          <ul>
+            <li><code>true</code></li>
+            <li>Any number other than <code>0</code></li>
+            <li>Any non-empty string </li>
+            <li><code>Infinity</code> and <code>-Infinity</code></li>
+            <li>Most values of <code>Symbol</code> and <code>BigInt</code></li>
+            <li>Objects are always true unless it's explicitly null or undefined</li>
+          </ul>
+        </li>
+        <li><strong>Variables (let, const, var):</strong> JavaScript has three ways to declare variables:
+          <ul>
+            <li><code>let</code> (block-scoped, mutable)</li>
+            <li><code>const</code> (block-scoped, immutable)</li>
+            <li><code>var</code> (function-scoped, now mostly discouraged due to issues with hoisting).</li>
+          </ul>
+        </li>
+        <li><strong>Data types:</strong>
+          <ul>
+            <li>There are 7 primitive types: <code>string</code>, <code>number</code>, <code>bigint</code>, <code>boolean</code>,
+              <code>symbol</code>, <code>null</code> and <code>undefined</code>.</li>
+            <li>And one non-primitive data type: <code>object</code> for more complex data structures.</li>
+          </ul>
+        </li>
+        <li><strong>Operators:</strong>
+          <ul>
+            <li><code>typeof</code>, <code>instanceof</code>, <code>this</code>, <code>new</code>, <code>delete</code>, <code>if</code>, <code>else</code></li>
+            <li><code>?</code> (conditional operator), <code>?.</code> (optional chaining), <code>?.()</code>, <code>?.[]</code></li>
+            <li><code>==</code> (equality regardless of type -> type conversion), <code>===</code> (equality and types match)</li>
+            <li><code>!</code> (NOT), <code>??</code> (Nullish Coalescing), <code>&&</code> (AND), <code>||</code> (OR)</li>
+            <li><code>try</code>, <code>catch</code>, <code>finally</code>, <code>async</code>, <code>await</code>, <code>class</code>, <code>interface</code></li>
+          </ul>
+        </li>
+        <li><strong>Loops:</strong>
+          <ul>
+            <li>
+              <pre>
+                <code>
+                  while (condition) {
+                    // do something
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>
+              <pre>
+                <code>
+                  do 
+                    statement
+                  while (condition);
+                </code>
+              </pre>
+            </li>
+            <li>
+              <pre>
+                <code>
+                  for (initialize; condition; increment) {
+                    // do something
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>
+              <pre>
+                <code>
+                  for (let key in object) {
+                    // do something
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>
+              <pre>
+                <code>
+                  for (variable of iterable) {
+                    // do something
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>
+              <pre>
+                <code>
+                  label: statement
+                </code>
+              </pre>
+            </li>
+            <li>
+              <pre>
+                <code>
+                  break;
+                  break label;
+                </code>
+              </pre>
+            </li>
+            <li>
+              <pre>
+                <code>
+                  continue;
+                  continue label;
+                </code>
+              </pre>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Objects</strong>
+          <ul>
+            <li>Stores properties as key value pairs in <code>{...}</code>.</li>
+            <li>Objects are passed by reference, whereas primitives are passed by value.</li>
+            <li>Can be created with <code>{}</code>. Functions are also objects.</li>
+            <li>
+              Object declaration, initialization, usage
+              <pre>
+                <code>
+                  const user = {
+                    id: "1",
+                    name: "Andrew",
+                    role: "Admin",
+                  }
+
+                  keys = Object.keys(user); // [id, name, role]
+                </code>
+              </pre>
+            </li>
+            <li>
+              Accessing objects
+              <pre>
+                <code>
+                  for (let key in user) {
+                    let property = user[key]; // 
+                  }
+                  
+                  let myid = user[id];
+                  let myname = user[name];
+                  let myrole = user[role];
+                </code>
+              </pre>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Arrays</strong>
+          <ul>
+            <li>
+              Array Declaration:
+              <pre>
+                <code>
+                  let arr = new Array();
+                  let arr = [];
+                </code>
+              </pre>
+            </li>
+            <li>
+              Array Initialization:
+              <pre>
+                <code>
+                  let arr = ["Apple", "Banana", "Pear"];
+                  // Arrays can store elements of any type
+                  let arr = ["Apple", { name: "Andrew" }, true, function() { console.log("Hello World") } ];
+                </code>
+              </pre>
+            </li>
+            <li>
+              Array Operations:
+              <pre>
+                <code>
+                  let apple = arr[0];
+                  let banana = arr[1];
+                  let pear = arr[2];
+                  arr[2] = "Plum"; // replace an element
+                  arr[3] = "Lemon"; // add a new one to the array
+                  for (let i = 0; i < arr.length; i) {
+                    console.log(arr[i]);
+                  }
+                  for (let fruit of arr) {
+                    console.log(fruit);
+                  }
+                  let undef = arr[-1]; // not allowed in JavaScript, the result will be undefined
+                </code>
+              </pre>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Functions:</strong>
+          <ul>
+            <li>Function Declaration:
+              <pre>
+                <code>
+                  function greet(name) {
+                    return `Hello, ${name}!`;
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>Function Expression:
+              <pre>
+                <code>
+                  // JavaScript functions are values too
+                  const greet = function(name) {
+                    return `Hello, ${name}!`;
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>Arrow Function:
+              <pre>
+                <code>
+                  const greet = (name) => {
+                    return `Hello, ${name}!`;
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>Shortened Arrow Function:
+              <pre>
+                <code>
+                  const greet = name => return `Hello, ${name}!`;
+                </code>
+              </pre>
+            </li>
+            <li>Callback function: passing function as parameter
+              <pre>
+                <code>
+                  // asynchronous callback
+                  function fetchData(callback) {
+                    setTimeout(() => {
+                      const data = "Here is your data!";
+                      callback(data);
+                    }, 2000);
+                  }     
+                  function displayData(data) {
+                    console.log(data);
+                  }
+                  fetchData(displayData); 
+                  
+                  // event handling callback
+                  const button = document.getElementById('myButton');
+                  button.addEventListener('click', function() {
+                    // function definition
+                  });
+                </code>
+              </pre>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Error Handling:</strong>
+          <ul>
+            <li><code>Error</code></li>
+            <li><code>AggregateError</code></li>
+            <li><code>EvalError</code></li>
+            <li><code>RangeError</code></li>
+            <li><code>ReferenceError</code></li>
+            <li><code>SyntaxError</code></li>
+            <li><code>TypeError</code></li>
+            <li><code>URIError</code></li>
+          </ul>
+        </li>
+      </ul>  
+      <table>
+        <caption>
+          Global Properties
+        </caption>
+        <thead>
+          <tr>
+            <th>Properties</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>globalThis</code></td>
+            <td>The globalThis global property contains the global this value, which is usually akin to the global object.</td>
+          </tr>
+          <tr>
+            <td><code>Infinity</code></td>
+            <td>The Infinity global property is a numeric value representing infinity.</td>
+          </tr>
+          <tr>
+            <td><code>NaN</code></td>
+            <td>The NaN global property is a value representing Not-A-Number.</td>
+          </tr>
+          <tr>
+            <td><code>undefined</code></td>
+            <td>The undefined global property represents the primitive value undefined. It is one of JavaScript's primitive types.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Global_object">Global Object</a></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table> 
+
+      <table>
+        <caption>
+          Built-In Functions
+        </caption>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>alert()</code></td>
+            <td>Displays a message in a modal dialog box. Use sparingly, as it interrupts user experience.</td>
+          </tr>
+          <tr>
+            <td><code>confirm()</code></td>
+            <td>Displays a dialog box with a message and "OK" and "Cancel" buttons. Returns true if the user clicks "OK" and false otherwise.</td>
+          </tr>
+          <tr>
+            <td><code>eval()</code></td>
+            <td>Executes a string of JavaScript code. Avoid using eval() due to potential security and performance risks.</td>
+          </tr>
+          <tr>
+            <td><code>isFinite()</code></td>
+            <td>Checks if a value is a finite number. Converts the argument to a number if necessary.</td>
+          </tr>
+          <tr>
+            <td><code>isNaN()</code></td>
+            <td>Checks if a value is NaN (Not-a-Number).</td>
+          </tr>
+          <tr>
+            <td><code>parseFloat()</code></td>
+            <td>Converts a string to a floating-point number.</td>
+          </tr>
+          <tr>
+            <td><code>parseInt()</code></td>
+            <td>Converts a string to an integer. Can specify a radix (base) for parsing.</td>
+          </tr>
+          <tr>
+            <td><code>prompt()</code></td>
+            <td>Displays a dialog box that asks for user input. Returns the input as a string. Often disabled or discouraged for modern web development.</td>
+          </tr>
+          <tr>
+            <td><code>decodeURI()</code></td>
+            <td>Decodes a Uniform Resource Identifier (URI) encoded with encodeURI().</td>
+          </tr>
+          <tr>
+            <td><code>decodeURIComponent()</code></td>
+            <td>Decodes a URI component encoded with encodeURIComponent().</td>
+          </tr>
+          <tr>
+            <td><code>encodeURI()</code></td>
+            <td>Encodes a URI by escaping characters that are not valid in a URI.</td>
+          </tr>
+          <tr>
+            <td><code>encodeURIComponent()</code></td>
+            <td>Encodes a URI component by escaping characters that have special meaning.</td>
+          </tr>
+          <tr>
+            <td><code>setTimeout()</code></td>
+            <td>Executes a function after a specified delay (in milliseconds).</td>
+          </tr>
+          <tr>
+            <td><code>clearTimeout()</code></td>
+            <td>Cancels a setTimeout timer.</td>
+          </tr>
+          <tr>
+            <td><code>setInterval()</code></td>
+            <td>Executes a function repeatedly, with a fixed time delay between calls.</td>
+          </tr>
+          <tr>
+            <td><code>clearInterval()</code></td>
+            <td>Cancels a setInterval timer.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <table>
+        <caption>
+          Built-In Objects
+        </caption>
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Methods / Values (prototype -> refers object instance of that type)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Object</code></td>
+            <td>
+              <li>
+                <code>Object()</code>, <code>assign()</code>, <code>create()</code>, <code>defineProperties()</code>, <code>defineProperty()</code>,
+                <code>entries()</code>, <code>freeze()</code>, <code>fromEntries()</code>
+              </li>
+              <li>
+                <code>getOwnPropertyDescriptor()</code>, <code>getOwnPropertyDescriptors()</code>, 
+                <code>getOwnPropertyNames()</code>, <code>getOwnPropertySymbols()</code>
+              </li>
+              <li>
+                <code>groupBy()</code>, <code>hasOwn()</code>, <code>is()</code>,
+                <code>keys()</code>, <code>seal()</code>, <code>values()</code> 
+              </li>
+              <li>
+                <code>prototype.apply()</code>, <code>prototype.bind()</code>, <code>prototype.call()</code>,
+                <code>prototype.toString()</code>, <code>prototype.toLocaleString()</code>, <code>prototype.valueOf()</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Function</code></td>
+            <td><code>Function()</code>, inherited instance methods from <code>Object</code></td>
+          </tr>
+          <tr>
+            <td><code>Boolean</code></td>
+            <td><code>Boolean()</code>, inherited instance methods from <code>Object</code></td>
+          </tr>
+          <tr>
+            <td><code>Symbol</code></td>
+            <td><code>Symbol()</code>, <code>for()</code>, <code>keyFor()</code>, and inherited instance methods from <code>Object</code></td>
+          </tr>
+          <tr>
+            <td><code>Number</code></td>
+            <td>
+              <li>
+                <code>isFinite()</code>, <code>isInteger()</code>, <code>isNaN()</code>, <code>isSafeInteger()</code>,
+                <code>parseFloat()</code>, <code>parseInt()</code>
+              </li>
+              <li>
+                <code>EPSILON</code>, <code>MAX_SAFE_INTEGER</code>, <code>MAX_VALUE</code>, <code>MIN_SAFE_INTEGER</code>,
+                <code>MIN_VALUE</code>, <code>NaN</code>, <code>NEGATIVE_INFINITY</code>, <code>POSITIVE_INFINITY</code>
+              </li>
+              <li>
+                <code>prototype.toExponential()</code>, <code>prototype.toFixed()</code>,
+                <code>prototype.toPrecision()</code>, and inherited instance methods from <code>Object</code></code> 
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>BigInt</code></td>
+            <td><code>BigInt()</code>, <code>asIntN()</code>, <code>asUintN()</code>, and inherited instance methods from <code>Object</code></td>
+          </tr>
+          <tr>
+            <td><code>Math</code></td>
+            <td>
+              <li><code>abs()</code>, <code>acos()</code>, <code>acosh()</code>, <code>asin()</code>, <code>asinh()</code>, <code>atan()</code></li>
+              <li><code>atan2()</code>, <code>atanh()</code>, <code>cbrt()</code> <code>ceil()</code>, <code>clz32()</code>, <code>cos()</code></li>
+              <li><code>cosh()</code>, <code>exp()</code>, <code>expm1()</code>, <code>f16round()</code>, <code>floor()</code>, <code>fround()</code></li>
+              <li><code>hypot()</code>, <code>imul()</code>, <code>log()</code>, <code>log10()</code>, <code>log1p()</code>, <code>log2()</code></li>
+              <li><code>max()</code>, <code>min()</code>, <code>pow()</code>, <code>random()</code>, <code>round()</code>, <code>sign()</code></li>
+              <li><code>sin()</code>, <code>sinh()</code>, <code>sqrt()</code>, <code>tan()</code>, <code>tanh()</code>, <code>trunc()</code></li>
+              <li>
+                <code>E</code>, <code>LN10</code>, <code>LN2</code>, <code>LOG10E</code>, <code>LOG2E</code>, 
+                <code>PI</code>, <code>SQRT1_2</code>, <code>SQRT2</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Date</code></td>
+            <td>
+              <li><code>Date()</code>, <code>now()</code>, <code>parse()</code>, <code>UTC()</code></li>
+              <li>
+                <code>prototype.getDate()</code>, <code>prototype.getDay()</code>, <code>prototype.getFullYear()</code>,
+                <code>prototype.getMonth()</code>, <code>prototype.getTimezoneOffset()</code>
+              </li>
+              <li>
+                <code>prototype.getHours()</code>, <code>prototype.getMilliseconds()</code>, <code>prototype.getMinutes()</code>,
+                <code>prototype.getSeconds()</code>, <code>prototype.getTime()</code>
+              </li>
+              <li>
+                <code>prototype.setDate()</code>, <code>prototype.setFullYear()</code>, <code>prototype.setMonth()</code>
+              </li>
+              <li>
+                <code>prototype.setHours()</code>, <code>prototype.setMilliseconds()</code>,
+                <code>prototype.setMinutes()</code>, <code>prototype.setSeconds()</code>, <code>prototype.setTime()</code>
+              </li>
+              <li>
+                <code>prototype.getUTCDate()</code>, <code>prototype.getUTCDay()</code>, <code>prototype.getUTCFullYear()</code>,
+                <code>prototype.getUTCMonth()</code>
+              </li>
+              <li>
+                <code>prototype.getUTCHours()</code>, <code>prototype.getUTCMilliseconds()</code>, <code>prototype.getUTCMinutes()</code>, 
+                <code>prototype.getUTCSeconds()</code>
+              </li>
+              <li>
+                <code>prototype.setUTCDate()</code>, <code>prototype.setUTCMonth()</code>, <code>prototype.setUTCFullYear()</code>
+              </li>
+              <li>
+                <code>prototype.setUTCHours()</code>, <code>prototype.setUTCMilliseconds()</code>, <code>prototype.setUTCMinutes</code>, 
+                <code>prototype.setUTCSeconds()</code>
+              </li>
+              <li>
+                <code>prototype.toDateString()</code>, <code>prototype.toISOString()</code>, <code>prototype.toJSON</code>, 
+                <code>prototype.toLocaleDateString()</code>, <code>prototype.toLocaleTimeString()</code>
+              </li>
+              <li>
+                <code>prototype.toTimeString()</code>, <code>prototype.toUTCString()</code>, and inherited instance methods from <code>Object</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>String</code></td>
+            <td>
+              <li>
+                <code>fromCharCode()</code>, <code>fromCodePoint()</code>, <code>raw()</code>
+              </li>
+              <li>
+                <code>prototype.at()</code>, <code>prototype.charAt()</code>, <code>prototype.charCodeAt()</code>, <code>prototype.codePointAt()</code>,
+                <code>prototype.concat()</code>
+              </li>
+              <li>
+                <code>prototype.endswith()</code>, <code>prototype.includes()</code>, <code>prototype.indexOf()</code>,
+                <code>prototype.isWellFormed()</code>,  <code>prototype.lastIndexOf()</code> 
+              </li>
+              <li>
+                <code>prototype.localCompare()</code>,  <code>prototype.match()</code>,  <code>prototype.matchAll()</code>,
+                <code>prototype.normalize()</code>,  <code>prototype.padEnd()</code>,  <code>prototype.padStart()</code>
+              </li>
+              <li>
+                <code>prototype.repeat()</code>,  <code>prototype.replace()</code>,  <code>prototype.replaceAll()</code>,
+                <code>prototype.search()</code>,  <code>prototype.slice()</code>,  <code>prototype.small()</code>
+              </li>
+              <li>
+                <code>prototype.split()</code>, <code>prototype.startsWith()</code>, <code>prototype.substring()</code>,
+                <code>prototype.toLowerCase()</code>, <code>prototype.toString()</code>, <code>prototype.toUpperCase()</code>,  
+              </li>
+              <li>
+                <code>prototype.toWellFormed()</code>, <code>prototype.trim()</code>, <code>prototype.trimEnd()</code>,
+                <code>prototype.trimStart()</code>, <code>prototype.valueOf()</code>, <code>prototype[Symbol.iterator]()</code>, 
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>RegExp</code></td>
+            <td>
+              <li>
+                <code>RegExp()</code>, <code>escape()</code>, <code>prototype.exec()</code>, <code>prototype.test()</code>,
+                <code>prototype.toString()</code>, <code>prototype[Symbol.match]()</code>
+              </li>
+              <li>
+                <code>prototype[Symbol.matchAll]()</code>, <code>prototype[Symbol.replace]()</code>,
+                <code>prototype[Symbol.search]()</code>, <code>prototype[Symbol.split]()</code> 
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Array</code></td>
+            <td>
+              <ul>
+                <li>
+                  <code>Array()</code>, <code>from()</code>,  <code>fromAsync()</code>,
+                  <code>isArray()</code>,  <code>of()</code>, <code>String(array)</code>
+                </li>
+                <li>
+                  <code>prototype.at(index)</code>, <code>prototype.concat(arg1, arg2...)</code>, <code>prototype.copyWithin(target, start, end)</code> 
+                </li>
+                <li>
+                  <code>prototype.entries()</code>, <code>prototype.every(callbackFn)</code>, <code>prototype.fill(value, start, end)</code>
+                </li>
+                <li><code>prototype.filter(function(item, index, array){...})</code>, <code>prototype.find(function(item, index, array){...})</code></li>
+                <li><code>prototype.findIndex(function(item, index, array){...})</code>, <code>prototype.findLast(function(item, index, array){...})</code></li>
+                <li>
+                  <code>prototype.findLastIndex(function(item, index, array){...})</code>,
+                  <code>prototype.flat(depth)</code>, <code>prototype.flatMap(callbackFn)</code>
+                </li>
+                <li>
+                  <code>prototype.forEach(function(item, index, array){...});</code>,
+                  <code>prototype.includes(item, from)</code>, <code>prototype.indexOf(item, from)</code>
+                </li>
+                <li>
+                  <code>prototype.join(separator)</code>, <code>prototype.keys()</code>, <code>prototype.lastIndexOf()</code>,
+                  <code>prototype.map(function(item, index, array){...})</code>
+                </li>
+                <li>
+                  <code>prototype.pop()</code>, <code>prototype.push(E)</code>,
+                  <code>prototype.reduce(function(accumulator, item, index, array){...}, [initial])</code>
+                </li>
+                <li><code>prototype.reduceRight(function(accumulator, item, index, array){...}, [initial])</code></li>
+                <li>
+                  <code>prototype.reverse()</code>, <code>prototype.shift()</code>, <code>prototype.unshift()</code>,
+                  <code>prototype.sort(compareFunction(a, b){...})</code>, <code>prototype.some(callbackFn)</code>
+                </li>
+                <li><code>prototype.splice(start[, deleteCount, elem1, ..., elemN])</code>, <code>prototype.slice([start], [end])</code></li>
+                <li>
+                  <code>prototype.toLocaleString()</code>, <code>prototype.toReversed()</code>, <code>prototype.toSorted()</code>, 
+                  <code>prototype.toSpliced()</code>, <code>prototype.toString()</code>
+                </li>
+                <li><code>prototype.values()</code>, <code>prototype.with()</code>, <code>prototype[Symbol.iterator]()</code></li>
+                <p style="font-style: italic;">
+                  Almost all array methods that call functions - like find, filter, map, with a notable exception of sort,
+                  accept an optional additional parameter thisArg. The value of thisArg parameter becomes this for func.
+                </p>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Map</code></td>
+            <td>
+              <li>
+                <code>Map()</code>, <code>groupBy()</code>, <code>prototype.clear()</code>, <code>prototype.delete()</code>,
+                <code>prototype.entries()</code>, <code>prototype.forEach()</code>, <code>prototype.get()</code>
+              </li>
+              <li>
+                <code>prototype.has()</code>, <code>prototype.keys()</code>, <code>prototype.set()</code>, <code>prototype.values()</code>,
+                <code>prototype[Symbol.iterator]()</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Set</code></td>
+            <td>
+              <li>
+                <code>Set()</code>, <code>prototype.add()</code>, <code>prototype.clear()</code>, <code>prototype.delete()</code>,
+                <code>prototype.difference()</code>, <code>prototype.entries()</code>, <code>prototype.forEach()</code>
+              </li>
+              <li>
+                <code>prototype.has()</code>, <code>prototype.intersection()</code>, <code>prototype.isDisjointFrom()</code>, 
+                <code>prototype.isSubsetOf()</code>, <code>prototype.isSupersetOf()</code>, <code>prototype.keys()</code>
+              </li>
+              <li>
+                <code>prototype.symmetricDifference()</code>, <code>prototype.union()</code>, <code>prototype.values()</code>, 
+                <code>prototype[Symbol.iterator]()</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>WeakMap</code></td>
+            <td><code>WeakMap()</code>, <code>prototype.delete()</code>, <code>prototype.get()</code>, <code>prototype.has()</code>, <code>prototype.set()</code></td>
+          </tr>
+          <tr>
+            <td><code>WeakSet</code></td>
+            <td><code>WeakSet()</code>, <code>prototype.add()</code>, <code>prototype.delete()</code>, <code>prototype.has()</code></td>
+          </tr>
+          <tr>
+            <td><code>ArrayBuffer</code></td>
+            <td>
+              <li>
+                <code>ArrayBuffer()</code>, <code>isView()</code>, <code>prototype.resize()</code>, <code>prototype.slice()</code>,
+                <code>prototype.transfer()</code>, <code>prototype.transferToFixedLength()</code>
+              </li>
+              <li>
+                <code>prototype.byteLength</code>, <code>prototype.detached</code>, <code>prototype.maxByteLength</code>, <code>prototype.resizable</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>SharedArrayBuffer</code></td>
+            <td>
+              <code>SharedArrayBuffer()</code>, <code>prototype.grow()</code>, <code>prototype.slice()</code>, 
+              <code>prototype.byteLength</code>, <code>prototype.growable</code>, <code>prototype.maxByteLength</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>DataView</code></td>
+            <td>
+              <li>
+                <code>DataView()</code>, <code>prototype.getBigInt64()</code>, <code>prototype.getBigUint64()</code>,
+                <code>prototype.getFloat16</code>, <code>prototype.getFloat32</code>, <code>prototype.getFloat64</code>
+              </li>
+              <li>
+                <code>prototype.getInt16()</code>, <code>prototype.getInt32()</code>, <code>prototype.getInt8()</code>,
+                <code>prototype.getUint16()</code>, <code>prototype.getUint32()</code>, <code>prototype.getUint8()</code>
+              </li>
+              <li>
+                <code>prototype.setBigInt64()</code>, <code>prototype.setBigUint64()</code>, <code>prototype.setFloat16()</code>,
+                <code>prototype.setFloat32()</code>, <code>prototype.setFloat64()</code>
+              </li>
+              <li>
+                <code>prototype.setInt16()</code>, <code>prototype.setInt32()</code>, <code>prototype.setInt8()</code>,
+                <code>prototype.setUint16()</code>, <code>prototype.setUint32()</code>, <code>prototype.setUint8()</code>
+              </li>
+              <li>
+                <code>prototype.buffer</code>, <code>prototype.byteLength</code>, <code>prototype.byteOffset</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Atomics</code></td>
+            <td>
+              <li>
+                <code>Atomics.add()</code>, <code>Atomics.and()</code>, <code>Atomics.compareExchange()</code>,
+                <code>Atomics.exchange()</code>, <code>Atomics.isLockFree()</code>, <code>Atomics.load()</code>
+              </li>
+              <li>
+                <code>Atomics.notify()</code>, <code>Atomics.or()</code>, <code>Atomics.store()</code>, <code>Atomics.sub()</code>,
+                <code>Atomics.wait()</code>, <code>Atomics.waitAsync()</code>, <code>Atomics.xor()</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>JSON</code></td>
+            <td><code>JSON.isRawJSON()</code>, <code>JSON.parse()</code>, <code>JSON.rawJSON()</code>, <code>JSON.stringify()</code></td>
+          </tr>
+          <tr>
+            <td><code>Iterator</code></td>
+            <td>
+              <li>
+                <code>Iterator()</code>, <code>from()</code>, <code>prototype.drop()</code>, <code>prototype.every()</code>,
+                <code>prototype.filter()</code>, <code>prototype.find()</code>, <code>prototype.flatMap()</code>
+              </li>
+              <li>
+                <code>prototype.forEach()</code>, <code>prototype.map()</code>, <code>prototype.reduce()</code>,
+                <code>prototype.some()</code>, <code>prototype.take()</code>, <code>prototype.toArray()</code>
+                <code>prototype[Symbol.iterator]()</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>AsyncIterator</code></td>
+            <td><code>prototype[Symbol.asyncIterator]()</code></td>
+          </tr>
+          <tr>
+            <td><code>Promise</code></td>
+            <td>
+              <li>
+                <code>Promise()</code>, <code>all()</code>, <code>allSettled()</code>, <code>any()</code>,
+                <code>race()</code>, <code>reject()</code>, <code>resolve()</code>, <code>try()</code>, <code>withResolvers()</code>
+              </li>
+              <li>
+                <code>prototype.catch()</code>, <code>prototype.finally()</code>, <code>prototype.then()</code>, <code>prototype[Symbol.species]</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>GeneratorFunction</code></td>
+            <td><code>GeneratorFunction()</code></td>
+          </tr>
+          <tr>
+            <td><code>AsyncGeneratorFunction</code></td>
+            <td><code>AsyncGeneratorFunction()</code></td>
+          </tr>
+          <tr>
+            <td><code>Generator</code></td>
+            <td><code>prototype.next()</code>, <code>prototype.return()</code>, <code>prototype.throw()</code>, subclass of <code>Iterator</code> class</td>
+          </tr>
+          <tr>
+            <td><code>AsyncGenerator</code></td>
+            <td><code>prototype.next()</code>, <code>prototype.return()</code>, <code>prototype.throw()</code>, subclass of <code>AsyncIterator</code> class</td>
+          </tr>
+          <tr>
+            <td><code>AsyncFunction</code></td>
+            <td><code>AsyncFunction()</code></td>
+          </tr>
+          <tr>
+            <td><code>Reflect</code></td>
+            <td>
+              <li>
+                <code>apply()</code>, <code>construct()</code>, <code>defineProperty()</code>, <code>deleteProperty()</code>,
+                <code>get()</code>, <code>getOwnPropertyDescriptor()</code>, <code>getPrototypeOf()</code>, <code>has()</code>
+              </li>
+              <li>
+                <code>isExtensible()</code>, <code>ownKeys()</code>, <code>preventExtensions()</code>, <code>set()</code>,
+                <code>setPrototypeOf()</code>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Proxy</code></td>
+            <td><code>Proxy(target, handler)</code>, <code>revocable()</code>, often used with the Reflect object.</td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">Built-In Objects</a></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <table>
+        <caption>
+          Primitive Data Types
+        </caption>
+        <thead>
+          <tr>
+            <th>Identifier</th>
+            <th>Literal / Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>string</code></td>
+            <td>
+              <code>"Hello, world!", 'This is a string', `Backticks for multiline strings`</code>
+              <p>Represent a sequence of characters, such as letters, numbers, and symbols.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>number</code></td>
+            <td>
+              <code>42, 3.14, -10, Infinity, -Infinity, NaN</code>
+              <p>Represents both integers and floating-point numbers.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>bigint</code></td>
+            <td>
+              <code>9007199254740991n, -1234567890123456789n</code>
+              <p>Represents integers of arbitrary size, suffixed with the letter n.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>boolean</code></td>
+            <td>
+              <code>true, false</code>
+              <p>Represents truth values: true or false.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>symbol</code></td>
+            <td>
+              <code>Symbol("unique identifier"), Symbol.for("shared identifier")</code>
+              <p>A unique and immutable value, often used as identifiers. Created using Symbol() or Symbol.for().</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>null</code></td>
+            <td>
+              <code>null</code>
+              <p>Represents the intentional absence of a value.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>undefined</code></td>
+            <td>
+              <code>undefined</code>
+              <p>Represents a variable that has been declared but not assigned a1 value.</p>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <table>
+        <caption>
+          DOM & BOM API
+        </caption>
+        <thead>
+          <tr>
+            <th>Interface</th>
+            <th>Description</th>
+            <th>Methods / Properties</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>console</code></td>
+            <td>The console object provides access to the web console.</td>
+            <td>
+              <code>assert()</code>, <code>clear()</code>, <code>count()</code>, <code>countReset()</code>, <code>debug()</code>,
+              <code>dir()</code>, <code>dirxml()</code>, <code>error()</code>, <code>group()</code>, <code>groupCollapsed()</code>,
+              <code>groupEnd()</code>,  <code>info()</code>, <code>log()</code>, <code>table()</code>, <code>time()</code>,
+              <code>timeEnd()</code>, <code>timeLog()</code>, <code>trace()</code>, <code>warn()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Navigator</code></td>
+            <td>Represents the user agent's state and identity, enabling scripts to query it or register activities. Accessed via window.navigator.</td>
+            <td>
+              <code>clipboard</code>, <code>connection</code>, <code>cookieEnabled</code>, <code>credentials</code>, <code>deviceMemory</code>,
+              <code>geolocation</code>, <code>hardwareConcurrency</code>, <code>language</code>, <code>languages</code>, <code>locks</code>,
+              <code>maxTouchPoints</code>, <code>mediaCapabilities</code>, <code>mediaDevices</code>, <code>mediaSession</code>,
+              <code>onLine</code>, <code>pdfViewerEnabled</code>, <code>permissions</code>, <code>presentation</code>,
+              <code>serviceWorker</code>, <code>storage</code>, <code>usb</code>, <code>userActivation</code>,
+              <code>userAgent</code>, <code>virtualKeyboard</code>, <code>wakeLock</code>, <code>webdriver</code>, <code>windowControlsOverlay</code>
+              <code>canShare()</code>, <code>clearAppBadge()</code>, <code>getBattery()</code>, <code>getGamepads()</code>,
+              <code>registerProtocolHandler</code>, <code>requestMediaKeySystemAccess()</code>, <code>requestMIDIAccess()</code>,
+              <code>sendBeacon()</code>, <code>setAppBadge()</code>, <code>share()</code>, <code>unregisterProtocolHandler()</code>,
+              <code>vibrate()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>AbstractRange</code></td>
+            <td>The base class for all DOM range types, representing the start and end points of a content section within a document.</td>
+            <td><code>collapsed</code>, <code>endContainer</code>, <code>endOffset</code>, <code>startContainer</code>, <code>startOffset</code></td>
+          </tr>
+          <tr>
+            <td><code>AbortController</code></td>
+            <td>The AbortController interface represents a controller object that allows you to abort one or more Web requests as and when desired.</td>
+            <td><code>AbortController()</code>, <code>signal</code>, <code>abort()</code></td>
+          </tr>
+          <tr>
+            <td><code>PerformanceEntry</code></td>
+            <td>The PerformanceEntry object encapsulates a single performance metric that is part of the browser's performance timeline.</td>
+            <td><code>duration</code>, <code>entryType</code>, <code>name</code>, <code>startTime</code>, <code>toJSON()</code></td>
+          </tr>
+          <tr>
+            <td><code>StaticRange</code></td>
+            <td>
+              Extends AbstractRange to define a fixed range of content in the DOM that does not update with changes in the DOM tree.
+              It shares the same properties and methods as AbstractRange.
+            </td>
+            <td><code>collapsed</code>, <code>endContainer</code>, <code>endOffset</code>, <code>startContainer</code>, <code>startOffset</code></td>
+          </tr>
+          <tr>
+            <td><code>EventTarget</code></td>
+            <td>Enables objects to receive events and manage event listeners through its three associated methods.</td>
+            <td><code>EventTarget()</code>, <code>addEventListener()</code>, <code>dispatchEvent()</code>, <code>removeEventListener()</code></td>
+          </tr>
+          <tr>
+            <td><code>AbortSignal</code></td>
+            <td>Represents a signal object for communicating with and aborting asynchronous operations, typically used with an AbortController.</td>
+            <td><code>aborted</code>, <code>signal</code>, <code>abort()</code>, <code>any()</code>, <code>timeout()</code></td>
+          </tr>
+          <tr>
+            <td><code>Window</code></td>
+            <td>
+              The "root" object in the browser, representing the browser window.
+              It provides global functions and properties that are accessible throughout the page.
+              Inherits from EventTarget.
+            </td>
+            <td>
+              <code>caches</code>, <code>closed</code>, <code>console</code>
+              <code>crossOriginIsolated</code>, <code>crypto</code>, <code>customElements</code>
+              <code>devicePixelRatio</code>, <code>document</code>, <code>frameElement</code>
+              <code>frames</code>, <code>history</code>, <code>indexedDB</code>, <code>innerHeight</code>,
+              <code>innerWidth</code>, <code>isSecureContext</code>, <code>length</code>, <code>localStorage</code>,
+              <code>location</code>, <code>locationbar</code>, <code>menubar</code>, <code>name</code>,
+              <code>navigator</code>, <code>opener</code>, <code>origin</code>, <code>outerHeight</code>,
+              <code>outerWidth</code>, <code>parent</code>, <code>performance</code>, <code>personalbar</code>,
+              <code>scheduler</code>, <code>screen</code>, <code>screenLeft</code>, <code>screenTop</code>,
+              <code>screenX</code>, <code>screenY</code>, <code>scrollbars</code>, <code>scrollX</code>,
+              <code>scrollY</code>, <code>self</code>, <code>sessionStorage</code>, <code>speechSynthesis</code>,
+              <code>statusbar</code>, <code>toolbar</code>, <code>top</code>, <code>trustedTypes</code>,
+              <code>visualViewport</code>, <code>window</code>, <code>alert()</code>, <code>atob()</code>,
+              <code>btoa()</code>, <code>cancelAnimationFrame()</code>, <code>cancelIdleCallback()</code>,
+              <code>clearInterval()</code>, <code>clearTimeout()</code>, <code>close()</code>, <code>confirm()</code>,
+              <code>createImageBitmap</code>, <code>fetch()</code>, <code>focus()</code>, <code>getComputedStyle()</code>,
+              <code>getSelection()</code>, <code>matchMedia()</code>, <code>moveBy()</code>, <code>moveTo()</code>,
+              <code>open()</code>, <code>postMessage()</code>, <code>print()</code>, <code>prompt()</code>,
+              <code>queueMicrotask()</code>, <code>reportError()</code>, <code>requestAnimationFrame()</code>,
+              <code>requestIdleCallback()</code>, <code>resizeBy()</code>, <code>resizeTo()</code>, <code>scroll()</code>,
+              <code>scrollBy()</code>, <code>scrollTo()</code>, <code>setInterval()</code>, <code>setTimeout()</code>,
+              <code>stop()</code>, <code>structuredClone()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Performance</code></td>
+            <td>Provides access to performance-related information for the current page. Inherits from EventTarget. </td>
+            <td>
+              <code>eventCounts</code>, <code>timeOrigin</code>, <code>clearMarks()</code>, <code>clearMeasures()</code>,
+              <code>clearResourceTimings()</code>, <code>getEntries()</code>, <code>getEntriesByName()</code>,
+              <code>getEntriesByType()</code>, <code>mark()</code>, <code>measure()</code>, <code>now()</code>,
+              <code>setResourceTimingBufferSize()</code>, <code>toJSON()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Node</code></td>
+            <td>
+              Abstract base class for DOM objects like Document, Element, and DocumentFragment, inheriting from EventTarget.
+            </td>
+            <td>
+              <code>baseURI</code>, <code>childNodes</code>, <code>firstChild</code>, <code>isConnected</code>, <code>lastChild</code>,
+              <code>nextSibling</code>, <code>nodeName</code>, <code>nodeType</code>, <code>nodeValue</code>, <code>ownerDocument</code>,
+              <code>parentElement</code>, <code>parentNode</code>, <code>previousSibling</code>, <code>textContent</code>, <code>appendChild()</code>,
+              <code>cloneNode()</code>, <code>compareDocumentPosition()</code>, <code>contains()</code>, <code>getRootNode()</code>, <code>hasChildNodes()</code>, 
+              <code>insertBefore()</code>, <code>isDefaultNamespace()</code>, <code>isEqualNode()</code>, <code>isSameNode()</code>, <code>lookupNamespaceURI()</code>, 
+              <code>lookupPrefix()</code>, <code>normalize()</code>, <code>removeChild()</code>, <code>replaceChild()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Document</code></td>
+            <td>
+              Represents a web page loaded in the browser, serving as the entry point to access and manipulate the web page's content (DOM tree).
+              Inherits from Node.
+            </td>
+            <td>
+              <code>Document()</code>, <code>activeElement</code>, <code>adoptedStyleSheets</code>, <code>body</code>, <code>characterSet</code>,
+              <code>childElementCount</code>, <code>children</code>, <code>compatMode</code>, <code>contentType</code>, <code>cookie</code>,
+              <code>currentScript</code>, <code>defaultView</code>, <code>designMode</code>, <code>dir</code>, <code>doctype</code>,
+              <code>documentElement</code>, <code>documentURI</code>, <code>embeds</code>, <code>firstElementChild</code>, <code>fonts</code>,
+              <code>forms</code>, <code>fragmentDirective</code>, <code>fullscreenElement</code>, <code>fullscreenEnabled</code>, <code>head</code>,
+              <code>hidden</code>, <code>images</code>, <code>implementation</code>, <code>lastElementChild</code>, <code>lastModified</code>,
+              <code>links</code>, <code>location</code>, <code>pictureInPictureElement</code>, <code>pictureInPictureEnabled</code>, <code>plugins</code>,
+              <code>pointerLockElement</code>, <code>readyState</code>, <code>referrer</code>, <code>scripts</code>, <code>scrollingElement</code>,
+              <code>styleSheets</code>, <code>timeline</code>, <code>title</code>, <code>URL</code>, <code>visibilityState</code>,
+              <code>parseHTMLUnsafe()</code>, <code>adoptNode()</code>, <code>caretPositionFromPoint()</code>, <code>close()</code>, 
+              <code>createAttribute()</code>, <code>createAttributeNS()</code>, <code>createCDATASection()</code>, <code>createComment()</code>,
+              <code>createDocumentFragment()</code>, <code>createElement()</code>, <code>createElementNS()</code>,<code>createExpression()</code>, 
+              <code>createNodeIterator()</code>, <code>createProcessingInstruction()</code>, <code>createRange()</code>, <code>createTextNode()</code>, 
+              <code>createTreeWalker()</code>, <code>elementFromPoint()</code>, <code>elementsFromPoint()</code>, <code>evaluate()</code>, 
+              <code>exitFullscreen()</code>, <code>exitPictureInPicture()</code>, <code>exitPointerLock()</code>, <code>getAnimations()</code>, 
+              <code>getElementById()</code>, <code>getElementsByClassName()</code>, <code>getElementsByTagName()</code>, <code>getElementsByTagNameNS()</code>
+              <code>getSelection()</code>, <code>hasFocus()</code>, <code>hasStorageAccess()</code>,<code>hasUnpartitionedCookieAccess()</code>, 
+              <code>importNode()</code>, <code>open()</code>, <code>prepend()</code>, <code>querySelector()</code>, <code>querySelectorAll()</code>, 
+              <code>replaceChildren()</code>, <code>requestStorageAccess()</code>, <code>startViewTransition()</code>, <code>writeln()</code>, 
+            </td>
+          </tr>
+          <tr>
+            <td><code>Location</code></td>
+            <td>
+              Represents the URL of the associated object, with changes reflected on that object.
+              Accessible via Document.location and Window.location.
+            </td>
+            <td>
+              <code>ancestorOrigins</code>, <code>hash</code>, <code>host</code>, <code>hostname</code>, <code>href</code>, 
+              <code>origin</code>, <code>pathname</code>, <code>port</code>, <code>protocol</code>, <code>search</code>,
+              <code>assign()</code>, <code>reload()</code>, <code>replace()</code>, <code>toString()</code> 
+            </td>
+          </tr>
+          <tr>
+            <td><code>XMLDocument</code></td>
+            <td>
+              The XMLDocument interface represents an XML document.
+              It inherits from the generic Document and does not add any specific methods or properties to it:
+              nevertheless, several algorithms behave differently with the two types of documents.
+            </td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td><code>Attr</code></td>
+            <td>
+              Represents an element's attribute as an object, inheriting from Node.
+            </td>
+            <td><code>localName</code>, <code>name</code>, <code>namespaceURI</code>, <code>ownerElement</code>, <code>prefix</code>, <code>value</code></td>
+          </tr>
+          <tr>
+            <td><code>Element</code></td>
+            <td>
+              The base class for all element objects in a Document, containing methods and properties common to all elements.
+              It inherits from Node.
+            </td>
+            <td>
+              <code>assignedSlot</code> <code>attributes</code>, <code>childElementCount</code>, <code>children</code>, <code>classList</code>,
+              <code>className</code>, <code>clientHeight</code>, <code>clientLeft</code>, <code>clientTop</code>, <code>clientWidth</code>, 
+              <code>firstElementChild</code>, <code>id</code>, <code>innerHTML</code>, <code>lastElementChild</code>, <code>localName</code>,
+              <code>namespaceURI</code>, <code>nextElementSibling</code>, <code>outerHTML</code>, <code>part</code>, <code>prefix</code>,
+              <code>previousElementSibling</code>, <code>scrollHeight</code>, <code>scrollLeft</code>, <code>scrollTop</code>,
+              <code>scrollWidth</code>, <code>shadowRoot</code>, <code>slot</code>, <code>tagName</code>, <code>ARIA... // aria&lt;properties&gt;</code>
+              <code>after()</code>, <code>animate()</code>, <code>append()</code>, <code>attachShadow()</code>, <code>before()</code>, 
+              <code>checkVisibility()</code>, <code>closest()</code>, <code>computedStyleMap()</code>, <code>getAnimations()</code>, <code>getAttribute()</code>, 
+              <code>getAttributeNames()</code>, <code>getAttributeNode()</code>, <code>getAttributeNodeNS()</code>, <code>getAttributeNS()</code>, 
+              <code>getBoundingClientRect()</code>, <code>getClientRects()</code>, <code>getElementsByClassName()</code>, <code>getElementsByTagName()</code>,
+              <code>getElementsByTagNameNS</code>, <code>getHTML()</code>, <code>hasAttribute()</code>, <code>hasAttributeNS()</code>, <code>hasAttributes</code>,
+              <code>hasPointerCapture()</code>, <code>insertAdjacentElement()</code>, <code>insertAdjacentHTML</code>, <code>insertAdjacentText</code>,
+              <code>matches()</code>, <code>prepend()</code>, <code>querySelector()</code>, <code>querySelectorAll()</code>, <code>releasePointerCapture()</code>,
+              <code>remove()</code>, <code>removeAttribute()</code>, <code>removeAttributeNode()</code>, <code>removeAttributeNS</code>, <code>replaceChildren()</code>,
+              <code>replaceWith()</code>, <code>requestFullscreen</code>, <code>requestPointerLock</code>, <code>scroll()</code>, <code>scrollBy()</code>,
+              <code>scrollIntoView()</code>, <code>scrollTo()</code>, <code>setAttribute()</code>, <code>setAttributeNode()</code>, <code>setAttributeNodeNS()</code>, 
+              <code>setAttributeNS()</code>, <code>setHTMLUnsafe</code>, <code>setPointerCapture()</code>, <code>toggleAttribute()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>NodeList</code></td>
+            <td>
+              A collection of nodes, usually returned by methods like Node.childNodes or document.querySelectorAll().
+              It behaves like a list but is not an Array and should be used as provided by APIs.
+            </td>
+            <td><code>length</code>, <code>entries()</code>, <code>forEach()</code>, <code>item()</code>, <code>keys()</code>, <code>values()</code></td>
+          </tr>
+          <tr>
+            <td><code>NodeIterator</code></td>
+            <td>
+              The NodeIterator interface represents an iterator to traverse nodes of a DOM subtree in document order.
+              A NodeIterator can be created using the Document.createNodeIterator() method.
+            </td>
+            <td>
+              <code>filter</code>, <code>pointerBeforeReferenceNode</code>, <code>referenceNode</code>, <code>root</code>, <code>whatToShow</code>,
+              <code>nextNode()</code>, <code>previousNode()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>TreeWalker</code></td>
+            <td>
+              The TreeWalker object represents the nodes of a document subtree and a position within them.
+              A TreeWalker can be created using the Document.createTreeWalker() method.
+            </td>
+            <td>
+              <code>currentNode</code>, <code>filter</code>, <code>root</code>, <code>whatToShow</code>,
+              <code>firstChild()</code>, <code>lastChild()</code>, <code>nextNode()</code>, <code>nextSibling()</code>,
+              <code>parentNode()</code>, <code>previousNode()</code>, <code>previousSibling()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Range</code></td>
+            <td>
+              Represents a document fragment containing nodes or parts of text nodes.
+              Created with Document.createRange() or retrieved via Selection.getRangeAt() or Document.caretRangeFromPoint().
+            </td>
+            <td>
+              <code>Range()</code>, <code>collapsed</code>, <code>commonAncestorContainer</code>, <code>endContainer</code>,
+              <code>endOffset</code>, <code>startContainer</code>, <code>startOffset</code>, <code>cloneContents()</code>,
+              <code>cloneRange()</code>, <code>collapse()</code>, <code>compareBoundaryPoints()</code>, <code>createContextualFragment()</code>,
+              <code>deleteContents()</code>, <code>detach()</code>, <code>extractContents()</code>, <code>getBoundingClientRect()</code>,
+              <code>getClientRects()</code>, <code>insertNode()</code>, <code>intersectsNode()</code>, <code>isPointInRange()</code>,
+              <code>selectNode()</code>, <code>selectNodeContents()</code>, <code>setEnd()</code>, <code>setEndAfter()</code>,
+              <code>setStart()</code>, <code>setStartAfter()</code>, <code>setStartBefore()</code>, <code>surroundContents()</code>, <code>toString()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>HTMLCollection</code></td>
+            <td>
+              The HTMLCollection interface represents a generic collection (array-like object similar to arguments)
+              of elements (in document order) and offers methods and properties for selecting from the list.
+            </td>
+            <td><code>length</code>, <code>item()</code>, <code>namedItem()</code></td>
+          </tr>
+          <tr>
+            <td><code>Event</code></td>
+            <td>The Event interface represents an event which takes place on an EventTarget.</td>
+            <td>
+              <code>Event()</code>, <code>composedPath()</code>, <code>preventDefault()</code>, <code>stopImmediatePropagation()</code>,
+              <code>stopPropagation()</code>, <code>bubbles</code>, <code>cancelable</code>, <code>composed</code>,
+              <code>currentTarget</code>, <code>defaultPrevented</code>, <code>eventPhase</code>, <code>isTrusted</code>,
+              <code>target</code>, <code>timeStamp</code>, <code>type</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>DocumentFragment</code></td>
+            <td>
+              Represents a lightweight, parentless document object containing a segment of nodes.
+              Changes to a DocumentFragment do not affect the active document tree. Inherits from Node.
+            </td>
+            <td>
+              <code>DocumentConstructor()</code>, <code>childElementCount</code>, <code>children</code>, <code>firstElementChild</code>,
+              <code>lastElementChild</code>, <code>append()</code>, <code>getElementById()</code>, <code>prepend()</code>,
+              <code>querySelector()</code>, <code>querySelectorAll()</code>, <code>replaceChildren()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>ShadowRoot</code></td>
+            <td>
+              Represents the root of a DOM subtree rendered separately from the main document's DOM tree.
+              Inherits from DocumentFragment.
+            </td>
+            <td>
+              <code>activeElement</code>, <code>adoptedStyleSheets</code>, <code>clonable</code>, <code>delegatesFocus</code>,
+              <code>fullscreenElement</code>, <code>host</code>, <code>innerHTML</code>, <code>mode</code>, <code>pictureInPictureElement</code>,
+              <code>pointerLockElement</code>, <code>serializable</code>, <code>slotAssignment</code>, <code>styleSheets</code>
+              <code>getAnimations()</code>, <code>getHTML()</code>, <code>setHTMLUnsafe()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>CharacterData</code></td>
+            <td>Represents a Node containing character data, inheriting from Node.</td>
+            <td>
+              <code>data</code>, <code>length</code>, <code>nextElementSibling</code>, <code>previousElementSibling</code>,
+              <code>after()</code>, <code>appendData()</code>, <code>before()</code>, <code>deleteData()</code>, <code>insertData()</code>,
+              <code>remove()</code>, <code>replaceData()</code>, <code>replaceWith()</code>, <code>substringData()</code>
+            </td>
+          </tr>
+          <tr>
+            <td><code>Text</code></td>
+            <td>Represents a text node in a DOM tree, inheriting from Node, EventTarget, and CharacterData.</td>
+            <td><code>Text()</code>, <code>assignedSlot</code>, <code>wholeText</code>, <code>splitText()</code></td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td><a href="https://dom.spec.whatwg.org/">DOM Living Standard</a></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
 
     <div class="page-wrap">
+      <h2>NPM Commands Cheat Sheet</h2>
+      <table>
+        <caption>
+          NPM Commands
+        </caption>
+        <thead>
+          <tr>
+            <th>Command Name</th>
+            <th>Command Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table> 
+    </div>
+
+    <div class="page-wrap">
+      <span class="blog-title">Calculator</span>
+      <div class="calculator-frame">
+        
+      </div>
+    </div>
+
+    <div class="page-wrap">
+      <span class="blog-title">Buttons Template</span>
       <div class="box-wrap">
         <div>
           <button class="default-btn" onclick="alert('Default');">
@@ -106,46 +1327,122 @@
         </div>
         <div>
           <button class="default-btn sky-btn" onclick="alert('sky')">
+            Heavenly
           </button>
         </div>
       </div>
+      <div class="box-wrap">
+        <div>
+          <button class="default-btn ice-btn" onclick="alert('sky')">
+            Ice
+          </button>
+        </div>
+        <div>
+          <button class="default-btn ocean-btn" onclick="alert('sky')">
+            Ocean
+          </button>
+        </div>
+        <div>
+          <button class="default-btn guava-btn" onclick="alert('sky')">
+            Guava
+          </button>
+        </div>
+        <div>
+          <button class="default-btn melon-btn" onclick="alert('sky')">
+            Melon
+          </button>
+        </div>
+        <button class="default-btn recycling-double" onclick="alert('Reuse Reduce Recycle');">
+          <img src="images/recycling.svg" alt="Recycling Icon" width="28px" height="28px">
+        </button>
+      </div>
   
       <div class="box-wrap">
-        <div >
+        <div>
           <button class="round-btn" onclick="alert('round button');">
+            Default
           </button>
         </div>
         <div>
-          <button class="round-btn grass-groove" onclick="alert('Hello World');">
+          <button class="round-btn primary-btn" onclick="alert('Primary');">
+            Primary
           </button>
         </div>
         <div>
-          <button class="round-btn navy-groove" onclick="alert('GoodBye World');">
-          </button>
-        </div>
-  
-        <div>
-          <button class="round-btn grass-double" onclick="alert('Hello World');">
+          <button class="round-btn secondary-btn" onclick="alert('Secondary');">
+            Secondary
           </button>
         </div>
         <div>
-          <button class="round-btn navy-double" onclick="alert('GoodBye World');">
+          <button class="round-btn success-btn" onclick="alert('Success')">
+            Success
           </button>
         </div>
         <div>
-          <button class="round-btn recycling-double" onclick="alert('Reuse Reduce Recycle');">
-            <img src="images/recycling.svg" alt="Recycling Icon">
+          <button class="round-btn danger-red-btn" onclick="alert('Danger');">
+            Danger
+          </button>
+        </div>
+        <div>
+          <button class="round-btn warning-orange-btn" onclick="alert('Warning');">
+            Warning
+          </button>
+        </div>
+        <div>
+          <button class="round-btn info-btn" onclick="alert('Info')">
+            Info
+          </button>
+        </div>
+        <div>
+          <button class="round-btn light-btn" onclick="alert('display light')">
+            Light
+          </button>
+        </div>
+        <div>
+          <button class="round-btn dark-btn" onclick="alert('display dark')">
+            Dark
+          </button>
+        </div>
+        <div>
+          <button class="round-btn link-btn" onclick="alert('Confirm navigate to Link?')">
+            Link
+          </button>
+        </div>
+        <div>
+          <button class="round-btn undef-btn" onclick="alert(undef)">
+            Undef
+          </button>
+        </div>
+        <div>
+          <button class="round-btn sky-btn" onclick="alert('sky')">
+            Heavenly
+          </button>
+        </div>
+      </div>
+      <div class="box-wrap">
+        <div>
+          <button class="round-btn ice-btn" onclick="alert('sky')">
+            Ice
+          </button>
+        </div>
+        <div>
+          <button class="round-btn ocean-btn" onclick="alert('sky')">
+            Ocean
           </button>
         </div>
         <div>
           <button class="round-btn guava-btn" onclick="alert('guava')">
+            Guava
           </button>
         </div>
-
         <div>
           <button class="round-btn melon-btn" onclick="alert('melon')">
+            Melon
           </button>
         </div>
+        <button class="round-btn recycling-double" onclick="alert('Reuse Reduce Recycle');">
+          <img src="images/recycling.svg" alt="Recycling Icon">
+        </button>
       </div>
   
       <div class="btn-grid">
@@ -187,7 +1484,7 @@
         </div>
       </div>
   
-      <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 15px;">
+      <div class="btn-grid">
         <div>
           <button>LinkedIn</button>
           <button class="base-btn linkedin-apply-btn">
@@ -208,11 +1505,6 @@
           </button>
         </div>
       </div>
-      <a href="https://icons.getbootstrap.com/">More Icons</a>
-    </div>
-
-    <div class="page-wrap">
-      <p>9 Flowers and 9 Circles</p>
     </div>
 
     <div class="page-wrap">
@@ -260,10 +1552,6 @@
       <p>npm uninstall --save-dev @types/sinon</p>
     </div>
 
-    <div class="page-wrap">
-      <h2>NPM Commands Cheat Sheet</h2>
-    </div>
-
     <footer>
       <div>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Reference Source</a>
@@ -276,6 +1564,7 @@
       </div>
     </footer>
     <script src="dist/index.js" type="module"></script>
+    <script src="dist/format.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
   </body>
   

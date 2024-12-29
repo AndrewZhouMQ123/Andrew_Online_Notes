@@ -16,9 +16,6 @@
       function jsblog() {
         window.location.replace("jsblog.html");
       }
-      function search() {
-
-      }
     </script>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/blog.css">
@@ -36,14 +33,21 @@
       <button class="header-btn" onclick="cssblog()"><span class="nav-link">CSS</span></button>
       <button class="header-btn" onclick="jsblog()"><span class="nav-link">JS</span></button>
       <button class="theme-btn" id="themeToggleBtn">Toggle Theme</button>
-      <input class="search-bar" onclick="search()" placeholder="Search">
+      <input class="search-bar" placeholder="Search">
     </header>
 
     <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="60px" height="60px"></button>
 
-    <h2>CSS cheat sheet</h2>
     <div class="page-wrap">
-      <h3>CSS Syntax</h3>
+      <span class="blog-title">CSS Cheat Sheet</span>
+      <h2>CSS Syntax</h2>
+      <p class="white-board">
+        CSS (Cascading Style Sheets): A core web language used to define the presentation of HTML
+        or XML documents across various media. It is standardized by the W3C and now developed modularly,
+        with individual CSS modules having version numbers (e.g., CSS Color Module Level 5).
+        Versioning like "CSS3" has been replaced by periodic W3C snapshots of stable module states.
+      </p>
+      <p><a href="https://www.w3.org/TR/cssom-1/">CSSOM</a></p>
       <canvas id="css-syntax" width="1000px" height="170px"></canvas>
       <canvas id="rect-loop" width="1000px" height="200px" style="position:absolute; top:200px; left:200px;"></canvas>
       <p style="font-style: italic; text-align: right; font-size: 0.8em; margin-top: 20px;">
@@ -1679,29 +1683,22 @@
     </div>
     
     <div class="page-wrap">
-
-      <div class="page-wrap">
-        <h2>Code Snippet</h2> 
-        <div class="center-box">
-          <div class="code-box language-css">
-            <pre>
-              <code>
-                <span class="line-number">1</span> body {
-                <span class="line-number">2</span>   font-family: Arial, sans-serif;
-                <span class="line-number">3</span>   background-color: red;
-                <span class="line-number">4</span>   margin: 0;
-                <span class="line-number">5</span>   padding: 0;
-                <span class="line-number">6</span> }
-                <span class="line-number">7</span> .center-box{
-                <span class="line-number">8</span>   display: flex;
-                <span class="line-number">9</span>   justify-content: center;
-                <span class="line-number">10</span>   align-items: center;
-                <span class="line-number">11</span> }
-              </code>
-            </pre>          
-          </div>
-        </div> 
-      </div>
+      <h2>Code Snippet</h2> 
+      <pre class="language-css">
+        <code>
+          <span class="line-number">1</span> body {
+          <span class="line-number">2</span>   font-family: Arial, sans-serif;
+          <span class="line-number">3</span>   background-color: red;
+          <span class="line-number">4</span>   margin: 0;
+          <span class="line-number">5</span>   padding: 0;
+          <span class="line-number">6</span> }
+          <span class="line-number">7</span> .center-box{
+          <span class="line-number">8</span>   display: flex;
+          <span class="line-number">9</span>   justify-content: center;
+          <span class="line-number">10</span>   align-items: center;
+          <span class="line-number">11</span> }
+        </code>
+      </pre>          
     </div>
     
     <div class="page-wrap">  
@@ -2836,17 +2833,17 @@
         </thead>
         <tbody>
           <tr>
-            <td>@charset</td>
+            <td><code class="element">@charset</code></td>
             <td>The @charset at-rule specifies the character encoding used in the stylesheet.</td>
           </tr>
           <tr>
-            <td>@font-face</td>
+            <td><code class="element">@font-face</code></td>
             <td>The @font-face at-rule specifies a custom font for displaying text,
               which can be loaded from a remote server or a locally-installed font
               on the user's computer.</td>
           </tr>
           <tr>
-            <td>@import</td>
+            <td><code class="element">@import</code></td>
             <td>The @import at-rule is used to import styles from other valid stylesheets.
               It must be placed at the top of the stylesheet,
               before any other at-rules (except @charset and @layer)
@@ -2854,29 +2851,29 @@
             </td>
           </tr>
           <tr>
-            <td>@keyframes</td>
+            <td><code class="element">@keyframes</code></td>
             <td>The @keyframes at-rule controls intermediate steps in a CSS animation
               by defining styles for keyframes along the animation sequence.
               It provides greater control over the animation's progression compared to transitions.
             </td>
           </tr>
           <tr>
-            <td>@layer</td>
+            <td><code class="element">@layer</code></td>
             <td>The @layer at-rule declares a cascade layer and defines precedence for multiple layers.
             </td>
           </tr>
           <tr>
-            <td>@media</td>
+            <td><code class="element">@media</code></td>
             <td>The @media at-rule applies specific CSS styles based on the result of one or more media queries.
               It allows you to define styles that only apply if the media query matches the device's conditions.
             </td>
           </tr>
           <tr>
-            <td>@namespace</td>
+            <td><code class="element">@namespace</code></td>
             <td>is an at-rule that defines XML namespaces to be used in a CSS style sheet.</td>
           </tr>
           <tr>
-            <td>@supports</td>
+            <td><code class="element">@supports</code></td>
             <td>The @supports at-rule allows you to apply CSS declarations based on browser support for specific CSS features.
               This is known as a feature query and must be placed at the top level or nested within other conditional groups.</td>
           </tr>
@@ -2901,19 +2898,19 @@
         </thead>
         <tbody>
           <tr>
-            <td>inherit</td>
+            <td><code class="element">inherit</code></td>
             <td>The inherit keyword applies the computed value of a property from the parent element.
               It can be used with any CSS property, including the shorthand all.</td>
           </tr>
           <tr>
-            <td>initial</td>
+            <td><code class="element">initial</code></td>
             <td>The initial keyword applies the default (or initial) value of a property to an element.
               It can be used with any CSS property,
               including the shorthand all,
               allowing all properties to be reset to their initial values in a single step.</td>
           </tr>
           <tr>
-            <td>revert</td>
+            <td><code class="element">revert</code></td>
             <td>The revert keyword resets a property's cascaded value to what it
               would have been without changes from the current style origin.
               It rolls back to the user-agent value, user-set value, inherited value
@@ -2922,7 +2919,7 @@
               it removes overridden styles in the cascade until the target style is reached.</td>
           </tr>
           <tr>
-            <td>revert-layer</td>
+            <td><code class="element">revert-layer</code></td>
             <td>The revert keyword rolls back a property's value to that of a previous cascade layer,
               recalculating as if no rules were set in the current layer.
               If no prior layer exists, it defaults to the computed value from the current layer.
@@ -2930,14 +2927,14 @@
               Applicable to any CSS property, including the shorthand all.</td>
           </tr>
           <tr>
-            <td>unset</td>
+            <td><code class="element">unset</code></td>
             <td>The unset keyword resets a property to its inherited value if it
               naturally inherits from its parent or to its initial value if it does not.
               Essentially, it acts like inherit for inherited properties and initial for non-inherited ones.
               It can be applied to any CSS property, including the shorthand property all.</td>
           </tr>
           <tr>
-            <td>Cascade</td>
+            <td><code class="element">Cascade</code></td>
             <td>
               <p>The cascade determines the final style by evaluating rules in the following priority order:</p>
               <ol>
@@ -2949,7 +2946,7 @@
             </td>
           </tr>
           <tr>
-            <td>Inheritance</td>
+            <td><code class="element">Inheritance</code></td>
             <td>
               <p>
                 In CSS, inheritance determines the value of a property when none is specified on an element.
@@ -2963,7 +2960,7 @@
             </td>
           </tr>
           <tr>
-            <td>Error Handling</td>
+            <td><code class="element">Error Handling</code></td>
             <td>When a CSS error occurs, the browser skips the invalid line,
               discarding minimal code before resuming normal parsing.
               Error recovery simply involves ignoring invalid content.</td>
