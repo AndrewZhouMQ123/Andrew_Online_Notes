@@ -71,13 +71,66 @@
 
     <div class="page-wrap">
       <h2>HTTPS Cheat Sheet</h2>
+      <img src="images/Client-server-model.svg.png" width="800px" height="auto">
       <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">HTTP</a>
     </div>
 
     <div class="page-wrap">
+      <h2>Git Cheat Sheet</h2>
+      <h3>Resolving Merge Conflicts</h3>
+      <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+      <h3>Changing Project Name</h3>
+      <ol>
+        <li>
+          Rename the Local Repository:
+          <p>
+            Open your terminal or command prompt.
+            Navigate to your local repository: cd /path/to/your/local/repo
+          </p>
+          <p>
+            Rename the local repository: git remote rename old-repo-name new-repo-name
+          </p>
+          <p>
+            Update the remote URL to the new repo name:
+            git remote set-url origin https://github.com/username/new-repo-name.git
+          </p>
+        </li>
+        <li>
+          Rename the GitHub Repository:
+          <p>
+            Go to your GitHub repository. Click on the "Settings" tab. Scroll down to the "Danger Zone" section.
+          </p>
+          <p>
+            Click on "Rename this repository". Enter the new repository name. Click "Rename" to confirm the change.
+          </p>
+        </li>
+        <li>
+          Push Changes:
+          <p>
+            If you have already made changes locally, commit and push them:
+          </p>
+          <ul>
+            <li>
+              git add .
+            </li>
+            <li>
+              git commit -m "Update repository name"
+            </li>
+            <li>
+              git push origin main (or master)
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+    <footer>
       <a href="https://www.w3.org/">W3C Standards</a>
       <a href="https://spec.whatwg.org/">WHATWG Standards</a>
-    </div>
+    </footer>
     <script src="dist/index.js" type="module"></script>
     <script src="dist/speakpage.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
