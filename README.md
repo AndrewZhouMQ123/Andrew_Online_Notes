@@ -55,6 +55,6 @@ When input files are specified on the command line, tsconfig.json files are igno
 - npm uninstall --save-dev @types/mocha
 - npm uninstall --save-dev sinon
 - npm uninstall --save-dev @types/sinon
-### Incorporating React
+### Integrating React
 - npm install react react-dom
 - npm install @types/react @types/react-dom
