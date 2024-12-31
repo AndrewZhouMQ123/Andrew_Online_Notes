@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>HTML-CSS-JS-TEMPLATES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
       "use strict";
       function home() {
@@ -36,7 +38,7 @@
       <input class="search-bar" placeholder="Search">
     </header>
 
-    <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="60px" height="60px"></button>
+    <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="45px" height="45px"></button>
 
     <div class="animate">
       <h2>Linux File System</h2>
@@ -62,8 +64,9 @@
       <p>/var</p>
     </div>
 
-    <div class="page-wrap">
+    <div class="page-wrap" id="linux/MacCheatSheet">
       <h2>Linux/Mac Commands Cheat Sheet</h2>
+      <button class="play-button" id="play-button"><img src="images/pause.png" width="25px" height="25px"></button>
     </div>
 
     <div class="page-wrap">
@@ -76,6 +79,7 @@
       <a href="https://spec.whatwg.org/">WHATWG Standards</a>
     </div>
     <script src="dist/index.js" type="module"></script>
+    <script src="dist/speakpage.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
   </body>
 </html>

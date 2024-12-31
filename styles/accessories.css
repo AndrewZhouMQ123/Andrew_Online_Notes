@@ -66,3 +66,14 @@ body {
   0 0 20px rgba(255, 255, 255, 0.6),
   0 0 30px rgba(255, 255, 255, 0.4);
 }
+
+.play-button {
+  height: 35px;
+  width: 35px;
+  margin: 5px;
+  padding: 5px;
+  color: rgb(65, 65, 65);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

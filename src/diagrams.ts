@@ -25,35 +25,6 @@ type RectProperties = {
 };
 
 export const diagramObj = {
-  drawRect() {
-    const canvas = <HTMLCanvasElement> document.getElementById("rect-loop");
-    if (canvas != null && canvas.getContext) {
-      const ctx = <CanvasRenderingContext2D> canvas.getContext("2d");
-      let t = 0; // Time variable
-      const A = 200; // Horizontal radius
-      const B = 50;  // Vertical radius
-  
-      let rectloop = () => {
-        requestAnimationFrame(rectloop);
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-        let x = A * Math.cos(t);
-        let y = B * Math.sin(2 * t);
-        // Set the shadow effect (glow)
-        ctx.shadowColor = "rgba(0, 255, 255, 0.8)";  // Glow color (cyan)
-        ctx.shadowBlur = 20;                         // Blur radius for the glow
-        ctx.shadowOffsetX = 0;                       // No horizontal offset
-        ctx.shadowOffsetY = 0;                       // No vertical offset
-        ctx.fillStyle = "rgb(0 0 200)";
-        ctx.fillRect(x + 560, y + 75, 50, 50);
-        ctx.strokeRect(x + 560, y + 75, 50, 50);
-        t += 0.01; // Increment time
-      }
-  
-      // Start the animation
-      rectloop();
-    }
-  },
-
   drawArrow(ctx: CanvasRenderingContext2D,
     fromx: number, fromy: number, tox: number, toy: number, arrowWidth: number, color: string){
     //variables to be used when creating the arrow
@@ -328,6 +299,5 @@ export const diagramObj = {
 // Use a single load event to initialize all drawings
 window.addEventListener("load", () => {
   diagramObj.drawCSSsyntax();
-  diagramObj.drawRect();
   diagramObj.drawboxModel();
 });

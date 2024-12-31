@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>JS-Templates</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
       "use strict"; // modern js strict mode
       function home() {
@@ -38,10 +40,11 @@
       <input class="search-bar" placeholder="Search">
     </header>
 
-    <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="60px" height="60px"></button>
+    <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="45px" height="45px"></button>
 
     <div class="page-wrap" id="javaScriptCheatSheet">
       <span class="blog-title">JavaScript Cheat Sheet</span>
+      <button class="play-button" id="play-button"><img src="images/pause.png" width="25px" height="25px"></button>
       <ul class="white-board">
         <li><strong>Falsy values:</strong> A value is considered "falsy" if it translates to false when evaluated in a boolean context.
           The following values are considered falsy in JavaScript:
@@ -1261,13 +1264,6 @@
     </div>
 
     <div class="page-wrap">
-      <span class="blog-title">Calculator</span>
-      <div class="calculator-frame">
-        
-      </div>
-    </div>
-
-    <div class="page-wrap">
       <span class="blog-title">Buttons Template</span>
       <div class="box-wrap">
         <div>
@@ -1565,6 +1561,7 @@
     </footer>
     <script src="dist/index.js" type="module"></script>
     <script src="dist/format.js" type="module"></script>
+    <script src="dist/speakpage.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
   </body>
   

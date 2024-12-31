@@ -1,5 +1,5 @@
 // Type-safe variable declarations
-const scrollToTopBtn = document.getElementById("scrollToTopBtn") as HTMLButtonElement | null;
+const scrollToTopBtn = document.getElementById("scrollToTopBtn") as HTMLButtonElement;
 const rootElement = document.documentElement;
 const JSPre = document.getElementsByTagName("pre") as HTMLCollectionOf<HTMLElement>;
 
@@ -51,15 +51,6 @@ if (scrollToTopBtn) {
 }
 
 document.addEventListener("scroll", handleScroll);
-
-const target = document.querySelector('.target-element') as HTMLElement | null;
-
-if (scrollToTopBtn && target) {
-  const observer = new IntersectionObserver(callback);
-  observer.observe(target);
-} else {
-  console.error('Target or button element not found in the DOM.');
-}
 
 const body = document.body;
 const pageWraps = document.querySelectorAll('.page-wrap') as NodeListOf<HTMLElement>;

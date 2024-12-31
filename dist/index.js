@@ -46,14 +46,6 @@ else {
     console.error('Button element not found in the DOM.');
 }
 document.addEventListener("scroll", handleScroll);
-const target = document.querySelector('.target-element');
-if (scrollToTopBtn && target) {
-    const observer = new IntersectionObserver(callback);
-    observer.observe(target);
-}
-else {
-    console.error('Target or button element not found in the DOM.');
-}
 const body = document.body;
 const pageWraps = document.querySelectorAll('.page-wrap');
 const horizontalWraps = document.querySelectorAll('.horizontal-wrap');

@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>HTML-TEMPLATES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
       "use strict";
       function home() {
@@ -36,10 +38,11 @@
       <input class="search-bar" placeholder="Search">
     </header>
 
-    <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="60px" height="60px"></button>
+    <button class="scrollToTopBtn" id="scrollToTopBtn"><img src="images/scrollToTopBtn.png" width="45px" height="45px"></button>
 
-    <div class="page-wrap">
+    <div class="page-wrap" id="htmlCheatSheet">
       <span class="blog-title">HTML Cheat Sheet</span>
+      <button class="play-button" id="play-button"><img src="images/pause.png" width="25px" height="25px"></button>
       <div class="white-board">
         <p>
           HTML (HyperText Markup Language) is the most basic building block of the Web.
@@ -903,6 +906,7 @@
       <div></div>
     </footer>
     <script src="dist/index.js" type="module"></script>
+    <script src="dist/speakpage.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
   </body>
 
