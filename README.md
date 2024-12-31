@@ -2,8 +2,8 @@
 Written in TypeScript (Feels like writing Java but the type checking doesn't feel consistent and pops up in very weird places) and Compiled to JavaSript.
 
 ## Cheat Sheets for quick review
-Linux/Mac, HTTPS, Git, HTML, CSS, JS, NPM
-Not an exhaustive list, but things that I have used or come across or plan to learn/use.
+- Linux/Mac, HTTPS, Git, HTML, CSS, JS, NPM
+- Not an exhaustive list, but things that I have used or come across or plan to learn/use.
 
 ## Experiments with Frontend Technologies
 Currently plain HTML, CSS and JS.
