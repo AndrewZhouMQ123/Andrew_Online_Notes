@@ -19,6 +19,7 @@
         window.location.replace("jsblog.html");
       }
     </script>
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/blog.css">
     <link rel="stylesheet" href="styles/accessories.css">
@@ -64,15 +65,124 @@
       <p>/var</p>
     </div>
 
-    <div class="page-wrap" id="linux/MacCheatSheet">
-      <h2>Linux/Mac Commands Cheat Sheet</h2>
+    <div class="page-wrap" id="linux-MacOS">
+      <h2>Linux/MacOS Commands Cheat Sheet</h2>
       <button class="play-button" id="play-button"><img src="images/pause.png" width="25px" height="25px"></button>
+      <table id="commands">
+        <caption>MacOS Commands</caption>
+        <thead>
+          <tr>
+            <th>Command Name</th>
+            <th>Command Function</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td><a href="https://www.comptia.org/blog/applying-your-linux-skills-to-macos-terminal-bash-and-common-commands"></a></td>
+            <td><a href="https://phoenixnap.com/kb/mac-terminal-commands"></a></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <table id="shortcuts">
+        <caption>Keyboard Shortcuts</caption>
+        <thead>
+          <tr>
+            <th>Shortcut </th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table> 
     </div>
 
-    <div class="page-wrap">
+    <div class="page-wrap" id="HTTPS">
       <h2>HTTPS Cheat Sheet</h2>
       <img src="images/Client-server-model.svg.png" width="800px" height="auto">
-      <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">HTTP</a>
+      <table id="rqmethods">
+        <caption>HTTPS Request Methods</caption>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">Methods</a></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <table id="statuscodes">
+        <caption>HTTPS Response Status Codes</caption>
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">Status</a></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <table id="terms">
+        <caption>HTTPS Terminologies</caption>
+        <thead>
+          <tr>
+            <th>Terms</th>
+            <th>Definitions</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP">Safe</a></td>
+            <td>
+              <a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent">Idempotent</a>
+              <a href="https://developer.mozilla.org/en-US/docs/Glossary/Cacheable">Cacheable</a>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <table id="headers">
+        <caption>HTTPS Headers</caption>
+        <thead>
+          <tr>
+            <th>Header</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot class="table-foot">
+          <tr style="background: none;">
+            <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">Headers</a></td>
+            <td><a href="https://blog.postman.com/what-are-http-headers/">Common Headers</a></td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
 
     <div class="page-wrap">
@@ -132,7 +242,7 @@
       <a href="https://spec.whatwg.org/">WHATWG Standards</a>
     </footer>
     <script src="dist/index.js" type="module"></script>
-    <script src="dist/speakpage.js" type="module"></script>
+    <script src="dist/commons.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
   </body>
 </html>

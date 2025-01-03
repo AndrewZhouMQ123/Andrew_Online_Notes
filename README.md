@@ -55,6 +55,9 @@ When input files are specified on the command line, tsconfig.json files are igno
 - npm uninstall --save-dev @types/mocha
 - npm uninstall --save-dev sinon
 - npm uninstall --save-dev @types/sinon
+### Couldn't get SSML Tags to work in Web Speech API
+- probably need some third-party stuff and work in the backend
+- will get to it soon
 ### Integrating React
 - npm install react react-dom
 - npm install @types/react @types/react-dom
