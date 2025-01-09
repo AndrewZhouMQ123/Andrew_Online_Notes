@@ -1422,7 +1422,7 @@ export const pseudoElements = [
   }
 ];
 
-export const const cssDatatype = [
+export const cssDatatype = [
   {
     datatype: "&lt;angle&gt;",
     def: "represents an angle value expressed in degrees, gradians, radians, or turns. Units: deg, grad, rad, turn."
@@ -1517,7 +1517,7 @@ export const const cssDatatype = [
   }
 ];
 
-export const const cssFunctions = [
+export const cssFunctions = [
   {
     func: "abs()",
     desc: "returns absolute value of the argument, as the same params as the input",
@@ -1893,4 +1893,93 @@ export const const cssFunctions = [
     desc: "inserts the value of a custom property (CSS variable) into another property's value.",
     params: "&lt;custom-property-name&gt;, &lt;declaration-value&gt;"
   }
+];
+
+export const cssAtRules = [
+  {
+    atRule: "@charset",
+    desc: "The @charset at-rule specifies the character encoding used in the stylesheet."
+  },
+  {
+    atRule: "@font-face",
+    desc: "The @font-face at-rule specifies a custom font for displaying text, which can be loaded from a remote server or a locally-installed font on the user's computer."
+  },
+  {
+    atRule: "@import",
+    desc: "The @import at-rule is used to import styles from other valid stylesheets. It must be placed at the top of the stylesheet, before any other at-rules (except @charset and @layer) or style declarations, or it will be ignored."
+  },
+  {
+    atRule: "@keyframes",
+    desc: "The @keyframes at-rule controls intermediate steps in a CSS animation by defining styles for keyframes along the animation sequence. It provides greater control over the animation's progression compared to transitions."
+  },
+  {
+    atRule: "@layer",
+    desc: "The @layer at-rule declares a cascade layer and defines precedence for multiple layers."
+  },
+  {
+    atRule: "@media",
+    desc: "The @media at-rule applies specific CSS styles based on the result of one or more media queries. It allows you to define styles that only apply if the media query matches the device's conditions."
+  },
+  {
+    atRule: "@namespace",
+    desc: "is an at-rule that defines XML namespaces to be used in a CSS style sheet."
+  },
+  {
+    atRule: "@supports",
+    desc: "The @supports at-rule allows you to apply CSS declarations based on browser support for specific CSS features. This is known as a feature query and must be placed at the top level or nested within other conditional groups."
+  }
+];
+
+export const cssKeywords = [
+  {
+    keyword: "inherit",
+    desc: "The inherit keyword applies the computed value of a property from the parent element. It can be used with any CSS property, including the shorthand all."
+  },
+  {
+    keyword: "initial",
+    desc: "The initial keyword applies the default (or initial) value of a property to an element. It can be used with any CSS property, including the shorthand all, allowing all properties to be reset to their initial values in a single step."
+  },
+  {
+    keyword: "revert",
+    desc: "The revert keyword resets a property's cascaded value to what it would have been without changes from the current style origin. It rolls back to the user-agent value, user-set value, inherited value (if inheritable), or initial value. Applicable to any CSS property, including the shorthand all, it removes overridden styles in the cascade until the target style is reached."
+  },
+  {
+    keyword: "revert-layer",
+    desc: "The revert keyword rolls back a property's value to that of a previous cascade layer, recalculating as if no rules were set in the current layer. If no prior layer exists, it defaults to the computed value from the current layer. If no matching rule exists in the current layer, it reverts to the value from a previous style origin. Applicable to any CSS property, including the shorthand all."
+  },
+  {
+    keyword: "unset",
+    desc: "The unset keyword resets a property to its inherited value if it naturally inherits from its parent or to its initial value if it does not. Essentially, it acts like inherit for inherited properties and initial for non-inherited ones. It can be applied to any CSS property, including the shorthand property all."
+  },
+  {
+    keyword: "Cascade",
+    desc: `
+      <p>The cascade determines the final style by evaluating rules in the following priority order:</p>
+      <ol>
+        <li><strong>Importance</strong>: \`!important\` rules have the highest priority.</li>
+        <li><strong>Specificity</strong>: More specific selectors override less specific ones.</li>
+        <li><strong>Order</strong>: When rules have the same specificity, later rules take precedence.</li>
+      </ol>
+      <p>The cascade is like a waterfall with steps.</p>
+    `
+  },
+  {
+    keyword: "Inheritance",
+    desc: `
+      <p>In CSS, inheritance determines the value of a property when none is specified on an element. Properties are either:</p>
+      <ul>
+        <li><strong>Inherited</strong>: Default to the parent element's computed value.</li>
+        <li><strong>Non-inherited</strong>: Default to the property's initial value.</li>
+      </ul>
+      <p>Check a property's definition to see if it inherits by default ("Inherited: yes" or "Inherited: no").</p>
+    `
+  },
+  {
+    keyword: "Error Handling",
+    desc: "When a CSS error occurs, the browser skips the invalid line, discarding minimal code before resuming normal parsing. Error recovery simply involves ignoring invalid content."
+  },
+  {
+    keyword: "all",
+    desc: "A shorthand for all CSS properties except unicode-bidi, direction, and custom properties. It sets properties to their initial or inherited values or values from another cascade layer or stylesheet origin.",
+  },
 ];

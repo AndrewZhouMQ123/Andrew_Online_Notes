@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import Head from 'next/head';
-import Script from 'next/script';
 import { Header } from "./components/Header";
-import CodeBoxWrapper from "./components/codeBoxWrapper";
+import ThemeProvider from "./context/ThemeProvider";
 import ScrollToTopBtn from "./components/ScrollToTopBtn";
 import "../styles/header.css";
 import "../styles/blog.css";
@@ -24,24 +22,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-      <Head>
-        {/* Prism CSS */}
-        <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css"
-          rel="stylesheet"
-        />
-      </Head>
       <body className={`${roboto.className} antialiased light-theme`}>
-        <Header/>
-        <ScrollToTopBtn />
-        <CodeBoxWrapper>
+        <ThemeProvider>
+          <Header />
+          <ScrollToTopBtn />
           {children}
-        </CodeBoxWrapper>
+          <footer>
+            <p>© 2025 Web-Experiments App</p>
+          </footer>
+        </ThemeProvider>
       </body>
-      <Script
-        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"
-        strategy="afterInteractive"
-      />
     </html>
   );
 }

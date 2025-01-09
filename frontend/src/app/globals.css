@@ -60,11 +60,23 @@ caption {
 }
 
 pre {
-  width: 100%;
   text-align: left;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  background-color: rgb(29, 27, 26);
+  display: flex;
+  color: white;
+  padding: 3px;
+  width: 80%;
+  margin: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(40, 37, 35);
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(74, 50, 255, 0.05), 0 0 20px rgba(200, 166, 255, 0.3);
+  overflow-x: auto;
+  position: relative;
 }
 
 button {

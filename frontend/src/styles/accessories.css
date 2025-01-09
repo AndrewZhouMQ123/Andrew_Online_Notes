@@ -1,20 +1,10 @@
 .light-theme {
-  background: linear-gradient(0.25turn, rgb(230, 218, 208) 33%, rgb(230, 236, 208) 65%, rgb(230, 231, 239) 100%);
+  background: linear-gradient(45deg, rgb(0, 162, 255) 33%, rgb(255, 0, 162) 66%, rgb(162, 255, 0) 100%);
   color: black;
 }
 
 .dark-theme {
   background: linear-gradient(90deg, rgb(60, 0, 80) 50%, rgb(0, 120, 255) 100%);
-  color: white;
-}
-
-.light-page {
-  background: linear-gradient(45deg, rgb(0, 162, 255) 33%, rgb(255, 0, 162) 66%, rgb(162, 255, 0) 100%);
-  color: black;
-}
-
-.dark-page {
-  background: rgb(102, 102, 102);
   color: white;
 }
 

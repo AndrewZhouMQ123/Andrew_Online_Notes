@@ -2,26 +2,26 @@
 import React from "react";
 
 interface TableProps {
-  data: { cmd: string, desc: string}[];
+  data: { keyword: string, desc: string}[];
   title: string;
   onSave: (data: Record<string, string>[], title: string) => void;
 }
 
-const CMDTable: React.FC<TableProps> = ({ data, title, onSave }) => {
+const KeyWordTable: React.FC<TableProps> = ({ data, title, onSave }) => {
   return(
     <div className="table-wrap">
       <table>
         <caption>{title}</caption>
         <thead>
           <tr>
-            <th>Command</th>
+            <th>Keyword</th>
             <th>Description</th>
           </tr>
         </thead>
         <tbody>
           {data.map((item, index) => (
             <tr key={index}>
-              <td><code className="cli-cmd">{item.cmd}</code></td>
+              <td><code className="element">{item.keyword}</code></td>
               <td>{item.desc}</td>
             </tr>
           ))}
@@ -38,4 +38,4 @@ const CMDTable: React.FC<TableProps> = ({ data, title, onSave }) => {
   )
 }
 
-export default CMDTable;
+export default KeyWordTable;

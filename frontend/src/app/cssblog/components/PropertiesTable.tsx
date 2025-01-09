@@ -9,7 +9,7 @@ interface TableProps {
 
 const PropertiesTable: React.FC<TableProps> = ({ data, title, onSave }) => {
   return(
-    <div>
+    <div className="table-wrap">
       <table>
         <caption>{title}</caption>
         <thead>

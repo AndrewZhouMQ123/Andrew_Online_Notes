@@ -9,7 +9,7 @@ interface TableProps {
 
 const SelectorsTable: React.FC<TableProps> = ({ data, title, onSave }) => {
   return(
-    <div>
+    <div className="table-wrap">
       <table>
         <caption>{title}</caption>
         <thead>

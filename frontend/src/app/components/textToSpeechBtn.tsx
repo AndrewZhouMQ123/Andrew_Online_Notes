@@ -71,7 +71,6 @@ const PlayButton = () => {
         width={35}
         height={35}
         alt="Play/Pause"
-        layout="responsive"
       />
     </button>
   );

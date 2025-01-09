@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ThemeToggleButton from "../osblog/components/theme";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 export const Header = () => {
   return (

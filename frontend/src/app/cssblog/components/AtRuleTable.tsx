@@ -2,26 +2,26 @@
 import React from "react";
 
 interface TableProps {
-  data: { cmd: string, desc: string}[];
+  data: { atRule: string, desc: string}[];
   title: string;
   onSave: (data: Record<string, string>[], title: string) => void;
 }
 
-const CMDTable: React.FC<TableProps> = ({ data, title, onSave }) => {
+const AtRuleTable: React.FC<TableProps> = ({ data, title, onSave }) => {
   return(
     <div className="table-wrap">
       <table>
         <caption>{title}</caption>
         <thead>
           <tr>
-            <th>Command</th>
+            <th>AtRules</th>
             <th>Description</th>
           </tr>
         </thead>
         <tbody>
           {data.map((item, index) => (
             <tr key={index}>
-              <td><code className="cli-cmd">{item.cmd}</code></td>
+              <td><code className="element">{item.atRule}</code></td>
               <td>{item.desc}</td>
             </tr>
           ))}
@@ -38,4 +38,4 @@ const CMDTable: React.FC<TableProps> = ({ data, title, onSave }) => {
   )
 }
 
-export default CMDTable;
+export default AtRuleTable;
