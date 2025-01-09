@@ -1,5 +1,5 @@
 .light-theme {
-  background: linear-gradient(0.25turn, rgb(253, 188, 120) 33%, rgb(235, 248, 225) 70%, rgb(188, 235, 255) 100%);
+  background: linear-gradient(0.25turn, rgb(230, 218, 208) 33%, rgb(230, 236, 208) 65%, rgb(230, 231, 239) 100%);
   color: black;
 }
 
@@ -19,38 +19,31 @@
 }
 
 .scrollToTopBtn {
-  cursor: pointer;
   background-color: white;
   border: none;
   border-radius: 50%;
-
-  padding: 0;
-
+  width: 45px;
+  height: 45px;
   position: fixed;
   bottom: 30px;
   right: 30px;
-
   z-index: 100;
-
   opacity: 0;
-
+  visibility: hidden;
   transform: translateY(100px);
-
-  transition: all .5s ease;
-
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  transition: opacity 0.3s ease, visibility 0s ease 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0);
 }
 
 .showBtn {
   opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s ease 0s;
   transform: translateY(0)
 }
 
 .scrollToTopBtn:hover {
-  transform: scale(1.1); /* Slightly enlarge the button */
+  transform: scale(1.1);
   box-shadow: 
   0 0 10px rgba(255, 255, 255, 0.8), 
   0 0 20px rgba(255, 255, 255, 0.6),

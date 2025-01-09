@@ -1,10 +1,10 @@
 .page-wrap {
-  margin: 20px;
+  margin: 40px 20px 40px 2px;
   display: grid;
   row-gap: 20px;
   border: none;
   border-radius: 4px;
-  padding: 10px;
+  padding: 10px 0 40px 0;
 }
 
 .horizontal-wrap {
@@ -26,10 +26,15 @@
   margin: 5px;
   padding: 6px;
   color: rgb(65, 65, 65);
-  background-color: rgb(201, 201, 201);
+  background-color: white;
   border: solid;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.play-button:hover {
+  background-color: rgb(41, 238, 48);
+  color: white;
 }
 
 .code-box {
