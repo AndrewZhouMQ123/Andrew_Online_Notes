@@ -1,0 +1,92 @@
+.headerBtn {
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s, text-shadow 0.15s;
+  flex: 1;
+  height: 50px;
+  background-color: rgb(17, 17, 17);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.headerBtn:hover {
+  opacity: 0.8;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 165, 0, 0.6);
+}
+
+.headerBtn:active {
+  opacity: 0.5;
+}
+
+.navLink {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  transition: color 0.15s, text-shadow 0.15s;
+}
+
+.navLink:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+
+.themeBtn {
+  display: block;
+  width: 60px;
+  height: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: rgb(17, 17, 17);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
+}
+
+.themeBtn:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 165, 0, 0.6);
+}
+
+.themeBtn:active {
+  opacity: 0.5;
+}
+
+.searchBar {
+  display: block;
+  height: 40px;
+  width: 400px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: start;
+  padding-inline-start: 16px;
+  padding-block: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background-color: rgb(30, 30, 30);
+  color: white;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.searchBar:focus {
+  border-color: rgba(255, 165, 0, 0.6);
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.6);
+}

@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+  background-color: grey;
+  margin: 10px;
+  height: 700px;
+  width: 40%;
+  position: absolute;
+}
+
+.sections {
+  flex: 1;
+  display: grid;
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
+  margin: 4px;
+  padding: 10px;
+  border-color: rgb(160, 150, 200);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.inputScreen {
+  height: 18px;
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.configs-bar {
+  display: flex;
+  flex-direction: row;
+  width: 400px; /* Set width of the bar */
+  height: 20px; /* Set height of the bar */
+}
+
+.func-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 10px;
+  position: relative;
+}
+
+.num-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 16px;
+}
+
+.grid-item {
+  background-color: #f0f0f0; /* Background color for grid items */
+  border: 1px solid #ccc; /* Optional: Add borders for visual clarity */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  position: relative; /* Required for positioning gap text */
+}
+
+.func-btns {
+  border-style: ridge;
+}
+
+.num-btns {
+  border-style: ridge;
+}
+
+.gap-text {
+  position: absolute; /* Position the text absolutely within the grid item */
+  top: -20px; /* Position above the grid item */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for exact centering */
+  font-size: 12px;
+  padding: 2px 5px;
+  z-index: 1; /* Ensure the text appears above grid items */
+}
+
+.shift-text {
+  color: gold;
+  margin-right: 10px;
+}
+
+.alpha-text {
+  color: red;
+  margin-left: 10px;
+}

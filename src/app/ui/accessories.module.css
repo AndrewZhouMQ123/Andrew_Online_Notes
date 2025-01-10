@@ -1,0 +1,132 @@
+.lightTheme {
+  background: linear-gradient(45deg, rgb(0, 162, 255) 33%, rgb(255, 0, 162) 66%, rgb(162, 255, 0) 100%);
+  color: black;
+  border: 2px solid rgba(0, 0, 0, 0.1); /* Subtle border for definition */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  border-radius: 20px; /* Rounded corners for a modern feel */
+  text-transform: uppercase; /* Uppercase text for boldness */
+  font-family: 'Montserrat', 'Arial', sans-serif; /* Modern sans-serif font */
+  font-weight: 700; /* Bold text */
+  letter-spacing: 2px; /* Increased letter spacing for avant-garde style */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Subtle text shadow for contrast */
+}
+
+.darkTheme {
+  background: linear-gradient(90deg, rgb(60, 0, 80) 50%, rgb(0, 120, 255) 100%);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border for definition */
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Soft shadow for depth */
+  border-radius: 20px; /* Rounded corners for a modern feel */
+  text-transform: uppercase; /* Uppercase text for boldness */
+  font-family: 'Montserrat', 'Arial', sans-serif; /* Modern sans-serif font */
+  font-weight: 700; /* Bold text */
+  letter-spacing: 2px; /* Increased letter spacing for avant-garde style */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle text shadow for contrast */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.element {
+  cursor: pointer;
+  padding: 4px 8px; /* Slightly more padding for better clickability */
+  color: rgb(0, 105, 194); /* Kept original color */
+  background-color: rgb(220, 220, 220); /* Adjusted to match .white-board background */
+  text-decoration: none; /* Simplified text-decoration */
+  border-radius: 4px; /* Added border-radius for consistency */
+  transition: background-color 0.3s ease, text-decoration 0.3s ease; /* Smooth transitions */
+}
+
+.element:hover {
+  text-decoration: underline; /* Underline on hover */
+  background-color: rgb(200, 200, 200); /* Slightly darker background on hover */
+}
+
+.cliCMD {
+  font-family: monospace;
+  background-color: rgb(45, 45, 45); /* Adjusted to match .table-wrap background */
+  color: rgb(192, 192, 192); /* Kept original color */
+  margin: 8px; /* Slightly more margin for better spacing */
+  padding: 12px; /* More padding for better readability */
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap; /* Keep formatting for terminal-style content */
+  border-radius: 8px; /* Added border-radius for consistency */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for definition */
+}
+
+.scrollToTopBtn {
+  background: linear-gradient(45deg, #6a11cb, #2575fc); /* Vibrant gradient */
+  border: none;
+  border-radius: 50%;
+  width: 50px; /* Slightly larger for better visibility */
+  height: 50px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100px);
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showBtn {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scrollToTopBtn:hover {
+  transform: scale(1.1) translateY(0); /* Scale up on hover */
+  box-shadow: 
+    0 0 15px rgba(106, 17, 203, 0.8), 
+    0 0 30px rgba(37, 117, 252, 0.6); /* Glow effect */
+}
+
+.scrollToTopBtn:active {
+  transform: scale(0.95) translateY(0); /* Slight scale down on click */
+}
+
+.saveAsPdfButton {
+  margin: 10px;
+  padding: 10px 20px; /* Add padding for better spacing */
+  background: linear-gradient(135deg, white, #f0f0f0);
+  color: black;
+  font-weight: bold;
+  font-size: 16px; /* Adjust font size */
+  border-radius: 5px;
+  border: 2px solid rgb(68, 0, 128); /* Use a solid border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  cursor: pointer; /* Indicate clickability */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  display: flex; /* Use flexbox to align image and text */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  gap: 8px; /* Add space between image and text */
+}
+
+.saveAsPdfButton:hover {
+  background: linear-gradient(135deg, rgb(66, 131, 222), rgb(50, 100, 180));
+  color: white; /* Change text color for better contrast */
+  border-color: rgb(68, 0, 128);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.saveAsPdfButton:active {
+  background-color: rgb(50, 100, 180); /* Slightly darker for active state */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduce shadow on click */
+}
+
+/* Ensure the image remains visible and consistent */
+.saveAsPdfButton img {
+  filter: brightness(0) invert(0); /* Keep the image grey and visible */
+  transition: filter 0.3s ease; /* Smooth transition for image */
+}
+
+.saveAsPdfButton:hover img {
+  filter: brightness(0) invert(1); /* Invert the image color on hover for better contrast */
+}
