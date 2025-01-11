@@ -1,36 +1,9 @@
-.lightTheme {
-  background: linear-gradient(45deg, rgb(0, 162, 255) 33%, rgb(255, 0, 162) 66%, rgb(162, 255, 0) 100%);
-  color: black;
-  border: 2px solid rgba(0, 0, 0, 0.1); /* Subtle border for definition */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-  border-radius: 20px; /* Rounded corners for a modern feel */
-  text-transform: uppercase; /* Uppercase text for boldness */
-  font-family: 'Montserrat', 'Arial', sans-serif; /* Modern sans-serif font */
-  font-weight: 700; /* Bold text */
-  letter-spacing: 2px; /* Increased letter spacing for avant-garde style */
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Subtle text shadow for contrast */
-}
-
-.darkTheme {
-  background: linear-gradient(90deg, rgb(60, 0, 80) 50%, rgb(0, 120, 255) 100%);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border for definition */
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Soft shadow for depth */
-  border-radius: 20px; /* Rounded corners for a modern feel */
-  text-transform: uppercase; /* Uppercase text for boldness */
-  font-family: 'Montserrat', 'Arial', sans-serif; /* Modern sans-serif font */
-  font-weight: 700; /* Bold text */
-  letter-spacing: 2px; /* Increased letter spacing for avant-garde style */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle text shadow for contrast */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-}
-
 .element {
   cursor: pointer;
-  padding: 4px 8px; /* Slightly more padding for better clickability */
   color: rgb(0, 105, 194); /* Kept original color */
   background-color: rgb(220, 220, 220); /* Adjusted to match .white-board background */
-  text-decoration: none; /* Simplified text-decoration */
+  text-transform: none;
+  text-shadow: none;
   border-radius: 4px; /* Added border-radius for consistency */
   transition: background-color 0.3s ease, text-decoration 0.3s ease; /* Smooth transitions */
 }
@@ -41,16 +14,14 @@
 }
 
 .cliCMD {
-  font-family: monospace;
   background-color: rgb(45, 45, 45); /* Adjusted to match .table-wrap background */
   color: rgb(192, 192, 192); /* Kept original color */
   margin: 8px; /* Slightly more margin for better spacing */
-  padding: 12px; /* More padding for better readability */
+  text-transform: none;
+  text-shadow: none;
   font-size: 14px;
   line-height: 1.6;
   white-space: pre-wrap; /* Keep formatting for terminal-style content */
-  border-radius: 8px; /* Added border-radius for consistency */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for definition */
 }
 
 .scrollToTopBtn {

@@ -50,11 +50,8 @@
   height: 40px;
   margin-left: 20px;
   margin-right: 20px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  background-color: rgb(17, 17, 17);
-  color: white;
+  background: var(--theme-gradient);
+  color: var(--foreground);
   border: none;
   border-radius: 8px;
   cursor: pointer;

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-const SyntaxDiagram: React.FC = () => {
+const SyntaxDiagram = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const SyntaxDiagram: React.FC = () => {
 
         // Set the new font and styles
         ctx.font = "700 20px Montserrat, sans-serif"; // Bold and modern font
-        ctx.letterSpacing = "2px"; // Increased letter spacing
+        ctx.letterSpacing = "2px"; // Increased letter spacin
 
         // Draw the red square
         ctx.fillStyle = "rgb(200, 0, 0)";

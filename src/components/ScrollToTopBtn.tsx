@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
-import accessories from "../ui/accessories.module.css";
+import accessories from "@/app/ui/accessories.module.css";
 
 const ScrollToTopBtn = () => {
   const [isVisible, setIsVisible] = useState(false);

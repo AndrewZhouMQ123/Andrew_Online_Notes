@@ -9,7 +9,7 @@ interface TableProps {
   onSave: (data: Record<string, string>[], title: string) => void;
 }
 
-const SelectorsTable: React.FC<TableProps> = ({ data, title, onSave }) => {
+const SelectorsTable = ({ data, title, onSave }: TableProps) => {
   return(
     <div className="table-wrap">
       <table>

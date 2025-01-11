@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ThemeToggleButton from "./ThemeToggleButton";
-import styles from "../ui/header.module.css";
+import styles from "@/app/ui/header.module.css";
 
 export const Header = () => {
   return (

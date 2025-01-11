@@ -13,7 +13,7 @@ interface TreeNodeProps {
 }
 
 // Recursive component to render the file system tree
-const TreeNode: React.FC<TreeNodeProps> = ({ node }) => {
+const TreeNode = ({ node }: TreeNodeProps) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 10px' }}>
       <div style={{ padding: '5px', border: '1px solid #ccc', borderRadius: '5px', background: node.type === 'directory' ? '#e3f2fd' : '#fff' }}>
@@ -104,7 +104,7 @@ const macFileSystem: FileSystemNode = {
 };
 
 // Main component to render the macOS file system
-export const MacFileSystemTree: React.FC = () => {
+export const MacFileSystemTree = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', overflowX: 'auto' }}>
       <h2>macOS File System</h2>

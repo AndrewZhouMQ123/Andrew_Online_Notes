@@ -9,7 +9,7 @@ interface TableProps {
   onSave: (data: Record<string, string>[], title: string) => void;
 }
 
-const FuncTable: React.FC<TableProps> = ({ data, title, onSave }) => {
+const FuncTable = ({ data, title, onSave }: TableProps) => {
   return(
     <div className="table-wrap">
       <table>

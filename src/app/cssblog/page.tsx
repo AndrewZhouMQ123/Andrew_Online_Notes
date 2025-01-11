@@ -10,7 +10,7 @@ import AtRuleTable from './components/AtRuleTable';
 import KeyWordTable from './components/KeyWordTable';
 import { cssSelectors, cssProperties, pseudoClasses, pseudoElements, cssDatatype, cssFunctions, cssAtRules, cssKeywords } from './data/cssdoc';
 import { handleSave } from '@/api/generatePDF';
-import PlayButton from '@/app/components/textToSpeechBtn';
+import PlayButton from '@/components/textToSpeechBtn';
 import SyntaxDiagram from './components/SyntaxDiagram';
 import BoxModelDiagram from './components/BoxModelDiagram';
 import Image from 'next/image';
@@ -35,7 +35,7 @@ const IntroPage = () => {
       <PlayButton/>
       <div className="white-board">
         <span className="blog-title">CSS Cheat Sheet</span>
-        <p>
+        <p style={{textTransform: "none", textShadow: "none"}}>
           CSS {'('}Cascading Style Sheets{')'}: A core web language used to define the presentation of HTML
           or XML documents across various media. It is standardized by the W3C and now developed modularly,
           with individual CSS modules having version numbers {'('}e.g., CSS Color Module Level 5{')'}.
@@ -45,7 +45,7 @@ const IntroPage = () => {
       <SyntaxDiagram/>
       <div className="white-board">
         <span className='blog-title'>Example Code Snippet</span>
-        <SyntaxHighlighter language="css" style={vscDarkPlus}>
+        <SyntaxHighlighter language="css" style={vscDarkPlus} customStyle={{ textTransform: "none", textShadow: "none" }}>
           {code}
         </SyntaxHighlighter>
       </div>
@@ -72,7 +72,7 @@ const IntroPage = () => {
   );
 }
 
-const SelectorsPage: React.FC = () => {
+const SelectorsPage = () => {
   return (
     <div className="page-wrap">
       <PlayButton/>
@@ -84,7 +84,7 @@ const SelectorsPage: React.FC = () => {
   );
 };
 
-const LogicsPage: React.FC = () => {
+const LogicsPage = () => {
   return (
     <div className="page-wrap">
       <PlayButton/>
