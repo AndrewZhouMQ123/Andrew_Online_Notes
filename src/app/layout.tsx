@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Roboto } from 'next/font/google';
 import { Header } from "@/components/Header";
-import { ThemeProvider, ThemeScript } from "@/context/ThemeProvider";
+import { ThemeProviderWrapper } from "@/components/ThemeProviderWrapper";
 import ScrollToTopBtn from "@/components/ScrollToTopBtn";
 import { randomBytes } from 'crypto';
 import "./ui/blog.css";
@@ -29,19 +29,13 @@ export const metadata: Metadata = {
   description: "Next.js website with cheat sheets and also where I do web experiments",
 };
 
-export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const nonce = generateNonce();
 
   return (
-    <ThemeProvider nonce={nonce}>
+    <ThemeProviderWrapper nonce={nonce}>
       <html lang="en" className={`${montserrat.variable} ${roboto.variable} antialiased`}>
         <head>
-          <ThemeScript 
-            storageKey="theme"
-            defaultTheme="system"
-            attribute="data-theme"
-            nonce={nonce}
-          />
         </head>
         <body>
           <Header />
@@ -52,6 +46,6 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
           </footer>
         </body>
       </html>
-    </ThemeProvider>
+    </ThemeProviderWrapper>
   );
 }

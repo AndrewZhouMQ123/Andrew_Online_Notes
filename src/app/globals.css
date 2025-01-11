@@ -44,7 +44,7 @@ html[data-theme="light"] {
   --theme-table: rgb(201, 201, 201);
   --theme-th: rgb(201, 201, 201);
   --theme-tr: white;
-  --theme-hover: rgb(182, 182, 18s2, 0.5);
+  --theme-hover: rgb(182, 182, 182, 0.5);
 }
 
 html[data-theme="dark"] {
