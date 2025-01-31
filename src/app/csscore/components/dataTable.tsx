@@ -5,7 +5,7 @@ import styles from "@/app/ui/accessories.module.css";
 interface TableProps {
   data: { datatype: string, def: string}[];
   title: string;
-  onSave: (data: Record<string, string>[], title: string) => void;
+  onSave: (data: { datatype: string, def: string}[], title: string) => void;
 }
 
 const DataTable = ({ data, title, onSave }: TableProps) => {

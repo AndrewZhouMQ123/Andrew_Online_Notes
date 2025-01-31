@@ -10,7 +10,7 @@ import GmethodTable from '../components/MethodTable';
 import GobjectTable from '../components/ObjectTable';
 import APITable from '../components/APITables';
 import { globalProperties, primitiveDataTypes, builtInFunctions, builtInObjects, domBomAPI } from '../data/dataJS';
-import { handleSave } from '@/services/generatePDF';
+import { handle2TSave, handle3TSave } from '@/services/generatePDF';
 
 export const JavaScriptCheatSheet = () => {
   const legacyMethods = [
@@ -82,11 +82,11 @@ export const JavaScriptCheatSheet = () => {
         <CodeBlock code={legacySnippets.join("\n")} />
       </ul>
 
-      <GPropTable data={globalProperties} title="Global Properties" onSave={handleSave}/>
-      <PrimitivesTable data={primitiveDataTypes} title="Primitives" onSave={handleSave}/>
-      <GmethodTable data={builtInFunctions} title="Built In Functions" onSave={handleSave}/>
-      <GobjectTable data={builtInObjects} title="Built In Objects" onSave={handleSave}/>
-      <APITable data={domBomAPI} title="DOM APIs" onSave={handleSave}/>
+      <GPropTable data={globalProperties} title="Global Properties" onSave={handle2TSave}/>
+      <PrimitivesTable data={primitiveDataTypes} title="Primitives" onSave={handle3TSave}/>
+      <GmethodTable data={builtInFunctions} title="Built In Functions" onSave={handle2TSave}/>
+      <GobjectTable data={builtInObjects} title="Built In Objects" onSave={handle2TSave}/>
+      <APITable data={domBomAPI} title="DOM APIs" onSave={handle3TSave}/>
     </div>
   );
 };

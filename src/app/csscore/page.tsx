@@ -8,7 +8,7 @@ import FuncTable from './components/funcTable';
 import AtRuleTable from './components/AtRuleTable';
 import KeyWordTable from './components/KeyWordTable';
 import { cssSelectors, cssProperties, pseudoClasses, pseudoElements, cssDatatype, cssFunctions, cssAtRules, cssKeywords } from './data/cssdoc';
-import { handleSave } from '@/services/generatePDF';
+import { handle2TSave, handle3TSave } from '@/services/generatePDF';
 import PlayButton from '@/components/textToSpeechBtn';
 import SyntaxDiagram from './components/SyntaxDiagram';
 import BoxModelDiagram from './components/BoxModelDiagram';
@@ -75,10 +75,10 @@ const SelectorsPage = () => {
   return (
     <div className="page-wrap">
       <PlayButton/>
-      <SelectorsTable data={cssSelectors} title="CSS Selectors" onSave={handleSave} />
-      <PropertiesTable data={cssProperties} title="CSS Properties" onSave={handleSave} />
-      <SelectorsTable data={pseudoClasses} title="Pseudo-classes" onSave={handleSave} />
-      <SelectorsTable data={pseudoElements} title="Pseudo-elements" onSave={handleSave} />
+      <SelectorsTable data={cssSelectors} title="CSS Selectors" onSave={handle2TSave} />
+      <PropertiesTable data={cssProperties} title="CSS Properties" onSave={handle3TSave} />
+      <SelectorsTable data={pseudoClasses} title="Pseudo-classes" onSave={handle2TSave} />
+      <SelectorsTable data={pseudoElements} title="Pseudo-elements" onSave={handle2TSave} />
     </div>
   );
 };
@@ -87,10 +87,10 @@ const LogicsPage = () => {
   return (
     <div className="page-wrap">
       <PlayButton/>
-      <DataTable data={cssDatatype} title="CSS Data Types" onSave={handleSave} />
-      <FuncTable data={cssFunctions} title="CSS Functions" onSave={handleSave} />
-      <AtRuleTable data={cssAtRules} title="CSS At-rules" onSave={handleSave} />
-      <KeyWordTable data={cssKeywords} title="CSS Keywords" onSave={handleSave} />
+      <DataTable data={cssDatatype} title="CSS Data Types" onSave={handle2TSave} />
+      <FuncTable data={cssFunctions} title="CSS Functions" onSave={handle3TSave} />
+      <AtRuleTable data={cssAtRules} title="CSS At-rules" onSave={handle2TSave} />
+      <KeyWordTable data={cssKeywords} title="CSS Keywords" onSave={handle2TSave} />
     </div>
   );
 }

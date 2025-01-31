@@ -5,7 +5,7 @@ import styles from "@/app/ui/accessories.module.css";
 interface TableProps {
   data: { func: string, desc: string, params: string}[];
   title: string;
-  onSave: (data: Record<string, string>[], title: string) => void;
+  onSave: (data: { func: string, desc: string, params: string}[], title: string) => void;
 }
 
 const FuncTable = ({ data, title, onSave }: TableProps) => {

@@ -2,12 +2,12 @@
 import HTMLelTable from './components/HTMLelTable';
 import { metadata, sectionheadings, inlines, formElements, mediaElements, tableElements } from './data/htmldata';
 import htmlEntities from './data/htmlentities';
-import { handleSave } from '@/services/generatePDF';
 import HTMLEntitesTable from './components/HTMLEntitiesTable';
 import { globalAttributes } from './data/extras';
 import { AdditionalAttributesSection, EventHandlerAttributesSection } from './components/Extras';
 import HTMLGlobalsTable from './components/HTMLGlobalsTable';
 import PlayButton from '@/components/textToSpeechBtn';
+import { handle2TSave, handle3TSave } from '@/services/generatePDF';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 const IntroPage = () => {
@@ -80,12 +80,12 @@ const ElPage = () => {
 
   return (
     <div className="page-wrap">
-      <HTMLelTable data={metadata} title="HTML metadata" onSave={handleSave}/>
-      <HTMLelTable data={sectionheadings} title="HTML Section Headings" onSave={handleSave}/>
-      <HTMLelTable data={inlines} title="HTML Inlines" onSave={handleSave}/>
-      <HTMLelTable data={formElements} title="HTML Form Elements" onSave={handleSave}/>
-      <HTMLelTable data={mediaElements} title="HTML Media Elements" onSave={handleSave}/>
-      <HTMLelTable data={tableElements} title="HTML Table Elements" onSave={handleSave}/>
+      <HTMLelTable data={metadata} title="HTML metadata" onSave={handle3TSave}/>
+      <HTMLelTable data={sectionheadings} title="HTML Section Headings" onSave={handle3TSave}/>
+      <HTMLelTable data={inlines} title="HTML Inlines" onSave={handle3TSave}/>
+      <HTMLelTable data={formElements} title="HTML Form Elements" onSave={handle3TSave}/>
+      <HTMLelTable data={mediaElements} title="HTML Media Elements" onSave={handle3TSave}/>
+      <HTMLelTable data={tableElements} title="HTML Table Elements" onSave={handle3TSave}/>
     </div>
   );
 };
@@ -93,8 +93,8 @@ const ElPage = () => {
 const GlobalsPage = () => {
   return (
     <div className="page-wrap">
-      <HTMLEntitesTable data={htmlEntities} title="HTML Entities" onSave={handleSave}/>
-      <HTMLGlobalsTable data={globalAttributes} title="HTML Global Attributes" onSave={handleSave}/>
+      <HTMLEntitesTable data={htmlEntities} title="HTML Entities" onSave={handle3TSave}/>
+      <HTMLGlobalsTable data={globalAttributes} title="HTML Global Attributes" onSave={handle2TSave}/>
     </div>
   );
 };
