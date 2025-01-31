@@ -1,226 +1,105 @@
-.default-btn {
-  height: 38px;
+/* Button Shapes */
+.circleBtn {
   width: 100px;
-  font-size: 14px;
-  margin-left: 6px;
-  margin-right: 6px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 12px;
-  padding-right: 12px;
-  text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 4px;
-  transition: opacity 0.15s;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.box-wrap {
+.wideBtn {
+  width: 200px;
+  border-radius: 18px;
+  border: none;
+}
+
+/* Color Variants */
+.primary { background-color: #6E44FF; color: white; border-color: #6E44FF; }
+.secondary { background-color: #2A2B2E; color: white; border-color: #2A2B2E; }
+.success { background-color: #00CC88; color: white; border-color: #00CC88; }
+.danger { background-color: #FF4D4D; color: white; border-color: #FF4D4D; }
+.warning { background-color: #FFD166; color: black; border-color: #FFD166; }
+.info { background-color: #00B4D8; color: white; border-color: #00B4D8; }
+.light { background-color: #F4F4F8; color: #2A2B2E; border-color: #DADAE0; }
+.dark { background-color: #1E1E24; color: white; border-color: #1E1E24; }
+.undef { background: linear-gradient(#e66465, #9198e5); color: white; border-color: lch(76 44 311); }
+.heavenly { background: linear-gradient(lch(76 44 311), hsl(190, 76%, 74%)); color: whitesmoke; border-color: whitesmoke; }
+.ice { background: linear-gradient(whitesmoke, hsl(190, 76%, 74%)); color: whitesmoke; border-color: gold; }
+.ocean { background: linear-gradient(hsl(190, 76%, 74%), whitesmoke); color: whitesmoke; border-color: gold; }
+.guava { background-color: hsl(18deg, 80%, 71%); color: black; border-color: oklch(80% 35% 110deg); }
+.melon { background-color: hsl(90deg, 80%, 71%); color: white; border-color: yellowgreen; }
+.recycling { background-color: rgb(205, 219, 191); color: black; border-color: green; border-style: double; }
+.yam { background-color: lch(70 51 300); color: lch(30 50 300); border-color: lch(30 50 300); }
+.schema { background-color: lch(35 51 300); color: white; border: none; }
+.goldenRidge { background-color: rgb(247, 212, 10); color: rgb(200, 150, 30); border: rgb(194, 147, 26); border-width: 2px; border-style: ridge; }
+
+.download { background-color: white; color: rgb(121, 82, 179); border-color: rgb(121, 82, 179); }
+.email {
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Purple to blue gradient */
+  color: white;
+  border: none;
+}
+.email:hover {
+  background: linear-gradient(135deg, #4e0c9c, #1c6db3); /* Darker gradient for hover */
+}
+
+.signUp { background-color: rgb(46, 164, 79); color: white; border: none; }
+.getStarted { background-color: rgb(121, 82, 179); color: white; border: none; }
+.login { background-color: rgb(29, 155, 240); color: white; border: none; }
+.logout { background-color: rgb(200, 0, 0); color: white; border: none; }
+.submit { background-color: blue; color: white; }
+
+.addToCart { background-color: rgb(250, 212, 15); color: black; }
+.join { background-color: white; color: rgb(6, 95, 212); border-color: rgb(6, 95, 212);}
+.join:hover { background-color: rgb(6, 95, 212); color: white; }
+.join:active { opacity: 0.7; }
+
+.message { background-color: rgb(29, 155, 240); color: white; }
+.save { background-color: blue; color: white; }
+
+.link { background: transparent; color: #6E44FF; border-color: #6E44FF; }
+.link:hover { background: #6E44FF; color: white; border-color: white; }
+
+/* Gradient Variants */
+.primaryGrad { background: linear-gradient(135deg, #6E44FF, #B892FF); color: white; }
+.secondaryGrad { background: linear-gradient(135deg, #2A2B2E, #4A4A4F); color: white; }
+.successGrad { background: linear-gradient(135deg, #00CC88, #00FFAA); color: white; }
+.dangerGrad { background: linear-gradient(135deg, #FF4D4D, #FF7F7F); color: white; }
+.warningGrad { background: linear-gradient(135deg, #FFD166, #FFE699); color: black; }
+.infoGrad { background: linear-gradient(135deg, #00B4D8, #00E6FF); color: white; }
+.lightGrad { background: linear-gradient(135deg, #F4F4F8, #FFFFFF); color: #2A2B2E; }
+.darkGrad { background: linear-gradient(135deg, #1E1E24, #3A3A40); color: white; }
+.linkGrad { background: transparent; color: #6E44FF; border-color: #6E44FF; }
+.linkGrad:hover { background: linear-gradient(135deg, #6E44FF, #B892FF); color: white; border-color: transparent; }
+
+/* Unique Buttons */
+.avantGarde {
+  border-radius: 50px;
+  background: linear-gradient(135deg, #6E44FF, #B892FF);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+.avantGarde:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Box Wrapper */
+.boxWrap {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
   background-color: white;
   margin: 4px;
   row-gap: 20px;
-  border-style: solid;
-  border-width: 1px;
+  column-gap: 10px;
+  border: 1px solid rgb(160, 150, 200);
   border-radius: 4px;
   padding: 10px;
-  border-color: rgb(160, 150, 200)
-}
-
-.primary-btn {
-  background-color: rgb(0, 123, 255);
-  color: white;
-  border-color: rgb(0, 123, 255);
-}
-
-.secondary-btn {
-  background-color: rgb(108, 117, 125);
-  color: white;
-  border-color: rgb(108, 117, 125);
-}
-
-.success-btn {
-  background-color: rgb(40, 167, 69);
-  color: white;
-  border-color: rgb(40, 167, 69);
-}
-
-.danger-red-btn {
-  background-color: rgb(220, 53, 69);
-  color: white;
-  border-color: rgb(220, 53, 69);
-}
-
-.warning-orange-btn {
-  background-color: rgb(255, 193, 7);
-  color: black;
-  border-color: rgb(255, 193, 7);
-}
-
-.info-btn {
-  background-color: rgb(23, 162, 184);
-  color: white;
-  border-color: rgb(23, 162, 184);
-}
-
-.light-btn {
-  background-color: rgb(248, 249, 250);
-  color: rgb(33, 37, 41);
-  border-color: rgb(230, 250, 98)
-}
-
-.dark-btn {
-  background-color: rgb(52, 58, 64);
-  color: rgb(255, 255, 255);
-  border-color: rgb(52, 58, 64);
-}
-
-.link-btn {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 123, 255);
-  border-color: rgb(100, 100, 100);
-}
-
-.link-btn:hover {
-  background-color: rgb(0, 174, 255);
-  color: white;
-  border-color: white;
-}
-
-.undef-btn {
-  background: linear-gradient(#e66465, #9198e5);
-  color: white;
-  font-weight: bold;
-  border-color: lch(76 44 311);
-}
-
-.sky-btn {
-  background: linear-gradient(lch(76 44 311), hsl(190, 76%, 74%));
-  color: whitesmoke;
-  font-weight: bold;
-  border-color: whitesmoke;
-}
-
-.ice-btn {
-  background: linear-gradient(whitesmoke, hsl(190, 76%, 74%));
-  color: whitesmoke;
-  font-weight: bold;
-  border-color: gold;
-}
-
-.ocean-btn {
-  background: linear-gradient(hsl(190, 76%, 74%), whitesmoke);
-  color: whitesmoke;
-  font-weight: bold;
-  border-color: gold;
-}
-
-.guava-btn {
-  background-color: hsl(18deg, 80%, 71%);
-  color: black;
-  font-weight: bold;
-  border-color: oklch(80% 35% 110deg);
-}
-
-.melon-btn {
-  background-color: hsl(90deg, 80%, 71%);
-  color: white;
-  font-weight: bold;
-  border-color: yellowgreen;
-}
-
-.round-btn {
-  width: 100px;
-  height: 100px;
-  font-size: 14px;
-  font-family: sans-serif;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-width: 4px;
-  border-radius: 50px;
-}
-
-.recycling-double {
-  background-color: rgb(205, 219, 191);
-  color: black;
-  border-color: green;
-  border-style: double;
-}
-
-.yummy-yam {
-  background-color: lch(70 51 300);
-  color: lch(30 50 300);
-  font-weight: bold;
-  border-color: lch(30 50 300);
-}
-
-.schema {
-  background-color: lch(35 51 300);
-  color: white;
-  font-weight: bold;
-  border: none;
-}
-
-.golden-ridge {
-  background-color: rgb(247, 212, 10);
-  color: rgb(200, 150, 30);
-  font-weight: bold;
-  border: rgb(194, 147, 26);
-  border-width: 2px;
-  border-style: ridge;
-}
-
-.download {
-  background-color: white;
-  color: rgb(121, 82, 179);
-  font-weight: bold;
-  border-color: rgb(121, 82, 179);
-  border-width: 1px;
-}
-
-.email {
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  font-size: 15px;
-}
-
-.sign-up {
-  background-color: rgb(46, 164, 79);
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  font-size: 15px;
-}
-
-.get-started {
-  background-color: rgb(121, 82, 179);
-  color: white;
-  font-weight: bold;
-  border: none;
-}
-
-.log-in {
-  background-color: rgb(29, 155, 240);
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  font-size: 15px;
-}
-
-.log-out {
-  background-color: rgb(200, 0, 0);
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  font-size: 15px;
 }

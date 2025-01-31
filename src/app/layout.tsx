@@ -1,27 +1,38 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Montserrat, Roboto } from 'next/font/google';
+import { Montserrat, Roboto, Caveat } from 'next/font/google';
 import { Header } from "@/components/Header";
 import { ThemeProviderWrapper } from "@/components/ThemeProviderWrapper";
 import ScrollToTopBtn from "@/components/ScrollToTopBtn";
 import { randomBytes } from 'crypto';
 import "./ui/blog.css";
+import "./ui/pages.css";
 import "./globals.css";
 
 const generateNonce = () => {
   return randomBytes(16).toString('base64');
 };
 
+const caveat = Caveat({
+  subsets: ['latin'], // Choose subsets you need
+  weight: ['400', '700'], // Specify font weights
+  style: ['normal'], // Specify styles (e.g., normal, italic)
+  variable: '--font-caveat', // CSS variable name
+  display: 'swap', // Optimize font loading
+});
+
 const roboto = Roboto({
   weight: ['400', '500'], // Regular and Medium weights for Roboto
   subsets: ['latin'],
   variable: '--font-roboto', // Define a CSS variable for the font
+  display: 'swap', // Optimize font loading
 });
 
 const montserrat = Montserrat({
   weight: '700', // Bold weight for Montserrat
   subsets: ['latin'],
   variable: '--font-montserrat', // Define a CSS variable for the font
+  display: 'swap', // Optimize font loading
 });
 
 export const metadata: Metadata = {
@@ -34,8 +45,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <ThemeProviderWrapper nonce={nonce}>
-      <html lang="en" className={`${montserrat.variable} ${roboto.variable} antialiased`}>
+      <html lang="en" className={`${montserrat.variable} ${roboto.variable} ${caveat.variable} antialiased`}>
         <head>
+          <meta charSet="UTF-8"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </head>
         <body>
           <Header />

@@ -4,8 +4,9 @@
 
 :root {
   color-scheme: light;
-  --foreground: black; 
+  --foreground: #2D3748; 
   --theme-gradient: linear-gradient(45deg, rgb(0, 162, 255) 33%, rgb(255, 0, 162) 66%, rgb(162, 255, 0) 100%);
+  --theme-page: #FAFAFA;
   --theme-border: 2px solid rgba(0, 0, 0, 0.1);
   --theme-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   --theme-text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
@@ -18,8 +19,9 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --foreground: white;
+    --foreground: #E2E8F0;
     --theme-gradient: linear-gradient(90deg, rgb(60, 0, 80) 50%, rgb(0, 120, 255) 100%);
+    --theme-page: #2D3748;
     --theme-border: 2px solid rgba(255, 255, 255, 0.1);
     --theme-box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
     --theme-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -36,8 +38,9 @@ html {
 
 html[data-theme="light"] {
   color-scheme: light;
-  --foreground: black; 
+  --foreground: #2D3748; 
   --theme-gradient: linear-gradient(45deg, rgb(0, 162, 255) 33%, rgb(255, 0, 162) 66%, rgb(162, 255, 0) 100%);
+  --theme-page: #FAFAFA;
   --theme-border: 2px solid rgba(0, 0, 0, 0.1);
   --theme-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   --theme-text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
@@ -49,8 +52,9 @@ html[data-theme="light"] {
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --foreground: white;
+  --foreground: #E2E8F0;
   --theme-gradient: linear-gradient(90deg, rgb(60, 0, 80) 50%, rgb(0, 120, 255) 100%);
+ --theme-page: #2D3748;
   --theme-border: 2px solid rgba(255, 255, 255, 0.1);
   --theme-box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
   --theme-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -173,18 +177,28 @@ pre {
   position: relative;
 }
 
+/* Base button styles */
 button {
   cursor: pointer;
   margin: 4px;
-  border-style: solid;
-  border-width: 1px;
+  height: 38px;
+  width: auto;
+  border: 1px solid;
   border-radius: 4px;
-  transition: opacity 0.15s, box-shadow 0.15s;
+  transition: opacity 0.15s, box-shadow 0.15s, background-color 0.15s, color 0.15s;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 15px;
 }
 
-button:hover{
+/* Button Hover & Active States */
+button:hover {
   opacity: 0.8;
-  box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.15);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 button:active {
