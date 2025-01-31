@@ -2,11 +2,10 @@
 import Image from "next/image";
 import styles from "@/app/ui/accessories.module.css";
 
-
 interface TableProps {
   data: {atRule: string, desc: string}[];
   title: string;
-  onSave: (data: {atRule: string, desc: string}[], title: string) => void;
+  onSave: (data:  Record<string, string>[], title: string) => void;
 }
 
 const AtRuleTable = ({ data, title, onSave }: TableProps) => {

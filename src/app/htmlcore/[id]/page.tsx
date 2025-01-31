@@ -1,20 +1,6 @@
 import { notFound } from 'next/navigation';
 import BlogTemplate from '@/components/BlogTemplate';
-
-export async function generateStaticParams() {
-  // Fetch the list of valid IDs from an API
-  // const response = await fetch('https://api.example.com/ids');
-  // const ids = await response.json();
-  const ids = ['blogtemplate'];
-  
-  return ids.map((id: string) => ({
-    id,
-  }));
-}
-
-interface PageProps {
-  params: { id: string };
-}
+import { PageProps } from "@/app/api/interfaces";
 
 export default function Page({ params } : PageProps) {
   const { id } = params;

@@ -11,7 +11,7 @@ export const Header = () => {
   const HTMLTitles = ['Blog Template'];
   const HTMLpaths = ['/htmlcore/blogtemplate'];
 
-  return (
+  return (  
     <header>
       <NavLinkWithDropdown title="Home" corepath="/" filepaths={[]} dropdowntitles={[]}/>
       <NavLinkWithDropdown title="OS" corepath="/oscore" filepaths={OSpaths} dropdowntitles={OSTitles}/>
