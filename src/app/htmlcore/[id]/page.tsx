@@ -1,9 +1,25 @@
+import supabase from '@/app/api/db';
 import { notFound } from 'next/navigation';
 import BlogTemplate from '@/components/BlogTemplate';
-import { PageProps } from "@/app/api/interfaces";
 
-export default function Page({ params } : PageProps) {
-  const { id } = params;
+export async function generateStaticParams() {
+  const { data, error } = await supabase
+    .from('ids_table')
+    .select('ids')
+    .eq('name', "htmlcore");
+
+    if (error || !data || data.length === 0) {
+      console.error('Error fetching ids:', error);
+      return [];
+    }
+  
+    return data[0].ids.map((id: string) => ({
+      params: { id }, 
+    }));
+}
+
+export default async function Page({ params } : { params: Promise<{ id: string }> }) {
+  const id = (await params).id;
 
   switch (id) {
     case 'blogtemplate':
