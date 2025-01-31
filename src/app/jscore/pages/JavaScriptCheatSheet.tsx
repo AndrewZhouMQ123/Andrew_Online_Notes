@@ -10,7 +10,7 @@ import GmethodTable from '../components/MethodTable';
 import GobjectTable from '../components/ObjectTable';
 import APITable from '../components/APITables';
 import { globalProperties, primitiveDataTypes, builtInFunctions, builtInObjects, domBomAPI } from '../data/dataJS';
-import { handleSave } from '@/api/generatePDF';
+import { handleSave } from '@/services/generatePDF';
 
 export const JavaScriptCheatSheet = () => {
   const legacyMethods = [

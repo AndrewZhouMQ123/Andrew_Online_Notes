@@ -3,7 +3,7 @@ import CMDTable from '@/app/oscore/components/CMDTable';
 import { commands, vimcommands, gitCommands, directoryCommands, shortcuts } from '@/app/oscore/data/commands';
 import HTTPStable from '@/app/oscore/components/HTTPStable';
 import { httpProperties, httpMethods, httpHeaders, httpStatusCodes } from '../data/httpsdoc';
-import { handleSave } from '@/api/generatePDF';
+import { handleSave } from '@/services/generatePDF';
 import PlayButton from '@/components/textToSpeechBtn';
 import Image from 'next/image';
 

@@ -12,7 +12,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Page({ params,} : { params: { id: string }; }) {
+interface PageProps {
+  params: { id: string };
+}
+
+export default function Page({ params } : PageProps) {
   const { id } = params;
 
   switch (id) {
@@ -28,5 +32,6 @@ export default function Page({ params,} : { params: { id: string }; }) {
       />
     default:
       notFound();
+      return null; // This is important as notFound() doesn't return anything
   }
 }

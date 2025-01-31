@@ -37,6 +37,9 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Web-Experiments App",
+  icons: {
+    icon: '/favicon.ico'
+  },
   description: "Next.js website with cheat sheets and also where I do web experiments",
 };
 

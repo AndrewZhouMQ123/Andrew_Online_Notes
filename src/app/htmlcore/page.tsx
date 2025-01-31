@@ -2,7 +2,7 @@
 import HTMLelTable from './components/HTMLelTable';
 import { metadata, sectionheadings, inlines, formElements, mediaElements, tableElements } from './data/htmldata';
 import htmlEntities from './data/htmlentities';
-import { handleSave } from '@/api/generatePDF';
+import { handleSave } from '@/services/generatePDF';
 import HTMLEntitesTable from './components/HTMLEntitiesTable';
 import { globalAttributes } from './data/extras';
 import { AdditionalAttributesSection, EventHandlerAttributesSection } from './components/Extras';

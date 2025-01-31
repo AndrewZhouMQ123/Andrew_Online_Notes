@@ -12,7 +12,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Page({ params,} : { params: { id: string }; }) {
+interface PageProps {
+  params: { id: string };
+}
+
+export default function Page({ params,} : PageProps) {
   const { id } = params;
 
   switch (id) {
@@ -24,5 +28,6 @@ export default function Page({ params,} : { params: { id: string }; }) {
       return <GitCheatSheet />;
     default:
       notFound();
+      return null;
   }
 }

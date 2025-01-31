@@ -8,7 +8,7 @@ import FuncTable from './components/funcTable';
 import AtRuleTable from './components/AtRuleTable';
 import KeyWordTable from './components/KeyWordTable';
 import { cssSelectors, cssProperties, pseudoClasses, pseudoElements, cssDatatype, cssFunctions, cssAtRules, cssKeywords } from './data/cssdoc';
-import { handleSave } from '@/api/generatePDF';
+import { handleSave } from '@/services/generatePDF';
 import PlayButton from '@/components/textToSpeechBtn';
 import SyntaxDiagram from './components/SyntaxDiagram';
 import BoxModelDiagram from './components/BoxModelDiagram';
