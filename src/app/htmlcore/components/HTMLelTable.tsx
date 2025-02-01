@@ -10,7 +10,7 @@ interface TableProps {
 
 const HTMLelTable = ({ data, title, onSave }: TableProps) => {
   return (
-    <div className={styles.tableWrap}>
+    <div className="table-wrap">
       <table>
         <caption>{title}</caption>
         <thead>

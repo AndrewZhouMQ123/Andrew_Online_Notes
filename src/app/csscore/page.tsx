@@ -53,18 +53,30 @@ const IntroPage = () => {
           <span className="blog-title">Box Model</span>
           <BoxModelDiagram/>
         </div>
-        <div style={ {display: 'flex', flexDirection: 'column', width: '100%',}}>
-          <div style={{margin: 10,}}>
-            <span className="blog-title" style={{textAlign: 'center',}}>Main Axis Column</span>
-            <Image src="/mainaxiscol.png" style={{width: '100%'}} width={600} height={400} alt="html page main axis col"/>
+        <div className="flex flex-col w-full">
+          <div className="m-2.5">
+            <span className="blog-title text-center block">Main Axis Column</span>
+            <Image 
+              src="/mainaxiscol.png" 
+              className="w-full"
+              width={600}
+              height={400}
+              alt="html page main axis col"
+            />
           </div>
-          <div style={{margin: 10,}}>
-            <span className="blog-title" style={{textAlign: 'center',}}>Main Axis Row</span>
-            <Image src="/mainaxisrow.png" style={{width: '100%'}} width={600} height={400} alt="html page main axis row"/>
+          <div className="m-2.5">
+            <span className="blog-title text-center block">Main Axis Row</span>
+            <Image 
+              src="/mainaxisrow.png" 
+              className="w-full"
+              width={600}
+              height={400}
+              alt="html page main axis row"
+            />
           </div>
         </div>
       </div>
-      <p style={{ fontStyle: 'italic', textAlign: 'right', fontSize: '0.8em', marginTop: '20px' }}>
+      <p className="italic text-right text-sm mt-5">
         Built with <span className="glitter-title">Canvas API</span>
       </p>
     </div>

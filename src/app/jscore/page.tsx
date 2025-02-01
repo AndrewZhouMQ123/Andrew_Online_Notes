@@ -66,27 +66,29 @@ export default function JSCore() {
     "objects",
   ];
   return (
-    <div className="page-wrap">
-      <span className={styles.blogTitle}>JavaScript Cheat Sheet</span>
-      <PlayButton />
-      <ul className="white-board">
-        <span>Falsy Values</span>
-        <CodeBlock code={falsyValues.join("\n")}/>
-        <span>Truthy Values</span>
-        <CodeBlock code={truthyValues.join("\n")}/>
-        {javascriptCheatSheetData.map((section, index) => (
-          <Section key={index} title={section.title} content={section.content} />
-        ))}
-        <span>General Idea of Legacy Code I used before switching to NextJS</span>
-        <CodeBlock code={legacyMethods.join("\n")} />
-        <CodeBlock code={legacySnippets.join("\n")} />
-      </ul>
+    <div>
+      <div className="page-wrap">
+        <span className={styles.blogTitle}>JavaScript Cheat Sheet</span>
+        <PlayButton />
+        <ul className="white-board">
+          <span>Falsy Values</span>
+          <CodeBlock code={falsyValues.join("\n")}/>
+          <span>Truthy Values</span>
+          <CodeBlock code={truthyValues.join("\n")}/>
+          {javascriptCheatSheetData.map((section, index) => (
+            <Section key={index} title={section.title} content={section.content} />
+          ))}
+          <span>General Idea of Legacy Code I used before switching to NextJS</span>
+          <CodeBlock code={legacyMethods.join("\n")} />
+          <CodeBlock code={legacySnippets.join("\n")} />
+        </ul>
 
-      <GPropTable data={globalProperties} title="Global Properties" onSave={handle2TSave}/>
-      <PrimitivesTable data={primitiveDataTypes} title="Primitives" onSave={handle3TSave}/>
-      <GmethodTable data={builtInFunctions} title="Built In Functions" onSave={handle2TSave}/>
-      <GobjectTable data={builtInObjects} title="Built In Objects" onSave={handle2TSave}/>
-      <APITable data={domBomAPI} title="DOM APIs" onSave={handle3TSave}/>
+        <GPropTable data={globalProperties} title="Global Properties" onSave={handle2TSave}/>
+        <PrimitivesTable data={primitiveDataTypes} title="Primitives" onSave={handle3TSave}/>
+        <GmethodTable data={builtInFunctions} title="Built In Functions" onSave={handle2TSave}/>
+        <GobjectTable data={builtInObjects} title="Built In Objects" onSave={handle2TSave}/>
+        <APITable data={domBomAPI} title="DOM APIs" onSave={handle3TSave}/>
+      </div>
     </div>
   );
 };
