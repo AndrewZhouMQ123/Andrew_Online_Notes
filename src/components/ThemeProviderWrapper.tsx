@@ -1,7 +1,7 @@
 // components/ThemeProviderWrapper.tsx
 "use client";
 import { useEffect, useState } from "react";
-import { ThemeProvider } from "@/context/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 type Theme = "light" | "dark" | "system"; // Define the Theme type
 

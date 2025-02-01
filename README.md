@@ -1,42 +1,24 @@
 # Web Experiments
 
-A collection of frontend experiments using TypeScript, HTML, CSS, and JavaScript, with plans to incorporate modern frameworks like React and Three.js.
+A miscellaneous website with all sorts of goodies: classic minigames, web dev cheatsheets, scientific calculators, scientific graph tools, combined with experimental frontend technologies
 
 ## Technologies Used
 
-- TypeScript
+- TypeScript, JavaScript, HTML and CSS
 
-- HTML
+- React, NextJS
 
-- CSS
-
-- JavaScript
-
-- React (planned)
-
-- Tailwind CSS (planned)
-
-- Three.js (planned)
+- Custom CSS modules and Tailwind CSS
 
 ## Features
+- HTML, CSS, JS, NPM, MACOS and VIM cheatsheets and many more
+- Scientific Calculator and Graphing tools
+- Classic minigames: Tetris, Pac Man, Space Invaders (coming soon)
+- Search Function now searches for games and returns search results
+- Landing page animations (coming soon)
 
-- Graphics experiments
-
-- Calculator implementation
-
-- Text-to-speech reader using Web Speech API
-
-## Future Plans
-
-- Incorporate React for component-based architecture.
-
-- Use Tailwind CSS for styling.
-
-- Implement 3D graphics with Three.js.
-
-- Develop a backend for additional functionality.
-
-- Create an animated 3D Linux file system tree with zoom and pan capabilities.
+## Future plans
+- improved text to speech API, maybe incorporating AI voice
 
 ## Getting Started
 
@@ -52,7 +34,7 @@ A collection of frontend experiments using TypeScript, HTML, CSS, and JavaScript
 
 ```bash
 
-git clone https://github.com/AndrewZhouMQ123/web-experiments.git
+git clone https://github.com/AndrewZhouMQ123/Web_Experiments
 
 ```
 
@@ -90,7 +72,6 @@ npm start
 
 - Issues with SSML tags in Web Speech API.
 
-
 ### NextJS App router Integration
 
 ```bash
@@ -106,4 +87,9 @@ bun dev
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 - Install VSCode Extension: PostCSS Language Support, solves Unknown at rule @tailwindcss(unknownAtRules)
 
-## Deploy on Vercel
+## Deploy to Vercel
+
+- Deploy to Vercel using the github repo
+- Setup Postgres database (I used supabase)
+- Connect database to project
+- Create ids_table in database and insert the ids for dynamic routing

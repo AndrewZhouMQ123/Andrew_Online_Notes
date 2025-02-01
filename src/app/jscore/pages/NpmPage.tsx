@@ -1,7 +1,7 @@
 "use client"
 import NPMTable from '../components/NPMTable';
 import npmCommands from "../data/npmCMD";
-import { handleSave } from '@/services/generatePDF';
+import { handle2TSave } from '@/app/api/generatePDF';
 import styles from '@/app/ui/accessories.module.css';
 import PlayButton from '@/components/textToSpeechBtn';
 
@@ -10,7 +10,7 @@ const NpmPage = () => {
     <div className="page-wrap">
       <span className={styles.blogTitle}>NPM Cheat Sheet</span>
       <PlayButton />
-      <NPMTable data={npmCommands} title="NPM Commands" onSave={handleSave}/>
+      <NPMTable data={npmCommands} title="NPM Commands" onSave={handle2TSave}/>
     </div>
   );
 };

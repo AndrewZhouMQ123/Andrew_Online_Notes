@@ -1,5 +1,5 @@
 "use client";
-import { useTheme } from "../context/ThemeProvider";
+import { useTheme } from "./ThemeProvider";
 import header from "@/app/ui/header.module.css";
 
 const ThemeToggleButton = () => {

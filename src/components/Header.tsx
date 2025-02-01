@@ -19,7 +19,7 @@ export const Header = () => {
       <NavLinkWithDropdown title="CSS" corepath="/csscore" filepaths={[]} dropdowntitles={[]}/>
       <NavLinkWithDropdown title="JS" corepath="/jscore" filepaths={JSpaths} dropdowntitles={JSTitles}/>
       <ThemeToggleButton/>
-      <input className={styles.searchBar} placeholder="Search"/>
+      <input className={styles.searchBar} placeholder="Search Games"/>
     </header>
   );
 };

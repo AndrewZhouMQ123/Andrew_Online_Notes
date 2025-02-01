@@ -7,7 +7,7 @@ import { globalAttributes } from './data/extras';
 import { AdditionalAttributesSection, EventHandlerAttributesSection } from './components/Extras';
 import HTMLGlobalsTable from './components/HTMLGlobalsTable';
 import PlayButton from '@/components/textToSpeechBtn';
-import { handle2TSave, handle3TSave } from '@/services/generatePDF';
+import { handle2TSave, handle3TSave } from '@/app/api/generatePDF';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 const IntroPage = () => {

@@ -127,7 +127,8 @@ export const handle2TSave = (
     | { atRule: string; desc: string }[]
     | { keyword: string; desc: string }[]
     | { http: string; desc: string }[]
-    | { cmd: string; desc: string }[],
+    | { cmd: string; desc: string }[]
+    | { command: string; desc: string; }[],
   title: string
 ) => {
   // Define union type of all possible item types
@@ -157,13 +158,19 @@ export const handle2TSave = (
           arr.length > 0 && 'cmd' in arr[0]
       },
       {
+        key: 'npm',
+        columns: ['Command', 'Description'],
+        valueKey: 'desc',
+        guard: (arr: ItemType[]): arr is { command: string; desc: string }[] => 
+          arr.length > 0 && 'cmd' in arr[0]
+      },
+      {
         key: 'method',
         columns: ['Method', 'Description'],
         valueKey: 'desc',
         guard: (arr: ItemType[]): arr is { method: string; desc: string }[] => 
           arr.length > 0 && 'method' in arr[0]
       },
-      // ... similar guards for other types ...
       {
         key: 'keyword',
         columns: ['Keyword', 'Description'],
