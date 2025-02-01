@@ -5,7 +5,7 @@ import styles from "@/app/ui/accessories.module.css";
 interface TableProps {
   data: { http: string, desc: string}[];
   title: string;
-  onSave: (data: Record<string, string>[], title: string) => void;
+  onSave: (data: { http: string, desc: string}[], title: string) => void;
 }
 
 const HTTPStable = ({ data, title, onSave }: TableProps) => {

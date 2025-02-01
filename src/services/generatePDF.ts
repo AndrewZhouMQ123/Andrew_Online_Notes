@@ -125,7 +125,9 @@ export const handle2TSave = (
     | { selector: string; desc: string }[]
     | { datatype: string; def: string }[]
     | { atRule: string; desc: string }[]
-    | { keyword: string; desc: string }[],
+    | { keyword: string; desc: string }[]
+    | { http: string; desc: string }[]
+    | { cmd: string; desc: string }[],
   title: string
 ) => {
   // Define union type of all possible item types
@@ -139,6 +141,20 @@ export const handle2TSave = (
         valueKey: 'desc',
         guard: (arr: ItemType[]): arr is { attribute: string; desc: string }[] => 
           arr.length > 0 && 'attribute' in arr[0]
+      },
+      {
+        key: 'http',
+        columns: ['HTTP Status', 'Description'],
+        valueKey: 'desc',
+        guard: (arr: ItemType[]): arr is { http: string; desc: string }[] => 
+          arr.length > 0 && 'http' in arr[0]
+      },
+      {
+        key: 'cmd',
+        columns: ['Command', 'Description'],
+        valueKey: 'desc',
+        guard: (arr: ItemType[]): arr is { cmd: string; desc: string }[] => 
+          arr.length > 0 && 'cmd' in arr[0]
       },
       {
         key: 'method',

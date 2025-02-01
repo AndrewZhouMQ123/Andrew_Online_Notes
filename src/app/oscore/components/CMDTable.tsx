@@ -5,7 +5,7 @@ import styles from "@/app/ui/accessories.module.css";
 interface TableProps {
   data: { cmd: string, desc: string}[];
   title: string;
-  onSave: (data: Record<string, string>[], title: string) => void;
+  onSave: (data: { cmd: string, desc: string}[], title: string) => void;
 }
 
 const CMDTable = ({ data, title, onSave }: TableProps) => {
