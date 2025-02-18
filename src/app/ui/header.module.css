@@ -1,7 +1,8 @@
 .headerBtn {
   cursor: pointer;
   transition: opacity 0.15s, box-shadow 0.15s, text-shadow 0.15s;
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 120px;
   height: 50px;
   background-color: rgb(17, 17, 17);
   color: white;
@@ -45,8 +46,7 @@
 
 .dropdownContainer {
   position: relative;
-  display: inline-block;
-  cursor: pointer;
+  display: block;
 }
 
 .dropdownMenu {
@@ -58,6 +58,9 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  max-height: min(400px, 80vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .dropdownLink {

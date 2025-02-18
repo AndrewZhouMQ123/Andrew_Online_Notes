@@ -72,11 +72,11 @@ html[data-theme="dark"] {
 body {
   color: var(--foreground);
   background: var(--theme-gradient);
-  margin: 0;  /* Remove margin to prevent overflow */
-  padding: 0; /* Remove padding to prevent overflow */
-  width: 100%; /* Ensure full width */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  box-sizing: border-box; /* Include padding/borders in width calculations */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
   border: var(--theme-border);
   box-shadow: var(--theme-box-shadow);
   text-shadow: var(--theme-text-shadow);
@@ -90,10 +90,10 @@ body {
 /* Media Query for Mobile Devices */
 @media (max-width: 640px) {
   body {
-    font-size: 14px;        /* Smaller font size on mobile */
-    letter-spacing: 1px;    /* Adjust letter spacing for readability */
-    padding: 5px;           /* Reduce padding on small screens */
-    border-radius: 10px;    /* Slightly reduce border radius */
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 5px;
+    border-radius: 10px;
   }
 }
 
@@ -112,7 +112,7 @@ header {
   height: 55px;
   box-sizing: border-box;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 255, 255, 0.6); /* Added glow */
-  z-index: 2;
+  z-index: 1000;
 }
 
 /* Responsive header: Reduce padding and stack content vertically on small screens */

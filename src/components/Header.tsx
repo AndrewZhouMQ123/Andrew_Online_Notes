@@ -5,9 +5,9 @@ import NavLinkWithDropdown from "./NavLinkWithDropdown";
 export const Header = () => {
 
   const DevNotesTitles = ['HTML', 'CSS', 'JavaScript', 'OS Commands', 'HTTPS', 'NPM'];
-  const DevNotespaths = ['devNotes/htmlcore', 'devNotes/csscore', 'devNotes/jscore', '/devNotes/commands', '/devNotes/https', 'devNotes/npm'];
+  const DevNotespaths = ['/htmlcore', '/csscore', '/jscore', '/commands', '/https', '/npm'];
   const MiscTitles = ['Buttons Template', 'Blog Template', 'Calculator'];
-  const Miscpaths = ['/misc/buttons', '/misc/blogtemplate', '/misc/calculator'];
+  const Miscpaths = ['/buttons', '/blogtemplate', '/calculator'];
 
   return (  
     <header>

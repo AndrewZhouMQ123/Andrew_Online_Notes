@@ -28,9 +28,11 @@ const NavLinkWithDropdown = ({ title, corepath, filepaths, dropdowntitles }: Nav
         <span className={styles.navLink}>{title}</span>
       </Link>
 
-      {/* Dropdown Menu */}
       {isDropdownVisible && (
-        <div className={styles.dropdownMenu}>
+        <div 
+        className={styles.dropdownMenu}
+        onWheel={(e) => e.stopPropagation()} // Prevent scroll propagation
+        >
           {filepaths.map((filepath, index) => (
             <Link key={filepath} href={filepath} className={styles.dropdownLink}>
               {dropdowntitles[index]}
