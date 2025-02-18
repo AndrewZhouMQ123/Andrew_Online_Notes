@@ -64,7 +64,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <body>
           <Header />
           <ScrollToTopBtn />
-          {children}
+          <main style={{ paddingTop: '55px' }}>
+            {children}
+          </main>
           <footer>
             <p>© 2025 Web-Goodies App</p>
           </footer>

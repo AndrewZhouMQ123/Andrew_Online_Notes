@@ -39,7 +39,7 @@ export const Header = () => {
     <header className={styles.header}>
       {NAV_ITEMS.map((item) => (
         <NavLinkWithDropdown key={item.corepath} {...item} />
-      ))}    
+      ))}
       <ThemeToggleButton />
       <input
         className={styles.searchInput}

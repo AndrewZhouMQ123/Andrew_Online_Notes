@@ -52,7 +52,7 @@ const NavLinkWithDropdown = ({ title, corepath, filepaths, dropdowntitles }: Nav
           {filepaths.map((filepath, index) => (
             <Link
               key={filepath}
-              href={filepath}
+              href={corepath + filepath}
               className={styles.dropdownItem}
               onClick={() => setDropdownVisible(false)}
             >
