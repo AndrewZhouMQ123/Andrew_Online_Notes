@@ -1,15 +1,15 @@
 "use client"
-import Section from './components/Section';
-import { javascriptCheatSheetData } from './data/CheatJS';
+import Section from '../components/Section';
+import { javascriptCheatSheetData } from '../data/CheatJS';
 import styles from '@/app/ui/accessories.module.css';
 import PlayButton from '@/components/textToSpeechBtn';
-import CodeBlock from './components/CodeBlock';
-import GPropTable from './components/PropTable';
-import PrimitivesTable from './components/PrimitivesTable';
-import GmethodTable from './components/MethodTable';
-import GobjectTable from './components/ObjectTable';
-import APITable from './components/APITables';
-import { globalProperties, primitiveDataTypes, builtInFunctions, builtInObjects, domBomAPI } from './data/dataJS';
+import CodeBlock from '../components/CodeBlock';
+import GPropTable from '../components/PropTable';
+import PrimitivesTable from '../components/PrimitivesTable';
+import GmethodTable from '../components/MethodTable';
+import GobjectTable from '../components/ObjectTable';
+import APITable from '../components/APITables';
+import { globalProperties, primitiveDataTypes, builtInFunctions, builtInObjects, domBomAPI } from '../data/dataJS';
 import { handle2TSave, handle3TSave } from '@/app/api/generatePDF';
 
 export default function JSCore() {

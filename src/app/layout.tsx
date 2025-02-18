@@ -66,7 +66,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <ScrollToTopBtn />
           {children}
           <footer>
-            <p>© 2025 Web-Experiments App</p>
+            <p>© 2025 Web-Goodies App</p>
           </footer>
         </body>
       </html>

@@ -1,17 +1,17 @@
 "use client";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import SelectorsTable from './components/SelectorsTable';
-import PropertiesTable from './components/PropertiesTable';
-import DataTable from './components/dataTable';
-import FuncTable from './components/funcTable';
-import AtRuleTable from './components/AtRuleTable';
-import KeyWordTable from './components/KeyWordTable';
-import { cssSelectors, cssProperties, pseudoClasses, pseudoElements, cssDatatype, cssFunctions, cssAtRules, cssKeywords } from './data/cssdoc';
+import SelectorsTable from '../components/SelectorsTable';
+import PropertiesTable from '../components/PropertiesTable';
+import DataTable from '../components/dataTable';
+import FuncTable from '../components/funcTable';
+import AtRuleTable from '../components/AtRuleTable';
+import KeyWordTable from '../components/KeyWordTable';
+import { cssSelectors, cssProperties, pseudoClasses, pseudoElements, cssDatatype, cssFunctions, cssAtRules, cssKeywords } from '../data/cssdoc';
 import { handle2TSave, handle3TSave } from '@/app/api/generatePDF';
 import PlayButton from '@/components/textToSpeechBtn';
-import SyntaxDiagram from './components/SyntaxDiagram';
-import BoxModelDiagram from './components/BoxModelDiagram';
+import SyntaxDiagram from '../components/SyntaxDiagram';
+import BoxModelDiagram from '../components/BoxModelDiagram';
 import Image from 'next/image';
 
 const IntroPage = () => {

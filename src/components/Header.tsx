@@ -4,20 +4,17 @@ import NavLinkWithDropdown from "./NavLinkWithDropdown";
 
 export const Header = () => {
 
-  const OSTitles = ['OS Commands Cheat Sheet', 'HTTP Cheat Sheet', 'Git Cheat Sheet'];
-  const OSpaths = ['/oscore/commands', '/oscore/https', '/oscore/git'];
-  const JSTitles = ['NPM Cheat Sheet', 'Buttons Templates', 'Calculator', 'Graphs'];
-  const JSpaths = ['/jscore/npm', '/jscore/buttons', '/jscore/calculator', 'jscore/graphs'];
-  const HTMLTitles = ['Blog Template'];
-  const HTMLpaths = ['/htmlcore/blogtemplate'];
+  const DevNotesTitles = ['HTML', 'CSS', 'JavaScript', 'OS Commands', 'HTTPS', 'NPM'];
+  const DevNotespaths = ['devNotes/htmlcore', 'devNotes/csscore', 'devNotes/jscore', '/devNotes/commands', '/devNotes/https', 'devNotes/npm'];
+  const MiscTitles = ['Buttons Template', 'Blog Template', 'Calculator'];
+  const Miscpaths = ['/misc/buttons', '/misc/blogtemplate', '/misc/calculator'];
 
   return (  
     <header>
       <NavLinkWithDropdown title="Home" corepath="/" filepaths={[]} dropdowntitles={[]}/>
-      <NavLinkWithDropdown title="OS" corepath="/oscore" filepaths={OSpaths} dropdowntitles={OSTitles}/>
-      <NavLinkWithDropdown title="HTML" corepath="/htmlcore" filepaths={HTMLpaths} dropdowntitles={HTMLTitles}/>
+      <NavLinkWithDropdown title="Dev Notes" corepath="/oscore" filepaths={DevNotespaths} dropdowntitles={DevNotesTitles}/>
       <NavLinkWithDropdown title="CSS" corepath="/csscore" filepaths={[]} dropdowntitles={[]}/>
-      <NavLinkWithDropdown title="JS" corepath="/jscore" filepaths={JSpaths} dropdowntitles={JSTitles}/>
+      <NavLinkWithDropdown title="JS" corepath="/jscore" filepaths={Miscpaths} dropdowntitles={MiscTitles}/>
       <ThemeToggleButton/>
       <input className={styles.searchBar} placeholder="Search Games"/>
     </header>

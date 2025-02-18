@@ -1,6 +1,6 @@
 # Web Experiments
 
-A miscellaneous website with all sorts of goodies: classic minigames, web dev cheatsheets, scientific calculators, scientific graph tools, combined with experimental frontend technologies
+A miscellaneous website with all sorts of goodies: classic minigames, web dev cheatsheets, scientific calculators, scientific graph tools, and for trying out experimental frontend technologies
 
 ## Technologies Used
 

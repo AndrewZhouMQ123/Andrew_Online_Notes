@@ -2,14 +2,13 @@ import supabase from '@/app/api/db';
 import { notFound } from 'next/navigation';
 import ButtonsTemplatePage from '../pages/ButtonsPage';
 import CalculatorPage from '../pages/CalculatorPage';
-import GraphsPage from '../pages/GraphsPage';
-import NpmPage from '../pages/NpmPage';
+import BlogTemplate from '../pages/BlogTemplate';
 
 export async function generateStaticParams() {
   const { data, error } = await supabase
     .from('ids_table')
     .select('ids')
-    .eq('name', "jscore");
+    .eq('name', "misc");
 
     if (error || !data || data.length === 0) {
       console.error('Error fetching ids:', error);
@@ -25,16 +24,21 @@ export default async function Page({ params } : { params: Promise<{ id: string }
   const id = (await params).id;
 
   switch (id) {
-    case 'npm':
-      return <NpmPage/>;
     case 'buttons':
       return <ButtonsTemplatePage />;
     case 'calculator':
       return <CalculatorPage />;
-    case 'graphs':
-      return <GraphsPage />;
+    case 'blogtemplate':
+      return <BlogTemplate
+        title="BanG Dream! It's MyGO"
+        stats="3.4M views · 6 months ago"
+        author="Andrew Zhou ✓"
+        description="Streaming videogame BanG Dream! It's MyGO!!!!! Featuring 5 star Chihaya Anon, Nagasaki Soyo, Shiina Taki (Rikki), Takamatsu Tomori and Kaname Raana."
+        imageUrl="/MyGO_Garupa.webp"
+        imageCaption="MyGO! from BanG Dream!"
+        adText="Shop early for the holiday season to get the best selection of Anon Tokyo merch at 10% discount!!!!! Shop now ›"
+      />
     default:
       notFound();
-      return null; // This is important as notFound() doesn't return anything
   }
 };
