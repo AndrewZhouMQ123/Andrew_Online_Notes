@@ -1,17 +1,9 @@
-"use client";
-
-const DirectoryPage = () => {
+const DevHome = () => {
   return (
-    <div className="page-wrap">
-      
+    <div>
+      Dev Home
     </div>
   );
 };
 
-export default function OSCore() {
-  return (
-    <div>
-      <DirectoryPage />
-    </div>
-  );
-}
+export default DevHome
