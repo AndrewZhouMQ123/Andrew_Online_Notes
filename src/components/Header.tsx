@@ -12,9 +12,9 @@ export const Header = () => {
   return (  
     <header>
       <NavLinkWithDropdown title="Home" corepath="/" filepaths={[]} dropdowntitles={[]}/>
-      <NavLinkWithDropdown title="Dev Notes" corepath="/oscore" filepaths={DevNotespaths} dropdowntitles={DevNotesTitles}/>
-      <NavLinkWithDropdown title="CSS" corepath="/csscore" filepaths={[]} dropdowntitles={[]}/>
-      <NavLinkWithDropdown title="JS" corepath="/jscore" filepaths={Miscpaths} dropdowntitles={MiscTitles}/>
+      <NavLinkWithDropdown title="Dev Notes" corepath="/devNotes" filepaths={DevNotespaths} dropdowntitles={DevNotesTitles}/>
+      <NavLinkWithDropdown title="Graphs" corepath="/graph" filepaths={[]} dropdowntitles={[]}/>
+      <NavLinkWithDropdown title="Misc" corepath="/misc" filepaths={Miscpaths} dropdowntitles={MiscTitles}/>
       <ThemeToggleButton/>
       <input className={styles.searchBar} placeholder="Search Games"/>
     </header>
