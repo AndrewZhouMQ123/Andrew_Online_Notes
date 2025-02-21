@@ -1,7 +1,6 @@
 const GraphHome = () => {
   return (
     <div>
-      Graph Home
     </div>
   );
 };

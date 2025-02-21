@@ -4,7 +4,6 @@ import styles from "@/app/ui/header.module.css";
 import NavLinkWithDropdown from "./NavLinkWithDropdown";
 import { useState } from 'react';
 
-
 const NAV_ITEMS = [
   {
     title: "Home",
@@ -29,6 +28,12 @@ const NAV_ITEMS = [
     corepath: "/misc",
     filepaths: ['/buttons', '/blogtemplate', '/calculator'],
     dropdowntitles: ['Buttons Template', 'Blog Template', 'Calculator']
+  },
+  {
+    title: "Contact",
+    corepath: "/contact",
+    filepaths: [],
+    dropdowntitles: []
   }
 ];
 
