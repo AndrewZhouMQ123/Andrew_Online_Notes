@@ -14,7 +14,6 @@ export default function Home() {
       <h1>About Me</h1>
       <p>
         I graduated from UBC with a Bachelor of Science majoring in Physics.
-        Currently working part time as a tutor at Elite Education teaching Physics and Maths.
         Passionate about coding and learning new technologies.
         I am currently studying for Insurance Level 1, and also learning to transition from VScode to NeoVim.
       </p>
