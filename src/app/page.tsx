@@ -80,13 +80,19 @@ export default function Home() {
         </ul>
       </p>
       <p>
+        Database Technologies I use:
+        <ul>
+          <li>MySQL</li>
+          <li>PostgreSQL</li>
+        </ul>
+      </p>
+      <p>
         Development Tools I use:
         <ul>
           <li>NeoVim</li>
           <li>VSCode</li>
           <li>MacOS</li>
           <li>IntelliJ</li>
-          <li>MySQL</li>
           <li>Chrome Browser</li>
           <li>Postman</li>
           <li>Docker</li>
