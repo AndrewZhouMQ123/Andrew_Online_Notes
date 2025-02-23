@@ -43,7 +43,7 @@ const NAV_ITEMS = [
     title: "Misc",
     corepath: "/misc",
     filepaths: ["/buttons", "/blogtemplate", "/calculator"],
-    dropdowntitles: ["Buttons Template", "Blog Template", "Calculator"],
+    dropdowntitles: ["Buttons", "Blog", "Calculator"],
   },
   {
     title: "Contact",
