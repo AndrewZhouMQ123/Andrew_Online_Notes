@@ -3,23 +3,26 @@ export default function Home() {
     <div>
       <h1>Goods and Services Offered</h1>
       <p>
-        SciGraph API is already complete - you can check my GitHub;
-        I just have to add procfiles on Heroku to start the server and hook it up here on the frontend with Stripe API integrated.
-        The home page and contact page will be styled once I have the time to.
-        I am quite busy now so those will have to wait for another 2 weeks.
-        I am planning to have first few hours free based on visitor IP address, and then rest of it charged just to cover server costs.
-        Probably about 5 dollars per month for eco dynos.
-        Some classic web games will be coming up soon, including but not limited to: Tetris, PacMan, Space Invaders, Chess, 8 Ball Pool.
+        SciGraph API is already complete - you can check my GitHub; I just have
+        to add procfiles on Heroku to start the server and hook it up here on
+        the frontend with Stripe API integrated. The home page and contact page
+        will be styled once I have the time to. I am quite busy now so those
+        will have to wait for another 2 weeks. I am planning to have first few
+        hours free based on visitor IP address, and then rest of it charged just
+        to cover server costs. Probably about 5 dollars per month for eco dynos.
+        Some classic web games will be coming up soon, including but not limited
+        to: Tetris, PacMan, Space Invaders, Chess, 8 Ball Pool.
       </p>
       <h1>About Me</h1>
       <p>
         I graduated from UBC with a Bachelor of Science majoring in Physics.
-        Passionate about coding and learning new technologies.
-        I am currently studying for Insurance Level 1, and also learning to transition from VScode to NeoVim.
+        Passionate about coding and learning new technologies. I am currently
+        studying for Insurance Level 1, and also learning to transition from
+        VScode to NeoVim.
       </p>
       <p>
-        GitHub: https://github.com/AndrewZhouMQ123
-        LinkedIn: https://www.linkedin.com/in/andrew-zhou-8b4296326/
+        GitHub: https://github.com/AndrewZhouMQ123 LinkedIn:
+        https://www.linkedin.com/in/andrew-zhou-8b4296326/
       </p>
       <p>
         Languages:
@@ -134,7 +137,9 @@ export default function Home() {
           <li>https://myflaskapp-143182163862.us-west1.run.app/</li>
         </ul>
       </p>
-      <p> My Hobbies:
+      <p>
+        {" "}
+        My Hobbies:
         <ul>
           <li>Writing Web Novels</li>
           <li>Drawing</li>
