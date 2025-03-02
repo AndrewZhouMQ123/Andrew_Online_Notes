@@ -132,6 +132,18 @@ export const networkCMD = [
     desc: "To view a specific adapter, pass its name as an argument to the command.",
   },
   {
+    cmd: "ipconfig getifaddr en0",
+    desc: "Get Local Ip Address for ethernet network",
+  },
+  {
+    cmd: "ipconfig getifaddr en1",
+    desc: "Get Local Ip Address for wireless network",
+  },
+  {
+    cmd: "dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com",
+    desc: "Get Public Ip Address. dig - domain information groper, -4 option for IPv4, TXT, for type of DNS record being requested, +short - minimize info, hostname for DNS lookup, DNS server to query",
+  },
+  {
     cmd: "curl -O [URL]/[filename]",
     desc: "The curl command allows data transfers to and from remote servers. Use curl to download a file to your machine by using the -O option and passing the full URL as an argument.",
   },
