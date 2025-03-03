@@ -28,12 +28,16 @@ export async function generateStaticParams() {
   }
 
   return data[0].ids.map((id: number) => ({
-    id: id.toString(),
+    params: { id },
   }));
 }
 
-export default function Page({ params }: { params: { id: string } }) {
-  const id = Number(params.id);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: number }>;
+}) {
+  const id = (await params).id;
 
   switch (id) {
     case PageType.HTMLCore:
@@ -51,6 +55,6 @@ export default function Page({ params }: { params: { id: string } }) {
     case PageType.Npm:
       return <NpmPage />;
     default:
-      return notFound();
+      notFound();
   }
 }
