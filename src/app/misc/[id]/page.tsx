@@ -10,10 +10,6 @@ enum PageType {
   BlogTemplate = 3,
 }
 
-interface PageProps {
-  id: string;
-}
-
 export async function generateStaticParams() {
   const { data, error } = await supabase
     .from("ids_table")
@@ -26,11 +22,11 @@ export async function generateStaticParams() {
   }
 
   return data[0].ids.map((id: number) => ({
-    params: { id: id.toString() },
+    id: id.toString(),
   }));
 }
 
-export default function Page({ params }: { params: PageProps }) {
+export default function Page({ params }: { params: { id: string } }) {
   const id = Number(params.id);
 
   switch (id) {
