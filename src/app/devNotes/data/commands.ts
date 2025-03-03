@@ -4,6 +4,10 @@ export const generalCMD = [
     desc: "Run Command as Super User - Use the sudo command to authenticate as an administrator.",
   },
   {
+    cmd: "env",
+    desc: "print out all environmental variables",
+  },
+  {
     cmd: "![value]",
     desc: "Execute a command by referring to its value in history.",
   },
@@ -63,6 +67,73 @@ export const readWriteCMD = [
   {
     cmd: "cat [filename] > [path-to-file]/[filename]",
     desc: "If the file does not exist, the system creates it. By using cat, you can replace the entire file contents with another file.",
+  },
+];
+
+export const executablesCMD = [
+  {
+    cmd: "file <your-executable>",
+    desc: "This will give you information about whether it's a binary, script, or some other type of file.",
+  },
+  {
+    cmd: "gdb <your-executable>",
+    desc: "Run the binary inside the GDB debugger to trace its execution.",
+  },
+  {
+    cmd: "(gdb) break main",
+    desc: "Set break point in GDB.",
+  },
+  {
+    cmd: "(gdb) run",
+    desc: "Run after break in GDB.",
+  },
+  {
+    cmd: "objdump -d <your-executable>",
+    desc: "use objdump to disassemble the executable and view the assembly code",
+  },
+  {
+    cmd: "strace <your-executable>",
+    desc: "trace system calls",
+  },
+  {
+    cmd: "ldd <your-executable>",
+    desc: "check which libraries are being linked to the executable",
+  },
+  {
+    cmd: "otool",
+    desc: "otool command is commonly used on macOS to inspect Mach-O binaries.",
+  },
+  {
+    cmd: "otool -h <your-executable>",
+    desc: "To inspect the headers and sections of the executable.",
+  },
+  {
+    cmd: "otool -tV <your-executable>",
+    desc: "This will disassemble the binary and show you the assembly code.",
+  },
+  {
+    cmd: "otool -l <your-executable>",
+    desc: "view load commands that tell the system how to load and link the executable and understand how the binary is structured",
+  },
+  {
+    cmd: "lldb <your-executable>",
+    desc: "Launch the debugger for macOS, LLDB with your executable.",
+  },
+  {
+    cmd: "(lldb) breakpoint set --name main",
+    desc: "Set break point in LLDB.",
+  },
+  {
+    cmd: "(lldb) run",
+    desc: "Run after break in LLDB.",
+  },
+  {
+    cmd: "strings <your-executable>",
+    desc: "list all printable strings in the executable:",
+  },
+  {
+    cmd: "sudo dtrace -n 'syscall::write:entry {...}' -c <your-executable>",
+    desc: "DTrace is a powerful tool for macOS that can trace system-level events.",
   },
 ];
 

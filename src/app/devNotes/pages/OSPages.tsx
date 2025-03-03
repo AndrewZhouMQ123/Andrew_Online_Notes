@@ -2,6 +2,7 @@
 import CMDTable from "@/app/devNotes/components/CMDTable";
 import {
   generalCMD,
+  executablesCMD,
   vimcommands,
   gitCommands,
   scpcommands,
@@ -32,6 +33,11 @@ export const CommandsPage = () => {
       <PlayButton />
       <CMDTable data={generalCMD} title="Generic" onSave={handle2TSave} />
       <CMDTable data={readWriteCMD} title="Read/Write" onSave={handle2TSave} />
+      <CMDTable
+        data={executablesCMD}
+        title="Debugging Executables"
+        onSave={handle2TSave}
+      />
       <CMDTable
         data={taskManageMCD}
         title="Manage Tasks"
