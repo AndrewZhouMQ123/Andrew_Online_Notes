@@ -36,7 +36,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: { params: PageProps }) {
+export default function Page({ params }: { params: PageProps }) {
   const id = Number(params.id);
 
   switch (id) {
