@@ -22,16 +22,16 @@ export async function generateStaticParams() {
   }
 
   return data[0].ids.map((id: number) => ({
-    params: { id },
+    params: { id }.toString(),
   }));
 }
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ id: number }>;
+  params: Promise<{ id: string }>;
 }) {
-  const id = (await params).id;
+  const id = Number((await params).id);
 
   switch (id) {
     case PageType.Buttons:
@@ -51,6 +51,6 @@ export default async function Page({
         />
       );
     default:
-      notFound();
+      return notFound();
   }
 }
