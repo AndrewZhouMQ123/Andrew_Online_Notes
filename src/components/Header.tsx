@@ -14,15 +14,7 @@ const NAV_ITEMS = [
   {
     title: "Dev Notes",
     corepath: "/devNotes",
-    filepaths: [
-      "/htmlcore",
-      "/csscore",
-      "/jscore",
-      "/commands",
-      "/shortcuts",
-      "/https",
-      "/npm",
-    ],
+    filepaths: ["/1", "/2", "/3", "/4", "/5", "/6", "/7"],
     dropdowntitles: [
       "HTML",
       "CSS",
@@ -42,7 +34,7 @@ const NAV_ITEMS = [
   {
     title: "Misc",
     corepath: "/misc",
-    filepaths: ["/buttons", "/blogtemplate", "/calculator"],
+    filepaths: ["/1", "/2", "/3"],
     dropdowntitles: ["Buttons", "Blog", "Calculator"],
   },
   {
