@@ -6,6 +6,16 @@ import NpmPage from "../pages/NpmPage";
 import HTMLCore from "../pages/HTMLCheatSheet";
 import CSSCore from "../pages/CSSCheatSheet";
 
+enum PageType {
+  HTMLCore = 1,
+  CSSCore = 2,
+  JSCore = 3,
+  Commands = 4,
+  Shortcuts = 5,
+  HTTPS = 6,
+  Npm = 7,
+}
+
 export async function generateStaticParams() {
   const { data, error } = await supabase
     .from("ids_table")
@@ -17,7 +27,7 @@ export async function generateStaticParams() {
     return [];
   }
 
-  return data[0].ids.map((id: string) => ({
+  return data[0].ids.map((id: number) => ({
     params: { id },
   }));
 }
@@ -25,24 +35,24 @@ export async function generateStaticParams() {
 export default async function Page({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: number }>;
 }) {
   const id = (await params).id;
 
   switch (id) {
-    case "htmlcore":
+    case PageType.HTMLCore:
       return <HTMLCore />;
-    case "csscore":
+    case PageType.CSSCore:
       return <CSSCore />;
-    case "jscore":
+    case PageType.JSCore:
       return <JSCore />;
-    case "commands":
+    case PageType.Commands:
       return <CommandsPage />;
-    case "shortcuts":
+    case PageType.Shortcuts:
       return <ShortCutsPage />;
-    case "https":
+    case PageType.HTTPS:
       return <HTTPSpage />;
-    case "npm":
+    case PageType.Npm:
       return <NpmPage />;
     default:
       notFound();

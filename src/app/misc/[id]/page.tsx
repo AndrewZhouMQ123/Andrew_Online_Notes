@@ -4,6 +4,12 @@ import ButtonsTemplatePage from "../pages/ButtonsPage";
 import CalculatorPage from "../pages/CalculatorPage";
 import BlogTemplate from "../pages/BlogTemplate";
 
+enum PageType {
+  Buttons = 1,
+  Calculator = 2,
+  BlogTemplate = 3,
+}
+
 export async function generateStaticParams() {
   const { data, error } = await supabase
     .from("ids_table")
@@ -15,7 +21,7 @@ export async function generateStaticParams() {
     return [];
   }
 
-  return data[0].ids.map((id: string) => ({
+  return data[0].ids.map((id: number) => ({
     params: { id },
   }));
 }
@@ -23,21 +29,21 @@ export async function generateStaticParams() {
 export default async function Page({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: number }>;
 }) {
   const id = (await params).id;
 
   switch (id) {
-    case "buttons":
+    case PageType.Buttons:
       return <ButtonsTemplatePage />;
-    case "calculator":
+    case PageType.Calculator:
       return <CalculatorPage />;
-    case "blogtemplate":
+    case PageType.BlogTemplate:
       return (
         <BlogTemplate
           title="BanG Dream! It's MyGO"
           stats="3.4M views · 6 months ago"
-          author="Andrew Zhou ✓"
+          author="Me ✓"
           description="Streaming videogame BanG Dream! It's MyGO!!!!! Featuring 5 star Chihaya Anon, Nagasaki Soyo, Shiina Taki (Rikki), Takamatsu Tomori and Kaname Raana."
           imageUrl="/MyGO_Garupa.webp"
           imageCaption="MyGO! from BanG Dream!"
