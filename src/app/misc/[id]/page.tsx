@@ -1,4 +1,3 @@
-import supabase from "@/app/api/db";
 import { notFound } from "next/navigation";
 import ButtonsTemplatePage from "../pages/ButtonsPage";
 import CalculatorPage from "../pages/CalculatorPage";
@@ -11,27 +10,15 @@ enum PageType {
 }
 
 export async function generateStaticParams() {
-  const { data, error } = await supabase
-    .from("ids_table")
-    .select("ids")
-    .eq("name", "misc");
-
-  if (error || !data || data.length === 0) {
-    console.error("Error fetching ids:", error);
-    return [];
-  }
-
-  return data[0].ids.map((id: number) => ({
-    params: { id }.toString(),
-  }));
+  return [
+    { params: { id: "1" } },
+    { params: { id: "2" } },
+    { params: { id: "3" } },
+  ];
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const id = Number((await params).id);
+export default async function Page({ params }: { params: { id: string } }) {
+  const id = Number(params.id);
 
   switch (id) {
     case PageType.Buttons:

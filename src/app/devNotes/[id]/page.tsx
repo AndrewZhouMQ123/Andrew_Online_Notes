@@ -1,4 +1,3 @@
-import supabase from "@/app/api/db";
 import { CommandsPage, HTTPSpage, ShortCutsPage } from "../pages/OSPages";
 import { notFound } from "next/navigation";
 import JSCore from "../pages/JSCheatSheet";
@@ -17,27 +16,19 @@ enum PageType {
 }
 
 export async function generateStaticParams() {
-  const { data, error } = await supabase
-    .from("ids_table")
-    .select("ids")
-    .eq("name", "devnotes");
-
-  if (error || !data || data.length === 0) {
-    console.error("Error fetching ids:", error);
-    return [];
-  }
-
-  return data[0].ids.map((id: number) => ({
-    params: { id }.toString(),
-  }));
+  return [
+    { params: { id: "1" } },
+    { params: { id: "2" } },
+    { params: { id: "3" } },
+    { params: { id: "4" } },
+    { params: { id: "5" } },
+    { params: { id: "6" } },
+    { params: { id: "7" } },
+  ];
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const id = Number((await params).id);
+export default async function Page({ params }: { params: { id: string } }) {
+  const id = Number(params.id);
 
   switch (id) {
     case PageType.HTMLCore:
