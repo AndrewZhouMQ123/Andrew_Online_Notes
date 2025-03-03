@@ -32,12 +32,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ id: number }>;
-}) {
-  const id = (await params).id;
+export default async function Page({ params }: { params: { id: number } }) {
+  const id = Number(params.id);
 
   switch (id) {
     case PageType.HTMLCore:
