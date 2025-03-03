@@ -11,9 +11,7 @@ enum PageType {
 }
 
 interface PageProps {
-  params: {
-    id: string;
-  };
+  id: string;
 }
 
 export async function generateStaticParams() {
@@ -32,7 +30,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: { params: PageProps }) {
   const id = Number(params.id);
 
   switch (id) {
