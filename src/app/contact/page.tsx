@@ -1,6 +1,8 @@
+import styles from "@/app/ui/forms.module.css";
+
 export default function Contact() {
   return (
-    <div>
+    <div className="page-wrap">
       <h1>For Business Inquiries</h1>
       <p>Business Email: mqzhou1008@gmail.com</p>
       <p>Phone Number: 778 522 0688</p>
