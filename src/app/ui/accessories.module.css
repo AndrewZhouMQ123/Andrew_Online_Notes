@@ -1,7 +1,11 @@
 .element {
   cursor: pointer;
   color: rgb(0, 105, 194); /* Kept original color */
-  background-color: rgb(220, 220, 220); /* Adjusted to match .white-board background */
+  background-color: rgb(
+    220,
+    220,
+    220
+  ); /* Adjusted to match .white-board background */
   text-transform: none;
   text-shadow: none;
   border-radius: 4px; /* Added border-radius for consistency */
@@ -12,11 +16,19 @@
 
 .element:hover {
   text-decoration: underline; /* Underline on hover */
-  background-color: rgb(200, 200, 200); /* Slightly darker background on hover */
+  background-color: rgb(
+    200,
+    200,
+    200
+  ); /* Slightly darker background on hover */
 }
 
 .cliCMD {
-  background-color: rgb(45, 45, 45); /* Adjusted to match .table-wrap background */
+  background-color: rgb(
+    45,
+    45,
+    45
+  ); /* Adjusted to match .table-wrap background */
   color: rgb(192, 192, 192); /* Kept original color */
   margin: 8px; /* Slightly more margin for better spacing */
   text-transform: none;
@@ -55,9 +67,7 @@
 
 .scrollToTopBtn:hover {
   transform: scale(1.1) translateY(0); /* Scale up on hover */
-  box-shadow: 
-    0 0 15px rgba(106, 17, 203, 0.8), 
-    0 0 30px rgba(37, 117, 252, 0.6); /* Glow effect */
+  box-shadow: 0 0 15px rgba(106, 17, 203, 0.8), 0 0 30px rgba(37, 117, 252, 0.6); /* Glow effect */
 }
 
 .scrollToTopBtn:active {

@@ -20,8 +20,8 @@
     "save-dev": "^0.0.1-security"
   },
   "devDependencies": {
+    "@aws-sdk/client-polly": "^3.758.0",
     "@eslint/eslintrc": "^3",
-    "@stripe/stripe-js": "^5.6.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

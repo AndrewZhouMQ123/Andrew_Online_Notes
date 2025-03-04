@@ -60,6 +60,7 @@ export const CommandsPage = () => {
 export const ShortCutsPage = () => {
   return (
     <div className="page-wrap">
+      <PlayButton />
       <CMDTable data={vscodecmd} title="VSCode" onSave={handle2TSave} />
       <CMDTable data={vimcommands} title="Vim" onSave={handle2TSave} />
       <CMDTable

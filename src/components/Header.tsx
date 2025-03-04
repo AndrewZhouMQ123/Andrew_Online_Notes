@@ -26,16 +26,16 @@ const NAV_ITEMS = [
     ],
   },
   {
-    title: "Graphs",
-    corepath: "/graph",
+    title: "About Me",
+    corepath: "/about",
     filepaths: [],
     dropdowntitles: [],
   },
   {
     title: "Misc",
     corepath: "/misc",
-    filepaths: ["/1", "/2", "/3"],
-    dropdowntitles: ["Buttons", "Blog", "Calculator"],
+    filepaths: ["/1", "/2", "/3", "/4"],
+    dropdowntitles: ["Graph Utilities", "Calculator", "Blog", "Buttons"],
   },
   {
     title: "Contact",
