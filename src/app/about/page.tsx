@@ -1,143 +1,57 @@
-import PlayButton from "@/components/textToSpeechBtn";
+import BlogTemplate from "@/components/BlogTemplate";
+import {
+  Languages,
+  ProgrammingLanguages,
+  SoftwareTechnologies,
+  externalAPIs,
+  DatabaseTechnologies,
+  CloudTechnologies,
+  HardwareTechnologies,
+  Soft,
+} from "./data/skills";
+import { certificates } from "./data/certificates";
+import Skills from "./components/skills";
+import Certificates from "./components/certs";
+
+const Intro = `I am a tutor at Elite Educational Institute.
+I graduated from UBC with Bachelor of Science majoring in Physics.
+I am currently studying for Insurance Level 1. I love coding and building things.`;
 
 export default function AboutMe() {
   return (
-    <div className="page-wrap">
-      <PlayButton />
-      <h1 className="blog-title glitter-title">About Me</h1>
-      <p>
-        I graduated from UBC with a Bachelor of Science majoring in Physics.
-        Passionate about coding and learning new technologies. I am currently
-        studying for Insurance Level 1, and also learning to transition from
-        VScode to NeoVim.
-      </p>
-      <p>
-        GitHub: https://github.com/AndrewZhouMQ123 LinkedIn:
-        https://www.linkedin.com/in/andrew-zhou-8b4296326/
-      </p>
-      <p>
-        Languages:
+    <div>
+      <BlogTemplate
+        title="About Me"
+        subtitle="Introduction"
+        author="Zhou Mu Qing (Andrew) ✓"
+        description={Intro}
+      />
+      <div className="page-wrap">
+        <Certificates data={certificates} title="Certificates" />
+        <Skills data={Languages} title="Languages" />
+        <Skills data={ProgrammingLanguages} title="Programming Languages" />
+        <Skills data={SoftwareTechnologies} title="Software Technologies" />
+        <Skills data={externalAPIs} title="External APIs" />
+        <Skills data={DatabaseTechnologies} title="Database Technologies" />
+        <Skills data={CloudTechnologies} title="Cloud Technologies" />
+        <Skills data={HardwareTechnologies} title="Hardware Technologies" />
+        <Skills data={Soft} title="Soft Skills" />
+      </div>
+      <div className="page-wrap">
+        <h1>My Projects:</h1>
         <ul>
-          <li>English</li>
-          <li>中文Chinese</li>
+          <li>
+            <a>https://web-goodies.vercel.app/</a>
+            <a>http://vlogms.s3-website.us-east-2.amazonaws.com/</a>
+          </li>
         </ul>
-      </p>
-      <p>
-        Programming Languages:
-        <ul>
-          <li>Python</li>
-          <li>Java</li>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript and TypeScript</li>
-          <li>Lua</li>
-          <li>C</li>
-          <li>C++</li>
-          <li>C#</li>
-        </ul>
-      </p>
-      <p>
-        Tech:
-        <ul>
-          <li>JVM</li>
-          <li>Node.js</li>
-        </ul>
-      </p>
-      <p>
-        Frameworks:
-        <ul>
-          <li>Spring Boot</li>
-          <li>FastAPI</li>
-          <li>Next.js</li>
-          <li>Flask</li>
-          <li>Scrapy</li>
-          <li>Bootstrap</li>
-        </ul>
-      </p>
-      <p>
-        Build Tools:
-        <ul>
-          <li>Maven</li>
-          <li>Webpack</li>
-        </ul>
-      </p>
-      <p>
-        Libraries:
-        <ul>
-          <li>React</li>
-          <li>Scipy</li>
-          <li>Numpy</li>
-          <li>Pandas</li>
-          <li>Matplotlib</li>
-          <li>Scikit-Learn</li>
-          <li>Scikit-Image</li>
-        </ul>
-      </p>
-      <p>
-        Database Technologies I use:
-        <ul>
-          <li>MySQL</li>
-          <li>PostgreSQL</li>
-        </ul>
-      </p>
-      <p>
-        Development Tools I use:
-        <ul>
-          <li>NeoVim</li>
-          <li>VSCode</li>
-          <li>MacOS</li>
-          <li>IntelliJ</li>
-          <li>Chrome Browser</li>
-          <li>Postman</li>
-          <li>Docker</li>
-          <li>BitBucket</li>
-          <li>SourceTree</li>
-        </ul>
-      </p>
-      <p>
-        Cloud Platforms and Databases:
-        <ul>
-          <li>AWS S3, RD3, EC2</li>
-          <li>Google Cloud Run</li>
-          <li>Heroku</li>
-          <li>Vercel</li>
-        </ul>
-      </p>
-      <p>
-        Other Skills:
-        <ul>
-          <li>Arduino</li>
-          <li>Oscilloscopes</li>
-          <li>Multimeter</li>
-          <li>KiCAD</li>
-          <li>PCB Soldering and Assembly</li>
-          <li>Power tools in general</li>
-        </ul>
-      </p>
-      <p>
-        My Certifications:
-        <ul>
-          <li>OCA Java SE8 Programmer</li>
-          <li>UBC PCB Design and Prototyping Certificate</li>
-        </ul>
-      </p>
-      <p>
-        My Other Websites:
-        <ul>
-          <li>http://vlogms.s3-website.us-east-2.amazonaws.com/</li>
-          <li>https://myflaskapp-143182163862.us-west1.run.app/</li>
-        </ul>
-      </p>
-      <p>
-        {" "}
-        My Hobbies:
+        <h1>My Hobbies:</h1>
         <ul>
           <li>Writing Web Novels</li>
           <li>Drawing</li>
           <li>Singing</li>
-          <li>Working on side projects</li>
         </ul>
-      </p>
+      </div>
     </div>
   );
 }

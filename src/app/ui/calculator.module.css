@@ -11,7 +11,7 @@
   background-color: #fff9c4; /* Post-it note yellow */
   border-radius: 8px; /* Rounded corners for a softer look */
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  font-family: 'Caveat', cursive; /* Handwritten, artsy font */
+  font-family: "Caveat", cursive; /* Handwritten, artsy font */
   font-size: 18px; /* Slightly larger font size for readability */
   color: #333; /* Darker text color for contrast */
   line-height: 1.6; /* Improved line spacing */
@@ -42,7 +42,10 @@
 
 .gridItemContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Minimum 100px per item, fill as many as possible */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(100px, 1fr)
+  ); /* Minimum 100px per item, fill as many as possible */
   grid-column-gap: 5px;
   grid-row-gap: 10px;
   position: relative;

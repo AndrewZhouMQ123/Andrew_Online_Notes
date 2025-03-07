@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import ButtonsTemplatePage from "../pages/ButtonsPage";
 import CalculatorPage from "../pages/CalculatorPage";
-import BlogTemplate from "../pages/BlogTemplate";
+import BlogTemplate from "@/components/BlogTemplate";
 import { GraphPage } from "../pages/GraphPage";
 
 enum PageType {
@@ -20,6 +20,27 @@ export async function generateStaticParams() {
   ];
 }
 
+const processTitle = (title: string) => {
+  if (!title.includes("!")) return title;
+
+  const colors = ["#77BBDD", "#FF8899", "#77DD77", "#FFDD88", "#7777AA"];
+  let colorIndex = 0;
+
+  return title.split("").map((char, index) => {
+    if (char === "!") {
+      return (
+        <span
+          key={index}
+          style={{ color: colors[colorIndex++ % colors.length] }}
+        >
+          {char}
+        </span>
+      );
+    }
+    return char;
+  });
+};
+
 export default async function Page({
   params,
 }: {
@@ -35,10 +56,10 @@ export default async function Page({
     case PageType.BlogTemplate:
       return (
         <BlogTemplate
-          title="BanG Dream! It's MyGO"
+          subtitle={processTitle("BanG Dream! It's MyGO!!!!!") as string}
           stats="0M views · X months ago"
           author="Me ✓"
-          description="Streaming videogame BanG Dream! It's MyGO!!!!! Featuring 5 star Chihaya Anon, Nagasaki Soyo, Shiina Taki (Rikki), Takamatsu Tomori and Kaname Raana."
+          description="BanG Dream! It's MyGO!!!!! Chihaya Anon, Nagasaki Soyo, Shiina Taki (Rikki), Takamatsu Tomori and Kaname Raana."
           imageUrl="/MyGO_Garupa.webp"
           imageCaption="MyGO! from BanG Dream!"
           adText="Shop early for the holiday season to get the best selection of Anon Tokyo merch at 10% discount!!!!! Shop now ›"

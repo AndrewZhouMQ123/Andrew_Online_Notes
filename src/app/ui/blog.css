@@ -1,27 +1,30 @@
 .blog-title {
-  font-size: 42px; /* Slightly larger for impact */
-  font-weight: 700; /* Use numeric value for bold */
-  font-style: normal; /* Remove italic for a cleaner look */
-  width: auto; /* Allow the title to take up the space it needs */
-  line-height: 1.2; /* Use a unitless value for better responsiveness */
-  margin-bottom: 16px; /* Increase spacing for better hierarchy */
-  letter-spacing: -0.5px; /* Slightly tighten letter spacing for a modern feel */
-  font-family: "Inter", "Helvetica Neue", sans-serif; /* Use a modern sans-serif font */
+  font-size: 42px;
+  font-weight: 700;
+  font-style: normal;
+  width: auto;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
+}
+
+.blog-subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  font-style: normal;
+  width: auto;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
 }
 
 .glitter-title {
-  font-size: 42px; /* Adjust size as needed */
-  font-weight: 700; /* Bold text */
-  font-family: "Montserrat", "Helvetica Neue", sans-serif; /* Modern sans-serif font */
-  text-transform: uppercase; /* Uppercase for boldness */
-  letter-spacing: 2px; /* Increased letter spacing for style */
-  background: linear-gradient(
-    45deg,
-    #ff00cc,
-    #00ccff,
-    #ffcc00
-  ); /* Subtle gradient */
-  background-size: 200% 200%; /* Smaller background for animation */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #ff00cc, #00ccff, #ffcc00);
+  background-size: 200% 200%;
   -webkit-background-clip: text; /* Clip background to text */
   -webkit-text-fill-color: transparent; /* Make text transparent */
   background-clip: text;
