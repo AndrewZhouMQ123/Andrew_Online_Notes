@@ -1,4 +1,5 @@
 import styles from "@/app/ui/calculator.module.css";
+import buttonstyles from "@/app/ui/buttons.module.css";
 
 export const GraphPage = () => {
   return (
@@ -8,6 +9,7 @@ export const GraphPage = () => {
         <p>
           The API that works behind the scenes:
           <a
+            className={buttonstyles.link}
             href="https://github.com/AndrewZhouMQ123/Sci_Graph_API"
             target="_blank"
             rel="noopener noreferrer"

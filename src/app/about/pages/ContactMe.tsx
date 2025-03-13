@@ -6,6 +6,17 @@ const ContactMePage = () => {
       <h1 className="blog-title glitter-title">Contact Me</h1>
       <Business />
       <Personal />
+      <RequestForm />
+    </div>
+  );
+};
+
+const RequestForm = () => {
+  return (
+    <div className="page-wrap">
+      <h1>Request Form</h1>
+      <p>Request Type</p>
+      <form></form>
     </div>
   );
 };

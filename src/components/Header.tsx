@@ -12,7 +12,7 @@ const NAV_ITEMS = [
     dropdowntitles: [],
   },
   {
-    title: "About Me",
+    title: "About",
     corepath: "/about",
     filepaths: ["/1"],
     dropdowntitles: ["Contact Me"],
@@ -38,7 +38,7 @@ const NAV_ITEMS = [
     ],
   },
   {
-    title: "Andrew's Online Study Notes",
+    title: "OL Notes",
     corepath: "/notes",
     filepaths: ["/1"],
     dropdowntitles: ["Insurance"],

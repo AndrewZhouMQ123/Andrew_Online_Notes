@@ -1,9 +1,9 @@
 const MiscHome = () => {
   return (
-    <div>
-      Misc Home
+    <div className="page-wrap">
+      <h1 className="blog-title glitter-title">Misc Home</h1>
     </div>
   );
 };
 
-export default MiscHome
+export default MiscHome;
