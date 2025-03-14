@@ -30,7 +30,7 @@ const IntroPage = () => {
 
   return (
     <div className="page-wrap">
-      <span className="blog-title">HTML Cheat Sheet</span>
+      <span className="blog-title glitter-title">HTML Cheat Sheet</span>
       <PlayButton />
       <div className="white-board">
         <p style={{ textTransform: "none", textShadow: "none" }}>

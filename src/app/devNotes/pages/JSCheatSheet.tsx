@@ -1,7 +1,6 @@
 "use client";
 import Section from "../components/Section";
 import { javascriptCheatSheetData } from "../data/CheatJS";
-import styles from "@/app/ui/accessories.module.css";
 import PlayButton from "@/components/textToSpeechBtn";
 import CodeBlock from "../components/CodeBlock";
 import GPropTable from "../components/PropTable";
@@ -74,7 +73,7 @@ export default function JSCore() {
   return (
     <div>
       <div className="page-wrap">
-        <span className={styles.blogTitle}>JavaScript Cheat Sheet</span>
+        <span className="blog-title glitter-title">JavaScript Cheat Sheet</span>
         <PlayButton />
         <ul className="white-board">
           <span>Falsy Values</span>

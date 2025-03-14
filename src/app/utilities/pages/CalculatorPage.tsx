@@ -431,7 +431,7 @@ const CalculatorPage = () => {
     <div className="page-wrap">
       <div className={styles.flexPage}>
         <Calculator />
-        <div className={styles.rightParagraph}>
+        <div className={styles.postitNote}>
           <PlayButton />
           Notes for Users
           <ol className="list-decimal list-inside pl-5">

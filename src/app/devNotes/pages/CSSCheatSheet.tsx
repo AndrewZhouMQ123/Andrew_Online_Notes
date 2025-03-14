@@ -40,9 +40,9 @@ const IntroPage = () => {
 
   return (
     <div className="page-wrap">
-      <PlayButton />
+      <span className="blog-title glitter-title">CSS Cheat Sheet</span>
       <div className="white-board">
-        <span className="blog-title">CSS Cheat Sheet</span>
+        <PlayButton />
         <p style={{ textTransform: "none", textShadow: "none" }}>
           CSS {"("}Cascading Style Sheets{")"}: A core web language used to
           define the presentation of HTML or XML documents across various media.

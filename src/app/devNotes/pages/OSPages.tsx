@@ -30,6 +30,7 @@ import Image from "next/image";
 export const CommandsPage = () => {
   return (
     <div className="page-wrap">
+      <h1 className="blog-title glitter-title">Computer Commands</h1>
       <PlayButton />
       <CMDTable data={generalCMD} title="Generic" onSave={handle2TSave} />
       <CMDTable data={readWriteCMD} title="Read/Write" onSave={handle2TSave} />
@@ -60,6 +61,7 @@ export const CommandsPage = () => {
 export const ShortCutsPage = () => {
   return (
     <div className="page-wrap">
+      <h1 className="blog-title glitter-title">Computer Shortcuts</h1>
       <PlayButton />
       <CMDTable data={vscodecmd} title="VSCode" onSave={handle2TSave} />
       <CMDTable data={vimcommands} title="Vim" onSave={handle2TSave} />
@@ -76,6 +78,7 @@ export const ShortCutsPage = () => {
 export const HTTPSpage = () => {
   return (
     <div className="page-wrap">
+      <h1 className="blog-title glitter-title">HTTPS CHEAT SHEET</h1>
       <PlayButton />
       <Image
         src="/Client-server-model.png"

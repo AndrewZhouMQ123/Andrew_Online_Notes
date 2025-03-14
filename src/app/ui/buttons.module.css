@@ -15,68 +15,232 @@
 }
 
 /* Color Variants */
-.primary { background-color: #6E44FF; color: white; border-color: #6E44FF; }
-.secondary { background-color: #2A2B2E; color: white; border-color: #2A2B2E; }
-.success { background-color: #00CC88; color: white; border-color: #00CC88; }
-.danger { background-color: #FF4D4D; color: white; border-color: #FF4D4D; }
-.warning { background-color: #FFD166; color: black; border-color: #FFD166; }
-.info { background-color: #00B4D8; color: white; border-color: #00B4D8; }
-.light { background-color: #F4F4F8; color: #2A2B2E; border-color: #DADAE0; }
-.dark { background-color: #1E1E24; color: white; border-color: #1E1E24; }
-.undef { background: linear-gradient(#e66465, #9198e5); color: white; border-color: lch(76 44 311); }
-.heavenly { background: linear-gradient(lch(76 44 311), hsl(190, 76%, 74%)); color: whitesmoke; border-color: whitesmoke; }
-.ice { background: linear-gradient(whitesmoke, hsl(190, 76%, 74%)); color: whitesmoke; border-color: gold; }
-.ocean { background: linear-gradient(hsl(190, 76%, 74%), whitesmoke); color: whitesmoke; border-color: gold; }
-.guava { background-color: hsl(18deg, 80%, 71%); color: black; border-color: oklch(80% 35% 110deg); }
-.melon { background-color: hsl(90deg, 80%, 71%); color: white; border-color: yellowgreen; }
-.recycling { background-color: rgb(205, 219, 191); color: black; border-color: green; border-style: double; }
-.yam { background-color: lch(70 51 300); color: lch(30 50 300); border-color: lch(30 50 300); }
-.schema { background-color: lch(35 51 300); color: white; border: none; }
-.goldenRidge { background-color: rgb(247, 212, 10); color: rgb(200, 150, 30); border: rgb(194, 147, 26); border-width: 2px; border-style: ridge; }
+.primary {
+  background-color: #6e44ff;
+  color: white;
+  border-color: #6e44ff;
+}
+.secondary {
+  background-color: #2a2b2e;
+  color: white;
+  border-color: #2a2b2e;
+}
+.success {
+  background-color: #00cc88;
+  color: white;
+  border-color: #00cc88;
+}
+.danger {
+  background-color: #ff4d4d;
+  color: white;
+  border-color: #ff4d4d;
+}
+.warning {
+  background-color: #ffd166;
+  color: black;
+  border-color: #ffd166;
+}
+.info {
+  background-color: #00b4d8;
+  color: white;
+  border-color: #00b4d8;
+}
+.light {
+  background-color: #f4f4f8;
+  color: #2a2b2e;
+  border-color: #dadae0;
+}
+.dark {
+  background-color: #1e1e24;
+  color: white;
+  border-color: #1e1e24;
+}
+.undef {
+  background: linear-gradient(#e66465, #9198e5);
+  color: white;
+  border-color: lch(76 44 311);
+}
+.heavenly {
+  background: linear-gradient(lch(76 44 311), hsl(190, 76%, 74%));
+  color: whitesmoke;
+  border-color: whitesmoke;
+}
+.ice {
+  background: linear-gradient(whitesmoke, hsl(190, 76%, 74%));
+  color: whitesmoke;
+  border-color: gold;
+}
+.ocean {
+  background: linear-gradient(hsl(190, 76%, 74%), whitesmoke);
+  color: whitesmoke;
+  border-color: gold;
+}
+.guava {
+  background-color: hsl(18deg, 80%, 71%);
+  color: black;
+  border-color: oklch(80% 35% 110deg);
+}
+.melon {
+  background-color: hsl(90deg, 80%, 71%);
+  color: white;
+  border-color: yellowgreen;
+}
+.recycling {
+  background-color: rgb(205, 219, 191);
+  color: black;
+  border-color: green;
+  border-style: double;
+}
+.yam {
+  background-color: lch(70 51 300);
+  color: lch(30 50 300);
+  border-color: lch(30 50 300);
+}
+.schema {
+  background-color: lch(35 51 300);
+  color: white;
+  border: none;
+}
+.goldenRidge {
+  background-color: rgb(247, 212, 10);
+  color: rgb(200, 150, 30);
+  border: rgb(194, 147, 26);
+  border-width: 2px;
+  border-style: ridge;
+}
 
-.download { background-color: white; color: rgb(121, 82, 179); border-color: rgb(121, 82, 179); }
+.download {
+  background-color: white;
+  color: rgb(121, 82, 179);
+  border-color: rgb(121, 82, 179);
+}
 .email {
-  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Purple to blue gradient */
+  background: linear-gradient(
+    135deg,
+    #6a11cb,
+    #2575fc
+  ); /* Purple to blue gradient */
   color: white;
   border: none;
 }
 .email:hover {
-  background: linear-gradient(135deg, #4e0c9c, #1c6db3); /* Darker gradient for hover */
+  background: linear-gradient(
+    135deg,
+    #4e0c9c,
+    #1c6db3
+  ); /* Darker gradient for hover */
 }
 
-.signUp { background-color: rgb(46, 164, 79); color: white; border: none; }
-.getStarted { background-color: rgb(121, 82, 179); color: white; border: none; }
-.login { background-color: rgb(29, 155, 240); color: white; border: none; }
-.logout { background-color: rgb(200, 0, 0); color: white; border: none; }
-.submit { background-color: blue; color: white; }
+.signUp {
+  background-color: rgb(46, 164, 79);
+  color: white;
+  border: none;
+}
+.getStarted {
+  background-color: rgb(121, 82, 179);
+  color: white;
+  border: none;
+}
+.login {
+  background-color: rgb(29, 155, 240);
+  color: white;
+  border: none;
+}
+.logout {
+  background-color: rgb(200, 0, 0);
+  color: white;
+  border: none;
+}
+.submit {
+  background-color: blue;
+  color: white;
+}
 
-.addToCart { background-color: rgb(250, 212, 15); color: black; }
-.join { background-color: white; color: rgb(6, 95, 212); border-color: rgb(6, 95, 212);}
-.join:hover { background-color: rgb(6, 95, 212); color: white; }
-.join:active { opacity: 0.7; }
+.addToCart {
+  background-color: rgb(250, 212, 15);
+  color: black;
+}
+.join {
+  background-color: white;
+  color: rgb(6, 95, 212);
+  border-color: rgb(6, 95, 212);
+}
+.join:hover {
+  background-color: rgb(6, 95, 212);
+  color: white;
+}
+.join:active {
+  opacity: 0.7;
+}
 
-.message { background-color: rgb(29, 155, 240); color: white; }
-.save { background-color: blue; color: white; }
+.message {
+  background-color: rgb(29, 155, 240);
+  color: white;
+}
+.save {
+  background-color: blue;
+  color: white;
+}
 
-.link { background: transparent; color: #6E44FF; border-color: #6E44FF; }
-.link:hover { background: #6E44FF; color: white; border-color: white; }
+.link {
+  background: transparent;
+  color: #6e44ff;
+  border-color: #6e44ff;
+}
+.link:hover {
+  background: #6e44ff;
+  color: white;
+  border-color: white;
+}
 
 /* Gradient Variants */
-.primaryGrad { background: linear-gradient(135deg, #6E44FF, #B892FF); color: white; }
-.secondaryGrad { background: linear-gradient(135deg, #2A2B2E, #4A4A4F); color: white; }
-.successGrad { background: linear-gradient(135deg, #00CC88, #00FFAA); color: white; }
-.dangerGrad { background: linear-gradient(135deg, #FF4D4D, #FF7F7F); color: white; }
-.warningGrad { background: linear-gradient(135deg, #FFD166, #FFE699); color: black; }
-.infoGrad { background: linear-gradient(135deg, #00B4D8, #00E6FF); color: white; }
-.lightGrad { background: linear-gradient(135deg, #F4F4F8, #FFFFFF); color: #2A2B2E; }
-.darkGrad { background: linear-gradient(135deg, #1E1E24, #3A3A40); color: white; }
-.linkGrad { background: transparent; color: #6E44FF; border-color: #6E44FF; }
-.linkGrad:hover { background: linear-gradient(135deg, #6E44FF, #B892FF); color: white; border-color: transparent; }
+.primaryGrad {
+  background: linear-gradient(135deg, #6e44ff, #b892ff);
+  color: white;
+}
+.secondaryGrad {
+  background: linear-gradient(135deg, #2a2b2e, #4a4a4f);
+  color: white;
+}
+.successGrad {
+  background: linear-gradient(135deg, #00cc88, #00ffaa);
+  color: white;
+}
+.dangerGrad {
+  background: linear-gradient(135deg, #ff4d4d, #ff7f7f);
+  color: white;
+}
+.warningGrad {
+  background: linear-gradient(135deg, #ffd166, #ffe699);
+  color: black;
+}
+.infoGrad {
+  background: linear-gradient(135deg, #00b4d8, #00e6ff);
+  color: white;
+}
+.lightGrad {
+  background: linear-gradient(135deg, #f4f4f8, #ffffff);
+  color: #2a2b2e;
+}
+.darkGrad {
+  background: linear-gradient(135deg, #1e1e24, #3a3a40);
+  color: white;
+}
+.linkGrad {
+  background: transparent;
+  color: #6e44ff;
+  border-color: #6e44ff;
+}
+.linkGrad:hover {
+  background: linear-gradient(135deg, #6e44ff, #b892ff);
+  color: white;
+  border-color: transparent;
+}
 
 /* Unique Buttons */
 .avantGarde {
   border-radius: 50px;
-  background: linear-gradient(135deg, #6E44FF, #B892FF);
+  background: linear-gradient(135deg, #6e44ff, #b892ff);
   color: white;
   border: none;
   padding: 12px 24px;

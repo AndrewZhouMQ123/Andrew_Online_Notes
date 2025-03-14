@@ -127,7 +127,7 @@ const Qualifications = () => {
 const Projects = () => {
   return (
     <div className="page-wrap">
-      <h1 className="blog-subtitle">My Projects:</h1>
+      <h1 className="blog-subtitle">My Websites:</h1>
       <Link
         className={buttonstyles.link}
         href="https://web-goodies.vercel.app/"
@@ -145,6 +145,19 @@ const Projects = () => {
       <p>Drawing</p>
       <p>Singing</p>
       <p>Videogames</p>
+      <h1 className="blog-subtitle">More Links:</h1>
+      <Link
+        className={buttonstyles.link}
+        href="https://github.com/AndrewZhouMQ123"
+      >
+        GitHub
+      </Link>
+      <Link
+        className={buttonstyles.link}
+        href="https://www.linkedin.com/in/andrew-zhou-8b4296326/"
+      >
+        LinkedIn
+      </Link>
     </div>
   );
 };
