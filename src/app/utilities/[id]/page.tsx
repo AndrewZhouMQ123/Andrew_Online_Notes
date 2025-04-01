@@ -3,12 +3,14 @@ import ButtonsTemplatePage from "../pages/ButtonsPage";
 import CalculatorPage from "../pages/CalculatorPage";
 import BlogTemplate from "@/components/BlogTemplate";
 import { GraphPage } from "../pages/GraphPage";
+import EditNotesPage from "../pages/EditNotesPage";
 
 enum PageType {
   GraphUtil = 1,
   Calculator = 2,
   BlogTemplate = 3,
   Buttons = 4,
+  EditNotes = 5,
 }
 
 export async function generateStaticParams() {
@@ -17,6 +19,7 @@ export async function generateStaticParams() {
     { params: { id: "2" } },
     { params: { id: "3" } },
     { params: { id: "4" } },
+    { params: { id: "5" } },
   ];
 }
 
@@ -56,6 +59,7 @@ export default async function Page({
     case PageType.BlogTemplate:
       return (
         <BlogTemplate
+          title=""
           subtitle={processTitle("BanG Dream! It's MyGO!!!!!") as string}
           stats="0M views · X months ago"
           author="Me ✓"
@@ -67,6 +71,8 @@ export default async function Page({
       );
     case PageType.Buttons:
       return <ButtonsTemplatePage />;
+    case PageType.EditNotes:
+      return <EditNotesPage />;
     default:
       return notFound();
   }

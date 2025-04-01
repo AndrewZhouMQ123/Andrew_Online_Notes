@@ -3,9 +3,12 @@ import Image from "next/image";
 import styles from "@/app/ui/accessories.module.css";
 
 interface TableProps {
-  data: {entity: string, unicode: string, htmlCode: string}[];
+  data: { entity: string; unicode: string; htmlCode: string }[];
   title: string;
-  onSave: (data: {entity: string, unicode: string, htmlCode: string}[], title: string) => void;
+  onSave: (
+    data: { entity: string; unicode: string; htmlCode: string }[],
+    title: string
+  ) => void;
 }
 
 const HTMLEntitesTable = ({ data, title, onSave }: TableProps) => {
@@ -38,7 +41,7 @@ const HTMLEntitesTable = ({ data, title, onSave }: TableProps) => {
                 className={styles.saveAsPdfButton}
                 onClick={() => onSave(data, title)}
               >
-                Save as PDF{' '}
+                Save as PDF{" "}
                 <Image src="/file.svg" width={30} height={30} alt="file" />
               </button>
             </td>

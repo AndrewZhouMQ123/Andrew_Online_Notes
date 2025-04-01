@@ -20,12 +20,13 @@ const NAV_ITEMS = [
   {
     title: "Utilities",
     corepath: "/utilities",
-    filepaths: ["/1", "/2", "/3", "/4"],
+    filepaths: ["/1", "/2", "/3", "/4", "/5"],
     dropdowntitles: [
       "Graph Utilities",
       "Calculator",
       "Blog Template",
       "Buttons",
+      "Edit Notes",
     ],
   },
   {

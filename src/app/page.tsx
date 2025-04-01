@@ -1,175 +1,139 @@
-"use client";
 import buttonstyles from "@/app/ui/buttons.module.css";
 import PlayButton from "@/components/textToSpeechBtn";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState(0);
-  const components = [
-    <Welcome key={0} />,
-    <TOS key={1} />,
-    <Services key={2} />,
-    <Privacy key={3} />,
-    <Refund key={4} />,
-    <DMCAcopyright key={5} />,
-    <CookiePol key={6} />,
-    <AUP key={7} />,
-  ];
-
-  const handleNext = () => {
-    setCurrentStep((prev) => (prev + 1) % components.length);
-  };
-
   return (
-    <div
-      style={{ minHeight: "100vh", position: "relative", overflow: "hidden" }}
-    >
-      {components.map((component, index) => (
-        <div
-          key={index}
-          onClick={handleNext}
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100vh",
-            overflowY: "auto",
-            display: currentStep === index ? "block" : "none",
-            transform: `translateX(${
-              currentStep === index ? 0 : index > currentStep ? 100 : -100
-            }%)`,
-            transition: "all 0.3s ease-in-out",
-            pointerEvents: currentStep === index ? "auto" : "none",
-            cursor: "pointer",
-          }}
-        >
-          {component}
-        </div>
-      ))}
-      <div
-        onClick={handleNext}
-        style={{
-          color: " #FFE699",
-          padding: "20px",
-          textAlign: "center",
-          backgroundColor: "rgba(0,0,0,0.05)",
-          cursor: "pointer",
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          transition: "opacity 0.2s",
-          opacity: 1,
-        }}
-        onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-        onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-      >
-        Click anywhere to continue →
-      </div>
+    <div>
+      <Welcome />,
+      <TOS />,
+      <Services />,
+      <Privacy />,
+      <Refund />,
+      <DMCAcopyright />,
+      <CookiePol />,
+      <AUP />,
     </div>
   );
 }
 
 const Welcome = () => {
+  const title = "Welcome to Web-Goodies!";
+  const description = `By accessing or using our website and services, you agree to be bound by
+  these Terms of Service. If you do not agree with any part of these terms, please do not use our services.`;
+  const welcomeText = `${title}\n${description}`;
   return (
     <div className="page-wrap">
-      <PlayButton />
-      <h1 className="blog-title glitter-title">Welcome to Web-Goodies!</h1>
-      <p className="blog-description">
-        By accessing or using our website and services, you agree to be bound by
-        these Terms of Service. If you do not agree with any part of these
-        terms, please do not use our services.
-      </p>
+      <PlayButton text={welcomeText} />
+      <h1 className="blog-title glitter-title">{title}</h1>
+      <p className="blog-description">{description}</p>
     </div>
   );
 };
 
 const TOS = () => {
+  const title = "Terms of Service";
+  const lastUpdated = "Last updated: March 7 2025";
+  const useOfServices = `
+    To use our services, you must be at least 13 years old, or under parent
+    supervision if you are younger. You agree to use our website and
+    services in compliance with all applicable laws and regulations. Any
+    misuse of the platform, including attempts to disrupt service or
+    unauthorized access, is strictly prohibited.
+  `;
+  const contentAndIntellectualProperty = `
+    All content, including games, graphs, and utilities, is owned by
+    Web-Goodies or its licensors. You may not copy, distribute, or modify
+    any part of our website without permission. User-generated content (such
+    as game scores or forum posts) remains your property, but you grant us a
+    license to display and distribute it within the platform.
+  `;
+  const paymentAndSubscriptions = `
+    If you choose to support us on Patreon or purchase any premium services,
+    you agree to abide by the payment terms specified. Subscription fees, if
+    applicable, are non-refundable unless required by law.
+  `;
+  const limitationsOfLiability = `
+    Our website and services are provided "as is" without warranties of any
+    kind. We are not liable for any damages, losses, or issues arising from
+    the use of our platform, including data loss or service downtime. We
+    reserve the right to modify or discontinue any part of our services without
+    notice.
+  `;
+  const thirdPartyLinksAndServices = `
+    Our website may contain links to third-party websites, including
+    Patreon. We are not responsible for the content or practices of these
+    external sites. Use of third-party services is at your own risk and
+    subject to their respective terms.
+  `;
+  const termination = `
+    We reserve the right to terminate or suspend your access to our services
+    if you violate these terms. Upon termination, you must cease all use of
+    the platform and its content.
+  `;
+  const changesToTerms = `
+    We may update these Terms of Service at any time. Continued use of our
+    services after changes means you accept the new terms.
+  `;
+  const contactUs = `
+    If you have any questions about these Terms of Service, please contact
+    us at our Contact page.
+  `;
+  const tosText = `${title}\n${lastUpdated}\n\n${useOfServices}\n\n${contentAndIntellectualProperty}
+  \n\n${paymentAndSubscriptions}\n\n${limitationsOfLiability}\n\n${thirdPartyLinksAndServices}
+  \n\n${termination}\n\n${changesToTerms}\n\n${contactUs}`;
   return (
     <div className="page-wrap">
-      <PlayButton />
-      <h1 className="blog-title glitter-title">Terms of Service</h1>
-      <p className="blog-stats">Last updated: March 7 2025</p>
+      <PlayButton text={tosText} />
+      <h1 className="blog-title glitter-title">{title}</h1>
+      <p className="blog-stats">{lastUpdated}</p>
       <span className="blog-subtitle">Use of Services</span>
-      <p className="blog-description">
-        To use our services, you must be at least 13 years old, or under parent
-        supervision if you are younger. You agree to use our website and
-        services in compliance with all applicable laws and regulations. Any
-        misuse of the platform, including attempts to disrupt service or
-        unauthorized access, is strictly prohibited.
-      </p>
-      <span className="blog-subtitle">Content and Intellectual Property </span>
-      <p className="blog-description">
-        All content, including games, graphs, and utilities, is owned by
-        Web-Goodies or its licensors. You may not copy, distribute, or modify
-        any part of our website without permission. User-generated content (such
-        as game scores or forum posts) remains your property, but you grant us a
-        license to display and distribute it within the platform.
-      </p>
+      <p className="blog-description">{useOfServices}</p>
+      <span className="blog-subtitle">Content and Intellectual Property</span>
+      <p className="blog-description">{contentAndIntellectualProperty}</p>
       <span className="blog-subtitle">Payment and Subscriptions</span>
-      <p className="blog-description">
-        If you choose to support us on Patreon or purchase any premium services,
-        you agree to abide by the payment terms specified. Subscription fees, if
-        applicable, are non-refundable unless required by law.
-      </p>
+      <p className="blog-description">{paymentAndSubscriptions}</p>
       <span className="blog-subtitle">Limitations of Liability</span>
-      <p className="blog-description">
-        Our website and services are provided &quot;as is&quot; without
-        warranties of any kind. We are not liable for any damages, losses, or
-        issues arising from the use of our platform, including data loss or
-        service downtime. We reserve the right to modify or discontinue any part
-        of our services without notice.
-      </p>
+      <p className="blog-description">{limitationsOfLiability}</p>
       <span className="blog-subtitle">Third-Party Links and Services</span>
-      <p className="blog-description">
-        Our website may contain links to third-party websites, including
-        Patreon. We are not responsible for the content or practices of these
-        external sites. Use of third-party services is at your own risk and
-        subject to their respective terms.
-      </p>
+      <p className="blog-description">{thirdPartyLinksAndServices}</p>
       <span className="blog-subtitle">Termination</span>
-      <p className="blog-description">
-        We reserve the right to terminate or suspend your access to our services
-        if you violate these terms. Upon termination, you must cease all use of
-        the platform and its content.
-      </p>
+      <p className="blog-description">{termination}</p>
       <span className="blog-subtitle">Changes to These Terms</span>
-      <p className="blog-description">
-        We may update these Terms of Service at any time. Continued use of our
-        services after changes means you accept the new terms.
-      </p>
+      <p className="blog-description">{changesToTerms}</p>
       <span className="blog-subtitle">Contact Us</span>
-      <p className="blog-description">
-        If you have any questions about these Terms of Service, please contact
-        us at{" "}
-        <Link className={buttonstyles.link} href="/about/1">
-          Contact
-        </Link>
-        .
-      </p>
+      <p className="blog-description">{contactUs}</p>
     </div>
   );
 };
 
 const Services = () => {
+  const title = "Services Offered";
+  const graphingUtilitiesDescription = `
+    Graphing Utilities: You can quickly fit experiment data to models and
+    plot publishing quality graphs. Backend API Hosted on Heroku eco dynos
+    for $14 a month. If you like this API, please consider supporting me on
+    Patreon.
+  `;
+  const webGamesDescription = `
+    Web games: Including but not limited to Tetris, PacMan, Space Invaders,
+    Chess, and 8 Ball Pool.
+  `;
+  const patreonLink = "patreon.com/AndrewSurfsTheWeb";
+  const servicesText = `${title}\n\n${graphingUtilitiesDescription}\n\n${webGamesDescription}`;
+
   return (
     <div className="page-wrap">
-      <PlayButton />
-      <h1 className="blog-title glitter-title">Services Offered</h1>
+      <PlayButton text={servicesText} />
+      <h1 className="blog-title glitter-title">{title}</h1>
       <p className="blog-description">
-        Graphing Utilities: You can quickly fit experiment data to models and
-        plot publishing quality graphs. Backend API Hosted on Heroku eco dynos
-        for $14 a month. If you like this API, please consider supporting me on{" "}
-        <Link
-          className={buttonstyles.link}
-          href="patreon.com/AndrewSurfsTheWeb"
-        >
+        {graphingUtilitiesDescription}{" "}
+        <Link className={buttonstyles.link} href={`https://${patreonLink}`}>
           Patreon
         </Link>
-        .
       </p>
       <p className="blog-description">
-        Web games: Including but not limited to{" "}
+        {webGamesDescription}
         <Link className={buttonstyles.link} href="">
           Tetris
         </Link>
@@ -196,175 +160,177 @@ const Services = () => {
 };
 
 const Privacy = () => {
+  // Define text content for each section as variables
+  const title = "Privacy Policy";
+  const lastUpdated = "Last updated: March 7 2025";
+  const informationWeCollect = `
+    Information We Collect:
+    Personal Data: If you sign up, support us on Patreon, or contact us, we
+    may collect your name, email, and payment details.
+    Usage Data: We may collect data about how you interact with our website,
+    including IP addresses, browser type, and pages visited.
+    Cookies: We use cookies to improve user experience and analytics.
+  `;
+  const howWeUseData = `
+    How We Use Your Data:
+    To provide and improve our services.
+    To process payments (if applicable) and support customer service.
+    To comply with legal obligations and prevent fraud.
+  `;
+  const dataSharingProtection = `
+    Data Sharing & Protection:
+    We do not sell or rent your personal data.
+    We may share information with third-party service providers (e.g., payment processors, hosting services) as necessary.
+    Your data is stored securely, but no system is 100% secure. Use at your own risk.
+  `;
+  const yourRights = `
+    Your Rights:
+    You can request access to, correction, or deletion of your personal data.
+    If you are in the EU/California, you may have additional rights under GDPR/CCPA.
+  `;
+  const changesToPolicy = `
+    Changes to this Policy:
+    We may update this policy. Continued use of our services means you accept the changes.
+  `;
+
+  const privacyText = `${title}\n\n${informationWeCollect}\n\n${howWeUseData}\n\n${dataSharingProtection}\n\n${yourRights}\n\n${changesToPolicy}`;
+
   return (
     <div className="page-wrap">
-      <PlayButton />
-      <h1 className="blog-title glitter-title">Privacy Policy</h1>
-      <p className="blog-stats">Last updated: March 7 2025</p>
+      <PlayButton text={privacyText} />
+      <h1 className="blog-title glitter-title">{title}</h1>
+      <p className="blog-stats">{lastUpdated}</p>
       <span className="blog-subtitle">Information We Collect</span>
-      <p className="blog-description">
-        Personal Data: If you sign up, support us on Patreon, or contact us, we
-        may collect your name, email, and payment details.
-      </p>
-      <p className="blog-description">
-        Usage Data: We may collect data about how you interact with our website,
-        including IP addresses, browser type, and pages visited.
-      </p>
-      <p className="blog-description">
-        Cookies: We use cookies to improve user experience and analytics.
-      </p>
+      <p className="blog-description">{informationWeCollect}</p>
       <span className="blog-subtitle">How We Use Your Data</span>
-      <p className="blog-description">To provide and improve our services.</p>
-      <p className="blog-description">
-        To process payments (if applicable) and support customer service.
-      </p>
-      <p className="blog-description">
-        To comply with legal obligations and prevent fraud.
-      </p>
+      <p className="blog-description">{howWeUseData}</p>
       <span className="blog-subtitle">Data Sharing & Protection</span>
-      <p>We do not sell or rent your personal data.</p>
-      <p className="blog-description">
-        We may share information with third-party service providers (e.g.,
-        payment processors, hosting services) as necessary.
-      </p>
-      <p className="blog-description">
-        Your data is stored securely, but no system is 100% secure. Use at your
-        own risk.
-      </p>
+      <p className="blog-description">{dataSharingProtection}</p>
       <span className="blog-subtitle">Your Rights</span>
-      <p className="blog-description">
-        You can request access to, correction, or deletion of your personal
-        data.
-      </p>
-      <p className="blog-description">
-        If you are in the EU/California, you may have additional rights under
-        GDPR/CCPA.
-      </p>
+      <p className="blog-description">{yourRights}</p>
       <span className="blog-subtitle">Changes to this Policy</span>
-      <p className="blog-description">
-        We may update this policy. Continued use of our services means you
-        accept the changes.
-      </p>
+      <p className="blog-description">{changesToPolicy}</p>
     </div>
   );
 };
 
 const Refund = () => {
+  const title = "Refund Policy";
+  const lastUpdated = "Last updated: March 7 2025";
+  const refundEligibility = `
+    Refund Eligibility:
+    Payments for digital services (e.g., Patreon support, downloadable content) are generally non-refundable.
+    If a service is defective or unavailable due to our fault, you may request a refund within 14 days.
+    Refund requests must be submitted via Contact.
+  `;
+  const nonRefundableItems = `
+    Non-Refundable Items:
+    Donations made through Patreon or other voluntary contributions.
+    Any digital content that has already been downloaded or accessed.
+  `;
+  const refundText = `${title}\n\n${refundEligibility}\n\n${nonRefundableItems}`;
+
   return (
     <div className="page-wrap">
-      <PlayButton />
-      <h1 className="blog-title glitter-title">Refund Policy</h1>
-      <p className="blog-stats">Last updated: March 7 2025</p>
+      <PlayButton text={refundText} />
+      <h1 className="blog-title glitter-title">{title}</h1>
+      <p className="blog-stats">{lastUpdated}</p>
       <span className="blog-subtitle">Refund Eligibility</span>
-      <p className="blog-description">
-        Payments for digital services (e.g., Patreon support, downloadable
-        content) are generally non-refundable.
-      </p>
-      <p className="blog-description">
-        If a service is defective or unavailable due to our fault, you may
-        request a refund within 14 days.
-      </p>
-      <p className="blog-description">
-        Refund requests must be submitted via{" "}
-        <Link className={buttonstyles.link} href="/about/1">
-          Contact
-        </Link>
-        .
-      </p>
+      <p className="blog-description">{refundEligibility}</p>
       <span className="blog-subtitle">Non-Refundable Items</span>
-      <p className="blog-description">
-        Donations made through Patreon or other voluntary contributions.
-      </p>
-      <p className="blog-description">
-        Any digital content that has already been downloaded or accessed.
-      </p>
+      <p className="blog-description">{nonRefundableItems}</p>
     </div>
   );
 };
 
 const DMCAcopyright = () => {
+  const title = "DMCA & Copyright Policy";
+  const lastUpdated = "Last updated: March 7 2025";
+  const reportingInfringement = `
+    Reporting Copyright Infringement:
+    If you believe content on our site infringes your copyright, please submit a DMCA takedown request at Contact with:
+    Your contact details.
+    A description of the copyrighted work.
+    The URL of the infringing content.
+    A statement that you have a good faith belief the use is unauthorized.
+  `;
+  const dmcaText = `${title}\n\n${reportingInfringement}`;
+
   return (
     <div className="page-wrap">
-      <PlayButton />
-      <h1 className="blog-title glitter-title">DMCA & Copyright Policy</h1>
-      <p className="blog-stats">Last updated: March 7 2025</p>
-      <p className="blog-description">
-        Web Goodies respects intellectual property rights and complies with the
-        Digital Millennium Copyright Act (DMCA).
-      </p>
+      <PlayButton text={dmcaText} />
+      <h1 className="blog-title glitter-title">{title}</h1>
+      <p className="blog-stats">{lastUpdated}</p>
       <span className="blog-subtitle">Reporting Copyright Infringement</span>
-      <p className="blog-description">
-        If you believe content on our site infringes your copyright, please
-        submit a DMCA takedown request at{" "}
-        <Link className={buttonstyles.link} href="/about/1">
-          Contact
-        </Link>{" "}
-        with:
-      </p>
-      <p className="blog-description">Your contact details.</p>
-      <p className="blog-description">A description of the copyrighted work.</p>
-      <p className="blog-description">The URL of the infringing content.</p>
-      <p className="blog-description">
-        A statement that you have a good faith belief the use is unauthorized.
-      </p>
+      <p className="blog-description">{reportingInfringement}</p>
     </div>
   );
 };
 
 const CookiePol = () => {
+  const title = "Cookie Policy";
+  const lastUpdated = "Last updated: March 7 2025";
+  const whatAreCookies = `
+    What Are Cookies:
+    Cookies are small files stored on your device that help improve user experience.
+  `;
+  const howWeUseCookies = `
+    How We Use Cookies:
+    Essential Cookies: Required for site functionality.
+    Analytics Cookies: Used to track usage and improve our services.
+    Advertising Cookies: Used to personalize ads (if applicable).
+  `;
+  const managingCookies = `
+    Managing Cookies:
+    You can disable cookies in your browser settings, but some features may not work properly.
+  `;
+  const cookieText = `${title}\n\n${whatAreCookies}\n\n${howWeUseCookies}\n\n${managingCookies}`;
+
   return (
     <div className="page-wrap">
-      <PlayButton />
-      <h1 className="blog-title glitter-title">Cookie Policy</h1>
-      <p className="blog-stats">Last updated: March 7 2025</p>
+      <PlayButton text={cookieText} />
+      <h1 className="blog-title glitter-title">{title}</h1>
+      <p className="blog-stats">{lastUpdated}</p>
       <span className="blog-subtitle">What Are Cookies?</span>
-      <p className="blog-description">
-        Cookies are small files stored on your device that help improve user
-        experience.
-      </p>
+      <p className="blog-description">{whatAreCookies}</p>
       <span className="blog-subtitle">How We Use Cookies</span>
-      <p className="blog-description">
-        Essential Cookies: Required for site functionality.
-      </p>
-      <p className="blog-description">
-        Analytics Cookies: Used to track usage and improve our services.
-      </p>
-      <p className="blog-description">
-        Advertising Cookies: Used to personalize ads (if applicable).
-      </p>
+      <p className="blog-description">{howWeUseCookies}</p>
       <span className="blog-subtitle">Managing Cookies</span>
-      <p className="blog-description">
-        You can disable cookies in your browser settings, but some features may
-        not work properly.
-      </p>
+      <p className="blog-description">{managingCookies}</p>
     </div>
   );
 };
 
 const AUP = () => {
+  const title = "Acceptable Use Policy (AUP)";
+  const lastUpdated = "Last updated: March 7 2025";
+  const prohibitedActivities = `
+    Prohibited Activities:
+    No illegal or unauthorized use.
+    No spamming, hacking, or attempting to disrupt services.
+    No harassment, hate speech, or abuse toward others.
+  `;
+  const enforcement = `
+    Enforcement:
+    Violations of this policy may result in termination of access to our services.
+  `;
+  const changesToAUP = `
+    Changes to the AUP:
+    We reserve the right to update this policy at any time. For any questions, contact us at Contact.
+  `;
+  const aupText = `${title}\n\n${prohibitedActivities}\n\n${enforcement}\n\n${changesToAUP}`;
+
   return (
     <div className="page-wrap">
-      <PlayButton />
-      <h1 className="blog-title glitter-title">Acceptable Use Policy (AUP)</h1>
-      <p className="blog-stats">Last updated: March 7 2025</p>
+      <PlayButton text={aupText} />
+      <h1 className="blog-title glitter-title">{title}</h1>
+      <p className="blog-stats">{lastUpdated}</p>
       <span className="blog-subtitle">Prohibited Activities</span>
-      <p>No illegal or unauthorized use.</p>
-      <p>No spamming, hacking, or attempting to disrupt services.</p>
-      <p>No harassment, hate speech, or abuse toward others</p>
+      <p>{prohibitedActivities}</p>
       <span className="blog-subtitle">Enforcement</span>
-      <p>
-        Violations of this policy may result in termination of access to our
-        services.
-      </p>
+      <p>{enforcement}</p>
       <span className="blog-subtitle">Changes to the AUP</span>
-      <p>
-        We reserve the right to update this policy at any time. For any
-        questions, contact us at{" "}
-        <Link className={buttonstyles.link} href="/about/1">
-          Contact
-        </Link>
-        .
-      </p>
+      <p>{changesToAUP}</p>
     </div>
   );
 };

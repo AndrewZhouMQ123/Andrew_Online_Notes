@@ -3,9 +3,9 @@ import Image from "next/image";
 import styles from "@/app/ui/accessories.module.css";
 
 interface TableProps {
-  data: {attribute: string, desc: string}[];
+  data: { attribute: string; desc: string }[];
   title: string;
-  onSave: (data: {attribute: string, desc: string}[], title: string) => void;
+  onSave: (data: { attribute: string; desc: string }[], title: string) => void;
 }
 
 const HTMLGlobalsTable = ({ data, title, onSave }: TableProps) => {
@@ -34,7 +34,7 @@ const HTMLGlobalsTable = ({ data, title, onSave }: TableProps) => {
                 className={styles.saveAsPdfButton}
                 onClick={() => onSave(data, title)}
               >
-                Save as PDF{' '}
+                Save as PDF{" "}
                 <Image src="/file.svg" width={30} height={30} alt="file" />
               </button>
             </td>

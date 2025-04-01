@@ -92,7 +92,7 @@ async function generatePollyAudio(text: string) {
     Text: text,
     OutputFormat: OutputFormat.MP3,
     TextType: TextType.SSML,
-    VoiceId: VoiceId.Salli,
+    VoiceId: VoiceId.Matthew,
   };
 
   const command = new SynthesizeSpeechCommand(param);

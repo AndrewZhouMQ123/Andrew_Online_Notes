@@ -1,127 +1,177 @@
 "use client";
+import React, { useState, useEffect } from "react";
+import supabase from "@/lib/db";
 import BlogTemplate from "@/components/BlogTemplate";
 import buttonstyles from "@/app/ui/buttons.module.css";
-import {
-  Languages,
-  ProgrammingLanguages,
-  SoftwareTechnologies,
-  externalAPIs,
-  DatabaseTechnologies,
-  CloudTechnologies,
-  HardwareTechnologies,
-  Soft,
-} from "./data/skills";
-import { certificates } from "./data/certificates";
 import Skills from "./components/skills";
 import Certificates from "./components/certs";
 import Link from "next/link";
-import { useState } from "react";
 
-const Intro = `Hello, I am the creator of this website. I graduated from UBC with Bachelor of Science majoring in Physics.
-I am currently working as a tutor at Elite Educational Institute, otherwise known as Elite Prep. I love coding and building things.
-This website, like a few others, is a project utilizing full stack technologies. Continue clicking to know more about me and my tech stack.`;
+const Intro = `Hello, my name is Andrew Zhou, I am the creator of this website. 
+I created this website to keep digital notes of various things I learned, for myself to review, and for others to learn.
+I also put some small applications in Utilities that I think are cool or will save you time, such as the graphing utility.`;
 
 export default function AboutMe() {
-  const [currentStep, setCurrentStep] = useState(0);
-  const components = [
-    <BlogTemplate
-      title="About Me"
-      subtitle="Introduction"
-      author="Zhou Muqing (Andrew) ✓"
-      description={Intro}
-      key={0}
-    />,
-    <Education key={1} />,
-    <Qualifications key={2} />,
-    <TechnicalSkills key={3} />,
-    <Projects key={4} />,
-  ];
-
-  const handleNext = () => {
-    setCurrentStep((prev) => (prev + 1) % components.length);
-  };
-
   return (
-    <div
-      style={{ minHeight: "100vh", position: "relative", overflow: "hidden" }}
-    >
-      {components.map((component, index) => (
-        <div
-          key={index}
-          onClick={handleNext}
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100vh",
-            overflowY: "auto",
-            opacity: currentStep === index ? 1 : 0,
-            transform: `translateX(${
-              currentStep === index ? 0 : index > currentStep ? 100 : -100
-            }%)`,
-            transition: "all 0.3s ease-in-out",
-            pointerEvents: currentStep === index ? "auto" : "none",
-            cursor: "pointer",
-          }}
-        >
-          {component}
-        </div>
-      ))}
-      <div
-        onClick={handleNext}
-        style={{
-          color: "#FFE699",
-          padding: "20px",
-          textAlign: "center",
-          backgroundColor: "rgba(0,0,0,0.05)",
-          cursor: "pointer",
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          transition: "opacity 0.2s",
-          opacity: 1,
-        }}
-        onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-        onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-      >
-        Click anywhere to continue →
-      </div>
+    <div>
+      <BlogTemplate
+        title="About Me"
+        subtitle="Introduction"
+        stats="Last updated: March 31 2025"
+        author="Andrew Zhou Muqing✓"
+        description={Intro}
+      />
+      ,
+      <Education />,
+      <Qualifications />,
+      <TechnicalSkills />,
+      <Projects />
     </div>
   );
 }
 
+interface Skill {
+  skill: string;
+  proficiency: string;
+}
+
+interface Certificate {
+  certificate: string;
+  date: string;
+}
+
 const Education = () => {
+  const [certificatesData, setCertificatesData] = useState<Certificate[]>([]); // Certificates data state
+  const [languagesData, setLanguagesData] = useState<Skill[]>([]); // Languages data state
+  const [loading, setLoading] = useState<boolean>(true); // Loading state
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // Fetch certificates data
+      const certificateData = await fetchDataByName("Certificates");
+
+      // Fetch languages data
+      const languageData = await fetchDataByName("Languages");
+      setCertificatesData(certificateData);
+      setLanguagesData(languageData);
+      setLoading(false); // Set loading to false after fetching
+    };
+
+    fetchData();
+  }, []); // Empty dependency array means this effect runs once when the component mounts
+
+  if (loading) {
+    return <div className="page-wrap">Loading...</div>; // Show loading while data is being fetched
+  }
+
   return (
     <div className="page-wrap">
       <h1 className="blog-title glitter-title">Education:</h1>
       <p className="blog-subtitle">
         Bachelor of Science in Physics: University of British Columbia
       </p>
-      <Certificates data={certificates} title="Certificates" />
-      <Skills data={Languages} title="Languages" />
+      <Certificates data={certificatesData} title="Certificates" />
+      <Skills data={languagesData} title="Languages" />
     </div>
   );
 };
 
 const TechnicalSkills = () => {
+  const [softwareTechnologies, setSoftwareTechnologies] = useState<Skill[]>([]);
+  const [externalAPIs, setExternalAPIs] = useState<Skill[]>([]);
+  const [databaseTechnologies, setDatabaseTechnologies] = useState<Skill[]>([]);
+  const [cloudTechnologies, setCloudTechnologies] = useState<Skill[]>([]);
+  const [hardwareTechnologies, setHardwareTechnologies] = useState<Skill[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // Fetch each category's data from the database
+      const softwareData = await fetchDataByName("SoftwareTechnologies");
+      const externalAPIsData = await fetchDataByName("externalAPIs");
+      const databaseTechnologiesData = await fetchDataByName(
+        "DatabaseTechnologies"
+      );
+      const cloudTechnologiesData = await fetchDataByName("CloudTechnologies");
+      const hardwareTechnologiesData = await fetchDataByName(
+        "HardwareTechnologies"
+      );
+
+      // Set the state with fetched data
+      setSoftwareTechnologies(softwareData);
+      setExternalAPIs(externalAPIsData);
+      setDatabaseTechnologies(databaseTechnologiesData);
+      setCloudTechnologies(cloudTechnologiesData);
+      setHardwareTechnologies(hardwareTechnologiesData);
+
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div className="page-wrap">Loading...</div>;
+  }
+
   return (
     <div className="page-wrap">
-      <Skills data={SoftwareTechnologies} title="Software Technologies" />
+      <Skills data={softwareTechnologies} title="Software Technologies" />
       <Skills data={externalAPIs} title="External APIs" />
-      <Skills data={DatabaseTechnologies} title="Database Technologies" />
-      <Skills data={CloudTechnologies} title="Cloud Technologies" />
-      <Skills data={HardwareTechnologies} title="Hardware Technologies" />
+      <Skills data={databaseTechnologies} title="Database Technologies" />
+      <Skills data={cloudTechnologies} title="Cloud Technologies" />
+      <Skills data={hardwareTechnologies} title="Hardware Technologies" />
     </div>
   );
 };
 
 const Qualifications = () => {
+  const [programmingLanguages, setProgrammingLanguages] = useState<Skill[]>([]);
+  const [softSkills, setSoftSkills] = useState<Skill[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // Fetch Programming Languages and Soft Skills data from the database
+      const programmingData = await fetchDataByName("ProgrammingLanguages");
+      const softSkillsData = await fetchDataByName("Soft");
+
+      // Set the state with fetched data
+      setProgrammingLanguages(programmingData);
+      setSoftSkills(softSkillsData);
+
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div className="page-wrap">Loading...</div>;
+  }
+
   return (
     <div className="page-wrap">
-      <Skills data={ProgrammingLanguages} title="Programming Languages" />
-      <Skills data={Soft} title="Soft Skills" />
+      <Skills data={programmingLanguages} title="Programming Languages" />
+      <Skills data={softSkills} title="Soft Skills" />
     </div>
   );
+};
+
+// Fetch data by name utility function
+const fetchDataByName = async (name: string) => {
+  const { data, error } = await supabase
+    .from("devnotes") // Your table name
+    .select("datasheet")
+    .eq("name", name) // Match the name column
+    .single(); // We expect only one row per name
+
+  if (error) {
+    console.error(`Error fetching ${name}:`, error);
+    return []; // Return an empty array on error
+  }
+
+  return data?.datasheet || []; // Return the datasheet or an empty array if not found
 };
 
 const Projects = () => {

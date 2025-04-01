@@ -8,12 +8,14 @@ interface SocialLinkProps {
 
 const SocialLink = ({ platform, url, filepath }: SocialLinkProps) => {
   return (
-    <li>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <Image src={filepath} alt={platform} width={60} height={60} />
-        {platform}
-      </a>
-    </li>
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="socialLink"
+    >
+      <Image src={filepath} alt={platform} width={60} height={60} />
+    </a>
   );
 };
 

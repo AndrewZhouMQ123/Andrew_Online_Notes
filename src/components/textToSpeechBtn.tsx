@@ -1,52 +1,27 @@
 "use client";
 import React, { useState, useRef } from "react";
 
-const PlayButton = () => {
+interface PlayButtonProps {
+  text: string; // The text to convert to speech
+}
+
+const PlayButton = ({ text }: PlayButtonProps) => {
   const [isPlaying, setIsPlaying] = useState(false); // State to track play/pause
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handlePlay = async () => {
     try {
-      const pageWrapElement = document.querySelector(".page-wrap");
-      if (!pageWrapElement) {
-        console.error("No element with class 'page-wrap' found.");
+      if (isPlaying && audioRef.current) {
+        // Pause the audio if it's already playing
+        audioRef.current.pause();
+        setIsPlaying(false);
         return;
       }
-
-      // ignore text in <button>
-      const getFilteredText = (element: Element, excludeSelector: string) => {
-        const walker = document.createTreeWalker(
-          element,
-          NodeFilter.SHOW_TEXT,
-          {
-            acceptNode: (node) =>
-              node.parentElement?.matches(excludeSelector)
-                ? NodeFilter.FILTER_REJECT
-                : NodeFilter.FILTER_ACCEPT,
-          }
-        );
-
-        let text = "";
-        while (walker.nextNode()) {
-          text += walker.currentNode.nodeValue + " ";
-        }
-        return text.trim();
-      };
-
-      const pageText = getFilteredText(pageWrapElement, ".button-container");
-      if (!pageText) {
-        console.error("No text found in the page-wrap element.");
-        return;
-      }
-
-      const textWithoutHTML = pageText
-        .replace(/<\/?[^>]+(>|$)/g, "<break time='200ms'/>")
-        .trim();
 
       let ssmlText = `<speak>`;
 
-      ssmlText += textWithoutHTML
+      ssmlText += text
         .replace(/([.])\s*/g, (match, punctuation) => {
           // Add a longer pause after a period (e.g., 1 second)
           return `${punctuation}<break time="400ms"/>`;
@@ -59,6 +34,7 @@ const PlayButton = () => {
           // Add a medium pause after exclamation mark or question mark (e.g., 500ms)
           return `${punctuation}<break time="400ms"/>`;
         })
+        .replace(/\n/g, "<break time='500ms'/>") // Add a pause after each newline
         .trim();
 
       ssmlText += `</speak>`;

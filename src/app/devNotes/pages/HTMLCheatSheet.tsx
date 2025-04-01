@@ -1,24 +1,242 @@
 "use client";
+import { useEffect, useState } from "react";
+import supabase from "@/lib/db";
 import HTMLelTable from "../components/HTMLelTable";
-import {
-  metadata,
-  sectionheadings,
-  inlines,
-  formElements,
-  mediaElements,
-  tableElements,
-} from "../data/htmldata";
-import htmlEntities from "../data/htmlentities";
 import HTMLEntitesTable from "../components/HTMLEntitiesTable";
-import { globalAttributes } from "../data/extras";
 import {
   AdditionalAttributesSection,
   EventHandlerAttributesSection,
 } from "../components/Extras";
 import HTMLGlobalsTable from "../components/HTMLGlobalsTable";
-import PlayButton from "@/components/textToSpeechBtn";
 import { handle2TSave, handle3TSave } from "@/app/api/generatePDF";
 import SyntaxHighlighter from "react-syntax-highlighter";
+
+// Type definitions for the data structure
+interface ElementItem {
+  element: string;
+  attributes: string;
+  desc: string;
+}
+
+interface HTMLGlobalAttributeItem {
+  attribute: string;
+  desc: string;
+}
+
+interface HTMLEntityItem {
+  entity: string;
+  unicode: string;
+  htmlCode: string;
+}
+
+const ElPage = () => {
+  const [metadata, setMetadata] = useState<ElementItem[]>([]);
+  const [sectionHeadings, setSectionHeadings] = useState<ElementItem[]>([]);
+  const [inlines, setInlines] = useState<ElementItem[]>([]);
+  const [formElements, setFormElements] = useState<ElementItem[]>([]);
+  const [mediaElements, setMediaElements] = useState<ElementItem[]>([]);
+  const [tableElements, setTableElements] = useState<ElementItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data: metadataData, error: metadataError } = await supabase
+          .from("devnotes")
+          .select("datasheet")
+          .eq("name", "metadata")
+          .single();
+        const { data: sectionHeadingsData, error: sectionHeadingsError } =
+          await supabase
+            .from("devnotes")
+            .select("datasheet")
+            .eq("name", "sectionheadings")
+            .single();
+        const { data: inlinesData, error: inlinesError } = await supabase
+          .from("devnotes")
+          .select("datasheet")
+          .eq("name", "inlines")
+          .single();
+        const { data: formElementsData, error: formElementsError } =
+          await supabase
+            .from("devnotes")
+            .select("datasheet")
+            .eq("name", "formElements")
+            .single();
+        const { data: mediaElementsData, error: mediaElementsError } =
+          await supabase
+            .from("devnotes")
+            .select("datasheet")
+            .eq("name", "mediaElements")
+            .single();
+        const { data: tableElementsData, error: tableElementsError } =
+          await supabase
+            .from("devnotes")
+            .select("datasheet")
+            .eq("name", "tableElements")
+            .single();
+
+        // Error handling for each fetch
+        if (
+          metadataError ||
+          sectionHeadingsError ||
+          inlinesError ||
+          formElementsError ||
+          mediaElementsError ||
+          tableElementsError
+        ) {
+          console.error(
+            "Error fetching data:",
+            metadataError ||
+              sectionHeadingsError ||
+              inlinesError ||
+              formElementsError ||
+              mediaElementsError ||
+              tableElementsError
+          );
+          setMetadata([]);
+          setSectionHeadings([]);
+          setInlines([]);
+          setFormElements([]);
+          setMediaElements([]);
+          setTableElements([]);
+        } else {
+          // Set fetched data into state
+          setMetadata(metadataData?.datasheet || []);
+          setSectionHeadings(sectionHeadingsData?.datasheet || []);
+          setInlines(inlinesData?.datasheet || []);
+          setFormElements(formElementsData?.datasheet || []);
+          setMediaElements(mediaElementsData?.datasheet || []);
+          setTableElements(tableElementsData?.datasheet || []);
+        }
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setMetadata([]);
+        setSectionHeadings([]);
+        setInlines([]);
+        setFormElements([]);
+        setMediaElements([]);
+        setTableElements([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div className="page-wrap">Loading...</div>;
+  }
+
+  return (
+    <div className="page-wrap">
+      <HTMLelTable
+        data={metadata}
+        title="HTML Metadata"
+        onSave={handle3TSave}
+      />
+      <HTMLelTable
+        data={sectionHeadings}
+        title="HTML Section Headings"
+        onSave={handle3TSave}
+      />
+      <HTMLelTable data={inlines} title="HTML Inlines" onSave={handle3TSave} />
+      <HTMLelTable
+        data={formElements}
+        title="HTML Form Elements"
+        onSave={handle3TSave}
+      />
+      <HTMLelTable
+        data={mediaElements}
+        title="HTML Media Elements"
+        onSave={handle3TSave}
+      />
+      <HTMLelTable
+        data={tableElements}
+        title="HTML Table Elements"
+        onSave={handle3TSave}
+      />
+    </div>
+  );
+};
+
+// GlobalsPage Component
+const GlobalsPage = () => {
+  const [htmlEntities, setHtmlEntities] = useState<HTMLEntityItem[]>([]);
+  const [globalAttributes, setGlobalAttributes] = useState<
+    HTMLGlobalAttributeItem[]
+  >([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetching data for globals
+        const { data: htmlEntitiesData, error: htmlEntitiesError } =
+          await supabase
+            .from("devnotes")
+            .select("datasheet")
+            .eq("name", "htmlEntities")
+            .single();
+        const { data: globalAttributesData, error: globalAttributesError } =
+          await supabase
+            .from("devnotes")
+            .select("datasheet")
+            .eq("name", "globalAttributes")
+            .single();
+
+        if (htmlEntitiesError || globalAttributesError) {
+          console.error(
+            "Error fetching data:",
+            htmlEntitiesError || globalAttributesError
+          );
+          setHtmlEntities([]);
+          setGlobalAttributes([]);
+        } else {
+          setHtmlEntities(htmlEntitiesData?.datasheet || []);
+          setGlobalAttributes(globalAttributesData?.datasheet || []);
+        }
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setHtmlEntities([]);
+        setGlobalAttributes([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="page-wrap">
+      <HTMLEntitesTable
+        data={htmlEntities}
+        title="HTML Entities"
+        onSave={handle3TSave}
+      />
+      <HTMLGlobalsTable
+        data={globalAttributes}
+        title="HTML Global Attributes"
+        onSave={handle2TSave}
+      />
+    </div>
+  );
+};
+
+const AttriPage = () => {
+  return (
+    <div className="page-wrap">
+      <AdditionalAttributesSection />
+      <EventHandlerAttributesSection />
+    </div>
+  );
+};
 
 const IntroPage = () => {
   const code = `
@@ -31,7 +249,6 @@ const IntroPage = () => {
   return (
     <div className="page-wrap">
       <span className="blog-title glitter-title">HTML Cheat Sheet</span>
-      <PlayButton />
       <div className="white-board">
         <p style={{ textTransform: "none", textShadow: "none" }}>
           HTML (HyperText Markup Language) is the most basic building block of
@@ -104,68 +321,6 @@ const IntroPage = () => {
           </li>
         </ul>
       </div>
-    </div>
-  );
-};
-
-const ElPage = () => {
-  return (
-    <div className="page-wrap">
-      <PlayButton />
-      <HTMLelTable
-        data={metadata}
-        title="HTML metadata"
-        onSave={handle3TSave}
-      />
-      <HTMLelTable
-        data={sectionheadings}
-        title="HTML Section Headings"
-        onSave={handle3TSave}
-      />
-      <HTMLelTable data={inlines} title="HTML Inlines" onSave={handle3TSave} />
-      <HTMLelTable
-        data={formElements}
-        title="HTML Form Elements"
-        onSave={handle3TSave}
-      />
-      <HTMLelTable
-        data={mediaElements}
-        title="HTML Media Elements"
-        onSave={handle3TSave}
-      />
-      <HTMLelTable
-        data={tableElements}
-        title="HTML Table Elements"
-        onSave={handle3TSave}
-      />
-    </div>
-  );
-};
-
-const GlobalsPage = () => {
-  return (
-    <div className="page-wrap">
-      <PlayButton />
-      <HTMLEntitesTable
-        data={htmlEntities}
-        title="HTML Entities"
-        onSave={handle3TSave}
-      />
-      <HTMLGlobalsTable
-        data={globalAttributes}
-        title="HTML Global Attributes"
-        onSave={handle2TSave}
-      />
-    </div>
-  );
-};
-
-const AttriPage = () => {
-  return (
-    <div className="page-wrap">
-      <PlayButton />
-      <AdditionalAttributesSection />
-      <EventHandlerAttributesSection />
     </div>
   );
 };

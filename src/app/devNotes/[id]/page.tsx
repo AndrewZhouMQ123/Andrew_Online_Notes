@@ -1,4 +1,6 @@
-import { CommandsPage, HTTPSpage, ShortCutsPage } from "../pages/OSPages";
+import HTTPSpage from "../pages/HttpsPage";
+import CommandsPage from "../pages/CommandPage";
+import ShortCutsPage from "../pages/ShortcutsPage";
 import { notFound } from "next/navigation";
 import JSCore from "../pages/JSCheatSheet";
 import NpmPage from "../pages/NpmPage";

@@ -1,20 +1,14 @@
 "use client";
 import Section from "../components/Section";
+import { useEffect, useState } from "react";
+import supabase from "@/lib/db";
 import { javascriptCheatSheetData } from "../data/CheatJS";
-import PlayButton from "@/components/textToSpeechBtn";
 import CodeBlock from "../components/CodeBlock";
 import GPropTable from "../components/PropTable";
 import PrimitivesTable from "../components/PrimitivesTable";
 import GmethodTable from "../components/MethodTable";
 import GobjectTable from "../components/ObjectTable";
 import APITable from "../components/APITables";
-import {
-  globalProperties,
-  primitiveDataTypes,
-  builtInFunctions,
-  builtInObjects,
-  domBomAPI,
-} from "../data/dataJS";
 import { handle2TSave, handle3TSave } from "@/app/api/generatePDF";
 
 export default function JSCore() {
@@ -70,11 +64,11 @@ export default function JSCore() {
     "BigInt",
     "objects",
   ];
+
   return (
     <div>
       <div className="page-wrap">
         <span className="blog-title glitter-title">JavaScript Cheat Sheet</span>
-        <PlayButton />
         <ul className="white-board">
           <span>Falsy Values</span>
           <CodeBlock code={falsyValues.join("\n")} />
@@ -93,29 +87,156 @@ export default function JSCore() {
           <CodeBlock code={legacyMethods.join("\n")} />
           <CodeBlock code={legacySnippets.join("\n")} />
         </ul>
-
-        <GPropTable
-          data={globalProperties}
-          title="Global Properties"
-          onSave={handle2TSave}
-        />
-        <PrimitivesTable
-          data={primitiveDataTypes}
-          title="Primitives"
-          onSave={handle3TSave}
-        />
-        <GmethodTable
-          data={builtInFunctions}
-          title="Built In Functions"
-          onSave={handle2TSave}
-        />
-        <GobjectTable
-          data={builtInObjects}
-          title="Built In Objects"
-          onSave={handle2TSave}
-        />
-        <APITable data={domBomAPI} title="DOM APIs" onSave={handle3TSave} />
       </div>
+      <Tables />
     </div>
   );
 }
+
+// Type definitions for the data structure
+interface GlobalPropertyItem {
+  prop: string;
+  desc: string;
+}
+
+interface PrimitiveDataTypeItem {
+  identifier: string;
+  literal: string;
+  description: string;
+}
+
+interface BuiltInFunctionItem {
+  method: string;
+  desc: string;
+}
+interface BuiltInObjectItem {
+  object: string;
+  methodsValues: string;
+}
+
+interface DomBomAPIItem {
+  interface: string;
+  description: string;
+  methods_properties: string;
+}
+
+const Tables = () => {
+  const [globalProperties, setGlobalProperties] = useState<
+    GlobalPropertyItem[]
+  >([]);
+  const [primitiveDataTypes, setPrimitiveDataTypes] = useState<
+    PrimitiveDataTypeItem[]
+  >([]);
+  const [builtInFunctions, setBuiltInFunctions] = useState<
+    BuiltInFunctionItem[]
+  >([]);
+  const [builtInObjects, setBuiltInObjects] = useState<BuiltInObjectItem[]>([]);
+  const [domBomAPI, setDomBomAPI] = useState<DomBomAPIItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data: globalPropsData, error: globalPropsError } =
+          await supabase
+            .from("devnotes")
+            .select("datasheet")
+            .eq("name", "globalProperties")
+            .single();
+        const { data: primitivesData, error: primitivesError } = await supabase
+          .from("devnotes")
+          .select("datasheet")
+          .eq("name", "primitiveDataTypes")
+          .single();
+        const { data: builtInFuncsData, error: builtInFuncsError } =
+          await supabase
+            .from("devnotes")
+            .select("datasheet")
+            .eq("name", "builtInFunctions")
+            .single();
+        const { data: builtInObjsData, error: builtInObjsError } =
+          await supabase
+            .from("devnotes")
+            .select("datasheet")
+            .eq("name", "builtInObjects")
+            .single();
+        const { data: domBomAPIData, error: domBomAPIError } = await supabase
+          .from("devnotes")
+          .select("datasheet")
+          .eq("name", "domBomAPI")
+          .single();
+
+        // Error handling
+        if (
+          globalPropsError ||
+          primitivesError ||
+          builtInFuncsError ||
+          builtInObjsError ||
+          domBomAPIError
+        ) {
+          console.error(
+            "Error fetching data:",
+            globalPropsError ||
+              primitivesError ||
+              builtInFuncsError ||
+              builtInObjsError ||
+              domBomAPIError
+          );
+          setGlobalProperties([]);
+          setPrimitiveDataTypes([]);
+          setBuiltInFunctions([]);
+          setBuiltInObjects([]);
+          setDomBomAPI([]);
+        } else {
+          // Set fetched data into state
+          setGlobalProperties(globalPropsData?.datasheet || []);
+          setPrimitiveDataTypes(primitivesData?.datasheet || []);
+          setBuiltInFunctions(builtInFuncsData?.datasheet || []);
+          setBuiltInObjects(builtInObjsData?.datasheet || []);
+          setDomBomAPI(domBomAPIData?.datasheet || []);
+        }
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setGlobalProperties([]);
+        setPrimitiveDataTypes([]);
+        setBuiltInFunctions([]);
+        setBuiltInObjects([]);
+        setDomBomAPI([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div className="page-wrap">Loading...</div>;
+  }
+
+  return (
+    <div className="page-wrap">
+      <GPropTable
+        data={globalProperties}
+        title="Global Properties"
+        onSave={handle2TSave}
+      />
+      <PrimitivesTable
+        data={primitiveDataTypes}
+        title="Primitives"
+        onSave={handle3TSave}
+      />
+      <GmethodTable
+        data={builtInFunctions}
+        title="Built In Functions"
+        onSave={handle2TSave}
+      />
+      <GobjectTable
+        data={builtInObjects}
+        title="Built In Objects"
+        onSave={handle2TSave}
+      />
+      <APITable data={domBomAPI} title="DOM APIs" onSave={handle3TSave} />
+    </div>
+  );
+};

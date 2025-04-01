@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import styles from "@/app/ui/calculator.module.css";
-import PlayButton from "@/components/textToSpeechBtn";
 
 type ButtonAction = {
   onClick: () => void;
@@ -427,52 +426,60 @@ const Calculator = () => {
 };
 
 const CalculatorPage = () => {
+  const title = "Notes for Users";
+  const listItems = [
+    { text: "X^-1 (Reciprocal): Computes (1/x)." },
+    { text: "Σ(end ,start, step): Summation over a range." },
+    { text: "nPr(n, r): Permutations n! / (n - r)!." },
+    { text: "nCr(n, r): Combinations n! / (r!(n - r)!)." },
+    { text: "ⁿ√x (Nth Root): nrt(x, n)." },
+    { text: "lognY (Custom Logarithm): lognY(base, y)." },
+    {
+      text: "%-dec (Percentage/Decimal Toggle): Converts between decimal and percentage.",
+      sublist: [
+        "Fails if input is outside 0–100% or 0–1 decimal.",
+        "User Beware, % percentage and % modulo uses the same symbol",
+      ],
+    },
+    {
+      text: "sci (Scientific Notation): Converts the current input to exponential format",
+    },
+    {
+      text: "×10^x/×10^-x (Scientific Exponent): Appends e+ or e- to the input.",
+    },
+    {
+      text: "binary/hex: Converts the input to binary/hexadecimal.",
+      sublist: ["Requires a non-negative integer."],
+    },
+    {
+      text: "Inverse Hyperbolic Functions (asinh, acosh, atanh): Compute the inverse of hyperbolic functions",
+    },
+    { text: "floor: Round down to the nearest integer." },
+    { text: "ceil: Round up to the nearest integer." },
+    { text: "mod: Modulo operator %, computes the remainder." },
+    { text: "RanInt(start, end): Random Integer in a range." },
+    { text: "Ran#: Random number between 0 to 1." },
+  ];
+
   return (
     <div className="page-wrap">
       <div className={styles.flexPage}>
         <Calculator />
         <div className={styles.postitNote}>
-          <PlayButton />
-          Notes for Users
+          <h3>{title}</h3>
           <ol className="list-decimal list-inside pl-5">
-            <li>X^-1 (Reciprocal): Computes (1/x).</li>
-            <li>Σ(end ,start, step): summation over a range </li>
-            <li>nPr(n, r): Permutations n! / (n - r)!.</li>
-            <li>nCr(n, r): Combinations n! / (r!(n - r)!).</li>
-            <li>ⁿ√x (Nth Root): nrt(x, n).</li>
-            <li>lognY (Custom Logarithm): lognY(base, y).</li>
-            <li>
-              %-dec (Percentage/Decimal Toggle): Converts between decimal and
-              percentage.
-              <ul className="list-disc list-inside pl-5">
-                <li>Fails if input is outside 0–100% or 0–1 decimal.</li>
-                <li>
-                  User Beware, % percentage and % modulo uses the same symbol
-                </li>
-              </ul>
-            </li>
-            <li>
-              sci (Scientific Notation): Converts the current input to
-              exponential format
-            </li>
-            <li>
-              ×10^x/×10^-x (Scientific Exponent): Appends e+ or e- to the input.
-            </li>
-            <li>
-              binary/hex: Converts the input to binary/hexadecimal.
-              <ul className="list-disc list-inside pl-5">
-                <li>Requires a non-negative integer.</li>
-              </ul>
-            </li>
-            <li>
-              Inverse Hyperbolic Functions (asinh, acosh, atanh): Compute the
-              inverse of hyperbolic functions
-            </li>
-            <li>floor: Round down to the nearest integer.</li>
-            <li>ceil: Round up to the nearest integer.</li>
-            <li>mod: Modulo operator %, computes the remainder.</li>
-            <li>RanInt(start, end): Random Integer in a range.</li>
-            <li>Ran#: Random number between 0 to 1.</li>
+            {listItems.map((item, index) => (
+              <li key={index}>
+                {item.text}
+                {item.sublist && (
+                  <ul className="list-disc list-inside pl-5">
+                    {item.sublist.map((subItem, subIndex) => (
+                      <li key={subIndex}>{subItem}</li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
           </ol>
         </div>
       </div>

@@ -36,7 +36,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Web-Experiments App",
+  title: "Web Goodies",
   icons: {
     icon: ["/favicon.ico"],
   },

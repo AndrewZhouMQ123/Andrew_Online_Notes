@@ -1,10 +1,14 @@
 import CodeBlock from "../components/CodeBlock";
 export const javascriptCheatSheetData = [
   {
-    title: 'Variables (let, const, var)',
+    title: "Variables (let, const, var)",
     content: (
       <ul>
-        {['let (block-scoped, mutable)', 'const (block-scoped, immutable)', 'var (function-scoped, discouraged)'].map((value) => (
+        {[
+          "let (block-scoped, mutable)",
+          "const (block-scoped, immutable)",
+          "var (function-scoped, discouraged)",
+        ].map((value) => (
           <li key={value}>
             <code>{value}</code>
           </li>
@@ -13,7 +17,7 @@ export const javascriptCheatSheetData = [
     ),
   },
   {
-    title: 'Loops',
+    title: "Loops",
     content: (
       <ul>
         <li>
@@ -23,19 +27,23 @@ export const javascriptCheatSheetData = [
           <CodeBlock code={`do \n  statement\nwhile (condition);`} />
         </li>
         <li>
-          <CodeBlock code={`for (initialize; condition; increment) {\n  // do something\n}`} />
+          <CodeBlock
+            code={`for (initialize; condition; increment) {\n  // do something\n}`}
+          />
         </li>
         <li>
           <CodeBlock code={`for (let key in object) {\n  // do something\n}`} />
         </li>
         <li>
-          <CodeBlock code={`for (variable of iterable) {\n  // do something\n}`} />
+          <CodeBlock
+            code={`for (variable of iterable) {\n  // do something\n}`}
+          />
         </li>
       </ul>
     ),
   },
   {
-    title: 'Objects',
+    title: "Objects",
     content: (
       <ul>
         <li>
@@ -48,13 +56,15 @@ export const javascriptCheatSheetData = [
           />
         </li>
         <li>
-          <CodeBlock code={`const keys = Object.keys(user); // [id, name, role]`} />
+          <CodeBlock
+            code={`const keys = Object.keys(user); // [id, name, role]`}
+          />
         </li>
       </ul>
     ),
   },
   {
-    title: 'Arrays',
+    title: "Arrays",
     content: (
       <ul>
         <li>
@@ -69,32 +79,45 @@ export const javascriptCheatSheetData = [
     ),
   },
   {
-    title: 'Functions',
+    title: "Functions",
     content: (
       <ul>
         <li>
-          <CodeBlock code={`function greet(name) {\n  return \`Hello, \${name}!\`;\n}`} />
+          <CodeBlock
+            code={`function greet(name) {\n  return \`Hello, \${name}!\`;\n}`}
+          />
         </li>
         <li>
-          <CodeBlock code={`const greet = function(name) {\n  return \`Hello, \${name}!\`;\n}`} />
+          <CodeBlock
+            code={`const greet = function(name) {\n  return \`Hello, \${name}!\`;\n}`}
+          />
         </li>
         <li>
-          <CodeBlock code={`const greet = (name) => {\n  return \`Hello, \${name}!\`;\n}`} />
+          <CodeBlock
+            code={`const greet = (name) => {\n  return \`Hello, \${name}!\`;\n}`}
+          />
         </li>
       </ul>
     ),
   },
   {
-    title: 'Error Handling',
+    title: "Error Handling",
     content: (
       <ul>
-        {['Error', 'AggregateError', 'EvalError', 'RangeError', 'ReferenceError', 'SyntaxError', 'TypeError', 'URIError'].map(
-          (error) => (
-            <li key={error}>
-              <code>{error}</code>
-            </li>
-          )
-        )}
+        {[
+          "Error",
+          "AggregateError",
+          "EvalError",
+          "RangeError",
+          "ReferenceError",
+          "SyntaxError",
+          "TypeError",
+          "URIError",
+        ].map((error) => (
+          <li key={error}>
+            <code>{error}</code>
+          </li>
+        ))}
       </ul>
     ),
   },

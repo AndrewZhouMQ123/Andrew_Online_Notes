@@ -65,18 +65,31 @@ const ButtonsTemplatePage = () => {
 
       <div className={buttonstyles.boxWrap}>
         {buttonVariants.map(({ name, style }) => (
-          <button key={name} className={`${buttonstyles.circleBtn} ${buttonstyles[style] || ""}`}>
+          <button
+            key={name}
+            className={`${buttonstyles.circleBtn} ${buttonstyles[style] || ""}`}
+          >
             {name}
           </button>
         ))}
-        <button className={`${buttonstyles.circleBtn} ${buttonstyles.recycling}`}>
-          <Image src="/recycling.svg" width={36} height={36} alt="Recycling Icon" />
+        <button
+          className={`${buttonstyles.circleBtn} ${buttonstyles.recycling}`}
+        >
+          <Image
+            src="/recycling.svg"
+            width={36}
+            height={36}
+            alt="Recycling Icon"
+          />
         </button>
       </div>
 
       <div className={buttonstyles.boxWrap}>
         {wideButtons.map(({ name, style }) => (
-          <button key={name} className={`${buttonstyles.wideBtn} ${buttonstyles[style]}`}>
+          <button
+            key={name}
+            className={`${buttonstyles.wideBtn} ${buttonstyles[style]}`}
+          >
             {name}
           </button>
         ))}
@@ -84,7 +97,10 @@ const ButtonsTemplatePage = () => {
 
       <div className={buttonstyles.boxWrap}>
         {gradientButtons.map(({ name, style }) => (
-          <button key={name} className={`${buttonstyles.avantGardeButton} ${buttonstyles[style]}`}>
+          <button
+            key={name}
+            className={`${buttonstyles.avantGardeButton} ${buttonstyles[style]}`}
+          >
             {name}
           </button>
         ))}

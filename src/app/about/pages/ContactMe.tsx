@@ -6,17 +6,6 @@ const ContactMePage = () => {
       <h1 className="blog-title glitter-title">Contact Me</h1>
       <Business />
       <Personal />
-      <RequestForm />
-    </div>
-  );
-};
-
-const RequestForm = () => {
-  return (
-    <div className="page-wrap">
-      <h1>Request Form</h1>
-      <p>Request Type</p>
-      <form></form>
     </div>
   );
 };
@@ -37,16 +26,16 @@ const Personal = () => {
       <h1 className="blog-subtitle glitter-title">For Personal Inquiries</h1>
       <p>Personal Email: lolserverhascrashed@gmail.com</p>
       <p>Follow Me on:</p>
-      <ul>
+      <div className="socialLinks">
         <SocialLink
           platform="GitHub"
           url="https://github.com/AndrewZhouMQ123"
-          filepath="/"
+          filepath="/github-mark/github-mark.png"
         />
         <SocialLink
           platform="LinkedIn"
           url="https://www.linkedin.com/in/andrew-zhou-8b4296326/"
-          filepath="/"
+          filepath="/linkedin-logo/LI-logo.png"
         />
         <SocialLink
           platform="Twitter"
@@ -58,7 +47,7 @@ const Personal = () => {
           url="https://www.youtube.com/@andrewzhou4228"
           filepath="/youtube-logo.png"
         />
-      </ul>
+      </div>
     </div>
   );
 };

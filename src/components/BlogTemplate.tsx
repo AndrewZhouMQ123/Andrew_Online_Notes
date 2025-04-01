@@ -2,9 +2,9 @@ import Image from "next/image";
 import PlayButton from "@/components/textToSpeechBtn";
 
 interface BlogTemplateProps {
-  title?: string;
+  title: string;
   subtitle: string;
-  stats?: string;
+  stats: string;
   author: string;
   description: string;
   imageUrl?: string;
@@ -22,10 +22,11 @@ const BlogTemplate = ({
   imageCaption,
   adText,
 }: BlogTemplateProps) => {
+  const blogText = `${title}\n${subtitle}\n${stats}\n${author}\n${description}`;
   return (
     <div className="page-wrap">
       {title && <h1 className="blog-title glitter-title">{title}</h1>}
-      <PlayButton />
+      <PlayButton text={blogText} />
       <div className="textbox">
         <h1
           className={title ? "blog-subtitle" : "blog-title"}
