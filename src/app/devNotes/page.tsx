@@ -1,4 +1,4 @@
-const DevHome = () => {
+const DailyDevNotes = () => {
   return (
     <div className="page-wrap">
       <h1 className="blog-title glitter-title">Dev Home</h1>
@@ -6,4 +6,4 @@ const DevHome = () => {
   );
 };
 
-export default DevHome;
+export default DailyDevNotes;

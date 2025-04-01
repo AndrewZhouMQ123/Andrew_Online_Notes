@@ -2,7 +2,7 @@
 import Section from "../components/Section";
 import { useEffect, useState } from "react";
 import supabase from "@/lib/db";
-import { javascriptCheatSheetData } from "../data/CheatJS";
+import { javascriptCheatSheetData } from "../components/CheatJS";
 import CodeBlock from "../components/CodeBlock";
 import GPropTable from "../components/PropTable";
 import PrimitivesTable from "../components/PrimitivesTable";
