@@ -201,6 +201,8 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
 
     const userPassword = authHeader.split(" ")[1]; // Extract password from "Bearer <password>"
     const storedPasswordHash = process.env.ADMIN_PASSWORD_HASH as string;
+    console.log("Loaded Hash from ENV:", process.env.ADMIN_PASSWORD_HASH);
+    console.log(storedPasswordHash);
     const match = await bcrypt.compare(userPassword, storedPasswordHash);
 
     // Compare the provided password with the one stored in the environment variable
@@ -215,6 +217,7 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
     const requestBody: Data = await request.json();
     const { name, datasheet } = requestBody;
 
+    console.log(datasheet);
     // Ensure the datasheet is an array
     if (!Array.isArray(datasheet)) {
       return NextResponse.json(
@@ -238,7 +241,11 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
       .single(); // Expecting a single result
 
     if (fetchError) {
-      throw fetchError;
+      console.error("Supabase Fetch Error:", fetchError);
+      return NextResponse.json(
+        { error: "Failed to fetch existing data" },
+        { status: 500 }
+      );
     }
 
     // If no data found, return a 404 response
@@ -258,7 +265,11 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
       .single<Data>();
 
     if (updateError) {
-      throw updateError;
+      console.error("Supabase Update Error:", updateError);
+      return NextResponse.json(
+        { error: "Failed to update datasheet" },
+        { status: 500 }
+      );
     }
 
     // Return the updated datasheet
@@ -271,9 +282,6 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
       );
     }
   } catch (error) {
-    // Handle errors and log them appropriately
-
-    // Specific handling for PostgrestError from Supabase
     if (error instanceof PostgrestError) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }

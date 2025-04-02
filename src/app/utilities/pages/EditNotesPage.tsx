@@ -78,7 +78,7 @@ function NameTable() {
       const response = await fetch(`/api/modifyData?name=${name}`);
       if (!response.ok) throw new Error("Failed to fetch");
       const result = await response.json();
-      setData(result);
+      setData(result.datasheet);
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -268,11 +268,11 @@ function UpdateDataForm() {
     try {
       const parsedDatasheet: DatasheetItem[] = JSON.parse(datasheet);
       const requestBody: Data = {
-        name,
+        name: name,
         datasheet: parsedDatasheet,
       };
 
-      const response = await fetch(`/api/modifyData?name=${name}`, {
+      const response = await fetch(`/api/modifyData`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
