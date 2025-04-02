@@ -77,10 +77,15 @@ const Education = () => {
 };
 
 const TechnicalSkills = () => {
-  const [softwareTechnologies, setSoftwareTechnologies] = useState<Skill[]>([]);
-  const [externalAPIs, setExternalAPIs] = useState<Skill[]>([]);
+  const [WebFrameworks, setWebFrameworks] = useState<Skill[]>([]);
+  const [buildTools, setBuildTools] = useState<Skill[]>([]);
   const [databaseTechnologies, setDatabaseTechnologies] = useState<Skill[]>([]);
-  const [cloudTechnologies, setCloudTechnologies] = useState<Skill[]>([]);
+  const [cloudTools, setCloudTools] = useState<Skill[]>([]);
+  const [editorTools, setEditorTools] = useState<Skill[]>([]);
+  const [cicdTools, setCICDTools] = useState<Skill[]>([]);
+  const [externalLibs, setExternalLibs] = useState<Skill[]>([]);
+  const [externalAPIs, setExternalAPIs] = useState<Skill[]>([]);
+  const [softwareTechnologies, setSoftwareTechnologies] = useState<Skill[]>([]);
   const [hardwareTechnologies, setHardwareTechnologies] = useState<Skill[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -88,21 +93,31 @@ const TechnicalSkills = () => {
     const fetchData = async () => {
       // Fetch each category's data from the database
       const softwareData = await fetchDataByName("SoftwareTechnologies");
-      const externalAPIsData = await fetchDataByName("externalAPIs");
-      const databaseTechnologiesData = await fetchDataByName(
-        "DatabaseTechnologies"
-      );
-      const cloudTechnologiesData = await fetchDataByName("CloudTechnologies");
       const hardwareTechnologiesData = await fetchDataByName(
         "HardwareTechnologies"
       );
+      const WebFrameworksData = await fetchDataByName("WebFrameworks");
+      const buildToolData = await fetchDataByName("BuildTools");
+      const databaseTechnologiesData = await fetchDataByName(
+        "DatabaseTechnologies"
+      );
+      const cloudToolsData = await fetchDataByName("CloudTools");
+      const editorToolsData = await fetchDataByName("EditorTools");
+      const cicdToolsData = await fetchDataByName("CICDTools");
+      const externalAPIsData = await fetchDataByName("externalAPIs");
+      const externalLibsData = await fetchDataByName("externalLibraries");
 
       // Set the state with fetched data
       setSoftwareTechnologies(softwareData);
-      setExternalAPIs(externalAPIsData);
-      setDatabaseTechnologies(databaseTechnologiesData);
-      setCloudTechnologies(cloudTechnologiesData);
       setHardwareTechnologies(hardwareTechnologiesData);
+      setWebFrameworks(WebFrameworksData);
+      setBuildTools(buildToolData);
+      setDatabaseTechnologies(databaseTechnologiesData);
+      setCloudTools(cloudToolsData);
+      setEditorTools(editorToolsData);
+      setCICDTools(cicdToolsData);
+      setExternalAPIs(externalAPIsData);
+      setExternalLibs(externalLibsData);
 
       setLoading(false);
     };
@@ -117,10 +132,15 @@ const TechnicalSkills = () => {
   return (
     <div className="page-wrap">
       <Skills data={softwareTechnologies} title="Software Technologies" />
-      <Skills data={externalAPIs} title="External APIs" />
-      <Skills data={databaseTechnologies} title="Database Technologies" />
-      <Skills data={cloudTechnologies} title="Cloud Technologies" />
       <Skills data={hardwareTechnologies} title="Hardware Technologies" />
+      <Skills data={WebFrameworks} title="Web Frameworks" />
+      <Skills data={buildTools} title="Build Tools" />
+      <Skills data={databaseTechnologies} title="Database Technologies" />
+      <Skills data={cloudTools} title="Cloud Tools" />
+      <Skills data={editorTools} title="Editor Tools" />
+      <Skills data={cicdTools} title="CICD Tools" />
+      <Skills data={externalLibs} title="External Libraries" />
+      <Skills data={externalAPIs} title="External APIs" />
     </div>
   );
 };

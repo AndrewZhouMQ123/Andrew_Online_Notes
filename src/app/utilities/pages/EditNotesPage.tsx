@@ -37,7 +37,7 @@ const names = [
   { name: "globalAttributes" },
   { name: "globalProperties" },
   { name: "primitiveDataTypes" },
-  { name: "CloudTechnologies" },
+  { name: "CloudTools" },
   { name: "builtInFunctions" },
   { name: "builtInObjects" },
   { name: "domBomAPI" },

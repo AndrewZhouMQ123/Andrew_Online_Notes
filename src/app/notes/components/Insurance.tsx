@@ -134,9 +134,11 @@ export const Laws = [
     ],
     StatutoryConditions: [
       "Rights & responsibilities of the parties written in law",
-      "Misrepresentation: 1. False description of property 2. Misrepresentation of a Material Fact 3. Fradulent omission of a Material Fact",
-      "Material Fact: impacts insurer's decision with potential for loss. If found related to loss = void coverage.",
-      "Fraud: If found related to loss = void coverage.",
+      `Misrepresentation: 1. False description of property to the prejudice of the insurer and causes harm to the insurer 
+      2. Misrepresentation of a Material Fact 3. Fradulent omission of a Material Fact`,
+      `Material Fact: impacts insurer's decision. Ex: loss history, previous cancellations or denials of insurance.
+      Not misrepresentation if it does not disadvantage the insurer. If found related to loss = void coverage.`,
+      "Fraud (claim for loss to an item you never had): If found related to loss = void coverage.",
     ],
   },
 ];
