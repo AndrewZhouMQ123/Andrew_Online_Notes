@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import supabase from "@/lib/db";
+import supabase, { supabaseAdmin } from "@/lib/db";
 import { PostgrestError } from "@supabase/supabase-js";
 import bcrypt from "bcryptjs";
 
@@ -213,84 +213,74 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // Parse the request body to get the new datasheet data
+    // Parse the request body
     const requestBody: Data = await request.json();
     const { name, datasheet } = requestBody;
 
-    console.log(datasheet);
-    // Ensure the datasheet is an array
-    if (!Array.isArray(datasheet)) {
-      return NextResponse.json(
-        { error: "The datasheet must be an array" },
-        { status: 400 }
-      );
-    }
+    // Validate input
+    const validationError = validateInput(name, datasheet);
+    if (validationError) return validationError;
 
-    if (!name) {
-      return NextResponse.json(
-        { error: "Name parameter is required" },
-        { status: 400 }
-      );
-    }
-
-    // Fetch the current datasheet based on the name
+    // Fetch existing data
     const { data: existingData, error: fetchError } = await supabase
       .from("devnotes")
       .select("datasheet")
       .eq("name", name)
-      .single(); // Expecting a single result
+      .single();
 
     if (fetchError) {
       console.error("Supabase Fetch Error:", fetchError);
-      return NextResponse.json(
-        { error: "Failed to fetch existing data" },
-        { status: 500 }
+      return errorResponse("Failed to fetch existing data", 500);
+    }
+
+    // If no existing data, insert a new entry; otherwise, update
+    const { data, error } = existingData
+      ? await updateDatasheet(name, datasheet)
+      : await insertDatasheet(name, datasheet);
+
+    if (error) {
+      console.error("Supabase Error:", error);
+      return errorResponse(
+        `Failed to ${existingData ? "update" : "create"} datasheet`,
+        500
       );
     }
 
-    // If no data found, return a 404 response
-    if (!existingData) {
-      return NextResponse.json(
-        { error: "No data found for the given name" },
-        { status: 404 }
-      );
-    }
-
-    // Replace the datasheet with the new one
-    const { data, error: updateError } = await supabase
-      .from("devnotes")
-      .update({ datasheet }) // Update the 'datasheet' column
-      .eq("name", name)
-      .select("datasheet")
-      .single<Data>();
-
-    if (updateError) {
-      console.error("Supabase Update Error:", updateError);
-      return NextResponse.json(
-        { error: "Failed to update datasheet" },
-        { status: 500 }
-      );
-    }
-
-    // Return the updated datasheet
-    if (data) {
-      return NextResponse.json({ datasheet: data.datasheet });
-    } else {
-      return NextResponse.json(
-        { error: "Failed to update datasheet for the given name" },
-        { status: 500 }
-      );
-    }
+    return NextResponse.json({ datasheet: data.datasheet });
   } catch (error) {
-    if (error instanceof PostgrestError) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
-    }
-
-    // Catching any other unknown errors
-    console.error("Unexpected error:", error); // Log error for debugging purposes
-    return NextResponse.json(
-      { error: "An unexpected error occurred" },
-      { status: 500 }
-    );
+    console.error("Unexpected Error:", error);
+    return errorResponse("An unexpected error occurred", 500);
   }
+}
+
+// Validation Function
+function validateInput(name: string, datasheet: unknown): NextResponse | null {
+  if (!name) return errorResponse("Name parameter is required", 400);
+  if (!Array.isArray(datasheet))
+    return errorResponse("The datasheet must be an array", 400);
+  return null;
+}
+
+// Helper Function to Insert Data
+async function insertDatasheet(name: string, datasheet: DatasheetItem[]) {
+  return await supabaseAdmin
+    .from("devnotes")
+    .insert([{ name, datasheet }])
+    .select("datasheet")
+    .single();
+}
+
+// Helper Function to Update Data
+async function updateDatasheet(name: string, datasheet: DatasheetItem[]) {
+  return await supabaseAdmin
+    .from("devnotes")
+    .update({ datasheet })
+    .eq("name", name)
+    .select("datasheet")
+    .single();
+}
+
+// Error Response Helper
+function errorResponse(message: string, status: number): NextResponse {
+  return NextResponse.json({ error: message }, { status });
 }
