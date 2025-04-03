@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import supabase, { supabaseAdmin } from "@/lib/db";
+import supabase from "@/lib/db";
+import { createClient } from "@supabase/supabase-js";
 import { PostgrestError } from "@supabase/supabase-js";
 import bcrypt from "bcryptjs";
+
+const supabaseAdmin = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL as string,
+  process.env.SUPABASE_SERVICE_ROLE_KEY as string
+);
 
 // Define types for each category of data
 interface ElementItem {

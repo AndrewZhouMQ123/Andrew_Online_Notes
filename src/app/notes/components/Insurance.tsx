@@ -91,55 +91,373 @@ export const Roles = [
   },
 ];
 
-export const Laws = [
+export const InsuranceAct = [
   {
-    name: "Insurance Act",
-    ContentofInsurancePolicies: [
+    name: "Content of Insurance Policies",
+    description:
       "These following things must appear on the declarations page - usually the first page of all policies, sometimes called the DECK page.",
-      "Parties to the contract",
-      "Loss payable or payee",
-      "All parties with insurable interest must be listed on policy",
-      "Any who is able to receive a benefit from this policy must be listed on policy",
-      "Policy Period",
-      "Coverage & amount of insurance - coverages you have and their limits of insurance",
-      "Subject matter - what is the property insured and where is it, usually involves a postal address",
-      "Rates and premiums - people have to know how much it costs",
+    context: [
+      {
+        section: "Contract Information",
+        items: [
+          {
+            name: "Parties to the contract",
+            definition:
+              "All parties involved in the insurance contract must be clearly listed on the declarations page.",
+          },
+          {
+            name: "Loss payable or payee",
+            definition:
+              "Any who is able to receive a benefit from this policy must be listed on policy",
+          },
+          {
+            name: "InsurableInterest",
+            definition:
+              "All parties with an insurable interest in the policy must be listed. This includes anyone who stands to benefit from the policy.",
+          },
+        ],
+      },
+      {
+        section: "Policy Details",
+        items: [
+          {
+            name: "PolicyPeriod",
+            definition:
+              "The start and end dates of the coverage period must be clearly stated on the declarations page.",
+          },
+          {
+            name: "Coverage & amount of insurance",
+            definition:
+              "The coverages provided by the policy, along with their limits, must be outlined in detail.",
+          },
+          {
+            name: "Subject Matter",
+            definition:
+              "The property insured and its location must be identified, usually including a postal address.",
+          },
+          {
+            name: "Rates And Premiums",
+            definition:
+              "The policy must disclose the rates and premiums to ensure the insured knows how much they are paying.",
+          },
+        ],
+      },
     ],
-    BasicFirePolicyCoverage: [
+  },
+  {
+    name: "Basic Fire Policy Coverage",
+    description:
       "All property policies must offer coverage for fire, and two additional perils.",
-      `Any policy that insures against fire, must also insure against firefighting related damages,
-      such as water damage done by sprinkler systems, building damage caused by firefighters
-      - if they have to break down fire, and other damage done to prevent the spread of fire`,
-      "2 types of fire: friendly & hostile.",
-      "A friendly fire is deliberate and contained application of fire for beneficial purposes.",
-      "A hostile fire is one that is not contained and has destructive effects.",
-      "Only damaged caused by hostile fire is insurable.",
-      `For example, if you have a fireplace, that is friendly fire.
-      However, once a spark escapes and sets your carpet on fire, it is hostile fire.`,
-      "Additional perils: lightning damage to property, explosion of coal, natural or manufactured gas.",
-      "Exclusions: explosions of boilers of pressure vessels",
+    context: [
+      {
+        section: "Fire Coverage",
+        items: [
+          {
+            name: "FirefightingRelatedDamages",
+            definition:
+              "Any policy that insures against fire, must also insure against firefighting related damages, such as water damage done by sprinkler systems, building damage caused by firefighters, and other damage done to prevent the spread of fire.",
+          },
+          {
+            name: "Fire Types",
+            definition: "There are two types of fire: friendly & hostile.",
+          },
+        ],
+      },
+      {
+        section: "Fire Type Explanation",
+        items: [
+          {
+            name: "Friendly fire",
+            definition:
+              "Deliberate and contained application of fire for beneficial purposes.",
+          },
+          {
+            name: "Hostile fire",
+            definition:
+              "Not contained and has destructive effects. Only damage caused by hostile fire is insurable.",
+          },
+          {
+            name: "Type of Fire Example",
+            definition:
+              "If you have a fireplace, that is friendly fire. However, once a spark escapes and sets your carpet on fire, it is hostile fire.",
+          },
+        ],
+      },
+      {
+        section: "Additional Perils and Exclusions",
+        items: [
+          {
+            name: "Additional perils",
+            definition:
+              "Lightning damage to property, explosion of coal, natural or manufactured gas.",
+          },
+          {
+            name: "Exclusions",
+            definition:
+              "Explosions of boilers or pressure vessels are excluded from coverage.",
+          },
+        ],
+      },
     ],
-    RemovalClause: [
-      `This covers your property for up to 7 days if you have to move it to another location not stated on the policy
-      in order to prevent loss or further loss - this is called necessary removal.`,
-      "Limits available at new location is the amount left after paying for the loss at the primary location.",
-      "Limit is shared between the two locations.",
-      "The removal clause is important because you usually have no coverage for property at unlisted location.",
+  },
+  {
+    name: "Removal Clause",
+    description:
+      "Covers your property for up to 7 days for necessary removal. You usually have no coverage for property at unlisted location.",
+    context: [
+      {
+        section: "Removal Details",
+        items: [
+          {
+            name: "Necessary Removal",
+            definition:
+              "You have to move property to another location not stated on the policy in order to prevent loss or further loss.",
+          },
+          {
+            name: "Coverage Limit",
+            definition:
+              "Limit is shared between the two locations. Limits available at new location is amount left after paying for the loss at the primary location.",
+          },
+        ],
+      },
     ],
-    StandardLegislatedExclusions: [
-      "Losses due to Application of Heat",
-      "Losses due to Radiocative Contamination",
-      "Electrical currents: electrical equipment damaged by power surge or lightning damage not covered. But the resultant fire is insured.",
-      "Riot, insurrection, war, act of foreign enemy - not covered because they are deliberate acts of violence with potential of large losses.",
+  },
+  {
+    name: "Standard Legislated Exclusions",
+    description: "Losses not covered.",
+    context: [
+      {
+        section: "Exclusions Details",
+        items: [
+          {
+            name: "Application of Heat",
+            definition:
+              "Losses due to the application of heat, such as those from fire or high-temperature environments, are excluded from coverage.",
+          },
+          {
+            name: "Radioactive Contamination",
+            definition:
+              "Losses resulting from radioactive contamination are not covered under the policy.",
+          },
+          {
+            name: "Electrical Currents",
+            definition: [
+              "Losses caused by electrical currents, such as damage to electrical equipment from a power surge or lightning, are excluded.",
+              "However, the resultant fire from such an event is still covered.",
+            ],
+          },
+          {
+            name: "Deliberate Acts of Violence",
+            definition:
+              "Losses caused by riots, insurrection, war, or acts of foreign enemies are not covered.",
+          },
+        ],
+      },
     ],
-    StatutoryConditions: [
-      "Rights & responsibilities of the parties written in law",
-      `Misrepresentation: 1. False description of property to the prejudice of the insurer and causes harm to the insurer 
-      2. Misrepresentation of a Material Fact 3. Fradulent omission of a Material Fact`,
-      `Material Fact: impacts insurer's decision. Ex: loss history, previous cancellations or denials of insurance.
-      Not misrepresentation if it does not disadvantage the insurer. If found related to loss = void coverage.`,
-      "Fraud (claim for loss to an item you never had): If found related to loss = void coverage.",
+  },
+  {
+    name: "Statutory Conditions",
+    description: "Rights & responsibilities of the parties written in law.",
+    context: [
+      {
+        section: "Misrepresentation",
+        items: [
+          {
+            name: "False description",
+            definition:
+              "False description of property to the prejudice of the insurer and causes harm to the insurer.",
+          },
+          {
+            name: "Fraudulent omissions",
+            definition:
+              "Misrepresentation of a Material Fact, or fraudulent omission of a Material Fact.",
+          },
+          {
+            name: "Accidental omissions",
+            definition:
+              "Not misrepresentation if it does not disadvantage the insurer. Accidental omissions don't count either.",
+          },
+        ],
+      },
+      {
+        section: "Fraud and Misrepresentation",
+        items: [
+          {
+            name: "Fraud",
+            definition:
+              "Claim for loss to an item you never had. If found related to loss, it voids coverage.",
+          },
+          {
+            name: "Material Fact",
+            definition:
+              "Impacts insurer's decision. For example, loss history, previous cancellations, or denials of insurance. If found related to loss, void coverage.",
+          },
+        ],
+      },
+      {
+        section: "Loss Reporting and Responsibilities",
+        items: [
+          {
+            name: "Requirements upon Loss",
+            definition: [
+              "Notice of loss ASAP.",
+              "Proof of loss.",
+              "Inventory of undamaged property, produce required items.",
+            ],
+          },
+          {
+            name: "Who can give Notice / Proof of Loss",
+            definition: [
+              "Either the insured & agent of insured (authorized individual), or anyone with an insurable interest if insured refuses.",
+            ],
+          },
+          {
+            name: "Termination Responsibilities",
+            definition: [
+              "Insured: notify insurer & premium refund on short rate basis.",
+              "Insurer: provide written notice (15 days via mail, 5 days hand delivered), & refund premium on pro-rata basis.",
+            ],
+          },
+        ],
+      },
+      {
+        section: "Claims and Legalities",
+        items: [
+          {
+            name: "Short rate",
+            definition:
+              "Proportional to remaining length of policy - administration fee = final.",
+          },
+          {
+            name: "Notice",
+            definition: [
+              "Insured and insurer must send to correct address.",
+              "Insured sends to provincial head office or chief agency of insurance company.",
+              "Insurer sends to last known address of insured.",
+            ],
+          },
+        ],
+      },
     ],
+  },
+];
+
+export const ContractLaw = [
+  {
+    name: "Contract",
+    definition: "Legally enforceable agreement",
+  },
+  {
+    name: "Legally Enforceable",
+    definition: "Courts agree to enforce terms of the contract",
+  },
+  {
+    name: "Common Elements of All contracts",
+    definition:
+      "Agreement, Genuine Intention, Consideration, Legality of Object, Legal Capacity of the Parties",
+    remarks:
+      "Contract must meet all common elements. Note in insurance industry, insurance companies can make what is called a counter offer.",
+  },
+  {
+    name: "Agreement",
+    definition:
+      "Offer made & accepted (all terms agreed to & no further negotiations).",
+  },
+  {
+    name: "Genuine Intention",
+    definition: "All parties freely enter & are aware of all the terms.",
+  },
+  {
+    name: "Consideration",
+    definition:
+      "All parties bring something of value - everything is benefiting from this agreement.",
+  },
+  {
+    name: "Legality of Object",
+    definition: "Purpose of Contract must be legal.",
+  },
+  {
+    name: "Legal Capacity of the Parties",
+    definition:
+      "All parties must have an equal understanding of the obligations undertaken.",
+    remarks: [
+      "Minors are only able to contract for necessities - utilities, or if they inherited a home - insurance contract to insure their home.",
+      "Mental incompetent have no legal capacity - cannot enter into contracts",
+      "Trade Names cannot enter contract because they have no legal status.",
+      "If you do want to sign a contract under a trade name, you must attach it to a legal entity.",
+      "Ex: if you had a bakery called Fragrant Bakery, you wanted to sign a contract, you have to sign it as your name DBA Fragrant Baker.",
+      "Corporations can enter contract because they are considered to have legal status separate from the owners.",
+    ],
+  },
+  {
+    name: "Counter Offer",
+    definition:
+      "Your application to insurance company is like an offer, the insurance company can submit a counter offer.",
+    remarks: `So when they issue policy, it might not exactly the same as what you requested on your application.
+      If it differs, you have a few weeks usually to reject it or take some other action.`,
+  },
+  {
+    name: "Elements Special To Insurance Contracts",
+    definition: "Insurable Interest, Indemnity, Utmost Good Faith.",
+    remarks:
+      "Insurance contracts must meet both common and special elements of contract otherwise VOID.",
+  },
+  {
+    name: "Insurance Interest",
+    definition:
+      "So only those who actually suffer loss, are entitled to benefit from the policy.",
+  },
+  {
+    name: "Indemnity",
+    definition:
+      "Indemnity establishes the amount of entitlement - how much of this do I own, how much of it will I get",
+    remarks: "Remember you only get paid the actual amount of loss.",
+  },
+  {
+    name: "Utmost Good Faith",
+    definition:
+      "Both parties must be fully honest and comply with all terms and conditions exactly.",
+  },
+  {
+    name: "Changing an Insurance Contract",
+    definition:
+      "3 ways: Floater, Rider, Endorsement. If they don't satisfy your needs, you have to choice to purchase a separate policy.",
+    remarks:
+      "Must be done in writing, and both parties must agree to the changes.",
+  },
+  {
+    name: "Floater",
+    definition:
+      "Insures mobile property or property that floats around - cellphones, contractor tools or equipment.",
+  },
+  {
+    name: "Rider",
+    definition:
+      "Adds coverage on top of existing policy - pay additional premium.",
+  },
+  {
+    name: "Endorsement",
+    definition:
+      "Issues by the insurance company to show that some changes has been made to the insurance contract.",
+  },
+  {
+    name: "Separate Policy",
+    definition:
+      "Usually used for special property risks, like buildings under construction, automobiles, or aircraft.",
+  },
+  {
+    name: "Binder",
+    definition:
+      "Interim policy insurance, issued when broker commits the insurer to a contract without checking with insurer.",
+    remarks:
+      "Shortcut application process - broker makes decision and just say yes on behalf of insurance company.",
+  },
+  {
+    name: "Agency Agreement",
+    definition:
+      "Gives broker authority to commit insurer to a contract (subject to limit/conditions)",
+    remarks:
+      "Brokers cannot bind everything. For example they cannot bind business that is very high value or high risk.",
   },
 ];
 
@@ -157,9 +475,8 @@ export const Categories = [
       },
       {
         name: "Loss Prevention / Reduction Measures",
-        remarks: [
+        remarks:
           "Work with government on different initatives to prevent or reduce financial consequences of a loss.",
-        ],
       },
       {
         name: "Peace of Mind ",
@@ -170,25 +487,78 @@ export const Categories = [
       },
       {
         name: "Supply Credit",
-        remarks: [
+        remarks:
           "For example, if you wanted to take a mortgage, you need to show you have insurance on the house.",
-        ],
       },
       {
         name: "Source of Jobs and Capital",
-        remarks: [
+        remarks:
           "Insurance companies hire employees and invest their premium dollars.",
-        ],
+      },
+    ],
+  },
+  {
+    name: "Types of Risks",
+    items: [
+      {
+        name: "Personal",
+        remarks: ["Financial hardship", "accident", "sickness", "death"],
+      },
+      { name: "Property", remarks: "Tangible property damage / destruction" },
+      {
+        name: "Liability",
+        remarks:
+          "Actions of an individual or a business that result in injury/damage to others",
+      },
+    ],
+  },
+  {
+    name: "Types of Financial Risks",
+    items: [
+      {
+        name: "Pure Risk",
+        remarks: ["Can only lose", "Ex: house catch fire"],
+      },
+      {
+        name: "Speculative Risk",
+        remarks: ["Might win or lose", "Ex: investing, gambling"],
       },
     ],
   },
   {
     name: "Ways to Deal with Risk (CART)",
     items: [
-      { name: "Control", remarks: [] },
-      { name: "Avoidance", remarks: [] },
-      { name: "Retention", remarks: [] },
-      { name: "Transfer", remarks: [] },
+      {
+        name: "Control",
+        remarks: [
+          "Reduce frequency and severity of loss.",
+          "Ex: installing sprinkler systems, alarms, or other security measures.",
+          "Cannot control everything - for example probability of an earthquake",
+        ],
+      },
+      {
+        name: "Avoidance",
+        remarks: [
+          "Avoid the activity",
+          "Not practical",
+          "Ex: If you run a pizza restaurant and you are worried about your delivery person hitting someone while out on a delivery, you can choose not to do delivery.",
+        ],
+      },
+      {
+        name: "Retention",
+        remarks: [
+          "Pay for losses yourself out of pocket",
+          "Not practical",
+          "Need a lot of money",
+        ],
+      },
+      {
+        name: "Transfer",
+        remarks: [
+          "Shift risk to someone else",
+          "When you purchase insurance, you shift the financial risk of a loss to the insurance company",
+        ],
+      },
     ],
   },
   {
@@ -293,4 +663,4 @@ export const Categories = [
   },
 ];
 
-export const InsuranceProducts = [];
+export const InsuranceProcess = [];
