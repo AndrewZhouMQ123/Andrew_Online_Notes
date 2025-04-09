@@ -100,25 +100,4 @@ export const javascriptCheatSheetData = [
       </ul>
     ),
   },
-  {
-    title: "Error Handling",
-    content: (
-      <ul>
-        {[
-          "Error",
-          "AggregateError",
-          "EvalError",
-          "RangeError",
-          "ReferenceError",
-          "SyntaxError",
-          "TypeError",
-          "URIError",
-        ].map((error) => (
-          <li key={error}>
-            <code>{error}</code>
-          </li>
-        ))}
-      </ul>
-    ),
-  },
 ];

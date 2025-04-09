@@ -1,8 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import supabase from "@/lib/db";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import SelectorsTable from "../components/SelectorsTable";
 import PropertiesTable from "../components/PropertiesTable";
 import DataTable from "../components/dataTable";
@@ -10,8 +8,8 @@ import FuncTable from "../components/funcTable";
 import AtRuleTable from "../components/AtRuleTable";
 import KeyWordTable from "../components/KeyWordTable";
 import { handle2TSave, handle3TSave } from "@/app/api/generatePDF";
-import BoxModelDiagram from "../components/BoxModelDiagram";
-import Image from "next/image";
+import Link from "next/link";
+import buttonStyles from "@/app/ui/buttons.module.css";
 
 // Type definitions for the data structure
 interface CssSelectorItem {
@@ -245,76 +243,74 @@ const LogicsPage = () => {
 };
 
 const IntroPage = () => {
-  const code = `
-    1 body {
-    2   font-family: Arial, sans-serif;
-    3   background-color: red;
-    4   margin: 0;
-    5   padding: 0;
-    6 }
-    7 .center-box{
-    8   display: flex;
-    9   justify-content: center;
-    10  align-items: center;
-    11 }
-  `;
-
   return (
     <div className="page-wrap">
       <span className="blog-title glitter-title">CSS Cheat Sheet</span>
-      <div className="white-board">
-        <p style={{ textTransform: "none", textShadow: "none" }}>
-          CSS {"("}Cascading Style Sheets{")"}: A core web language used to
-          define the presentation of HTML or XML documents across various media.
-          It is standardized by the W3C and now developed modularly, with
-          individual CSS modules having version numbers {"("}e.g., CSS Color
-          Module Level 5{")"}. Versioning like CSS3 has been replaced by
-          periodic W3C snapshots of stable module states.
-        </p>
-      </div>
-      <div className="white-board">
-        <span className="blog-title">Example Code Snippet</span>
-        <SyntaxHighlighter
-          language="css"
-          style={vscDarkPlus}
-          customStyle={{ textTransform: "none", textShadow: "none" }}
-        >
-          {code}
-        </SyntaxHighlighter>
-      </div>
-      <div className="horizontal-wrap">
-        <div>
-          <span className="blog-title">Box Model</span>
-          <BoxModelDiagram />
-        </div>
-        <div className="flex flex-col w-full">
-          <div className="m-2.5">
-            <span className="blog-title text-center block">
-              Main Axis Column
-            </span>
-            <Image
-              src="/mainaxiscol.png"
-              className="w-full"
-              width={600}
-              height={400}
-              alt="html page main axis col"
-            />
-          </div>
-          <div className="m-2.5">
-            <span className="blog-title text-center block">Main Axis Row</span>
-            <Image
-              src="/mainaxisrow.png"
-              className="w-full"
-              width={600}
-              height={400}
-              alt="html page main axis row"
-            />
-          </div>
-        </div>
-      </div>
-      <p className="italic text-right text-sm mt-5">
-        Built with <span className="glitter-title">Canvas API</span>
+      <p style={{ textTransform: "none", textShadow: "none" }}>
+        CSS {"("}Cascading Style Sheets{")"}: A core web language used to define
+        the presentation of HTML or XML documents across various media. It is
+        standardized by the W3C and now developed modularly, with individual CSS
+        modules having version numbers {"("}e.g., CSS Color Module Level 5{")"}.
+        Versioning like CSS3 has been replaced by periodic W3C snapshots of
+        stable module states.
       </p>
+      <p>Here are some useful links.</p>
+      <div>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://css-tricks.com/"
+        >
+          CSS Tricks
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+        >
+          MDN Web Docs CSS
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://www.w3schools.com/css/"
+        >
+          W3Schools CSS
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://getbootstrap.com/"
+        >
+          Bootstrap
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://quirks.spec.whatwg.org/"
+        >
+          WHATWG Quirks
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://compat.spec.whatwg.org/"
+        >
+          WHATWG Compat
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://www.rapidtables.com/web/color/RGB_Color.html"
+        >
+          rgb colors
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://hslpicker.com/#000dff"
+        >
+          hsl colors
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://lch.oklch.com/"
+        >
+          lch colors
+        </Link>
+      </div>
     </div>
   );
 };

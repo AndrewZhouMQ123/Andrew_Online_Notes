@@ -10,6 +10,8 @@ import {
 import HTMLGlobalsTable from "../components/HTMLGlobalsTable";
 import { handle2TSave, handle3TSave } from "@/app/api/generatePDF";
 import SyntaxHighlighter from "react-syntax-highlighter";
+import Link from "next/link";
+import buttonStyles from "@/app/ui/buttons.module.css";
 
 // Type definitions for the data structure
 interface ElementItem {
@@ -249,77 +251,90 @@ const IntroPage = () => {
   return (
     <div className="page-wrap">
       <span className="blog-title glitter-title">HTML Cheat Sheet</span>
-      <div className="white-board">
-        <p style={{ textTransform: "none", textShadow: "none" }}>
-          HTML (HyperText Markup Language) is the most basic building block of
-          the Web. It defines the meaning and structure of web content.
-          &quot;Hypertext&quot; refers to links that connect web pages to one
-          another, either within a single website or between websites.
-        </p>
-      </div>
-
-      <div className="white-board">
-        <h2>HTML Syntax</h2>
-        <ul>
-          <li>
-            <SyntaxHighlighter
-              language="html"
-              customStyle={{ textShadow: "none" }}
-            >
-              {`<!DOCTYPE html>`}
-            </SyntaxHighlighter>
-            at the top level declares the document type and version of HTML.
-          </li>
-          <li>
-            Space and indentation in code are ignored in HTML. They only affect
-            readability.
-          </li>
-          <li>
-            HTML elements are the building blocks of HTML. Each element begins
-            with an opening tag and ends with a closing tag
-          </li>
-          <li>
-            Void elements have self-enclosing tags (no closing tag) and no
-            content.
-            <SyntaxHighlighter
-              language="html"
-              customStyle={{ textTransform: "none", textShadow: "none" }}
-            >
-              {`<img src="image.jpg" alt="Description">`}
-            </SyntaxHighlighter>
-          </li>
-          <li>
-            The head section is for code that will not be displayed in the
-            browser.
-          </li>
-          <li>
-            The body section is for code that will be rendered as content in the
-            browser.
-          </li>
-          <li>
-            HTML enables elements to be nested within other elements.
-            <SyntaxHighlighter
-              language="html"
-              customStyle={{ textTransform: "none", textShadow: "none" }}
-            >
-              {code}
-            </SyntaxHighlighter>
-          </li>
-          <li>
-            Comments are written like this:
-            <SyntaxHighlighter
-              language="html"
-              customStyle={{ textTransform: "none", textShadow: "none" }}
-            >
-              {`<!-- This is a comment -->`}
-            </SyntaxHighlighter>
-          </li>
-          <li>
-            JavaScript scripts are preferably imported at the end of the body so
-            that HTML is rendered first. Otherwise, loading scripts could delay
-            HTML content, and the web page may appear disoriented.
-          </li>
-        </ul>
+      <p style={{ textTransform: "none", textShadow: "none" }}>
+        HTML (HyperText Markup Language) is the most basic building block of the
+        Web. It defines the meaning and structure of web content.
+        &quot;Hypertext&quot; refers to links that connect web pages to one
+        another, either within a single website or between websites.
+      </p>
+      <h2>HTML Syntax</h2>
+      <SyntaxHighlighter language="html" customStyle={{ textShadow: "none" }}>
+        {`<!DOCTYPE html>`}
+      </SyntaxHighlighter>
+      at the top level declares the document type and version of HTML. Space and
+      indentation in code are ignored in HTML. They only affect readability.
+      HTML elements are the building blocks of HTML. Each element begins with an
+      opening tag and ends with a closing tag Void elements have self-enclosing
+      tags (no closing tag) and no content.
+      <SyntaxHighlighter
+        language="html"
+        customStyle={{ textTransform: "none", textShadow: "none" }}
+      >
+        {`<img src="image.jpg" alt="Description">`}
+      </SyntaxHighlighter>
+      The head section is for code that will not be displayed in the browser.
+      The body section is for code that will be rendered as content in the
+      browser. HTML enables elements to be nested within other elements.
+      <SyntaxHighlighter
+        language="html"
+        customStyle={{ textTransform: "none", textShadow: "none" }}
+      >
+        {code}
+      </SyntaxHighlighter>
+      Comments are written like this:
+      <SyntaxHighlighter
+        language="html"
+        customStyle={{ textTransform: "none", textShadow: "none" }}
+      >
+        {`<!-- This is a comment -->`}
+      </SyntaxHighlighter>
+      JavaScript scripts are preferably imported at the end of the body so that
+      HTML is rendered first. Otherwise, loading scripts could delay HTML
+      content, and the web page may appear disoriented.
+      <p>Here are some useful links.</p>
+      <div>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+        >
+          MDN Web Docs HTML
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://www.w3schools.com/Html/"
+        >
+          W3Schools HTML
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://html.spec.whatwg.org/"
+        >
+          WHATWG HTML
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://webidl.spec.whatwg.org/"
+        >
+          WHATWG IDL
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://dom.spec.whatwg.org/"
+        >
+          WHATWG DOM
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://fullscreen.spec.whatwg.org/"
+        >
+          WHATWG FullScreen
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://infra.spec.whatwg.org/"
+        >
+          WHATWG Infra
+        </Link>
       </div>
     </div>
   );

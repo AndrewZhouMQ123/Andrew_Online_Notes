@@ -1,5 +1,5 @@
 // components/Section.tsx
-import React from 'react';
+import React from "react";
 
 interface SectionProps {
   title: string;
@@ -7,10 +7,10 @@ interface SectionProps {
 }
 
 const Section = ({ title, content }: SectionProps) => (
-  <li>
+  <div>
     <strong>{title}:</strong>
     {content}
-  </li>
+  </div>
 );
 
 export default Section;

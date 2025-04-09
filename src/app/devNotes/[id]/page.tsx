@@ -11,9 +11,9 @@ enum PageType {
   HTMLCore = 1,
   CSSCore = 2,
   JSCore = 3,
-  Commands = 4,
-  Shortcuts = 5,
-  HTTPS = 6,
+  HTTPS = 4,
+  Commands = 5,
+  Shortcuts = 6,
   Npm = 7,
 }
 
@@ -43,12 +43,12 @@ export default async function Page({
       return <CSSCore />;
     case PageType.JSCore:
       return <JSCore />;
+    case PageType.HTTPS:
+      return <HTTPSpage />;
     case PageType.Commands:
       return <CommandsPage />;
     case PageType.Shortcuts:
       return <ShortCutsPage />;
-    case PageType.HTTPS:
-      return <HTTPSpage />;
     case PageType.Npm:
       return <NpmPage />;
     default:

@@ -8,6 +8,7 @@ import { randomBytes } from "crypto";
 import "./ui/blog.css";
 import "./ui/pages.css";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const generateNonce = () => {
   return randomBytes(16).toString("base64");
@@ -98,9 +99,7 @@ export default function RootLayout({
           <Header />
           <ScrollToTopBtn />
           <main style={{ paddingTop: "55px" }}>{children}</main>
-          <footer>
-            <p>© 2025 Web-Goodies App</p>
-          </footer>
+          <Footer />
         </body>
       </html>
     </ThemeProviderWrapper>

@@ -10,6 +10,8 @@ import GmethodTable from "../components/MethodTable";
 import GobjectTable from "../components/ObjectTable";
 import APITable from "../components/APITables";
 import { handle2TSave, handle3TSave } from "@/app/api/generatePDF";
+import Link from "next/link";
+import buttonStyles from "@/app/ui/buttons.module.css";
 
 export default function JSCore() {
   const legacyMethods = [
@@ -69,31 +71,122 @@ export default function JSCore() {
     <div>
       <div className="page-wrap">
         <span className="blog-title glitter-title">JavaScript Cheat Sheet</span>
-        <ul className="white-board">
-          <span>Falsy Values</span>
-          <CodeBlock code={falsyValues.join("\n")} />
-          <span>Truthy Values</span>
-          <CodeBlock code={truthyValues.join("\n")} />
-          {javascriptCheatSheetData.map((section, index) => (
-            <Section
-              key={index}
-              title={section.title}
-              content={section.content}
-            />
-          ))}
-          <span>
-            General Idea of Legacy Code I used before switching to NextJS
-          </span>
-          <CodeBlock code={legacyMethods.join("\n")} />
-          <CodeBlock code={legacySnippets.join("\n")} />
-        </ul>
+        <span>Falsy Values</span>
+        <CodeBlock code={falsyValues.join("\n")} />
+        <span>Truthy Values</span>
+        <CodeBlock code={truthyValues.join("\n")} />
+        {javascriptCheatSheetData.map((section, index) => (
+          <Section
+            key={index}
+            title={section.title}
+            content={section.content}
+          />
+        ))}
+        <span>Example of Legacy Code I used before switching to NextJS</span>
+        <CodeBlock code={legacyMethods.join("\n")} />
+        <CodeBlock code={legacySnippets.join("\n")} />
+
+        <p>Here are some useful links.</p>
+        <div>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+          >
+            MDN Web Docs JavaScript
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://javascript.info/"
+          >
+            Modern JavaScript Tutorial
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://www.w3schools.com/js/"
+          >
+            W3Schools JavaScript Tutorial
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://react.dev/"
+          >
+            React
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://legacy.reactjs.org/"
+          >
+            Old React
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://babeljs.io/"
+          >
+            Babel JS
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://webpack.js.org/"
+          >
+            Webpack JS
+          </Link>
+        </div>
+        <div>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://nodejs.org/en"
+          >
+            Node JS
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://v8.dev/"
+          >
+            V8 Engine
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection"
+          >
+            Tour of V8
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://survivejs.com/"
+          >
+            Survive JS
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://notifications.spec.whatwg.org/"
+          >
+            WHATWG Notify
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://storage.spec.whatwg.org/"
+          >
+            WHATWG Storage
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://console.spec.whatwg.org/"
+          >
+            WHATWG Console
+          </Link>
+          <Link
+            className={buttonStyles.link + " " + buttonStyles.wideBtn}
+            href="https://fs.spec.whatwg.org/"
+          >
+            WHATWG File System
+          </Link>
+        </div>
       </div>
       <Tables />
     </div>
   );
 }
 
-// Type definitions for the data structure
 interface GlobalPropertyItem {
   prop: string;
   desc: string;

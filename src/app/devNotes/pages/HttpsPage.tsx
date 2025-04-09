@@ -4,6 +4,8 @@ import supabase from "@/lib/db";
 import HTTPStable from "@/app/devNotes/components/HTTPStable";
 import { handle2TSave } from "@/app/api/generatePDF";
 import Image from "next/image";
+import Link from "next/link";
+import buttonStyles from "@/app/ui/buttons.module.css";
 
 interface Https {
   http: string;
@@ -69,6 +71,71 @@ const HTTPSpage = () => {
         width={800}
         alt="client server model"
       />
+      <p>Here are some useful links.</p>
+      <div>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://developer.mozilla.org/en-US/docs/Web/HTTP"
+        >
+          HTTP
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://developer.mozilla.org/en-US/docs/Glossary/HTTPS"
+        >
+          HTTPS
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://axios-http.com/"
+        >
+          Axios
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://fetch.spec.whatwg.org/"
+        >
+          WHATWG Fetch
+        </Link>
+      </div>
+      <div>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://xhr.spec.whatwg.org/"
+        >
+          WHATWG XMLHttpRequest
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://websockets.spec.whatwg.org/"
+        >
+          WHATWG WebSocket
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://mimesniff.spec.whatwg.org/"
+        >
+          WHATWG MIME
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://encoding.spec.whatwg.org/"
+        >
+          WHATWG Encoding
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://compression.spec.whatwg.org/"
+        >
+          WHATWG Compression
+        </Link>
+        <Link
+          className={buttonStyles.link + " " + buttonStyles.wideBtn}
+          href="https://streams.spec.whatwg.org/"
+        >
+          WHATWG Streams
+        </Link>
+      </div>
       {httpData.map((httpGroup, index) => (
         <HTTPStable
           key={index}

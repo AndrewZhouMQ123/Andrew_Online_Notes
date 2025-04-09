@@ -9,12 +9,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        montserrat: ['var(--font-montserrat)', 'Arial', 'sans-serif'],
-        roboto: ['var(--font-roboto)', 'sans-serif'],
+        montserrat: ["var(--font-montserrat)", "Arial", "sans-serif"],
+        roboto: ["var(--font-roboto)", "sans-serif"],
       },
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        background: "var(--background)",
+        foreground: "var(--foreground)",
       },
     },
   },

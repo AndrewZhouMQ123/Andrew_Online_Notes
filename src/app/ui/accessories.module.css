@@ -1,11 +1,7 @@
 .element {
   cursor: pointer;
   color: rgb(0, 105, 194); /* Kept original color */
-  background-color: rgb(
-    220,
-    220,
-    220
-  ); /* Adjusted to match .white-board background */
+  background-color: rgb(220, 220, 220);
   text-transform: none;
   text-shadow: none;
   border-radius: 4px; /* Added border-radius for consistency */

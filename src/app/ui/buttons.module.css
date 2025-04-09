@@ -10,6 +10,7 @@
 
 .wideBtn {
   width: 200px;
+  padding: 10px;
   border-radius: 18px;
   border: none;
 }
@@ -62,17 +63,17 @@
 }
 .heavenly {
   background: linear-gradient(lch(76 44 311), hsl(190, 76%, 74%));
-  color: whitesmoke;
+  color: black;
   border-color: whitesmoke;
 }
 .ice {
   background: linear-gradient(whitesmoke, hsl(190, 76%, 74%));
-  color: whitesmoke;
+  color: black;
   border-color: gold;
 }
 .ocean {
   background: linear-gradient(hsl(190, 76%, 74%), whitesmoke);
-  color: whitesmoke;
+  color: black;
   border-color: gold;
 }
 .guava {
@@ -254,7 +255,6 @@
   transform: translateY(-2px);
 }
 
-/* Box Wrapper */
 .boxWrap {
   display: flex;
   flex-wrap: wrap;
@@ -266,4 +266,28 @@
   border: 1px solid rgb(160, 150, 200);
   border-radius: 4px;
   padding: 10px;
+}
+
+.flashCardFront {
+  cursor: pointer;
+  font-size: 35px;
+  background-color: #fafafa; /* Light lavender background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #424242; /* Dark gray text - very readable and soft on the eyes */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flashCardBack {
+  cursor: pointer;
+  font-size: 18px; /* Slightly larger text for better readability */
+  line-height: 1.6; /* More space between lines for easier reading */
+  background-color: #fafafa; /* Light lavender background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #424242; /* Dark gray text - very readable and soft on the eyes */
+  font-family: "Roboto", sans-serif; /* Clean and modern font, optimized for readability */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
