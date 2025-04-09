@@ -1,24 +1,20 @@
-# Web Experiments
+# Andrew's Online Notes
 
-A miscellaneous website with all sorts of goodies: classic minigames, web dev cheatsheets, scientific calculators, scientific graph tools, and for trying out experimental frontend technologies
+My personal website containing online notes and utility tools.
 
 ## Technologies Used
 
-- TypeScript, JavaScript, HTML and CSS
-
 - React, NextJS
 
-- Custom CSS modules and Tailwind CSS
+- Mostly CSS modules, some Tailwind CSS
 
-## Features
-- HTML, CSS, JS, NPM, MACOS and VIM cheatsheets and many more
-- Scientific Calculator and Graphing tools
-- Classic minigames: Tetris, Pac Man, Space Invaders (coming soon)
-- Search Function now searches for games and returns search results
-- Landing page animations (coming soon)
+### Personal APIs Used
 
-## Future plans
-- improved text to speech API, maybe incorporating AI voice
+- SciGraphAPI I wrote in Python for graphing utility
+
+### Commercial APIs Used
+
+- AWS Polly for (Text To Speech with SSML tags)
 
 ## Getting Started
 
@@ -38,15 +34,7 @@ git clone https://github.com/AndrewZhouMQ123/Web_Experiments
 
 ```
 
-2. Navigate to the project frontend directory:
-
-```bash
-
-cd frontend
-
-```
-
-3. Install dependencies:
+2. Install dependencies:
 
 ```bash
 
@@ -54,27 +42,11 @@ npm install
 
 ```
 
-4. Start the development server:
+3. Start the development server:
 
 ```bash
-
 npm start
-
-```
-
-### Running the Application
-
-- Open [http://localhost:3000](http://localhost:3000) to view the app in the browser.
-
-## Development Notes
-
-### Troubleshooting
-
-- Issues with SSML tags in Web Speech API.
-
-### NextJS App router Integration
-
-```bash
+# or
 npm run dev
 # or
 yarn dev
@@ -84,7 +56,9 @@ pnpm dev
 bun dev
 ```
 
-- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Running the Application
+
+- Open [http://localhost:3000](http://localhost:3000) to view the app in the browser.
 - Install VSCode Extension: PostCSS Language Support, solves Unknown at rule @tailwindcss(unknownAtRules)
 
 ## Deploy to Vercel
@@ -92,4 +66,3 @@ bun dev
 - Deploy to Vercel using the github repo
 - Setup Postgres database (I used supabase)
 - Connect database to project
-- Create ids_table in database and insert the ids for dynamic routing

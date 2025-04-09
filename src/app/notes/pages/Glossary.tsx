@@ -27,7 +27,7 @@ const Glossary = () => {
 
   const ClaimsAdjuster = {
     role: "Investigate loss, determines $ and settlement.",
-    type: "Employee or Independent Contractor (more specialized losses or losses that occur in rural / remote areas )",
+    type: "Employee or Independent Contractor (more specialized losses or losses that occur in rural / remote areas)",
     claimProcess:
       "1. Insured reports to broker, 2. Broker reports to insurer, 3. Insurer assigns adjuster",
     brokerResponsibility:
@@ -105,8 +105,7 @@ const Glossary = () => {
       <div className="page-wrap">
         <span className="topic-subtitle">Claims Adjuster</span>
         <p className="def-text">
-          <strong className="name-text">Role:</strong>{" "}
-          {UnderwritingHomeOwnersForms.name}
+          <strong className="name-text">Role:</strong> {ClaimsAdjuster.role}
         </p>
         <p className="def-text">
           <strong className="name-text">Type:</strong> {ClaimsAdjuster.type}

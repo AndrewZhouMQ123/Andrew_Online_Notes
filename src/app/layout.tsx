@@ -37,12 +37,11 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Web Goodies",
+  title: "Andrew's Online Notes",
   icons: {
     icon: ["/favicon.ico"],
   },
-  description:
-    "Next.js website with cheat sheets and also where I do web experiments",
+  description: "My personal notes and utility tools",
   manifest: "/site.webmanifest", // Link to the PWA manifest file
 };
 
