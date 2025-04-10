@@ -22,6 +22,17 @@ export default function AboutMe() {
         description={about}
       />
       <Education />
+      <h1 className="blog-subtitle">
+        Andrew Zhou:{" "}
+        <a
+          href="/Full_CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          CV/resume
+        </a>
+      </h1>
       <h1 className="blog-subtitle">My Websites:</h1>
       <Link
         className={buttonstyles.link}
