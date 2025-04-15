@@ -141,6 +141,11 @@ export default function InsuranceActViewer() {
 
   return (
     <div className="page-wrap">
+      <h1 className="blog-title">Insurance Act</h1>
+      <p>
+        The main piece of legislation governing insurance here in Canada. Each
+        province has their own version.
+      </p>
       <div className="content-layout">
         <aside className="sidebar">
           {insuranceAct.map((topic, topicIndex) => (

@@ -22,37 +22,40 @@ export default function AboutMe() {
         description={about}
       />
       <Education />
-      <h1 className="blog-subtitle">
-        Andrew Zhou:{" "}
-        <a
-          href="/Full_CV.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:underline"
+      <div className="page-wrap">
+        {" "}
+        <h1 className="blog-subtitle">
+          Andrew Zhou:{" "}
+          <a
+            href="/Full_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            CV/resume
+          </a>
+        </h1>
+        <h1 className="blog-subtitle">My Websites:</h1>
+        <Link
+          className={buttonstyles.link}
+          href="http://vlogms.s3-website.us-east-2.amazonaws.com/"
         >
-          CV/resume
-        </a>
-      </h1>
-      <h1 className="blog-subtitle">My Websites:</h1>
-      <Link
-        className={buttonstyles.link}
-        href="http://vlogms.s3-website.us-east-2.amazonaws.com/"
-      >
-        Vlogs Sharing
-      </Link>
-      <h1 className="blog-subtitle">More Links:</h1>
-      <Link
-        className={buttonstyles.link}
-        href="https://github.com/AndrewZhouMQ123"
-      >
-        GitHub
-      </Link>
-      <Link
-        className={buttonstyles.link}
-        href="https://www.linkedin.com/in/andrew-zhou-8b4296326/"
-      >
-        LinkedIn
-      </Link>
+          Vlogs Sharing
+        </Link>
+        <h1 className="blog-subtitle">More Links:</h1>
+        <Link
+          className={buttonstyles.link}
+          href="https://github.com/AndrewZhouMQ123"
+        >
+          GitHub
+        </Link>
+        <Link
+          className={buttonstyles.link}
+          href="https://www.linkedin.com/in/andrew-zhou-8b4296326/"
+        >
+          LinkedIn
+        </Link>
+      </div>
     </div>
   );
 }

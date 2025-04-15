@@ -3,6 +3,7 @@ import CategoriesViewer from "../components/Categories";
 import PropertyViewer from "../components/Property";
 import HomeownersViewer from "../components/HomeownersForm";
 import OtherHabitationForms from "../components/OtherHabForms";
+import ExtraCoverages from "../components/ExtraCoverages";
 
 const Glossary = () => {
   const Underwriter = {
@@ -10,7 +11,7 @@ const Glossary = () => {
     riskSelection:
       "Choose risks in favour (profitable) for insurer, i.e. the insured who will pay premiums on time but hardly ever claim",
     sourceOfInfo:
-      "Application: risk/hazard info, Broker: personal/business reputation, Inspection Reports: commercial risk info, Loss Experience Data: specific to that class of risk.",
+      "Application: risk/hazard info, Broker: personal/business reputation, Inspection Reports: commercial risk info such as from the Insurer's Advisory Organization, Loss Experience Data: specific to that class of risk.",
     physicalHazard: "premise related - construction, housekeeping, occupancy",
     moralHazard:
       "subjective characteristics - moral character, financial conditions, indifference to loss",
@@ -159,6 +160,7 @@ const Glossary = () => {
       </div>
 
       <OtherHabitationForms />
+      <ExtraCoverages />
     </div>
   );
 };

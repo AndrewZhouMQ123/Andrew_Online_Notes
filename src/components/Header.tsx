@@ -13,8 +13,8 @@ const NAV_ITEMS = [
   {
     title: "OL Notes",
     corepath: "/notes",
-    filepaths: ["/1", "/2"],
-    dropdowntitles: ["Flash Cards", "Glossary"],
+    filepaths: ["/1", "/2", "/3"],
+    dropdowntitles: ["Flash Cards", "Glossary", "ChaosKnight WIKI"],
   },
   {
     title: "Dev Notes",

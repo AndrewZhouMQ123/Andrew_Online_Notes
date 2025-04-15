@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import ButtonsTemplatePage from "../pages/ButtonsPage";
-import CalculatorPage from "../pages/CalculatorPage";
+import CalculatorPage from "../pages/Calculator";
 import { GraphPage } from "../pages/GraphPage";
 
 enum PageType {

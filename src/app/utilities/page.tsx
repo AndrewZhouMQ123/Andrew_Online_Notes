@@ -1,5 +1,5 @@
-const MiscHome = () => {
+const UtilHome = () => {
   return <div className="page-wrap"></div>;
 };
 
-export default MiscHome;
+export default UtilHome;
