@@ -1,14 +1,25 @@
+"use client";
 import formstyles from "@/app/ui/forms.module.css";
 import SubmitBtn from "./SubmitBtn";
+import { port } from "@/app/api/scigraphapi";
+import { useApiKey, usePdfHandler } from "./CustomHooks";
 
 export const UniformHmap_imshow = () => {
+  const apiKey = useApiKey(); // Use the custom hook
+  const { handlePdfFetch, isLoading, error } = usePdfHandler();
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    await handlePdfFetch(`${port}/plot/imshowhmap`, formData, apiKey as string);
+  };
   return (
     <div className="page-wrap" id="uniform-hmap-imshow">
       <h1 className="blog-subtitle">Uniform Mesh Imshow HeatMap</h1>
       <form
         className={formstyles.verticalForm}
-        action={"URL-EXAMPLE"}
-        method="POST"
+        onSubmit={handleSubmit}
         encType="multipart/form-data"
       >
         <label>Data File: </label>
@@ -74,20 +85,29 @@ export const UniformHmap_imshow = () => {
           placeholder="Enter Z axis label"
           required
         />
-        <SubmitBtn />
+        <SubmitBtn disabled={isLoading} />
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );
 };
 
 export const UniformHmap_pcolormesh = () => {
+  const apiKey = useApiKey(); // Use the custom hook
+  const { handlePdfFetch, isLoading, error } = usePdfHandler();
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    await handlePdfFetch(`${port}/plot/pmhmap`, formData, apiKey as string);
+  };
   return (
     <div className="page-wrap" id="uniform-hmap-pcolormesh">
       <h1 className="blog-subtitle">Uniform Mesh Pcolormesh HeatMap</h1>
       <form
         className={formstyles.verticalForm}
-        action={"URL-EXAMPLE"}
-        method="POST"
+        onSubmit={handleSubmit}
         encType="multipart/form-data"
       >
         <label>Data File: </label>
@@ -155,7 +175,8 @@ export const UniformHmap_pcolormesh = () => {
           placeholder="Enter Z axis label"
           required
         />
-        <SubmitBtn />
+        <SubmitBtn disabled={isLoading} />
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );

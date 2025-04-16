@@ -26,7 +26,8 @@ const GraphIntro = () => {
       <div className={styles.postitNote}>
         <p>
           This page is dedicated to creating scientific graphs for various
-          purposes.
+          purposes, and also a project to make use of what I learned at UBC
+          Physics so I can look back on it.
         </p>
         <p>
           The API that works behind the scenes:
