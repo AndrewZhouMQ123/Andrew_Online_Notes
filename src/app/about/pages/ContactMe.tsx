@@ -37,16 +37,6 @@ const Personal = () => {
           url="https://www.linkedin.com/in/andrew-zhou-8b4296326/"
           filepath="/linkedin-logo/LI-logo.png"
         />
-        <SocialLink
-          platform="Twitter"
-          url="https://x.com/KaojiOnline"
-          filepath="/twitter-logo.png"
-        />
-        <SocialLink
-          platform="YouTube"
-          url="https://www.youtube.com/@andrewzhou4228"
-          filepath="/youtube-logo.png"
-        />
       </div>
     </div>
   );
