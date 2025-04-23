@@ -19,7 +19,7 @@ const NAV_ITEMS = [
   },
   {
     title: "Dev Notes",
-    corepath: "/devnotes",
+    corepath: "/devNotes",
     filepaths: ["/1", "/2", "/3", "/4", "/5", "/6", "/7"],
     dropdowntitles: [
       "HTML",
