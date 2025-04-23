@@ -1,12 +1,15 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import styles from "@/app/ui/accessories.module.css";
+import styles from "@/app/UI/accessories.module.css";
 
 interface Tableidentifiers {
-  data: {identifier: string, literal: string, description: string}[];
+  data: { identifier: string; literal: string; description: string }[];
   title: string;
-  onSave: (data: {identifier: string, literal: string, description: string}[], title: string) => void;
+  onSave: (
+    data: { identifier: string; literal: string; description: string }[],
+    title: string
+  ) => void;
 }
 
 const PrimitivesTable = ({ data, title, onSave }: Tableidentifiers) => {
@@ -39,7 +42,7 @@ const PrimitivesTable = ({ data, title, onSave }: Tableidentifiers) => {
                 className={styles.saveAsPdfButton}
                 onClick={() => onSave(data, title)}
               >
-                Save as PDF{' '}
+                Save as PDF{" "}
                 <Image src="/file.svg" width={30} height={30} alt="file" />
               </button>
             </td>

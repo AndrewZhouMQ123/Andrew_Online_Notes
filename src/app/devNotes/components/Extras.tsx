@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import supabase from "@/lib/db";
-import styles from "@/app/ui/accessories.module.css";
+import styles from "@/app/UI/accessories.module.css";
 
 interface AttributeGroupProps {
   title: string;

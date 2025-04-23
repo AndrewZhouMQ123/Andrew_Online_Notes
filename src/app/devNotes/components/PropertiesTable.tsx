@@ -1,15 +1,18 @@
 "use client";
 import Image from "next/image";
-import styles from "@/app/ui/accessories.module.css";
+import styles from "@/app/UI/accessories.module.css";
 
 interface TableProps {
-  data: { prop: string, desc: string, val: string}[];
+  data: { prop: string; desc: string; val: string }[];
   title: string;
-  onSave: (data: { prop: string, desc: string, val: string}[], title: string) => void;
+  onSave: (
+    data: { prop: string; desc: string; val: string }[],
+    title: string
+  ) => void;
 }
 
 const PropertiesTable = ({ data, title, onSave }: TableProps) => {
-  return(
+  return (
     <div className="table-wrap">
       <table>
         <caption>{title}</caption>
@@ -23,24 +26,30 @@ const PropertiesTable = ({ data, title, onSave }: TableProps) => {
         <tbody>
           {data.map((item, index) => (
             <tr key={index}>
-              <td><code className={styles.element}>{item.prop}</code></td>
+              <td>
+                <code className={styles.element}>{item.prop}</code>
+              </td>
               <td>{item.desc}</td>
               <td>{item.val}</td>
             </tr>
           ))}
         </tbody>
         <tfoot>
-        <tr>
-          <td colSpan={3}>
-            <button className={styles.saveAsPdfButton} onClick={() => onSave(data, title)}>
-              Save as PDF <Image src="/file.svg" width={30} height={30} alt="file"/>
-            </button>
-          </td>
-        </tr>
+          <tr>
+            <td colSpan={3}>
+              <button
+                className={styles.saveAsPdfButton}
+                onClick={() => onSave(data, title)}
+              >
+                Save as PDF{" "}
+                <Image src="/file.svg" width={30} height={30} alt="file" />
+              </button>
+            </td>
+          </tr>
         </tfoot>
       </table>
     </div>
-  )
-}
+  );
+};
 
 export default PropertiesTable;

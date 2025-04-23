@@ -1,12 +1,15 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import styles from "@/app/ui/accessories.module.css";
+import styles from "@/app/UI/accessories.module.css";
 
 interface Tableobjects {
-  data: {object: string, methodsValues: string}[];
+  data: { object: string; methodsValues: string }[];
   title: string;
-  onSave: (data: {object: string, methodsValues: string}[], title: string) => void;
+  onSave: (
+    data: { object: string; methodsValues: string }[],
+    title: string
+  ) => void;
 }
 
 const GobjectTable = ({ data, title, onSave }: Tableobjects) => {
@@ -37,7 +40,7 @@ const GobjectTable = ({ data, title, onSave }: Tableobjects) => {
                 className={styles.saveAsPdfButton}
                 onClick={() => onSave(data, title)}
               >
-                Save as PDF{' '}
+                Save as PDF{" "}
                 <Image src="/file.svg" width={30} height={30} alt="file" />
               </button>
             </td>

@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import styles from "@/app/ui/accessories.module.css";
+import styles from "@/app/UI/accessories.module.css";
 
 interface Tablemethods {
-  data: {method: string, desc: string}[];
+  data: { method: string; desc: string }[];
   title: string;
-  onSave: (data: {method: string, desc: string}[], title: string) => void;
+  onSave: (data: { method: string; desc: string }[], title: string) => void;
 }
 
 const GmethodTable = ({ data, title, onSave }: Tablemethods) => {
@@ -37,7 +37,7 @@ const GmethodTable = ({ data, title, onSave }: Tablemethods) => {
                 className={styles.saveAsPdfButton}
                 onClick={() => onSave(data, title)}
               >
-                Save as PDF{' '}
+                Save as PDF{" "}
                 <Image src="/file.svg" width={30} height={30} alt="file" />
               </button>
             </td>

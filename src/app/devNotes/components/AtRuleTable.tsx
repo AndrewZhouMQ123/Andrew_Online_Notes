@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
-import styles from "@/app/ui/accessories.module.css";
+import styles from "@/app/UI/accessories.module.css";
 
 interface TableProps {
-  data: {atRule: string, desc: string}[];
+  data: { atRule: string; desc: string }[];
   title: string;
-  onSave: (data:  {atRule: string, desc: string}[], title: string) => void;
+  onSave: (data: { atRule: string; desc: string }[], title: string) => void;
 }
 
 const AtRuleTable = ({ data, title, onSave }: TableProps) => {
@@ -36,7 +36,7 @@ const AtRuleTable = ({ data, title, onSave }: TableProps) => {
                 className={styles.saveAsPdfButton}
                 onClick={() => onSave(data, title)}
               >
-                Save as PDF{' '}
+                Save as PDF{" "}
                 <Image src="/file.svg" width={30} height={30} alt="file" />
               </button>
             </td>

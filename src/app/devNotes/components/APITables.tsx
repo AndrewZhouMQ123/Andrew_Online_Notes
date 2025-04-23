@@ -1,12 +1,23 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import styles from "@/app/ui/accessories.module.css";
+import styles from "@/app/UI/accessories.module.css";
 
 interface Tableinterfaces {
-  data: {interface: string, description: string, methods_properties: string}[];
+  data: {
+    interface: string;
+    description: string;
+    methods_properties: string;
+  }[];
   title: string;
-  onSave: (data: {interface: string, description: string, methods_properties: string}[], title: string) => void;
+  onSave: (
+    data: {
+      interface: string;
+      description: string;
+      methods_properties: string;
+    }[],
+    title: string
+  ) => void;
 }
 
 const APITable = ({ data, title, onSave }: Tableinterfaces) => {
@@ -39,7 +50,7 @@ const APITable = ({ data, title, onSave }: Tableinterfaces) => {
                 className={styles.saveAsPdfButton}
                 onClick={() => onSave(data, title)}
               >
-                Save as PDF{' '}
+                Save as PDF{" "}
                 <Image src="/file.svg" width={30} height={30} alt="file" />
               </button>
             </td>

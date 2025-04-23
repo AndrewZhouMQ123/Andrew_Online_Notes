@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "@/app/ui/accessories.module.css";
+import styles from "@/app/UI/accessories.module.css";
 
 interface TableProps {
   data: { cmd: string; desc: string }[];
