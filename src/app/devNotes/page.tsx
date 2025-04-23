@@ -32,7 +32,7 @@ function UpdateDataForm() {
         datasheet: parsedDatasheet,
       };
 
-      const response = await fetch(`/api/devNotes`, {
+      const response = await fetch(`/api/devnotes`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

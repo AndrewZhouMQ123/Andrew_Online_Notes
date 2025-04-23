@@ -2,6 +2,7 @@
 import ThemeToggleButton from "./ThemeToggleButton";
 import styles from "@/app/ui/header.module.css";
 import NavLinkWithDropdown from "./NavLinkWithDropdown";
+import GoogleLogin from "./GoogleLogin";
 
 const NAV_ITEMS = [
   {
@@ -12,13 +13,13 @@ const NAV_ITEMS = [
   },
   {
     title: "OL Notes",
-    corepath: "/notes",
-    filepaths: ["/1", "/2", "/3"],
-    dropdowntitles: ["Flash Cards", "Glossary", "ChaosKnight WIKI"],
+    corepath: "/Notes",
+    filepaths: ["/1", "/2"],
+    dropdowntitles: ["Flash Cards", "Glossary"],
   },
   {
     title: "Dev Notes",
-    corepath: "/devNotes",
+    corepath: "/DevNotes",
     filepaths: ["/1", "/2", "/3", "/4", "/5", "/6", "/7"],
     dropdowntitles: [
       "HTML",
@@ -32,13 +33,13 @@ const NAV_ITEMS = [
   },
   {
     title: "About",
-    corepath: "/about",
+    corepath: "/About",
     filepaths: ["/1"],
     dropdowntitles: ["Contact Me"],
   },
   {
     title: "Utilities",
-    corepath: "/utilities",
+    corepath: "/Utilities",
     filepaths: ["/1", "/2", "/3"],
     dropdowntitles: ["Graph Utilities", "Calculator", "Buttons"],
   },
@@ -51,6 +52,7 @@ export const Header = () => {
         <NavLinkWithDropdown key={item.corepath} {...item} />
       ))}
       <ThemeToggleButton />
+      <GoogleLogin />
     </header>
   );
 };

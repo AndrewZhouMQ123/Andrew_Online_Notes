@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     icon: ["/favicon.ico"],
   },
   description: "My personal notes and utility tools",
-  manifest: "/site.webmanifest", // Link to the PWA manifest file
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({

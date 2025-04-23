@@ -1,58 +1,46 @@
-import { useEffect, useState } from "react";
-import { apikeyPromise } from "@/app/api/scigraphapi"; // Import the promise
-
-export const useApiKey = (): string | null => {
-  const [apiKey, setApiKey] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchApiKey = async () => {
-      try {
-        const key = (await apikeyPromise) as string; // Resolve the promise
-        setApiKey(key); // Store the resolved API key in state
-      } catch (error) {
-        console.error("Failed to fetch API key:", error);
-      }
-    };
-
-    fetchApiKey(); // Call the async function
-  }, []); // Empty dependency array ensures this runs only once
-
-  return apiKey; // Return the API key
-};
+import { useState } from "react";
 
 type PdfHandlerResult = {
-  handlePdfFetch: (
-    url: string,
-    formData: FormData,
-    apiKey: string
-  ) => Promise<void>;
+  handlePdfFetch: (route: string, formData: FormData) => Promise<void>;
   isLoading: boolean;
   error: string | null;
 };
 
+const GOOGLE_TOKEN_STORAGE_KEY = "googleToken"; // Same key as in GoogleLogin
+
 export const usePdfHandler = (): PdfHandlerResult => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const token = localStorage.getItem(GOOGLE_TOKEN_STORAGE_KEY);
 
   const handlePdfFetch = async (
-    url: string,
-    formData: FormData,
-    apiKey: string
+    route: string,
+    formData: FormData
   ): Promise<void> => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const response = await fetch(url, {
+      if (!token) {
+        setError("Not logged in. Please sign in.");
+        return;
+      }
+
+      const response = await fetch(`/api/scigraphapis${route}`, {
         method: "POST",
         body: formData,
         headers: {
-          "X-API-Key": apiKey,
+          Authorization: `Bearer ${token}`,
         },
       });
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        const errorData = await response.json();
+        throw new Error(
+          `API Error: ${response.status} - ${
+            errorData?.error || response.statusText
+          }`
+        );
       }
 
       const blob = await response.blob();

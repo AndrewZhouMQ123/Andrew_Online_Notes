@@ -8,7 +8,7 @@ import {
   EventHandlerAttributesSection,
 } from "../components/Extras";
 import HTMLGlobalsTable from "../components/HTMLGlobalsTable";
-import { handle2TSave, handle3TSave } from "@/app/api/generatePDF";
+import { handle2TSave, handle3TSave } from "@/lib/generatePDF";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Link from "next/link";
 import buttonStyles from "@/app/ui/buttons.module.css";

@@ -1,15 +1,12 @@
 "use client";
 import formstyles from "@/app/ui/forms.module.css";
 import SubmitBtn from "./SubmitBtn";
-import { port } from "@/app/api/scigraphapi";
 import { useState } from "react";
-import { useApiKey, usePdfHandler } from "./CustomHooks";
+import { usePdfHandler } from "./CustomHooks";
 
 export const EqHistogram = () => {
   const [bins, setBins] = useState("");
   const [files, setFiles] = useState<FileList | null>(null);
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
   const [inputError, setInputError] = useState<string | null>(null);
 
   const validateBins = (
@@ -54,6 +51,7 @@ export const EqHistogram = () => {
     }
   };
 
+  const { handlePdfFetch, isLoading, error } = usePdfHandler();
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -77,9 +75,10 @@ export const EqHistogram = () => {
     } else if (Array.isArray(result.parsed)) {
       result.parsed.forEach((b) => formData.append("bins", b));
     }
-
-    await handlePdfFetch(`${port}/plot/eqhist`, formData, apiKey as string);
+    const route = "/plot/eqhist";
+    await handlePdfFetch(route, formData);
   };
+
   return (
     <div className="page-wrap" id="eq-hist">
       <h1 className="blog-subtitle">Equal-bin-width Histogram</h1>
@@ -134,7 +133,6 @@ export const EqHistogram = () => {
 
 export const VaryHistogram = () => {
   const [files, setFiles] = useState<FileList | null>(null);
-  const apiKey = useApiKey(); // Use the custom hook
   const { handlePdfFetch, isLoading, error } = usePdfHandler();
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
@@ -147,8 +145,10 @@ export const VaryHistogram = () => {
         formData.append("files", files[i]);
       }
     }
-    await handlePdfFetch(`${port}/plot/varyhist`, formData, apiKey as string);
+    const route = "/plot/varyhist";
+    await handlePdfFetch(route, formData);
   };
+
   return (
     <div className="page-wrap" id="vary-hist">
       <h1 className="blog-subtitle">

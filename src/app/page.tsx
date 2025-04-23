@@ -1,3 +1,3 @@
-export default function Home() {
-  return <div className="page-wrap"></div>;
-}
+export default function Home() {}
+
+// water ripples - on mouse click, on mouse drag - on entire page, no page-wrap

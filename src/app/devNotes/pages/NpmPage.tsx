@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import supabase from "@/lib/db";
 import NPMTable from "../components/NPMTable";
-import { handle2TSave } from "@/app/api/generatePDF";
+import { handle2TSave } from "@/lib/generatePDF";
 
 // Type definition for npmCommands
 interface NpmCommand {

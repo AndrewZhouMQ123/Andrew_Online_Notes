@@ -1,20 +1,18 @@
 "use client";
 import formstyles from "@/app/ui/forms.module.css";
 import SubmitBtn from "./SubmitBtn";
-import { port } from "@/app/api/scigraphapi";
 import { useState } from "react";
-import { useApiKey, usePdfHandler } from "./CustomHooks";
+import { usePdfHandler } from "./CustomHooks";
 
 export const BarPlot = () => {
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
-
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    await handlePdfFetch(`${port}/plot/bar`, formData, apiKey as string);
+    const route = "/plot/bar";
+    await handlePdfFetch(route, formData);
   };
   return (
     <div className="page-wrap" id="bar">
@@ -40,9 +38,7 @@ export const BarPlot = () => {
 
 export const PiePlot = () => {
   const [categories, setCategories] = useState("");
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
-
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -54,9 +50,10 @@ export const PiePlot = () => {
       .filter((c) => c.length > 0);
     formData.delete("categories"); // Replace string with array
     categoryList.forEach((c) => formData.append("categories", c));
-
-    await handlePdfFetch(`${port}/plot/pie`, formData, apiKey as string);
+    const route = "/plot/pie";
+    await handlePdfFetch(route, formData);
   };
+
   return (
     <div className="page-wrap" id="pie">
       <h1 className="blog-subtitle">Generate Pie Plot</h1>
@@ -90,9 +87,7 @@ export const PiePlot = () => {
 
 export const BoxPlot = () => {
   const [categories, setCategories] = useState("");
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
-
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -104,9 +99,10 @@ export const BoxPlot = () => {
       .filter((c) => c.length > 0);
     formData.delete("categories"); // Replace string with array
     categoryList.forEach((c) => formData.append("categories", c));
-
-    await handlePdfFetch(`${port}/plot/boxplot`, formData, apiKey as string);
+    const route = "/plot/boxplot";
+    await handlePdfFetch(route, formData);
   };
+
   return (
     <div className="page-wrap" id="box">
       <h1 className="blog-subtitle">Generate Boxplot</h1>

@@ -7,7 +7,7 @@ import DataTable from "../components/dataTable";
 import FuncTable from "../components/funcTable";
 import AtRuleTable from "../components/AtRuleTable";
 import KeyWordTable from "../components/KeyWordTable";
-import { handle2TSave, handle3TSave } from "@/app/api/generatePDF";
+import { handle2TSave, handle3TSave } from "@/lib/generatePDF";
 import Link from "next/link";
 import buttonStyles from "@/app/ui/buttons.module.css";
 

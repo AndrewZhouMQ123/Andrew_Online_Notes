@@ -1,19 +1,19 @@
 "use client";
 import formstyles from "@/app/ui/forms.module.css";
 import SubmitBtn from "./SubmitBtn";
-import { port } from "@/app/api/scigraphapi";
-import { useApiKey, usePdfHandler } from "./CustomHooks";
+import { usePdfHandler } from "./CustomHooks";
 
 export const UniformHmap_imshow = () => {
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    await handlePdfFetch(`${port}/plot/imshowhmap`, formData, apiKey as string);
+    const route = "/plot/imshowmap";
+    await handlePdfFetch(route, formData);
   };
+
   return (
     <div className="page-wrap" id="uniform-hmap-imshow">
       <h1 className="blog-subtitle">Uniform Mesh Imshow HeatMap</h1>
@@ -93,15 +93,16 @@ export const UniformHmap_imshow = () => {
 };
 
 export const UniformHmap_pcolormesh = () => {
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    await handlePdfFetch(`${port}/plot/pmhmap`, formData, apiKey as string);
+    const route = "/plot/pmhmap";
+    await handlePdfFetch(route, formData);
   };
+
   return (
     <div className="page-wrap" id="uniform-hmap-pcolormesh">
       <h1 className="blog-subtitle">Uniform Mesh Pcolormesh HeatMap</h1>

@@ -1,14 +1,12 @@
 "use client";
 import formstyles from "@/app/ui/forms.module.css";
 import SubmitBtn from "./SubmitBtn";
-import { port } from "@/app/api/scigraphapi";
 import { useState } from "react";
-import { useApiKey, usePdfHandler } from "./CustomHooks";
+import { usePdfHandler } from "./CustomHooks";
 
 export const CustomHmap_pcolormesh = () => {
   const [files, setFiles] = useState<FileList | null>(null);
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -20,8 +18,10 @@ export const CustomHmap_pcolormesh = () => {
         formData.append("files", files[i]);
       }
     }
-    await handlePdfFetch(`${port}/plot/pmChmap`, formData, apiKey as string);
+    const route = "/plot/pmChmap";
+    await handlePdfFetch(route, formData);
   };
+
   return (
     <div className="page-wrap" id="custom-hmap-pcolormesh">
       <h1 className="blog-subtitle">Custom Mesh Pcolormesh HeatMap</h1>
@@ -112,9 +112,6 @@ export const CustomHmap_pmf = () => {
   const [func, setFunc] = useState("");
   const [funcError, setFuncError] = useState("");
   const [files, setFiles] = useState<FileList | null>(null);
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
-
   // Safe environment with numpy and scipy
   const safeEnvironment = {
     np: {
@@ -135,11 +132,9 @@ export const CustomHmap_pmf = () => {
       // add more scipy functions if needed
     },
   };
-
   const handleFuncChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newFunc = e.target.value;
     setFunc(newFunc);
-
     try {
       // Create the function using the safe environment
       const testFunc = new Function(
@@ -147,15 +142,12 @@ export const CustomHmap_pmf = () => {
         "y",
         `with(this) { return ${newFunc} }`
       );
-
       // Try to execute it with x = 1 and y = 1 (or any arbitrary test values)
       const result = testFunc.call(safeEnvironment, 1, 1); // x = 1, y = 1
-
       // Check if the result is a valid number (i.e., not NaN)
       if (isNaN(result)) {
         throw new Error("Invalid function result");
       }
-
       // If the function works, clear the error message
       setFuncError("");
     } catch (e) {
@@ -163,6 +155,7 @@ export const CustomHmap_pmf = () => {
     }
   };
 
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -178,9 +171,10 @@ export const CustomHmap_pmf = () => {
         formData.append("files", files[i]);
       }
     }
-
-    await handlePdfFetch(`${port}/plot/pmfhmap`, formData, apiKey as string);
+    const route = "/plot/pmfhmap";
+    await handlePdfFetch(route, formData);
   };
+
   return (
     <div className="page-wrap" id="custom-hmap-pmf">
       <h1 className="blog-subtitle">

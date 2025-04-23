@@ -9,7 +9,7 @@ import PrimitivesTable from "../components/PrimitivesTable";
 import GmethodTable from "../components/MethodTable";
 import GobjectTable from "../components/ObjectTable";
 import APITable from "../components/APITables";
-import { handle2TSave, handle3TSave } from "@/app/api/generatePDF";
+import { handle2TSave, handle3TSave } from "@/lib/generatePDF";
 import Link from "next/link";
 import buttonStyles from "@/app/ui/buttons.module.css";
 

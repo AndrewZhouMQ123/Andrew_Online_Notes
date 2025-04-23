@@ -1,19 +1,17 @@
 "use client";
 import formstyles from "@/app/ui/forms.module.css";
 import SubmitBtn from "./SubmitBtn";
-import { port } from "@/app/api/scigraphapi";
-import { useApiKey, usePdfHandler } from "./CustomHooks";
+import { usePdfHandler } from "./CustomHooks";
 
 export const ScatterXY = () => {
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
-
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    await handlePdfFetch(`${port}/plot/scatter`, formData, apiKey as string);
+    const route = "/plot/scatter";
+    await handlePdfFetch(route, formData);
   };
 
   return (
@@ -39,15 +37,14 @@ export const ScatterXY = () => {
 };
 
 export const ErrBar1x = () => {
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
-
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    await handlePdfFetch(`${port}/plot/errbar1x`, formData, apiKey as string);
+    const route = "/plot/errbar1x";
+    await handlePdfFetch(route, formData);
   };
 
   return (
@@ -73,15 +70,14 @@ export const ErrBar1x = () => {
 };
 
 export const ErrBar1y = () => {
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
-
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    await handlePdfFetch(`${port}/plot/errbar1y`, formData, apiKey as string);
+    const route = "/plot/errbar1y";
+    await handlePdfFetch(route, formData);
   };
 
   return (
@@ -107,16 +103,16 @@ export const ErrBar1y = () => {
 };
 
 export const ErrBar2xy = () => {
-  const apiKey = useApiKey(); // Use the custom hook
-  const { handlePdfFetch, isLoading, error } = usePdfHandler();
-
+  const { handlePdfFetch, isLoading, error } = usePdfHandler(); // Use the custom hook
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    await handlePdfFetch(`${port}/plot/errbar2xy`, formData, apiKey as string);
+    const route = "/plot/errbar2xy";
+    await handlePdfFetch(route, formData);
   };
+
   return (
     <div className="page-wrap" id="err-bar-2xy">
       <h1 className="blog-subtitle">Error Bar Plot with XY-error</h1>
