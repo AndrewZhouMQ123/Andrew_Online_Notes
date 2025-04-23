@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, use } from "react";
 
 type PdfHandlerResult = {
   handlePdfFetch: (route: string, formData: FormData) => Promise<void>;
@@ -12,7 +12,13 @@ const GOOGLE_TOKEN_STORAGE_KEY = "googleToken"; // Same key as in GoogleLogin
 export const usePdfHandler = (): PdfHandlerResult => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const token = localStorage.getItem(GOOGLE_TOKEN_STORAGE_KEY);
+  const [myToken, setMyToken] = useState<string | null>(null);
+  useEffect(() => {
+    const token = localStorage.getItem(GOOGLE_TOKEN_STORAGE_KEY);
+    if (token) {
+      setMyToken(token);
+    }
+  }, []);
 
   const handlePdfFetch = async (
     route: string,
@@ -22,7 +28,7 @@ export const usePdfHandler = (): PdfHandlerResult => {
     setError(null);
 
     try {
-      if (!token) {
+      if (!myToken) {
         setError("Not logged in. Please sign in.");
         return;
       }
@@ -31,7 +37,7 @@ export const usePdfHandler = (): PdfHandlerResult => {
         method: "POST",
         body: formData,
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${myToken}`,
         },
       });
 
