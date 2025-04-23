@@ -4,17 +4,14 @@ My personal website containing online notes and utility tools.
 
 ## Technologies Used
 
-- React, NextJS
+- React, NextJS, Google APIs, AWS APIs
 
 - Mostly CSS modules, some Tailwind CSS
 
-### Personal APIs Used
+### Utility Tools
 
 - SciGraphAPI I wrote in Python for graphing utility
-
-### Commercial APIs Used
-
-- AWS Polly for (Text To Speech with SSML tags)
+- Calculator for Insurance related stuff
 
 ## Getting Started
 
