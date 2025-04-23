@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import supabase from "@/lib/db";
-import HTTPStable from "@/app/DevNotes/components/HTTPStable";
+import HTTPStable from "@/app/devnotes/components/HTTPStable";
 import { handle2TSave } from "@/lib/generatePDF";
 import Image from "next/image";
 import Link from "next/link";

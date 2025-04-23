@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import styles from "@/app/UI/accessories.module.css";
+import styles from "@/app/ui/accessories.module.css";
 
 interface Tablemethods {
   data: { method: string; desc: string }[];

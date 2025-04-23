@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import supabase from "@/lib/db";
-import CMDTable from "@/app/DevNotes/components/CMDTable";
+import CMDTable from "@/app/devnotes/components/CMDTable";
 import { handle2TSave } from "@/lib/generatePDF";
 
 interface Commands {

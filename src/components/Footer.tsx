@@ -5,22 +5,22 @@ const Footer = () => {
   return (
     <footer>
       <div className="legal-links">
-        <Link className={buttonstyles.link} href="/Terms">
+        <Link className={buttonstyles.link} href="/terms">
           Terms of Service
         </Link>
-        <Link className={buttonstyles.link} href="/Privacy">
+        <Link className={buttonstyles.link} href="/privacy">
           Privacy Policy
         </Link>
-        <Link className={buttonstyles.link} href="/Refund">
+        <Link className={buttonstyles.link} href="/refund">
           Refund Policy
         </Link>
-        <Link className={buttonstyles.link} href="/DMCA">
+        <Link className={buttonstyles.link} href="/dmca">
           DMCA & Copyright
         </Link>
-        <Link className={buttonstyles.link} href="/Cookies">
+        <Link className={buttonstyles.link} href="/cookies">
           Cookie Policy
         </Link>
-        <Link className={buttonstyles.link} href="/AUP">
+        <Link className={buttonstyles.link} href="/aup">
           AUP
         </Link>
       </div>

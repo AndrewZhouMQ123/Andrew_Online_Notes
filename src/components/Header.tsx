@@ -13,13 +13,13 @@ const NAV_ITEMS = [
   },
   {
     title: "OL Notes",
-    corepath: "/Notes",
+    corepath: "/notes",
     filepaths: ["/1", "/2"],
     dropdowntitles: ["Flash Cards", "Glossary"],
   },
   {
     title: "Dev Notes",
-    corepath: "/DevNotes",
+    corepath: "/devnotes",
     filepaths: ["/1", "/2", "/3", "/4", "/5", "/6", "/7"],
     dropdowntitles: [
       "HTML",
@@ -33,13 +33,13 @@ const NAV_ITEMS = [
   },
   {
     title: "About",
-    corepath: "/About",
+    corepath: "/about",
     filepaths: ["/1"],
     dropdowntitles: ["Contact Me"],
   },
   {
     title: "Utilities",
-    corepath: "/Utilities",
+    corepath: "/utilities",
     filepaths: ["/1", "/2", "/3"],
     dropdowntitles: ["Graph Utilities", "Calculator", "Buttons"],
   },
