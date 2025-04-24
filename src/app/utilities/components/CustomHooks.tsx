@@ -44,7 +44,9 @@ export const usePdfHandler = (): PdfHandlerResult => {
       const blob = await response.blob();
       const pdfUrl = window.URL.createObjectURL(blob);
       window.open(pdfUrl, "_blank");
-      window.URL.revokeObjectURL(pdfUrl); // Clean up
+      setTimeout(() => {
+        window.URL.revokeObjectURL(pdfUrl);
+      }, 1000); // wait a second before cleanup
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to fetch PDF");
       console.error("Error fetching PDF:", err);
