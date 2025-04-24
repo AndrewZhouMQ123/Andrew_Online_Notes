@@ -2,14 +2,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 10;
   width: 100vw;
   height: 55px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1rem;
   padding: 0 2.5rem;
   background-color: hsl(0, 0%, 7%);
   border-bottom: 1px solid hsl(0, 0%, 40%);
@@ -24,7 +24,7 @@
 .navItem {
   position: relative;
   min-width: 200px;
-  height: 50px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,7 +62,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   min-width: unset;
-  z-index: 1000;
+  z-index: 10;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -86,8 +86,7 @@
   display: block;
   width: 60px;
   height: 40px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0;
   background: var(--theme-gradient);
   color: var(--foreground);
   border: none;
@@ -103,24 +102,6 @@
 
 .themeBtn:active {
   opacity: 0.5;
-}
-
-.searchInput {
-  flex: 1;
-  max-width: 400px;
-  height: 40px;
-  padding: 0 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-  background: rgb(30, 30, 30);
-  color: white;
-  transition: all 0.2s ease;
-}
-
-.searchInput:focus {
-  border-color: rgba(255, 165, 0, 0.6);
-  box-shadow: 0 0 8px rgba(255, 165, 0, 0.3);
-  outline: none;
 }
 
 @media (max-width: 480px) {
@@ -154,11 +135,5 @@
     position: static;
     border-radius: 0;
     box-shadow: none;
-  }
-
-  .searchInput {
-    width: 100%;
-    max-width: none;
-    order: 1;
   }
 }

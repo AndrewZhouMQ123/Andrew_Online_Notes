@@ -46,6 +46,12 @@
   }
 }
 
+.google-logout {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
 .blog-stats,
 .blog-author,
 .blog-description {

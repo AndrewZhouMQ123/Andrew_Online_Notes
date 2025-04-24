@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
+import styles from "@/app/ui/buttons.module.css";
 
 interface GoogleCredentialResponse {
   credential: string; // The returned ID token.
@@ -115,11 +116,16 @@ const GoogleLogin = () => {
     <div>
       {user ? (
         <div>
-          <p>Welcome, {user.name}!</p>
-          <button onClick={handleLogout}>Logout</button>
+          <p className="google-logout">Welcome, {user.name}!</p>
+          <button
+            className={styles.wideBtn + " " + styles.logout}
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
         </div>
       ) : (
-        <div id="google-sign-in-button"></div>
+        <div className={styles.wideBtn} id="google-sign-in-button"></div>
       )}
     </div>
   );

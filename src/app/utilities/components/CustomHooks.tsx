@@ -8,7 +8,7 @@ type PdfHandlerResult = {
 };
 
 const GOOGLE_TOKEN_STORAGE_KEY = "googleToken"; // Same key as in GoogleLogin
-const URL = process.env.URL;
+const URL = process.env.NEXT_PUBLIC_URL;
 
 export const usePdfHandler = (): PdfHandlerResult => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
