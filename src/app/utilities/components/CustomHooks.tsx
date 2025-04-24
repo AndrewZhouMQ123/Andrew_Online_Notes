@@ -41,16 +41,6 @@ export const usePdfHandler = (): PdfHandlerResult => {
           Authorization: `Bearer ${myToken}`,
         },
       });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(
-          `API Error: ${response.status} - ${
-            errorData?.error || response.statusText
-          }`
-        );
-      }
-
       const blob = await response.blob();
       const pdfUrl = window.URL.createObjectURL(blob);
       window.open(pdfUrl, "_blank");
