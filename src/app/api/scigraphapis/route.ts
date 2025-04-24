@@ -10,10 +10,7 @@ export async function POST(request: NextRequest) {
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-    const blob = await response.blob();
-    const pdfUrl = window.URL.createObjectURL(blob);
-    window.open(pdfUrl, "_blank");
-    window.URL.revokeObjectURL(pdfUrl); // Clean up
+    return response;
   } catch (err) {
     console.error("Error fetching PDF:", err);
   }
