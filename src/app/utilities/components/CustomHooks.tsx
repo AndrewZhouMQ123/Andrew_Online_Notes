@@ -8,6 +8,7 @@ type PdfHandlerResult = {
 };
 
 const GOOGLE_TOKEN_STORAGE_KEY = "googleToken"; // Same key as in GoogleLogin
+const port = process.env.PORT;
 
 export const usePdfHandler = (): PdfHandlerResult => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -33,7 +34,7 @@ export const usePdfHandler = (): PdfHandlerResult => {
         return;
       }
 
-      const response = await fetch(`/api/scigraphapis${route}`, {
+      const response = await fetch(port + "/" + route, {
         method: "POST",
         body: formData,
         headers: {
